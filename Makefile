@@ -28,7 +28,7 @@ diff:
 		--rm -v ${PWD}:/local \
 		--user ${UID}:${GID} \
 		docker.io/openapitools/openapi-diff:2.1.0-beta.6 \
-		--markdown /local/diff.test \
+		--markdown /local/diff.log \
 		/local/schema-old.yml /local/schema.yml
 	rm -f schema-old.yml
 
