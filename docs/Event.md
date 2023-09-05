@@ -1,0 +1,18 @@
+
+# Event
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**pk** | [**java.util.UUID**](java.util.UUID.md) |  |  [readonly]
+**action** | [**EventActions**](EventActions.md) |  | 
+**app** | **kotlin.String** |  | 
+**created** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [readonly]
+**user** | [**kotlin.collections.Map&lt;kotlin.String, kotlin.Any&gt;**](kotlin.Any.md) |  |  [optional]
+**context** | [**kotlin.collections.Map&lt;kotlin.String, kotlin.Any&gt;**](kotlin.Any.md) |  |  [optional]
+**clientIp** | **kotlin.String** |  |  [optional]
+**expires** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional]
+**tenant** | [**kotlin.collections.Map&lt;kotlin.String, kotlin.Any&gt;**](kotlin.Any.md) |  |  [optional]
+
+
+

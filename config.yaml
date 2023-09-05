@@ -1,0 +1,10 @@
+templateDir: /local/templates/
+additionalProperties:
+  disallowAdditionalPropertiesIfNotPresent: false
+  enumUnknownDefaultCase: true
+  packageName: io.goauthentik.api
+  artifactId: authentik-api
+files:
+  README.mustache:
+    templateType: SupportingFiles
+    destinationFilename: README.md
