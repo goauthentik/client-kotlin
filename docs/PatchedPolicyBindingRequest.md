@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **enabled** | **kotlin.Boolean** |  |  [optional]
 **order** | **kotlin.Int** |  |  [optional]
 **timeout** | **kotlin.Int** | Timeout after which Policy execution is terminated. |  [optional]
+**failureResult** | **kotlin.Boolean** | Result if the Policy execution fails. |  [optional]
 
 
 

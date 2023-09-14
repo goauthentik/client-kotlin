@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **negate** | **kotlin.Boolean** | Negates the outcome of the policy. Messages are unaffected. |  [optional]
 **enabled** | **kotlin.Boolean** |  |  [optional]
 **timeout** | **kotlin.Int** | Timeout after which Policy execution is terminated. |  [optional]
+**failureResult** | **kotlin.Boolean** | Result if the Policy execution fails. |  [optional]
 
 
 

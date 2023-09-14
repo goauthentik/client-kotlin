@@ -34,6 +34,7 @@ import com.squareup.moshi.Json
  * @param negate Negates the outcome of the policy. Messages are unaffected.
  * @param enabled 
  * @param timeout Timeout after which Policy execution is terminated.
+ * @param failureResult Result if the Policy execution fails.
  */
 
 data class PolicyBindingRequest (
@@ -62,7 +63,11 @@ data class PolicyBindingRequest (
 
     /* Timeout after which Policy execution is terminated. */
     @Json(name = "timeout")
-    val timeout: kotlin.Int? = null
+    val timeout: kotlin.Int? = null,
+
+    /* Result if the Policy execution fails. */
+    @Json(name = "failure_result")
+    val failureResult: kotlin.Boolean? = null
 
 )
 

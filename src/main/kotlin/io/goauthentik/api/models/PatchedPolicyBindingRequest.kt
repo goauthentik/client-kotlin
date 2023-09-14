@@ -34,6 +34,7 @@ import com.squareup.moshi.Json
  * @param enabled 
  * @param order 
  * @param timeout Timeout after which Policy execution is terminated.
+ * @param failureResult Result if the Policy execution fails.
  */
 
 data class PatchedPolicyBindingRequest (
@@ -62,7 +63,11 @@ data class PatchedPolicyBindingRequest (
 
     /* Timeout after which Policy execution is terminated. */
     @Json(name = "timeout")
-    val timeout: kotlin.Int? = null
+    val timeout: kotlin.Int? = null,
+
+    /* Result if the Policy execution fails. */
+    @Json(name = "failure_result")
+    val failureResult: kotlin.Boolean? = null
 
 )
 
