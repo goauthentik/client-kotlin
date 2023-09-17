@@ -170,6 +170,7 @@ docs/LoginSource.md
 docs/ManagedApi.md
 docs/Metadata.md
 docs/ModelEnum.md
+docs/ModelRequest.md
 docs/NameIdPolicyEnum.md
 docs/NotConfiguredActionEnum.md
 docs/Notification.md
@@ -388,6 +389,7 @@ docs/PropertyMappingTestResult.md
 docs/PropertymappingsApi.md
 docs/Provider.md
 docs/ProviderEnum.md
+docs/ProviderModelEnum.md
 docs/ProviderRequest.md
 docs/ProviderTypeEnum.md
 docs/ProvidersApi.md
@@ -455,6 +457,8 @@ docs/TokenModel.md
 docs/TokenRequest.md
 docs/TokenSetKeyRequest.md
 docs/TokenView.md
+docs/TransactionApplicationRequest.md
+docs/TransactionApplicationResponse.md
 docs/TypeCreate.md
 docs/UiThemeEnum.md
 docs/UsedBy.md
@@ -700,6 +704,7 @@ src/main/kotlin/io/goauthentik/api/models/LoginMetrics.kt
 src/main/kotlin/io/goauthentik/api/models/LoginSource.kt
 src/main/kotlin/io/goauthentik/api/models/Metadata.kt
 src/main/kotlin/io/goauthentik/api/models/ModelEnum.kt
+src/main/kotlin/io/goauthentik/api/models/ModelRequest.kt
 src/main/kotlin/io/goauthentik/api/models/NameIdPolicyEnum.kt
 src/main/kotlin/io/goauthentik/api/models/NotConfiguredActionEnum.kt
 src/main/kotlin/io/goauthentik/api/models/Notification.kt
@@ -914,6 +919,7 @@ src/main/kotlin/io/goauthentik/api/models/PropertyMappingPreview.kt
 src/main/kotlin/io/goauthentik/api/models/PropertyMappingTestResult.kt
 src/main/kotlin/io/goauthentik/api/models/Provider.kt
 src/main/kotlin/io/goauthentik/api/models/ProviderEnum.kt
+src/main/kotlin/io/goauthentik/api/models/ProviderModelEnum.kt
 src/main/kotlin/io/goauthentik/api/models/ProviderRequest.kt
 src/main/kotlin/io/goauthentik/api/models/ProviderTypeEnum.kt
 src/main/kotlin/io/goauthentik/api/models/ProxyMode.kt
@@ -976,6 +982,8 @@ src/main/kotlin/io/goauthentik/api/models/TokenModel.kt
 src/main/kotlin/io/goauthentik/api/models/TokenRequest.kt
 src/main/kotlin/io/goauthentik/api/models/TokenSetKeyRequest.kt
 src/main/kotlin/io/goauthentik/api/models/TokenView.kt
+src/main/kotlin/io/goauthentik/api/models/TransactionApplicationRequest.kt
+src/main/kotlin/io/goauthentik/api/models/TransactionApplicationResponse.kt
 src/main/kotlin/io/goauthentik/api/models/TypeCreate.kt
 src/main/kotlin/io/goauthentik/api/models/UiThemeEnum.kt
 src/main/kotlin/io/goauthentik/api/models/UsedBy.kt

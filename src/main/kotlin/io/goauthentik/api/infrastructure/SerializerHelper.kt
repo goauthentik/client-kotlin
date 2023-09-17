@@ -68,6 +68,8 @@ object SerializerHelper {
                 .withUnknownFallback(io.goauthentik.api.models.PromptTypeEnum.unknownDefaultOpenApi))
             .add(io.goauthentik.api.models.ProviderEnum::class.java, EnumJsonAdapter.create(io.goauthentik.api.models.ProviderEnum::class.java)
                 .withUnknownFallback(io.goauthentik.api.models.ProviderEnum.unknownDefaultOpenApi))
+            .add(io.goauthentik.api.models.ProviderModelEnum::class.java, EnumJsonAdapter.create(io.goauthentik.api.models.ProviderModelEnum::class.java)
+                .withUnknownFallback(io.goauthentik.api.models.ProviderModelEnum.unknownDefaultOpenApi))
             .add(io.goauthentik.api.models.ProviderTypeEnum::class.java, EnumJsonAdapter.create(io.goauthentik.api.models.ProviderTypeEnum::class.java)
                 .withUnknownFallback(io.goauthentik.api.models.ProviderTypeEnum.unknownDefaultOpenApi))
             .add(io.goauthentik.api.models.ProxyMode::class.java, EnumJsonAdapter.create(io.goauthentik.api.models.ProxyMode::class.java)

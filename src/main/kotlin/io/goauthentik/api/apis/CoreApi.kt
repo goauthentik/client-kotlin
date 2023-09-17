@@ -54,6 +54,8 @@ import io.goauthentik.api.models.Token
 import io.goauthentik.api.models.TokenRequest
 import io.goauthentik.api.models.TokenSetKeyRequest
 import io.goauthentik.api.models.TokenView
+import io.goauthentik.api.models.TransactionApplicationRequest
+import io.goauthentik.api.models.TransactionApplicationResponse
 import io.goauthentik.api.models.UsedBy
 import io.goauthentik.api.models.User
 import io.goauthentik.api.models.UserAccountRequest
@@ -3340,6 +3342,77 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/core/tokens/{identifier}/view_key/".replace("{"+"identifier"+"}", encodeURIComponent(identifier.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Convert data into a blueprint, validate it and apply it
+     * @param transactionApplicationRequest 
+     * @return TransactionApplicationResponse
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun coreTransactionalApplicationsUpdate(transactionApplicationRequest: TransactionApplicationRequest) : TransactionApplicationResponse {
+        val localVarResponse = coreTransactionalApplicationsUpdateWithHttpInfo(transactionApplicationRequest = transactionApplicationRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as TransactionApplicationResponse
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Convert data into a blueprint, validate it and apply it
+     * @param transactionApplicationRequest 
+     * @return ApiResponse<TransactionApplicationResponse?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun coreTransactionalApplicationsUpdateWithHttpInfo(transactionApplicationRequest: TransactionApplicationRequest) : ApiResponse<TransactionApplicationResponse?> {
+        val localVariableConfig = coreTransactionalApplicationsUpdateRequestConfig(transactionApplicationRequest = transactionApplicationRequest)
+
+        return request<TransactionApplicationRequest, TransactionApplicationResponse>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation coreTransactionalApplicationsUpdate
+     *
+     * @param transactionApplicationRequest 
+     * @return RequestConfig
+     */
+    fun coreTransactionalApplicationsUpdateRequestConfig(transactionApplicationRequest: TransactionApplicationRequest) : RequestConfig<TransactionApplicationRequest> {
+        val localVariableBody = transactionApplicationRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/core/transactional/applications/",
             query = localVariableQuery,
             headers = localVariableHeaders,
             body = localVariableBody

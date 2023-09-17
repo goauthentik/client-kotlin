@@ -45,6 +45,7 @@ Method | HTTP request | Description
 [**coreTokensUpdate**](CoreApi.md#coreTokensUpdate) | **PUT** /core/tokens/{identifier}/ | 
 [**coreTokensUsedByList**](CoreApi.md#coreTokensUsedByList) | **GET** /core/tokens/{identifier}/used_by/ | 
 [**coreTokensViewKeyRetrieve**](CoreApi.md#coreTokensViewKeyRetrieve) | **GET** /core/tokens/{identifier}/view_key/ | 
+[**coreTransactionalApplicationsUpdate**](CoreApi.md#coreTransactionalApplicationsUpdate) | **PUT** /core/transactional/applications/ | 
 [**coreUserConsentDestroy**](CoreApi.md#coreUserConsentDestroy) | **DELETE** /core/user_consent/{id}/ | 
 [**coreUserConsentList**](CoreApi.md#coreUserConsentList) | **GET** /core/user_consent/ | 
 [**coreUserConsentRetrieve**](CoreApi.md#coreUserConsentRetrieve) | **GET** /core/user_consent/{id}/ | 
@@ -2233,6 +2234,56 @@ Configure authentik:
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="coreTransactionalApplicationsUpdate"></a>
+# **coreTransactionalApplicationsUpdate**
+> TransactionApplicationResponse coreTransactionalApplicationsUpdate(transactionApplicationRequest)
+
+
+
+Convert data into a blueprint, validate it and apply it
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = CoreApi()
+val transactionApplicationRequest : TransactionApplicationRequest =  // TransactionApplicationRequest | 
+try {
+    val result : TransactionApplicationResponse = apiInstance.coreTransactionalApplicationsUpdate(transactionApplicationRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CoreApi#coreTransactionalApplicationsUpdate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CoreApi#coreTransactionalApplicationsUpdate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **transactionApplicationRequest** | [**TransactionApplicationRequest**](TransactionApplicationRequest.md)|  |
+
+### Return type
+
+[**TransactionApplicationResponse**](TransactionApplicationResponse.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="coreUserConsentDestroy"></a>
