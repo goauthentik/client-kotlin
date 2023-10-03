@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **friendlyName** | **kotlin.String** |  |  [optional]
 **authPassword** | **kotlin.String** |  |  [optional]
 **authType** | [**AuthTypeEnum**](AuthTypeEnum.md) |  |  [optional]
-**verifyOnly** | **kotlin.Boolean** | When enabled, the Phone number is only used during enrollment to verify the users authenticity. Only a hash of the phone number is saved to ensure it is not re-used in the future. |  [optional]
+**verifyOnly** | **kotlin.Boolean** | When enabled, the Phone number is only used during enrollment to verify the users authenticity. Only a hash of the phone number is saved to ensure it is not reused in the future. |  [optional]
 **mapping** | [**java.util.UUID**](java.util.UUID.md) | Optionally modify the payload being sent to custom providers. |  [optional]
 
 

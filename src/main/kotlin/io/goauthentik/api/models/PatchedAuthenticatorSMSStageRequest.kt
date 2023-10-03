@@ -39,7 +39,7 @@ import com.squareup.moshi.Json
  * @param auth 
  * @param authPassword 
  * @param authType 
- * @param verifyOnly When enabled, the Phone number is only used during enrollment to verify the users authenticity. Only a hash of the phone number is saved to ensure it is not re-used in the future.
+ * @param verifyOnly When enabled, the Phone number is only used during enrollment to verify the users authenticity. Only a hash of the phone number is saved to ensure it is not reused in the future.
  * @param mapping Optionally modify the payload being sent to custom providers.
  */
 
@@ -76,7 +76,7 @@ data class PatchedAuthenticatorSMSStageRequest (
     @Json(name = "auth_type")
     val authType: AuthTypeEnum? = null,
 
-    /* When enabled, the Phone number is only used during enrollment to verify the users authenticity. Only a hash of the phone number is saved to ensure it is not re-used in the future. */
+    /* When enabled, the Phone number is only used during enrollment to verify the users authenticity. Only a hash of the phone number is saved to ensure it is not reused in the future. */
     @Json(name = "verify_only")
     val verifyOnly: kotlin.Boolean? = null,
 
