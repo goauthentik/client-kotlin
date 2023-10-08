@@ -55,6 +55,7 @@ Name | Type | Description | Notes
 **signingKp** | [**java.util.UUID**](java.util.UUID.md) | Keypair used to sign outgoing Responses going to the Service Provider. |  [optional]
 **verificationKp** | [**java.util.UUID**](java.util.UUID.md) | When selected, incoming assertion&#39;s Signatures will be validated against this certificate. To allow unsigned Requests, leave on default. |  [optional]
 **spBinding** | [**SpBindingEnum**](SpBindingEnum.md) | This determines how authentik sends the response back to the Service Provider.  * &#x60;redirect&#x60; - Redirect * &#x60;post&#x60; - Post |  [optional]
+**defaultRelayState** | **kotlin.String** | Default relay_state value for IDP-initiated logins |  [optional]
 **propertyMappingsGroup** | [**kotlin.collections.List&lt;java.util.UUID&gt;**](java.util.UUID.md) | Property mappings used for group creation/updating. |  [optional]
 **excludeUsersServiceAccount** | **kotlin.Boolean** |  |  [optional]
 **filterGroup** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional]

@@ -91,6 +91,7 @@ import com.squareup.moshi.Json
  * @param signingKp Keypair used to sign outgoing Responses going to the Service Provider.
  * @param verificationKp When selected, incoming assertion's Signatures will be validated against this certificate. To allow unsigned Requests, leave on default.
  * @param spBinding This determines how authentik sends the response back to the Service Provider.  * `redirect` - Redirect * `post` - Post
+ * @param defaultRelayState Default relay_state value for IDP-initiated logins
  * @param propertyMappingsGroup Property mappings used for group creation/updating.
  * @param excludeUsersServiceAccount 
  * @param filterGroup 
@@ -236,6 +237,9 @@ interface ModelRequest {
     /* This determines how authentik sends the response back to the Service Provider.  * `redirect` - Redirect * `post` - Post */
     @Json(name = "sp_binding")
     val spBinding: SpBindingEnum?
+    /* Default relay_state value for IDP-initiated logins */
+    @Json(name = "default_relay_state")
+    val defaultRelayState: kotlin.String?
     /* Property mappings used for group creation/updating. */
     @Json(name = "property_mappings_group")
     val propertyMappingsGroup: kotlin.collections.List<java.util.UUID>?

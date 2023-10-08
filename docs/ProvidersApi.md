@@ -2094,7 +2094,7 @@ Configure authentik:
 
 <a name="providersSamlList"></a>
 # **providersSamlList**
-> PaginatedSAMLProviderList providersSamlList(acsUrl, assertionValidNotBefore, assertionValidNotOnOrAfter, audience, authenticationFlow, authorizationFlow, backchannelApplication, digestAlgorithm, isBackchannel, issuer, name, nameIdMapping, ordering, page, pageSize, propertyMappings, search, sessionValidNotOnOrAfter, signatureAlgorithm, signingKp, spBinding, verificationKp)
+> PaginatedSAMLProviderList providersSamlList(acsUrl, assertionValidNotBefore, assertionValidNotOnOrAfter, audience, authenticationFlow, authorizationFlow, backchannelApplication, defaultRelayState, digestAlgorithm, isBackchannel, issuer, name, nameIdMapping, ordering, page, pageSize, propertyMappings, search, sessionValidNotOnOrAfter, signatureAlgorithm, signingKp, spBinding, verificationKp)
 
 
 
@@ -2114,6 +2114,7 @@ val audience : kotlin.String = audience_example // kotlin.String |
 val authenticationFlow : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val authorizationFlow : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val backchannelApplication : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val defaultRelayState : kotlin.String = defaultRelayState_example // kotlin.String | 
 val digestAlgorithm : kotlin.String = digestAlgorithm_example // kotlin.String | * `http://www.w3.org/2000/09/xmldsig#sha1` - SHA1 * `http://www.w3.org/2001/04/xmlenc#sha256` - SHA256 * `http://www.w3.org/2001/04/xmldsig-more#sha384` - SHA384 * `http://www.w3.org/2001/04/xmlenc#sha512` - SHA512
 val isBackchannel : kotlin.Boolean = true // kotlin.Boolean | 
 val issuer : kotlin.String = issuer_example // kotlin.String | 
@@ -2130,7 +2131,7 @@ val signingKp : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.ut
 val spBinding : kotlin.String = spBinding_example // kotlin.String | This determines how authentik sends the response back to the Service Provider.  * `redirect` - Redirect * `post` - Post
 val verificationKp : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 try {
-    val result : PaginatedSAMLProviderList = apiInstance.providersSamlList(acsUrl, assertionValidNotBefore, assertionValidNotOnOrAfter, audience, authenticationFlow, authorizationFlow, backchannelApplication, digestAlgorithm, isBackchannel, issuer, name, nameIdMapping, ordering, page, pageSize, propertyMappings, search, sessionValidNotOnOrAfter, signatureAlgorithm, signingKp, spBinding, verificationKp)
+    val result : PaginatedSAMLProviderList = apiInstance.providersSamlList(acsUrl, assertionValidNotBefore, assertionValidNotOnOrAfter, audience, authenticationFlow, authorizationFlow, backchannelApplication, defaultRelayState, digestAlgorithm, isBackchannel, issuer, name, nameIdMapping, ordering, page, pageSize, propertyMappings, search, sessionValidNotOnOrAfter, signatureAlgorithm, signingKp, spBinding, verificationKp)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProvidersApi#providersSamlList")
@@ -2152,6 +2153,7 @@ Name | Type | Description  | Notes
  **authenticationFlow** | **java.util.UUID**|  | [optional]
  **authorizationFlow** | **java.util.UUID**|  | [optional]
  **backchannelApplication** | **java.util.UUID**|  | [optional]
+ **defaultRelayState** | **kotlin.String**|  | [optional]
  **digestAlgorithm** | **kotlin.String**| * &#x60;http://www.w3.org/2000/09/xmldsig#sha1&#x60; - SHA1 * &#x60;http://www.w3.org/2001/04/xmlenc#sha256&#x60; - SHA256 * &#x60;http://www.w3.org/2001/04/xmldsig-more#sha384&#x60; - SHA384 * &#x60;http://www.w3.org/2001/04/xmlenc#sha512&#x60; - SHA512 | [optional] [enum: http://www.w3.org/2000/09/xmldsig#sha1, http://www.w3.org/2001/04/xmldsig-more#sha384, http://www.w3.org/2001/04/xmlenc#sha256, http://www.w3.org/2001/04/xmlenc#sha512]
  **isBackchannel** | **kotlin.Boolean**|  | [optional]
  **issuer** | **kotlin.String**|  | [optional]

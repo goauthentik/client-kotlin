@@ -3236,6 +3236,7 @@ class ProvidersApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * @param authenticationFlow  (optional)
      * @param authorizationFlow  (optional)
      * @param backchannelApplication  (optional)
+     * @param defaultRelayState  (optional)
      * @param digestAlgorithm * &#x60;http://www.w3.org/2000/09/xmldsig#sha1&#x60; - SHA1 * &#x60;http://www.w3.org/2001/04/xmlenc#sha256&#x60; - SHA256 * &#x60;http://www.w3.org/2001/04/xmldsig-more#sha384&#x60; - SHA384 * &#x60;http://www.w3.org/2001/04/xmlenc#sha512&#x60; - SHA512 (optional)
      * @param isBackchannel  (optional)
      * @param issuer  (optional)
@@ -3260,8 +3261,8 @@ class ProvidersApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun providersSamlList(acsUrl: kotlin.String? = null, assertionValidNotBefore: kotlin.String? = null, assertionValidNotOnOrAfter: kotlin.String? = null, audience: kotlin.String? = null, authenticationFlow: java.util.UUID? = null, authorizationFlow: java.util.UUID? = null, backchannelApplication: java.util.UUID? = null, digestAlgorithm: DigestAlgorithm_providersSamlList? = null, isBackchannel: kotlin.Boolean? = null, issuer: kotlin.String? = null, name: kotlin.String? = null, nameIdMapping: java.util.UUID? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, propertyMappings: kotlin.collections.List<java.util.UUID>? = null, search: kotlin.String? = null, sessionValidNotOnOrAfter: kotlin.String? = null, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = null, signingKp: java.util.UUID? = null, spBinding: SpBinding_providersSamlList? = null, verificationKp: java.util.UUID? = null) : PaginatedSAMLProviderList {
-        val localVarResponse = providersSamlListWithHttpInfo(acsUrl = acsUrl, assertionValidNotBefore = assertionValidNotBefore, assertionValidNotOnOrAfter = assertionValidNotOnOrAfter, audience = audience, authenticationFlow = authenticationFlow, authorizationFlow = authorizationFlow, backchannelApplication = backchannelApplication, digestAlgorithm = digestAlgorithm, isBackchannel = isBackchannel, issuer = issuer, name = name, nameIdMapping = nameIdMapping, ordering = ordering, page = page, pageSize = pageSize, propertyMappings = propertyMappings, search = search, sessionValidNotOnOrAfter = sessionValidNotOnOrAfter, signatureAlgorithm = signatureAlgorithm, signingKp = signingKp, spBinding = spBinding, verificationKp = verificationKp)
+    fun providersSamlList(acsUrl: kotlin.String? = null, assertionValidNotBefore: kotlin.String? = null, assertionValidNotOnOrAfter: kotlin.String? = null, audience: kotlin.String? = null, authenticationFlow: java.util.UUID? = null, authorizationFlow: java.util.UUID? = null, backchannelApplication: java.util.UUID? = null, defaultRelayState: kotlin.String? = null, digestAlgorithm: DigestAlgorithm_providersSamlList? = null, isBackchannel: kotlin.Boolean? = null, issuer: kotlin.String? = null, name: kotlin.String? = null, nameIdMapping: java.util.UUID? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, propertyMappings: kotlin.collections.List<java.util.UUID>? = null, search: kotlin.String? = null, sessionValidNotOnOrAfter: kotlin.String? = null, signatureAlgorithm: SignatureAlgorithm_providersSamlList? = null, signingKp: java.util.UUID? = null, spBinding: SpBinding_providersSamlList? = null, verificationKp: java.util.UUID? = null) : PaginatedSAMLProviderList {
+        val localVarResponse = providersSamlListWithHttpInfo(acsUrl = acsUrl, assertionValidNotBefore = assertionValidNotBefore, assertionValidNotOnOrAfter = assertionValidNotOnOrAfter, audience = audience, authenticationFlow = authenticationFlow, authorizationFlow = authorizationFlow, backchannelApplication = backchannelApplication, defaultRelayState = defaultRelayState, digestAlgorithm = digestAlgorithm, isBackchannel = isBackchannel, issuer = issuer, name = name, nameIdMapping = nameIdMapping, ordering = ordering, page = page, pageSize = pageSize, propertyMappings = propertyMappings, search = search, sessionValidNotOnOrAfter = sessionValidNotOnOrAfter, signatureAlgorithm = signatureAlgorithm, signingKp = signingKp, spBinding = spBinding, verificationKp = verificationKp)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedSAMLProviderList
@@ -3288,6 +3289,7 @@ class ProvidersApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * @param authenticationFlow  (optional)
      * @param authorizationFlow  (optional)
      * @param backchannelApplication  (optional)
+     * @param defaultRelayState  (optional)
      * @param digestAlgorithm * &#x60;http://www.w3.org/2000/09/xmldsig#sha1&#x60; - SHA1 * &#x60;http://www.w3.org/2001/04/xmlenc#sha256&#x60; - SHA256 * &#x60;http://www.w3.org/2001/04/xmldsig-more#sha384&#x60; - SHA384 * &#x60;http://www.w3.org/2001/04/xmlenc#sha512&#x60; - SHA512 (optional)
      * @param isBackchannel  (optional)
      * @param issuer  (optional)
@@ -3309,8 +3311,8 @@ class ProvidersApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun providersSamlListWithHttpInfo(acsUrl: kotlin.String?, assertionValidNotBefore: kotlin.String?, assertionValidNotOnOrAfter: kotlin.String?, audience: kotlin.String?, authenticationFlow: java.util.UUID?, authorizationFlow: java.util.UUID?, backchannelApplication: java.util.UUID?, digestAlgorithm: DigestAlgorithm_providersSamlList?, isBackchannel: kotlin.Boolean?, issuer: kotlin.String?, name: kotlin.String?, nameIdMapping: java.util.UUID?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, propertyMappings: kotlin.collections.List<java.util.UUID>?, search: kotlin.String?, sessionValidNotOnOrAfter: kotlin.String?, signatureAlgorithm: SignatureAlgorithm_providersSamlList?, signingKp: java.util.UUID?, spBinding: SpBinding_providersSamlList?, verificationKp: java.util.UUID?) : ApiResponse<PaginatedSAMLProviderList?> {
-        val localVariableConfig = providersSamlListRequestConfig(acsUrl = acsUrl, assertionValidNotBefore = assertionValidNotBefore, assertionValidNotOnOrAfter = assertionValidNotOnOrAfter, audience = audience, authenticationFlow = authenticationFlow, authorizationFlow = authorizationFlow, backchannelApplication = backchannelApplication, digestAlgorithm = digestAlgorithm, isBackchannel = isBackchannel, issuer = issuer, name = name, nameIdMapping = nameIdMapping, ordering = ordering, page = page, pageSize = pageSize, propertyMappings = propertyMappings, search = search, sessionValidNotOnOrAfter = sessionValidNotOnOrAfter, signatureAlgorithm = signatureAlgorithm, signingKp = signingKp, spBinding = spBinding, verificationKp = verificationKp)
+    fun providersSamlListWithHttpInfo(acsUrl: kotlin.String?, assertionValidNotBefore: kotlin.String?, assertionValidNotOnOrAfter: kotlin.String?, audience: kotlin.String?, authenticationFlow: java.util.UUID?, authorizationFlow: java.util.UUID?, backchannelApplication: java.util.UUID?, defaultRelayState: kotlin.String?, digestAlgorithm: DigestAlgorithm_providersSamlList?, isBackchannel: kotlin.Boolean?, issuer: kotlin.String?, name: kotlin.String?, nameIdMapping: java.util.UUID?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, propertyMappings: kotlin.collections.List<java.util.UUID>?, search: kotlin.String?, sessionValidNotOnOrAfter: kotlin.String?, signatureAlgorithm: SignatureAlgorithm_providersSamlList?, signingKp: java.util.UUID?, spBinding: SpBinding_providersSamlList?, verificationKp: java.util.UUID?) : ApiResponse<PaginatedSAMLProviderList?> {
+        val localVariableConfig = providersSamlListRequestConfig(acsUrl = acsUrl, assertionValidNotBefore = assertionValidNotBefore, assertionValidNotOnOrAfter = assertionValidNotOnOrAfter, audience = audience, authenticationFlow = authenticationFlow, authorizationFlow = authorizationFlow, backchannelApplication = backchannelApplication, defaultRelayState = defaultRelayState, digestAlgorithm = digestAlgorithm, isBackchannel = isBackchannel, issuer = issuer, name = name, nameIdMapping = nameIdMapping, ordering = ordering, page = page, pageSize = pageSize, propertyMappings = propertyMappings, search = search, sessionValidNotOnOrAfter = sessionValidNotOnOrAfter, signatureAlgorithm = signatureAlgorithm, signingKp = signingKp, spBinding = spBinding, verificationKp = verificationKp)
 
         return request<Unit, PaginatedSAMLProviderList>(
             localVariableConfig
@@ -3327,6 +3329,7 @@ class ProvidersApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * @param authenticationFlow  (optional)
      * @param authorizationFlow  (optional)
      * @param backchannelApplication  (optional)
+     * @param defaultRelayState  (optional)
      * @param digestAlgorithm * &#x60;http://www.w3.org/2000/09/xmldsig#sha1&#x60; - SHA1 * &#x60;http://www.w3.org/2001/04/xmlenc#sha256&#x60; - SHA256 * &#x60;http://www.w3.org/2001/04/xmldsig-more#sha384&#x60; - SHA384 * &#x60;http://www.w3.org/2001/04/xmlenc#sha512&#x60; - SHA512 (optional)
      * @param isBackchannel  (optional)
      * @param issuer  (optional)
@@ -3344,7 +3347,7 @@ class ProvidersApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * @param verificationKp  (optional)
      * @return RequestConfig
      */
-    fun providersSamlListRequestConfig(acsUrl: kotlin.String?, assertionValidNotBefore: kotlin.String?, assertionValidNotOnOrAfter: kotlin.String?, audience: kotlin.String?, authenticationFlow: java.util.UUID?, authorizationFlow: java.util.UUID?, backchannelApplication: java.util.UUID?, digestAlgorithm: DigestAlgorithm_providersSamlList?, isBackchannel: kotlin.Boolean?, issuer: kotlin.String?, name: kotlin.String?, nameIdMapping: java.util.UUID?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, propertyMappings: kotlin.collections.List<java.util.UUID>?, search: kotlin.String?, sessionValidNotOnOrAfter: kotlin.String?, signatureAlgorithm: SignatureAlgorithm_providersSamlList?, signingKp: java.util.UUID?, spBinding: SpBinding_providersSamlList?, verificationKp: java.util.UUID?) : RequestConfig<Unit> {
+    fun providersSamlListRequestConfig(acsUrl: kotlin.String?, assertionValidNotBefore: kotlin.String?, assertionValidNotOnOrAfter: kotlin.String?, audience: kotlin.String?, authenticationFlow: java.util.UUID?, authorizationFlow: java.util.UUID?, backchannelApplication: java.util.UUID?, defaultRelayState: kotlin.String?, digestAlgorithm: DigestAlgorithm_providersSamlList?, isBackchannel: kotlin.Boolean?, issuer: kotlin.String?, name: kotlin.String?, nameIdMapping: java.util.UUID?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, propertyMappings: kotlin.collections.List<java.util.UUID>?, search: kotlin.String?, sessionValidNotOnOrAfter: kotlin.String?, signatureAlgorithm: SignatureAlgorithm_providersSamlList?, signingKp: java.util.UUID?, spBinding: SpBinding_providersSamlList?, verificationKp: java.util.UUID?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -3368,6 +3371,9 @@ class ProvidersApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
                 }
                 if (backchannelApplication != null) {
                     put("backchannel_application", listOf(backchannelApplication.toString()))
+                }
+                if (defaultRelayState != null) {
+                    put("default_relay_state", listOf(defaultRelayState.toString()))
                 }
                 if (digestAlgorithm != null) {
                     put("digest_algorithm", listOf(digestAlgorithm.toString()))
