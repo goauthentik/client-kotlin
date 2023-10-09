@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **groupsObj** | [**kotlin.collections.List&lt;UserGroup&gt;**](UserGroup.md) |  |  [readonly]
 **avatar** | **kotlin.String** |  |  [readonly]
 **uid** | **kotlin.String** |  |  [readonly]
+**uuid** | [**java.util.UUID**](java.util.UUID.md) |  |  [readonly]
 **isActive** | **kotlin.Boolean** | Designates whether this user should be treated as active. Unselect this instead of deleting accounts. |  [optional]
 **lastLogin** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional]
 **groups** | [**kotlin.collections.List&lt;java.util.UUID&gt;**](java.util.UUID.md) |  |  [optional]

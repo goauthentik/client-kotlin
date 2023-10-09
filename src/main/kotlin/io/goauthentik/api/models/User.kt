@@ -35,6 +35,7 @@ import com.squareup.moshi.Json
  * @param groupsObj 
  * @param avatar 
  * @param uid 
+ * @param uuid 
  * @param isActive Designates whether this user should be treated as active. Unselect this instead of deleting accounts.
  * @param lastLogin 
  * @param groups 
@@ -67,6 +68,9 @@ data class User (
 
     @Json(name = "uid")
     val uid: kotlin.String,
+
+    @Json(name = "uuid")
+    val uuid: java.util.UUID,
 
     /* Designates whether this user should be treated as active. Unselect this instead of deleting accounts. */
     @Json(name = "is_active")
