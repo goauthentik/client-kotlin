@@ -81,7 +81,7 @@ License Viewset
 //import io.goauthentik.api.models.*
 
 val apiInstance = EnterpriseApi()
-val licenseUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this license.
+val licenseUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this License.
 try {
     apiInstance.enterpriseLicenseDestroy(licenseUuid)
 } catch (e: ClientException) {
@@ -97,7 +97,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **licenseUuid** | **java.util.UUID**| A UUID string identifying this license. |
+ **licenseUuid** | **java.util.UUID**| A UUID string identifying this License. |
 
 ### Return type
 
@@ -280,7 +280,7 @@ License Viewset
 //import io.goauthentik.api.models.*
 
 val apiInstance = EnterpriseApi()
-val licenseUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this license.
+val licenseUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this License.
 val patchedLicenseRequest : PatchedLicenseRequest =  // PatchedLicenseRequest | 
 try {
     val result : License = apiInstance.enterpriseLicensePartialUpdate(licenseUuid, patchedLicenseRequest)
@@ -298,7 +298,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **licenseUuid** | **java.util.UUID**| A UUID string identifying this license. |
+ **licenseUuid** | **java.util.UUID**| A UUID string identifying this License. |
  **patchedLicenseRequest** | [**PatchedLicenseRequest**](PatchedLicenseRequest.md)|  | [optional]
 
 ### Return type
@@ -332,7 +332,7 @@ License Viewset
 //import io.goauthentik.api.models.*
 
 val apiInstance = EnterpriseApi()
-val licenseUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this license.
+val licenseUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this License.
 try {
     val result : License = apiInstance.enterpriseLicenseRetrieve(licenseUuid)
     println(result)
@@ -349,7 +349,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **licenseUuid** | **java.util.UUID**| A UUID string identifying this license. |
+ **licenseUuid** | **java.util.UUID**| A UUID string identifying this License. |
 
 ### Return type
 
@@ -428,7 +428,7 @@ License Viewset
 //import io.goauthentik.api.models.*
 
 val apiInstance = EnterpriseApi()
-val licenseUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this license.
+val licenseUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this License.
 val licenseRequest : LicenseRequest =  // LicenseRequest | 
 try {
     val result : License = apiInstance.enterpriseLicenseUpdate(licenseUuid, licenseRequest)
@@ -446,7 +446,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **licenseUuid** | **java.util.UUID**| A UUID string identifying this license. |
+ **licenseUuid** | **java.util.UUID**| A UUID string identifying this License. |
  **licenseRequest** | [**LicenseRequest**](LicenseRequest.md)|  |
 
 ### Return type
@@ -480,7 +480,7 @@ Get a list of all objects that use this object
 //import io.goauthentik.api.models.*
 
 val apiInstance = EnterpriseApi()
-val licenseUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this license.
+val licenseUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this License.
 try {
     val result : kotlin.collections.List<UsedBy> = apiInstance.enterpriseLicenseUsedByList(licenseUuid)
     println(result)
@@ -497,7 +497,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **licenseUuid** | **java.util.UUID**| A UUID string identifying this license. |
+ **licenseUuid** | **java.util.UUID**| A UUID string identifying this License. |
 
 ### Return type
 

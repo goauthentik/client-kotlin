@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 **attrs** | **kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt;** |  | 
 **siteKey** | **kotlin.String** |  | 
 **jsUrl** | **kotlin.String** |  | 
-**permissions** | [**kotlin.collections.List&lt;Permission&gt;**](Permission.md) |  | 
-**additionalPermissions** | [**kotlin.collections.List&lt;Permission&gt;**](Permission.md) |  | 
+**permissions** | [**kotlin.collections.List&lt;ConsentPermission&gt;**](ConsentPermission.md) |  | 
+**additionalPermissions** | [**kotlin.collections.List&lt;ConsentPermission&gt;**](ConsentPermission.md) |  | 
 **token** | **kotlin.String** |  | 
 **requestId** | **kotlin.String** |  | 
 **userFields** | **kotlin.collections.List&lt;kotlin.String&gt;** |  | 

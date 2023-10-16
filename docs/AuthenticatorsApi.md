@@ -805,7 +805,7 @@ Viewset for static authenticator devices (for admins)
 //import io.goauthentik.api.models.*
 
 val apiInstance = AuthenticatorsApi()
-val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this Static device.
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this Static Device.
 try {
     apiInstance.authenticatorsAdminStaticDestroy(id)
 } catch (e: ClientException) {
@@ -821,7 +821,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| A unique integer value identifying this Static device. |
+ **id** | **kotlin.Int**| A unique integer value identifying this Static Device. |
 
 ### Return type
 
@@ -912,7 +912,7 @@ Viewset for static authenticator devices (for admins)
 //import io.goauthentik.api.models.*
 
 val apiInstance = AuthenticatorsApi()
-val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this Static device.
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this Static Device.
 val patchedStaticDeviceRequest : PatchedStaticDeviceRequest =  // PatchedStaticDeviceRequest | 
 try {
     val result : StaticDevice = apiInstance.authenticatorsAdminStaticPartialUpdate(id, patchedStaticDeviceRequest)
@@ -930,7 +930,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| A unique integer value identifying this Static device. |
+ **id** | **kotlin.Int**| A unique integer value identifying this Static Device. |
  **patchedStaticDeviceRequest** | [**PatchedStaticDeviceRequest**](PatchedStaticDeviceRequest.md)|  | [optional]
 
 ### Return type
@@ -964,7 +964,7 @@ Viewset for static authenticator devices (for admins)
 //import io.goauthentik.api.models.*
 
 val apiInstance = AuthenticatorsApi()
-val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this Static device.
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this Static Device.
 try {
     val result : StaticDevice = apiInstance.authenticatorsAdminStaticRetrieve(id)
     println(result)
@@ -981,7 +981,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| A unique integer value identifying this Static device. |
+ **id** | **kotlin.Int**| A unique integer value identifying this Static Device. |
 
 ### Return type
 
@@ -1014,7 +1014,7 @@ Viewset for static authenticator devices (for admins)
 //import io.goauthentik.api.models.*
 
 val apiInstance = AuthenticatorsApi()
-val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this Static device.
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this Static Device.
 val staticDeviceRequest : StaticDeviceRequest =  // StaticDeviceRequest | 
 try {
     val result : StaticDevice = apiInstance.authenticatorsAdminStaticUpdate(id, staticDeviceRequest)
@@ -1032,7 +1032,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| A unique integer value identifying this Static device. |
+ **id** | **kotlin.Int**| A unique integer value identifying this Static Device. |
  **staticDeviceRequest** | [**StaticDeviceRequest**](StaticDeviceRequest.md)|  |
 
 ### Return type
@@ -1116,7 +1116,7 @@ Viewset for totp authenticator devices (for admins)
 //import io.goauthentik.api.models.*
 
 val apiInstance = AuthenticatorsApi()
-val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this TOTP device.
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this TOTP Device.
 try {
     apiInstance.authenticatorsAdminTotpDestroy(id)
 } catch (e: ClientException) {
@@ -1132,7 +1132,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| A unique integer value identifying this TOTP device. |
+ **id** | **kotlin.Int**| A unique integer value identifying this TOTP Device. |
 
 ### Return type
 
@@ -1223,7 +1223,7 @@ Viewset for totp authenticator devices (for admins)
 //import io.goauthentik.api.models.*
 
 val apiInstance = AuthenticatorsApi()
-val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this TOTP device.
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this TOTP Device.
 val patchedTOTPDeviceRequest : PatchedTOTPDeviceRequest =  // PatchedTOTPDeviceRequest | 
 try {
     val result : TOTPDevice = apiInstance.authenticatorsAdminTotpPartialUpdate(id, patchedTOTPDeviceRequest)
@@ -1241,7 +1241,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| A unique integer value identifying this TOTP device. |
+ **id** | **kotlin.Int**| A unique integer value identifying this TOTP Device. |
  **patchedTOTPDeviceRequest** | [**PatchedTOTPDeviceRequest**](PatchedTOTPDeviceRequest.md)|  | [optional]
 
 ### Return type
@@ -1275,7 +1275,7 @@ Viewset for totp authenticator devices (for admins)
 //import io.goauthentik.api.models.*
 
 val apiInstance = AuthenticatorsApi()
-val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this TOTP device.
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this TOTP Device.
 try {
     val result : TOTPDevice = apiInstance.authenticatorsAdminTotpRetrieve(id)
     println(result)
@@ -1292,7 +1292,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| A unique integer value identifying this TOTP device. |
+ **id** | **kotlin.Int**| A unique integer value identifying this TOTP Device. |
 
 ### Return type
 
@@ -1325,7 +1325,7 @@ Viewset for totp authenticator devices (for admins)
 //import io.goauthentik.api.models.*
 
 val apiInstance = AuthenticatorsApi()
-val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this TOTP device.
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this TOTP Device.
 val toTPDeviceRequest : TOTPDeviceRequest =  // TOTPDeviceRequest | 
 try {
     val result : TOTPDevice = apiInstance.authenticatorsAdminTotpUpdate(id, toTPDeviceRequest)
@@ -1343,7 +1343,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| A unique integer value identifying this TOTP device. |
+ **id** | **kotlin.Int**| A unique integer value identifying this TOTP Device. |
  **toTPDeviceRequest** | [**TOTPDeviceRequest**](TOTPDeviceRequest.md)|  |
 
 ### Return type
@@ -2356,7 +2356,7 @@ Viewset for static authenticator devices
 //import io.goauthentik.api.models.*
 
 val apiInstance = AuthenticatorsApi()
-val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this Static device.
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this Static Device.
 try {
     apiInstance.authenticatorsStaticDestroy(id)
 } catch (e: ClientException) {
@@ -2372,7 +2372,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| A unique integer value identifying this Static device. |
+ **id** | **kotlin.Int**| A unique integer value identifying this Static Device. |
 
 ### Return type
 
@@ -2463,7 +2463,7 @@ Viewset for static authenticator devices
 //import io.goauthentik.api.models.*
 
 val apiInstance = AuthenticatorsApi()
-val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this Static device.
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this Static Device.
 val patchedStaticDeviceRequest : PatchedStaticDeviceRequest =  // PatchedStaticDeviceRequest | 
 try {
     val result : StaticDevice = apiInstance.authenticatorsStaticPartialUpdate(id, patchedStaticDeviceRequest)
@@ -2481,7 +2481,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| A unique integer value identifying this Static device. |
+ **id** | **kotlin.Int**| A unique integer value identifying this Static Device. |
  **patchedStaticDeviceRequest** | [**PatchedStaticDeviceRequest**](PatchedStaticDeviceRequest.md)|  | [optional]
 
 ### Return type
@@ -2515,7 +2515,7 @@ Viewset for static authenticator devices
 //import io.goauthentik.api.models.*
 
 val apiInstance = AuthenticatorsApi()
-val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this Static device.
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this Static Device.
 try {
     val result : StaticDevice = apiInstance.authenticatorsStaticRetrieve(id)
     println(result)
@@ -2532,7 +2532,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| A unique integer value identifying this Static device. |
+ **id** | **kotlin.Int**| A unique integer value identifying this Static Device. |
 
 ### Return type
 
@@ -2565,7 +2565,7 @@ Viewset for static authenticator devices
 //import io.goauthentik.api.models.*
 
 val apiInstance = AuthenticatorsApi()
-val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this Static device.
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this Static Device.
 val staticDeviceRequest : StaticDeviceRequest =  // StaticDeviceRequest | 
 try {
     val result : StaticDevice = apiInstance.authenticatorsStaticUpdate(id, staticDeviceRequest)
@@ -2583,7 +2583,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| A unique integer value identifying this Static device. |
+ **id** | **kotlin.Int**| A unique integer value identifying this Static Device. |
  **staticDeviceRequest** | [**StaticDeviceRequest**](StaticDeviceRequest.md)|  |
 
 ### Return type
@@ -2617,7 +2617,7 @@ Get a list of all objects that use this object
 //import io.goauthentik.api.models.*
 
 val apiInstance = AuthenticatorsApi()
-val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this Static device.
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this Static Device.
 try {
     val result : kotlin.collections.List<UsedBy> = apiInstance.authenticatorsStaticUsedByList(id)
     println(result)
@@ -2634,7 +2634,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| A unique integer value identifying this Static device. |
+ **id** | **kotlin.Int**| A unique integer value identifying this Static Device. |
 
 ### Return type
 
@@ -2667,7 +2667,7 @@ Viewset for totp authenticator devices
 //import io.goauthentik.api.models.*
 
 val apiInstance = AuthenticatorsApi()
-val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this TOTP device.
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this TOTP Device.
 try {
     apiInstance.authenticatorsTotpDestroy(id)
 } catch (e: ClientException) {
@@ -2683,7 +2683,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| A unique integer value identifying this TOTP device. |
+ **id** | **kotlin.Int**| A unique integer value identifying this TOTP Device. |
 
 ### Return type
 
@@ -2774,7 +2774,7 @@ Viewset for totp authenticator devices
 //import io.goauthentik.api.models.*
 
 val apiInstance = AuthenticatorsApi()
-val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this TOTP device.
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this TOTP Device.
 val patchedTOTPDeviceRequest : PatchedTOTPDeviceRequest =  // PatchedTOTPDeviceRequest | 
 try {
     val result : TOTPDevice = apiInstance.authenticatorsTotpPartialUpdate(id, patchedTOTPDeviceRequest)
@@ -2792,7 +2792,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| A unique integer value identifying this TOTP device. |
+ **id** | **kotlin.Int**| A unique integer value identifying this TOTP Device. |
  **patchedTOTPDeviceRequest** | [**PatchedTOTPDeviceRequest**](PatchedTOTPDeviceRequest.md)|  | [optional]
 
 ### Return type
@@ -2826,7 +2826,7 @@ Viewset for totp authenticator devices
 //import io.goauthentik.api.models.*
 
 val apiInstance = AuthenticatorsApi()
-val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this TOTP device.
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this TOTP Device.
 try {
     val result : TOTPDevice = apiInstance.authenticatorsTotpRetrieve(id)
     println(result)
@@ -2843,7 +2843,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| A unique integer value identifying this TOTP device. |
+ **id** | **kotlin.Int**| A unique integer value identifying this TOTP Device. |
 
 ### Return type
 
@@ -2876,7 +2876,7 @@ Viewset for totp authenticator devices
 //import io.goauthentik.api.models.*
 
 val apiInstance = AuthenticatorsApi()
-val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this TOTP device.
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this TOTP Device.
 val toTPDeviceRequest : TOTPDeviceRequest =  // TOTPDeviceRequest | 
 try {
     val result : TOTPDevice = apiInstance.authenticatorsTotpUpdate(id, toTPDeviceRequest)
@@ -2894,7 +2894,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| A unique integer value identifying this TOTP device. |
+ **id** | **kotlin.Int**| A unique integer value identifying this TOTP Device. |
  **toTPDeviceRequest** | [**TOTPDeviceRequest**](TOTPDeviceRequest.md)|  |
 
 ### Return type
@@ -2928,7 +2928,7 @@ Get a list of all objects that use this object
 //import io.goauthentik.api.models.*
 
 val apiInstance = AuthenticatorsApi()
-val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this TOTP device.
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this TOTP Device.
 try {
     val result : kotlin.collections.List<UsedBy> = apiInstance.authenticatorsTotpUsedByList(id)
     println(result)
@@ -2945,7 +2945,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**| A unique integer value identifying this TOTP device. |
+ **id** | **kotlin.Int**| A unique integer value identifying this TOTP Device. |
 
 ### Return type
 

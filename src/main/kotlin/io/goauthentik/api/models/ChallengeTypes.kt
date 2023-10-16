@@ -32,6 +32,7 @@ import io.goauthentik.api.models.AutosubmitChallenge
 import io.goauthentik.api.models.CaptchaChallenge
 import io.goauthentik.api.models.ChallengeChoices
 import io.goauthentik.api.models.ConsentChallenge
+import io.goauthentik.api.models.ConsentPermission
 import io.goauthentik.api.models.ContextualFlowInfo
 import io.goauthentik.api.models.DeviceChallenge
 import io.goauthentik.api.models.DummyChallenge
@@ -43,7 +44,6 @@ import io.goauthentik.api.models.LoginSource
 import io.goauthentik.api.models.OAuthDeviceCodeChallenge
 import io.goauthentik.api.models.OAuthDeviceCodeFinishChallenge
 import io.goauthentik.api.models.PasswordChallenge
-import io.goauthentik.api.models.Permission
 import io.goauthentik.api.models.PlexAuthenticationChallenge
 import io.goauthentik.api.models.PromptChallenge
 import io.goauthentik.api.models.RedirectChallenge
@@ -145,9 +145,9 @@ interface ChallengeTypes {
     @Json(name = "js_url")
     val jsUrl: kotlin.String
     @Json(name = "permissions")
-    val permissions: kotlin.collections.List<Permission>
+    val permissions: kotlin.collections.List<ConsentPermission>
     @Json(name = "additional_permissions")
-    val additionalPermissions: kotlin.collections.List<Permission>
+    val additionalPermissions: kotlin.collections.List<ConsentPermission>
     @Json(name = "token")
     val token: kotlin.String
     @Json(name = "request_id")

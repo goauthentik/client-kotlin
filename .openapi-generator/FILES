@@ -68,6 +68,7 @@ docs/ClientTypeEnum.md
 docs/Config.md
 docs/ConsentChallenge.md
 docs/ConsentChallengeResponseRequest.md
+docs/ConsentPermission.md
 docs/ConsentStage.md
 docs/ConsentStageModeEnum.md
 docs/ConsentStageRequest.md
@@ -114,6 +115,8 @@ docs/EventsApi.md
 docs/ExpiringBaseGrantModel.md
 docs/ExpressionPolicy.md
 docs/ExpressionPolicyRequest.md
+docs/ExtraRoleObjectPermission.md
+docs/ExtraUserObjectPermission.md
 docs/FilePathRequest.md
 docs/Flow.md
 docs/FlowChallengeResponseRequest.md
@@ -222,6 +225,8 @@ docs/PaginatedEventList.md
 docs/PaginatedEventMatcherPolicyList.md
 docs/PaginatedExpiringBaseGrantModelList.md
 docs/PaginatedExpressionPolicyList.md
+docs/PaginatedExtraRoleObjectPermissionList.md
+docs/PaginatedExtraUserObjectPermissionList.md
 docs/PaginatedFlowList.md
 docs/PaginatedFlowStageBindingList.md
 docs/PaginatedGroupList.md
@@ -244,6 +249,7 @@ docs/PaginatedOutpostList.md
 docs/PaginatedPasswordExpiryPolicyList.md
 docs/PaginatedPasswordPolicyList.md
 docs/PaginatedPasswordStageList.md
+docs/PaginatedPermissionList.md
 docs/PaginatedPlexSourceConnectionList.md
 docs/PaginatedPlexSourceList.md
 docs/PaginatedPolicyBindingList.md
@@ -258,6 +264,8 @@ docs/PaginatedRadiusOutpostConfigList.md
 docs/PaginatedRadiusProviderList.md
 docs/PaginatedReputationList.md
 docs/PaginatedReputationPolicyList.md
+docs/PaginatedRoleAssignedObjectPermissionList.md
+docs/PaginatedRoleList.md
 docs/PaginatedSAMLPropertyMappingList.md
 docs/PaginatedSAMLProviderList.md
 docs/PaginatedSAMLSourceList.md
@@ -273,6 +281,7 @@ docs/PaginatedTOTPDeviceList.md
 docs/PaginatedTenantList.md
 docs/PaginatedTokenList.md
 docs/PaginatedTokenModelList.md
+docs/PaginatedUserAssignedObjectPermissionList.md
 docs/PaginatedUserConsentList.md
 docs/PaginatedUserDeleteStageList.md
 docs/PaginatedUserList.md
@@ -333,6 +342,7 @@ docs/PatchedOutpostRequest.md
 docs/PatchedPasswordExpiryPolicyRequest.md
 docs/PatchedPasswordPolicyRequest.md
 docs/PatchedPasswordStageRequest.md
+docs/PatchedPermissionAssignRequest.md
 docs/PatchedPlexSourceConnectionRequest.md
 docs/PatchedPlexSourceRequest.md
 docs/PatchedPolicyBindingRequest.md
@@ -341,6 +351,7 @@ docs/PatchedPromptStageRequest.md
 docs/PatchedProxyProviderRequest.md
 docs/PatchedRadiusProviderRequest.md
 docs/PatchedReputationPolicyRequest.md
+docs/PatchedRoleRequest.md
 docs/PatchedSAMLPropertyMappingRequest.md
 docs/PatchedSAMLProviderRequest.md
 docs/PatchedSAMLSourceRequest.md
@@ -361,6 +372,7 @@ docs/PatchedUserSAMLSourceConnectionRequest.md
 docs/PatchedUserWriteStageRequest.md
 docs/PatchedWebAuthnDeviceRequest.md
 docs/Permission.md
+docs/PermissionAssignRequest.md
 docs/PlexAuthenticationChallenge.md
 docs/PlexAuthenticationChallengeResponseRequest.md
 docs/PlexSource.md
@@ -400,11 +412,16 @@ docs/ProxyProviderRequest.md
 docs/RadiusOutpostConfig.md
 docs/RadiusProvider.md
 docs/RadiusProviderRequest.md
+docs/RbacApi.md
 docs/RedirectChallenge.md
 docs/Reputation.md
 docs/ReputationPolicy.md
 docs/ReputationPolicyRequest.md
 docs/ResidentKeyRequirementEnum.md
+docs/Role.md
+docs/RoleAssignedObjectPermission.md
+docs/RoleObjectPermission.md
+docs/RoleRequest.md
 docs/RootApi.md
 docs/SAMLMetadata.md
 docs/SAMLPropertyMapping.md
@@ -465,6 +482,7 @@ docs/UsedBy.md
 docs/UsedByActionEnum.md
 docs/User.md
 docs/UserAccountRequest.md
+docs/UserAssignedObjectPermission.md
 docs/UserConsent.md
 docs/UserCreationModeEnum.md
 docs/UserDeleteStage.md
@@ -482,6 +500,7 @@ docs/UserMatchingModeEnum.md
 docs/UserMetrics.md
 docs/UserOAuthSourceConnection.md
 docs/UserOAuthSourceConnectionRequest.md
+docs/UserObjectPermission.md
 docs/UserPasswordSetRequest.md
 docs/UserPath.md
 docs/UserRequest.md
@@ -520,6 +539,7 @@ src/main/kotlin/io/goauthentik/api/apis/OutpostsApi.kt
 src/main/kotlin/io/goauthentik/api/apis/PoliciesApi.kt
 src/main/kotlin/io/goauthentik/api/apis/PropertymappingsApi.kt
 src/main/kotlin/io/goauthentik/api/apis/ProvidersApi.kt
+src/main/kotlin/io/goauthentik/api/apis/RbacApi.kt
 src/main/kotlin/io/goauthentik/api/apis/RootApi.kt
 src/main/kotlin/io/goauthentik/api/apis/SchemaApi.kt
 src/main/kotlin/io/goauthentik/api/apis/SourcesApi.kt
@@ -608,6 +628,7 @@ src/main/kotlin/io/goauthentik/api/models/ClientTypeEnum.kt
 src/main/kotlin/io/goauthentik/api/models/Config.kt
 src/main/kotlin/io/goauthentik/api/models/ConsentChallenge.kt
 src/main/kotlin/io/goauthentik/api/models/ConsentChallengeResponseRequest.kt
+src/main/kotlin/io/goauthentik/api/models/ConsentPermission.kt
 src/main/kotlin/io/goauthentik/api/models/ConsentStage.kt
 src/main/kotlin/io/goauthentik/api/models/ConsentStageModeEnum.kt
 src/main/kotlin/io/goauthentik/api/models/ConsentStageRequest.kt
@@ -650,6 +671,8 @@ src/main/kotlin/io/goauthentik/api/models/EventTopPerUser.kt
 src/main/kotlin/io/goauthentik/api/models/ExpiringBaseGrantModel.kt
 src/main/kotlin/io/goauthentik/api/models/ExpressionPolicy.kt
 src/main/kotlin/io/goauthentik/api/models/ExpressionPolicyRequest.kt
+src/main/kotlin/io/goauthentik/api/models/ExtraRoleObjectPermission.kt
+src/main/kotlin/io/goauthentik/api/models/ExtraUserObjectPermission.kt
 src/main/kotlin/io/goauthentik/api/models/FilePathRequest.kt
 src/main/kotlin/io/goauthentik/api/models/Flow.kt
 src/main/kotlin/io/goauthentik/api/models/FlowChallengeResponseRequest.kt
@@ -754,6 +777,8 @@ src/main/kotlin/io/goauthentik/api/models/PaginatedEventList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedEventMatcherPolicyList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedExpiringBaseGrantModelList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedExpressionPolicyList.kt
+src/main/kotlin/io/goauthentik/api/models/PaginatedExtraRoleObjectPermissionList.kt
+src/main/kotlin/io/goauthentik/api/models/PaginatedExtraUserObjectPermissionList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedFlowList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedFlowStageBindingList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedGroupList.kt
@@ -776,6 +801,7 @@ src/main/kotlin/io/goauthentik/api/models/PaginatedOutpostList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedPasswordExpiryPolicyList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedPasswordPolicyList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedPasswordStageList.kt
+src/main/kotlin/io/goauthentik/api/models/PaginatedPermissionList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedPlexSourceConnectionList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedPlexSourceList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedPolicyBindingList.kt
@@ -790,6 +816,8 @@ src/main/kotlin/io/goauthentik/api/models/PaginatedRadiusOutpostConfigList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedRadiusProviderList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedReputationList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedReputationPolicyList.kt
+src/main/kotlin/io/goauthentik/api/models/PaginatedRoleAssignedObjectPermissionList.kt
+src/main/kotlin/io/goauthentik/api/models/PaginatedRoleList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedSAMLPropertyMappingList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedSAMLProviderList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedSAMLSourceList.kt
@@ -805,6 +833,7 @@ src/main/kotlin/io/goauthentik/api/models/PaginatedTOTPDeviceList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedTenantList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedTokenList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedTokenModelList.kt
+src/main/kotlin/io/goauthentik/api/models/PaginatedUserAssignedObjectPermissionList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedUserConsentList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedUserDeleteStageList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedUserList.kt
@@ -865,6 +894,7 @@ src/main/kotlin/io/goauthentik/api/models/PatchedOutpostRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedPasswordExpiryPolicyRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedPasswordPolicyRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedPasswordStageRequest.kt
+src/main/kotlin/io/goauthentik/api/models/PatchedPermissionAssignRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedPlexSourceConnectionRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedPlexSourceRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedPolicyBindingRequest.kt
@@ -873,6 +903,7 @@ src/main/kotlin/io/goauthentik/api/models/PatchedPromptStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedProxyProviderRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedRadiusProviderRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedReputationPolicyRequest.kt
+src/main/kotlin/io/goauthentik/api/models/PatchedRoleRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedSAMLPropertyMappingRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedSAMLProviderRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedSAMLSourceRequest.kt
@@ -893,6 +924,7 @@ src/main/kotlin/io/goauthentik/api/models/PatchedUserSAMLSourceConnectionRequest
 src/main/kotlin/io/goauthentik/api/models/PatchedUserWriteStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedWebAuthnDeviceRequest.kt
 src/main/kotlin/io/goauthentik/api/models/Permission.kt
+src/main/kotlin/io/goauthentik/api/models/PermissionAssignRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PlexAuthenticationChallenge.kt
 src/main/kotlin/io/goauthentik/api/models/PlexAuthenticationChallengeResponseRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PlexSource.kt
@@ -934,6 +966,10 @@ src/main/kotlin/io/goauthentik/api/models/Reputation.kt
 src/main/kotlin/io/goauthentik/api/models/ReputationPolicy.kt
 src/main/kotlin/io/goauthentik/api/models/ReputationPolicyRequest.kt
 src/main/kotlin/io/goauthentik/api/models/ResidentKeyRequirementEnum.kt
+src/main/kotlin/io/goauthentik/api/models/Role.kt
+src/main/kotlin/io/goauthentik/api/models/RoleAssignedObjectPermission.kt
+src/main/kotlin/io/goauthentik/api/models/RoleObjectPermission.kt
+src/main/kotlin/io/goauthentik/api/models/RoleRequest.kt
 src/main/kotlin/io/goauthentik/api/models/SAMLMetadata.kt
 src/main/kotlin/io/goauthentik/api/models/SAMLPropertyMapping.kt
 src/main/kotlin/io/goauthentik/api/models/SAMLPropertyMappingRequest.kt
@@ -990,6 +1026,7 @@ src/main/kotlin/io/goauthentik/api/models/UsedBy.kt
 src/main/kotlin/io/goauthentik/api/models/UsedByActionEnum.kt
 src/main/kotlin/io/goauthentik/api/models/User.kt
 src/main/kotlin/io/goauthentik/api/models/UserAccountRequest.kt
+src/main/kotlin/io/goauthentik/api/models/UserAssignedObjectPermission.kt
 src/main/kotlin/io/goauthentik/api/models/UserConsent.kt
 src/main/kotlin/io/goauthentik/api/models/UserCreationModeEnum.kt
 src/main/kotlin/io/goauthentik/api/models/UserDeleteStage.kt
@@ -1007,6 +1044,7 @@ src/main/kotlin/io/goauthentik/api/models/UserMatchingModeEnum.kt
 src/main/kotlin/io/goauthentik/api/models/UserMetrics.kt
 src/main/kotlin/io/goauthentik/api/models/UserOAuthSourceConnection.kt
 src/main/kotlin/io/goauthentik/api/models/UserOAuthSourceConnectionRequest.kt
+src/main/kotlin/io/goauthentik/api/models/UserObjectPermission.kt
 src/main/kotlin/io/goauthentik/api/models/UserPasswordSetRequest.kt
 src/main/kotlin/io/goauthentik/api/models/UserPath.kt
 src/main/kotlin/io/goauthentik/api/models/UserRequest.kt

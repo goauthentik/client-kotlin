@@ -1272,7 +1272,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * 
      * Add user to group
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @param userAccountRequest 
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
@@ -1303,7 +1303,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * 
      * Add user to group
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @param userAccountRequest 
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -1321,7 +1321,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * To obtain the request config of the operation coreGroupsAddUserCreate
      *
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @param userAccountRequest 
      * @return RequestConfig
      */
@@ -1415,7 +1415,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * 
      * Group Viewset
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1445,7 +1445,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * 
      * Group Viewset
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1462,7 +1462,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * To obtain the request config of the operation coreGroupsDestroy
      *
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @return RequestConfig
      */
     fun coreGroupsDestroyRequestConfig(groupUuid: java.util.UUID) : RequestConfig<Unit> {
@@ -1606,7 +1606,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * 
      * Group Viewset
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @param patchedGroupRequest  (optional)
      * @return Group
      * @throws IllegalStateException If the request is not correctly configured
@@ -1638,7 +1638,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * 
      * Group Viewset
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @param patchedGroupRequest  (optional)
      * @return ApiResponse<Group?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -1657,7 +1657,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * To obtain the request config of the operation coreGroupsPartialUpdate
      *
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @param patchedGroupRequest  (optional)
      * @return RequestConfig
      */
@@ -1680,7 +1680,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * 
      * Add user to group
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @param userAccountRequest 
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
@@ -1711,7 +1711,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * 
      * Add user to group
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @param userAccountRequest 
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -1729,7 +1729,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * To obtain the request config of the operation coreGroupsRemoveUserCreate
      *
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @param userAccountRequest 
      * @return RequestConfig
      */
@@ -1752,7 +1752,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * 
      * Group Viewset
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @return Group
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1783,7 +1783,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * 
      * Group Viewset
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @return ApiResponse<Group?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1801,7 +1801,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * To obtain the request config of the operation coreGroupsRetrieve
      *
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @return RequestConfig
      */
     fun coreGroupsRetrieveRequestConfig(groupUuid: java.util.UUID) : RequestConfig<Unit> {
@@ -1822,7 +1822,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * 
      * Group Viewset
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @param groupRequest 
      * @return Group
      * @throws IllegalStateException If the request is not correctly configured
@@ -1854,7 +1854,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * 
      * Group Viewset
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @param groupRequest 
      * @return ApiResponse<Group?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -1873,7 +1873,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * To obtain the request config of the operation coreGroupsUpdate
      *
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @param groupRequest 
      * @return RequestConfig
      */
@@ -1896,7 +1896,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * 
      * Get a list of all objects that use this object
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @return kotlin.collections.List<UsedBy>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1927,7 +1927,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * 
      * Get a list of all objects that use this object
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @return ApiResponse<kotlin.collections.List<UsedBy>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1945,7 +1945,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * To obtain the request config of the operation coreGroupsUsedByList
      *
-     * @param groupUuid A UUID string identifying this group.
+     * @param groupUuid A UUID string identifying this Group.
      * @return RequestConfig
      */
     fun coreGroupsUsedByListRequestConfig(groupUuid: java.util.UUID) : RequestConfig<Unit> {

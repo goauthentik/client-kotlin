@@ -217,7 +217,7 @@ class OutpostsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * 
      * Outpost Viewset
-     * @param uuid A UUID string identifying this outpost.
+     * @param uuid A UUID string identifying this Outpost.
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -247,7 +247,7 @@ class OutpostsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * 
      * Outpost Viewset
-     * @param uuid A UUID string identifying this outpost.
+     * @param uuid A UUID string identifying this Outpost.
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -264,7 +264,7 @@ class OutpostsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * To obtain the request config of the operation outpostsInstancesDestroy
      *
-     * @param uuid A UUID string identifying this outpost.
+     * @param uuid A UUID string identifying this Outpost.
      * @return RequestConfig
      */
     fun outpostsInstancesDestroyRequestConfig(uuid: java.util.UUID) : RequestConfig<Unit> {
@@ -285,7 +285,7 @@ class OutpostsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * 
      * Get outposts current health
-     * @param uuid A UUID string identifying this outpost.
+     * @param uuid A UUID string identifying this Outpost.
      * @param managedIcontains  (optional)
      * @param managedIexact  (optional)
      * @param nameIcontains  (optional)
@@ -326,7 +326,7 @@ class OutpostsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * 
      * Get outposts current health
-     * @param uuid A UUID string identifying this outpost.
+     * @param uuid A UUID string identifying this Outpost.
      * @param managedIcontains  (optional)
      * @param managedIexact  (optional)
      * @param nameIcontains  (optional)
@@ -354,7 +354,7 @@ class OutpostsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * To obtain the request config of the operation outpostsInstancesHealthList
      *
-     * @param uuid A UUID string identifying this outpost.
+     * @param uuid A UUID string identifying this Outpost.
      * @param managedIcontains  (optional)
      * @param managedIexact  (optional)
      * @param nameIcontains  (optional)
@@ -558,7 +558,7 @@ class OutpostsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * 
      * Outpost Viewset
-     * @param uuid A UUID string identifying this outpost.
+     * @param uuid A UUID string identifying this Outpost.
      * @param patchedOutpostRequest  (optional)
      * @return Outpost
      * @throws IllegalStateException If the request is not correctly configured
@@ -590,7 +590,7 @@ class OutpostsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * 
      * Outpost Viewset
-     * @param uuid A UUID string identifying this outpost.
+     * @param uuid A UUID string identifying this Outpost.
      * @param patchedOutpostRequest  (optional)
      * @return ApiResponse<Outpost?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -609,7 +609,7 @@ class OutpostsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * To obtain the request config of the operation outpostsInstancesPartialUpdate
      *
-     * @param uuid A UUID string identifying this outpost.
+     * @param uuid A UUID string identifying this Outpost.
      * @param patchedOutpostRequest  (optional)
      * @return RequestConfig
      */
@@ -632,7 +632,7 @@ class OutpostsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * 
      * Outpost Viewset
-     * @param uuid A UUID string identifying this outpost.
+     * @param uuid A UUID string identifying this Outpost.
      * @return Outpost
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -663,7 +663,7 @@ class OutpostsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * 
      * Outpost Viewset
-     * @param uuid A UUID string identifying this outpost.
+     * @param uuid A UUID string identifying this Outpost.
      * @return ApiResponse<Outpost?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -681,7 +681,7 @@ class OutpostsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * To obtain the request config of the operation outpostsInstancesRetrieve
      *
-     * @param uuid A UUID string identifying this outpost.
+     * @param uuid A UUID string identifying this Outpost.
      * @return RequestConfig
      */
     fun outpostsInstancesRetrieveRequestConfig(uuid: java.util.UUID) : RequestConfig<Unit> {
@@ -702,7 +702,7 @@ class OutpostsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * 
      * Outpost Viewset
-     * @param uuid A UUID string identifying this outpost.
+     * @param uuid A UUID string identifying this Outpost.
      * @param outpostRequest 
      * @return Outpost
      * @throws IllegalStateException If the request is not correctly configured
@@ -734,7 +734,7 @@ class OutpostsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * 
      * Outpost Viewset
-     * @param uuid A UUID string identifying this outpost.
+     * @param uuid A UUID string identifying this Outpost.
      * @param outpostRequest 
      * @return ApiResponse<Outpost?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -753,7 +753,7 @@ class OutpostsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * To obtain the request config of the operation outpostsInstancesUpdate
      *
-     * @param uuid A UUID string identifying this outpost.
+     * @param uuid A UUID string identifying this Outpost.
      * @param outpostRequest 
      * @return RequestConfig
      */
@@ -776,7 +776,7 @@ class OutpostsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * 
      * Get a list of all objects that use this object
-     * @param uuid A UUID string identifying this outpost.
+     * @param uuid A UUID string identifying this Outpost.
      * @return kotlin.collections.List<UsedBy>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -807,7 +807,7 @@ class OutpostsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * 
      * Get a list of all objects that use this object
-     * @param uuid A UUID string identifying this outpost.
+     * @param uuid A UUID string identifying this Outpost.
      * @return ApiResponse<kotlin.collections.List<UsedBy>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -825,7 +825,7 @@ class OutpostsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * To obtain the request config of the operation outpostsInstancesUsedByList
      *
-     * @param uuid A UUID string identifying this outpost.
+     * @param uuid A UUID string identifying this Outpost.
      * @return RequestConfig
      */
     fun outpostsInstancesUsedByListRequestConfig(uuid: java.util.UUID) : RequestConfig<Unit> {

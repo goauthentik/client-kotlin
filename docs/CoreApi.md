@@ -873,7 +873,7 @@ Add user to group
 //import io.goauthentik.api.models.*
 
 val apiInstance = CoreApi()
-val groupUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this group.
+val groupUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Group.
 val userAccountRequest : UserAccountRequest =  // UserAccountRequest | 
 try {
     apiInstance.coreGroupsAddUserCreate(groupUuid, userAccountRequest)
@@ -890,7 +890,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupUuid** | **java.util.UUID**| A UUID string identifying this group. |
+ **groupUuid** | **java.util.UUID**| A UUID string identifying this Group. |
  **userAccountRequest** | [**UserAccountRequest**](UserAccountRequest.md)|  |
 
 ### Return type
@@ -974,7 +974,7 @@ Group Viewset
 //import io.goauthentik.api.models.*
 
 val apiInstance = CoreApi()
-val groupUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this group.
+val groupUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Group.
 try {
     apiInstance.coreGroupsDestroy(groupUuid)
 } catch (e: ClientException) {
@@ -990,7 +990,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupUuid** | **java.util.UUID**| A UUID string identifying this group. |
+ **groupUuid** | **java.util.UUID**| A UUID string identifying this Group. |
 
 ### Return type
 
@@ -1089,7 +1089,7 @@ Group Viewset
 //import io.goauthentik.api.models.*
 
 val apiInstance = CoreApi()
-val groupUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this group.
+val groupUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Group.
 val patchedGroupRequest : PatchedGroupRequest =  // PatchedGroupRequest | 
 try {
     val result : Group = apiInstance.coreGroupsPartialUpdate(groupUuid, patchedGroupRequest)
@@ -1107,7 +1107,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupUuid** | **java.util.UUID**| A UUID string identifying this group. |
+ **groupUuid** | **java.util.UUID**| A UUID string identifying this Group. |
  **patchedGroupRequest** | [**PatchedGroupRequest**](PatchedGroupRequest.md)|  | [optional]
 
 ### Return type
@@ -1141,7 +1141,7 @@ Add user to group
 //import io.goauthentik.api.models.*
 
 val apiInstance = CoreApi()
-val groupUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this group.
+val groupUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Group.
 val userAccountRequest : UserAccountRequest =  // UserAccountRequest | 
 try {
     apiInstance.coreGroupsRemoveUserCreate(groupUuid, userAccountRequest)
@@ -1158,7 +1158,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupUuid** | **java.util.UUID**| A UUID string identifying this group. |
+ **groupUuid** | **java.util.UUID**| A UUID string identifying this Group. |
  **userAccountRequest** | [**UserAccountRequest**](UserAccountRequest.md)|  |
 
 ### Return type
@@ -1192,7 +1192,7 @@ Group Viewset
 //import io.goauthentik.api.models.*
 
 val apiInstance = CoreApi()
-val groupUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this group.
+val groupUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Group.
 try {
     val result : Group = apiInstance.coreGroupsRetrieve(groupUuid)
     println(result)
@@ -1209,7 +1209,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupUuid** | **java.util.UUID**| A UUID string identifying this group. |
+ **groupUuid** | **java.util.UUID**| A UUID string identifying this Group. |
 
 ### Return type
 
@@ -1242,7 +1242,7 @@ Group Viewset
 //import io.goauthentik.api.models.*
 
 val apiInstance = CoreApi()
-val groupUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this group.
+val groupUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Group.
 val groupRequest : GroupRequest =  // GroupRequest | 
 try {
     val result : Group = apiInstance.coreGroupsUpdate(groupUuid, groupRequest)
@@ -1260,7 +1260,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupUuid** | **java.util.UUID**| A UUID string identifying this group. |
+ **groupUuid** | **java.util.UUID**| A UUID string identifying this Group. |
  **groupRequest** | [**GroupRequest**](GroupRequest.md)|  |
 
 ### Return type
@@ -1294,7 +1294,7 @@ Get a list of all objects that use this object
 //import io.goauthentik.api.models.*
 
 val apiInstance = CoreApi()
-val groupUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this group.
+val groupUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Group.
 try {
     val result : kotlin.collections.List<UsedBy> = apiInstance.coreGroupsUsedByList(groupUuid)
     println(result)
@@ -1311,7 +1311,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupUuid** | **java.util.UUID**| A UUID string identifying this group. |
+ **groupUuid** | **java.util.UUID**| A UUID string identifying this Group. |
 
 ### Return type
 

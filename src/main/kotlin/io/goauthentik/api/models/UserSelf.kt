@@ -37,6 +37,7 @@ import com.squareup.moshi.Json
  * @param avatar 
  * @param uid 
  * @param settings Get user settings with tenant and group settings applied
+ * @param systemPermissions Get all system permissions assigned to the user
  * @param email 
  * @param type 
  */
@@ -73,6 +74,10 @@ data class UserSelf (
     /* Get user settings with tenant and group settings applied */
     @Json(name = "settings")
     val settings: kotlin.collections.Map<kotlin.String, kotlin.Any>,
+
+    /* Get all system permissions assigned to the user */
+    @Json(name = "system_permissions")
+    val systemPermissions: kotlin.collections.List<kotlin.String>,
 
     @Json(name = "email")
     val email: kotlin.String? = null,

@@ -31,6 +31,7 @@ import com.squareup.moshi.Json
  * @param parent 
  * @param users 
  * @param attributes 
+ * @param roles 
  */
 
 data class GroupRequest (
@@ -49,7 +50,10 @@ data class GroupRequest (
     val users: kotlin.collections.List<kotlin.Int>? = null,
 
     @Json(name = "attributes")
-    val attributes: kotlin.collections.Map<kotlin.String, kotlin.Any>? = null
+    val attributes: kotlin.collections.Map<kotlin.String, kotlin.Any>? = null,
+
+    @Json(name = "roles")
+    val roles: kotlin.collections.List<java.util.UUID>? = null
 
 )
 

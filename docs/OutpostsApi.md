@@ -152,7 +152,7 @@ Outpost Viewset
 //import io.goauthentik.api.models.*
 
 val apiInstance = OutpostsApi()
-val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this outpost.
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Outpost.
 try {
     apiInstance.outpostsInstancesDestroy(uuid)
 } catch (e: ClientException) {
@@ -168,7 +168,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **java.util.UUID**| A UUID string identifying this outpost. |
+ **uuid** | **java.util.UUID**| A UUID string identifying this Outpost. |
 
 ### Return type
 
@@ -201,7 +201,7 @@ Get outposts current health
 //import io.goauthentik.api.models.*
 
 val apiInstance = OutpostsApi()
-val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this outpost.
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Outpost.
 val managedIcontains : kotlin.String = managedIcontains_example // kotlin.String | 
 val managedIexact : kotlin.String = managedIexact_example // kotlin.String | 
 val nameIcontains : kotlin.String = nameIcontains_example // kotlin.String | 
@@ -228,7 +228,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **java.util.UUID**| A UUID string identifying this outpost. |
+ **uuid** | **java.util.UUID**| A UUID string identifying this Outpost. |
  **managedIcontains** | **kotlin.String**|  | [optional]
  **managedIexact** | **kotlin.String**|  | [optional]
  **nameIcontains** | **kotlin.String**|  | [optional]
@@ -343,7 +343,7 @@ Outpost Viewset
 //import io.goauthentik.api.models.*
 
 val apiInstance = OutpostsApi()
-val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this outpost.
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Outpost.
 val patchedOutpostRequest : PatchedOutpostRequest =  // PatchedOutpostRequest | 
 try {
     val result : Outpost = apiInstance.outpostsInstancesPartialUpdate(uuid, patchedOutpostRequest)
@@ -361,7 +361,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **java.util.UUID**| A UUID string identifying this outpost. |
+ **uuid** | **java.util.UUID**| A UUID string identifying this Outpost. |
  **patchedOutpostRequest** | [**PatchedOutpostRequest**](PatchedOutpostRequest.md)|  | [optional]
 
 ### Return type
@@ -395,7 +395,7 @@ Outpost Viewset
 //import io.goauthentik.api.models.*
 
 val apiInstance = OutpostsApi()
-val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this outpost.
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Outpost.
 try {
     val result : Outpost = apiInstance.outpostsInstancesRetrieve(uuid)
     println(result)
@@ -412,7 +412,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **java.util.UUID**| A UUID string identifying this outpost. |
+ **uuid** | **java.util.UUID**| A UUID string identifying this Outpost. |
 
 ### Return type
 
@@ -445,7 +445,7 @@ Outpost Viewset
 //import io.goauthentik.api.models.*
 
 val apiInstance = OutpostsApi()
-val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this outpost.
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Outpost.
 val outpostRequest : OutpostRequest =  // OutpostRequest | 
 try {
     val result : Outpost = apiInstance.outpostsInstancesUpdate(uuid, outpostRequest)
@@ -463,7 +463,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **java.util.UUID**| A UUID string identifying this outpost. |
+ **uuid** | **java.util.UUID**| A UUID string identifying this Outpost. |
  **outpostRequest** | [**OutpostRequest**](OutpostRequest.md)|  |
 
 ### Return type
@@ -497,7 +497,7 @@ Get a list of all objects that use this object
 //import io.goauthentik.api.models.*
 
 val apiInstance = OutpostsApi()
-val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this outpost.
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Outpost.
 try {
     val result : kotlin.collections.List<UsedBy> = apiInstance.outpostsInstancesUsedByList(uuid)
     println(result)
@@ -514,7 +514,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **java.util.UUID**| A UUID string identifying this outpost. |
+ **uuid** | **java.util.UUID**| A UUID string identifying this Outpost. |
 
 ### Return type
 

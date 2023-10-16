@@ -21,9 +21,9 @@
 package io.goauthentik.api.models
 
 import io.goauthentik.api.models.ChallengeChoices
+import io.goauthentik.api.models.ConsentPermission
 import io.goauthentik.api.models.ContextualFlowInfo
 import io.goauthentik.api.models.ErrorDetail
-import io.goauthentik.api.models.Permission
 
 import com.squareup.moshi.Json
 
@@ -54,10 +54,10 @@ data class ConsentChallenge (
     val pendingUserAvatar: kotlin.String,
 
     @Json(name = "permissions")
-    val permissions: kotlin.collections.List<Permission>,
+    val permissions: kotlin.collections.List<ConsentPermission>,
 
     @Json(name = "additional_permissions")
-    val additionalPermissions: kotlin.collections.List<Permission>,
+    val additionalPermissions: kotlin.collections.List<ConsentPermission>,
 
     @Json(name = "token")
     val token: kotlin.String,

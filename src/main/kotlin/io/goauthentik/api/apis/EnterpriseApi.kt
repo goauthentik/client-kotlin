@@ -133,7 +133,7 @@ class EnterpriseApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCli
     /**
      * 
      * License Viewset
-     * @param licenseUuid A UUID string identifying this license.
+     * @param licenseUuid A UUID string identifying this License.
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -163,7 +163,7 @@ class EnterpriseApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCli
     /**
      * 
      * License Viewset
-     * @param licenseUuid A UUID string identifying this license.
+     * @param licenseUuid A UUID string identifying this License.
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -180,7 +180,7 @@ class EnterpriseApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCli
     /**
      * To obtain the request config of the operation enterpriseLicenseDestroy
      *
-     * @param licenseUuid A UUID string identifying this license.
+     * @param licenseUuid A UUID string identifying this License.
      * @return RequestConfig
      */
     fun enterpriseLicenseDestroyRequestConfig(licenseUuid: java.util.UUID) : RequestConfig<Unit> {
@@ -434,7 +434,7 @@ class EnterpriseApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCli
     /**
      * 
      * License Viewset
-     * @param licenseUuid A UUID string identifying this license.
+     * @param licenseUuid A UUID string identifying this License.
      * @param patchedLicenseRequest  (optional)
      * @return License
      * @throws IllegalStateException If the request is not correctly configured
@@ -466,7 +466,7 @@ class EnterpriseApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCli
     /**
      * 
      * License Viewset
-     * @param licenseUuid A UUID string identifying this license.
+     * @param licenseUuid A UUID string identifying this License.
      * @param patchedLicenseRequest  (optional)
      * @return ApiResponse<License?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -485,7 +485,7 @@ class EnterpriseApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCli
     /**
      * To obtain the request config of the operation enterpriseLicensePartialUpdate
      *
-     * @param licenseUuid A UUID string identifying this license.
+     * @param licenseUuid A UUID string identifying this License.
      * @param patchedLicenseRequest  (optional)
      * @return RequestConfig
      */
@@ -508,7 +508,7 @@ class EnterpriseApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCli
     /**
      * 
      * License Viewset
-     * @param licenseUuid A UUID string identifying this license.
+     * @param licenseUuid A UUID string identifying this License.
      * @return License
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -539,7 +539,7 @@ class EnterpriseApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCli
     /**
      * 
      * License Viewset
-     * @param licenseUuid A UUID string identifying this license.
+     * @param licenseUuid A UUID string identifying this License.
      * @return ApiResponse<License?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -557,7 +557,7 @@ class EnterpriseApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCli
     /**
      * To obtain the request config of the operation enterpriseLicenseRetrieve
      *
-     * @param licenseUuid A UUID string identifying this license.
+     * @param licenseUuid A UUID string identifying this License.
      * @return RequestConfig
      */
     fun enterpriseLicenseRetrieveRequestConfig(licenseUuid: java.util.UUID) : RequestConfig<Unit> {
@@ -645,7 +645,7 @@ class EnterpriseApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCli
     /**
      * 
      * License Viewset
-     * @param licenseUuid A UUID string identifying this license.
+     * @param licenseUuid A UUID string identifying this License.
      * @param licenseRequest 
      * @return License
      * @throws IllegalStateException If the request is not correctly configured
@@ -677,7 +677,7 @@ class EnterpriseApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCli
     /**
      * 
      * License Viewset
-     * @param licenseUuid A UUID string identifying this license.
+     * @param licenseUuid A UUID string identifying this License.
      * @param licenseRequest 
      * @return ApiResponse<License?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -696,7 +696,7 @@ class EnterpriseApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCli
     /**
      * To obtain the request config of the operation enterpriseLicenseUpdate
      *
-     * @param licenseUuid A UUID string identifying this license.
+     * @param licenseUuid A UUID string identifying this License.
      * @param licenseRequest 
      * @return RequestConfig
      */
@@ -719,7 +719,7 @@ class EnterpriseApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCli
     /**
      * 
      * Get a list of all objects that use this object
-     * @param licenseUuid A UUID string identifying this license.
+     * @param licenseUuid A UUID string identifying this License.
      * @return kotlin.collections.List<UsedBy>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -750,7 +750,7 @@ class EnterpriseApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCli
     /**
      * 
      * Get a list of all objects that use this object
-     * @param licenseUuid A UUID string identifying this license.
+     * @param licenseUuid A UUID string identifying this License.
      * @return ApiResponse<kotlin.collections.List<UsedBy>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -768,7 +768,7 @@ class EnterpriseApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCli
     /**
      * To obtain the request config of the operation enterpriseLicenseUsedByList
      *
-     * @param licenseUuid A UUID string identifying this license.
+     * @param licenseUuid A UUID string identifying this License.
      * @return RequestConfig
      */
     fun enterpriseLicenseUsedByListRequestConfig(licenseUuid: java.util.UUID) : RequestConfig<Unit> {

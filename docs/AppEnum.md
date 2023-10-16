@@ -42,6 +42,8 @@
 
     * `providersPeriodScim` (value: `"authentik.providers.scim"`)
 
+    * `rbac` (value: `"authentik.rbac"`)
+
     * `recovery` (value: `"authentik.recovery"`)
 
     * `sourcesPeriodLdap` (value: `"authentik.sources.ldap"`)

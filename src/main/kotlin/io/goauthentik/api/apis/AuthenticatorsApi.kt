@@ -1134,7 +1134,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for static authenticator devices (for admins)
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1164,7 +1164,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for static authenticator devices (for admins)
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1181,7 +1181,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * To obtain the request config of the operation authenticatorsAdminStaticDestroy
      *
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @return RequestConfig
      */
     fun authenticatorsAdminStaticDestroyRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
@@ -1301,7 +1301,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for static authenticator devices (for admins)
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @param patchedStaticDeviceRequest  (optional)
      * @return StaticDevice
      * @throws IllegalStateException If the request is not correctly configured
@@ -1333,7 +1333,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for static authenticator devices (for admins)
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @param patchedStaticDeviceRequest  (optional)
      * @return ApiResponse<StaticDevice?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -1352,7 +1352,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * To obtain the request config of the operation authenticatorsAdminStaticPartialUpdate
      *
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @param patchedStaticDeviceRequest  (optional)
      * @return RequestConfig
      */
@@ -1375,7 +1375,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for static authenticator devices (for admins)
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @return StaticDevice
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1406,7 +1406,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for static authenticator devices (for admins)
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @return ApiResponse<StaticDevice?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1424,7 +1424,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * To obtain the request config of the operation authenticatorsAdminStaticRetrieve
      *
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @return RequestConfig
      */
     fun authenticatorsAdminStaticRetrieveRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
@@ -1445,7 +1445,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for static authenticator devices (for admins)
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @param staticDeviceRequest 
      * @return StaticDevice
      * @throws IllegalStateException If the request is not correctly configured
@@ -1477,7 +1477,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for static authenticator devices (for admins)
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @param staticDeviceRequest 
      * @return ApiResponse<StaticDevice?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -1496,7 +1496,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * To obtain the request config of the operation authenticatorsAdminStaticUpdate
      *
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @param staticDeviceRequest 
      * @return RequestConfig
      */
@@ -1590,7 +1590,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for totp authenticator devices (for admins)
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1620,7 +1620,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for totp authenticator devices (for admins)
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1637,7 +1637,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * To obtain the request config of the operation authenticatorsAdminTotpDestroy
      *
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @return RequestConfig
      */
     fun authenticatorsAdminTotpDestroyRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
@@ -1757,7 +1757,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for totp authenticator devices (for admins)
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @param patchedTOTPDeviceRequest  (optional)
      * @return TOTPDevice
      * @throws IllegalStateException If the request is not correctly configured
@@ -1789,7 +1789,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for totp authenticator devices (for admins)
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @param patchedTOTPDeviceRequest  (optional)
      * @return ApiResponse<TOTPDevice?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -1808,7 +1808,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * To obtain the request config of the operation authenticatorsAdminTotpPartialUpdate
      *
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @param patchedTOTPDeviceRequest  (optional)
      * @return RequestConfig
      */
@@ -1831,7 +1831,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for totp authenticator devices (for admins)
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @return TOTPDevice
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1862,7 +1862,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for totp authenticator devices (for admins)
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @return ApiResponse<TOTPDevice?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1880,7 +1880,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * To obtain the request config of the operation authenticatorsAdminTotpRetrieve
      *
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @return RequestConfig
      */
     fun authenticatorsAdminTotpRetrieveRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
@@ -1901,7 +1901,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for totp authenticator devices (for admins)
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @param toTPDeviceRequest 
      * @return TOTPDevice
      * @throws IllegalStateException If the request is not correctly configured
@@ -1933,7 +1933,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for totp authenticator devices (for admins)
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @param toTPDeviceRequest 
      * @return ApiResponse<TOTPDevice?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -1952,7 +1952,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * To obtain the request config of the operation authenticatorsAdminTotpUpdate
      *
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @param toTPDeviceRequest 
      * @return RequestConfig
      */
@@ -3408,7 +3408,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for static authenticator devices
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3438,7 +3438,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for static authenticator devices
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3455,7 +3455,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * To obtain the request config of the operation authenticatorsStaticDestroy
      *
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @return RequestConfig
      */
     fun authenticatorsStaticDestroyRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
@@ -3575,7 +3575,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for static authenticator devices
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @param patchedStaticDeviceRequest  (optional)
      * @return StaticDevice
      * @throws IllegalStateException If the request is not correctly configured
@@ -3607,7 +3607,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for static authenticator devices
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @param patchedStaticDeviceRequest  (optional)
      * @return ApiResponse<StaticDevice?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -3626,7 +3626,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * To obtain the request config of the operation authenticatorsStaticPartialUpdate
      *
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @param patchedStaticDeviceRequest  (optional)
      * @return RequestConfig
      */
@@ -3649,7 +3649,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for static authenticator devices
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @return StaticDevice
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3680,7 +3680,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for static authenticator devices
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @return ApiResponse<StaticDevice?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3698,7 +3698,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * To obtain the request config of the operation authenticatorsStaticRetrieve
      *
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @return RequestConfig
      */
     fun authenticatorsStaticRetrieveRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
@@ -3719,7 +3719,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for static authenticator devices
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @param staticDeviceRequest 
      * @return StaticDevice
      * @throws IllegalStateException If the request is not correctly configured
@@ -3751,7 +3751,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for static authenticator devices
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @param staticDeviceRequest 
      * @return ApiResponse<StaticDevice?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -3770,7 +3770,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * To obtain the request config of the operation authenticatorsStaticUpdate
      *
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @param staticDeviceRequest 
      * @return RequestConfig
      */
@@ -3793,7 +3793,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Get a list of all objects that use this object
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @return kotlin.collections.List<UsedBy>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3824,7 +3824,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Get a list of all objects that use this object
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @return ApiResponse<kotlin.collections.List<UsedBy>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3842,7 +3842,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * To obtain the request config of the operation authenticatorsStaticUsedByList
      *
-     * @param id A unique integer value identifying this Static device.
+     * @param id A unique integer value identifying this Static Device.
      * @return RequestConfig
      */
     fun authenticatorsStaticUsedByListRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
@@ -3863,7 +3863,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for totp authenticator devices
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3893,7 +3893,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for totp authenticator devices
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3910,7 +3910,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * To obtain the request config of the operation authenticatorsTotpDestroy
      *
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @return RequestConfig
      */
     fun authenticatorsTotpDestroyRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
@@ -4030,7 +4030,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for totp authenticator devices
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @param patchedTOTPDeviceRequest  (optional)
      * @return TOTPDevice
      * @throws IllegalStateException If the request is not correctly configured
@@ -4062,7 +4062,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for totp authenticator devices
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @param patchedTOTPDeviceRequest  (optional)
      * @return ApiResponse<TOTPDevice?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -4081,7 +4081,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * To obtain the request config of the operation authenticatorsTotpPartialUpdate
      *
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @param patchedTOTPDeviceRequest  (optional)
      * @return RequestConfig
      */
@@ -4104,7 +4104,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for totp authenticator devices
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @return TOTPDevice
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -4135,7 +4135,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for totp authenticator devices
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @return ApiResponse<TOTPDevice?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -4153,7 +4153,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * To obtain the request config of the operation authenticatorsTotpRetrieve
      *
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @return RequestConfig
      */
     fun authenticatorsTotpRetrieveRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
@@ -4174,7 +4174,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for totp authenticator devices
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @param toTPDeviceRequest 
      * @return TOTPDevice
      * @throws IllegalStateException If the request is not correctly configured
@@ -4206,7 +4206,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Viewset for totp authenticator devices
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @param toTPDeviceRequest 
      * @return ApiResponse<TOTPDevice?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -4225,7 +4225,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * To obtain the request config of the operation authenticatorsTotpUpdate
      *
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @param toTPDeviceRequest 
      * @return RequestConfig
      */
@@ -4248,7 +4248,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Get a list of all objects that use this object
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @return kotlin.collections.List<UsedBy>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -4279,7 +4279,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * 
      * Get a list of all objects that use this object
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @return ApiResponse<kotlin.collections.List<UsedBy>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -4297,7 +4297,7 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
     /**
      * To obtain the request config of the operation authenticatorsTotpUsedByList
      *
-     * @param id A unique integer value identifying this TOTP device.
+     * @param id A unique integer value identifying this TOTP Device.
      * @return RequestConfig
      */
     fun authenticatorsTotpUsedByListRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {

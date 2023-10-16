@@ -21,6 +21,7 @@
 package io.goauthentik.api.models
 
 import io.goauthentik.api.models.GroupMember
+import io.goauthentik.api.models.Role
 
 import com.squareup.moshi.Json
 
@@ -32,10 +33,12 @@ import com.squareup.moshi.Json
  * @param name 
  * @param parentName 
  * @param usersObj 
+ * @param rolesObj 
  * @param isSuperuser Users added to this group will be superusers.
  * @param parent 
  * @param users 
  * @param attributes 
+ * @param roles 
  */
 
 data class Group (
@@ -55,6 +58,9 @@ data class Group (
     @Json(name = "users_obj")
     val usersObj: kotlin.collections.List<GroupMember>,
 
+    @Json(name = "roles_obj")
+    val rolesObj: kotlin.collections.List<Role>,
+
     /* Users added to this group will be superusers. */
     @Json(name = "is_superuser")
     val isSuperuser: kotlin.Boolean? = null,
@@ -66,7 +72,10 @@ data class Group (
     val users: kotlin.collections.List<kotlin.Int>? = null,
 
     @Json(name = "attributes")
-    val attributes: kotlin.collections.Map<kotlin.String, kotlin.Any>? = null
+    val attributes: kotlin.collections.Map<kotlin.String, kotlin.Any>? = null,
+
+    @Json(name = "roles")
+    val roles: kotlin.collections.List<java.util.UUID>? = null
 
 )
 

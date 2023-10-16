@@ -66,6 +66,8 @@
 
     * `providersScimPeriodScimmapping` (value: `"authentik_providers_scim.scimmapping"`)
 
+    * `rbacPeriodRole` (value: `"authentik_rbac.role"`)
+
     * `sourcesLdapPeriodLdapsource` (value: `"authentik_sources_ldap.ldapsource"`)
 
     * `sourcesLdapPeriodLdappropertymapping` (value: `"authentik_sources_ldap.ldappropertymapping"`)
@@ -147,6 +149,8 @@
     * `corePeriodApplication` (value: `"authentik_core.application"`)
 
     * `corePeriodToken` (value: `"authentik_core.token"`)
+
+    * `enterprisePeriodLicense` (value: `"authentik_enterprise.license"`)
 
     * `unknownDefaultOpenApi` (value: `"unknown_default_open_api"`)
 
