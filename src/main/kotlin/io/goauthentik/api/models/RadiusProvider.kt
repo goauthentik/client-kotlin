@@ -42,6 +42,7 @@ import com.squareup.moshi.Json
  * @param propertyMappings 
  * @param clientNetworks List of CIDRs (comma-separated) that clients can connect from. A more specific CIDR will match before a looser one. Clients connecting from a non-specified CIDR will be dropped.
  * @param sharedSecret Shared secret between clients and server to hash packets.
+ * @param mfaSupport When enabled, code-based multi-factor authentication can be used by appending a semicolon and the TOTP code to the password. This should only be enabled if all users that will bind to this provider have a TOTP device configured, as otherwise a password may incorrectly be rejected if it contains a semicolon.
  */
 
 data class RadiusProvider (
@@ -104,7 +105,11 @@ data class RadiusProvider (
 
     /* Shared secret between clients and server to hash packets. */
     @Json(name = "shared_secret")
-    val sharedSecret: kotlin.String? = null
+    val sharedSecret: kotlin.String? = null,
+
+    /* When enabled, code-based multi-factor authentication can be used by appending a semicolon and the TOTP code to the password. This should only be enabled if all users that will bind to this provider have a TOTP device configured, as otherwise a password may incorrectly be rejected if it contains a semicolon. */
+    @Json(name = "mfa_support")
+    val mfaSupport: kotlin.Boolean? = null
 
 )
 
