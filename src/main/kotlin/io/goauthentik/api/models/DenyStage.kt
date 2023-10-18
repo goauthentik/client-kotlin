@@ -34,6 +34,7 @@ import com.squareup.moshi.Json
  * @param verboseNamePlural Return object's plural verbose_name
  * @param metaModelName Return internal model name
  * @param flowSet 
+ * @param denyMessage 
  */
 
 data class DenyStage (
@@ -61,7 +62,10 @@ data class DenyStage (
     val metaModelName: kotlin.String,
 
     @Json(name = "flow_set")
-    val flowSet: kotlin.collections.List<FlowSet>? = null
+    val flowSet: kotlin.collections.List<FlowSet>? = null,
+
+    @Json(name = "deny_message")
+    val denyMessage: kotlin.String? = null
 
 )
 

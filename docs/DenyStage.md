@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **verboseNamePlural** | **kotlin.String** | Return object&#39;s plural verbose_name |  [readonly]
 **metaModelName** | **kotlin.String** | Return internal model name |  [readonly]
 **flowSet** | [**kotlin.collections.List&lt;FlowSet&gt;**](FlowSet.md) |  |  [optional]
+**denyMessage** | **kotlin.String** |  |  [optional]
 
 
 

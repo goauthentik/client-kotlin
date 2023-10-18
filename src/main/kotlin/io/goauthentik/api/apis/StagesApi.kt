@@ -5425,6 +5425,7 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * 
      * DenyStage Viewset
+     * @param denyMessage  (optional)
      * @param name  (optional)
      * @param ordering Which field to use when ordering the results. (optional)
      * @param page A page number within the paginated result set. (optional)
@@ -5440,8 +5441,8 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun stagesDenyList(name: kotlin.String? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null, stageUuid: java.util.UUID? = null) : PaginatedDenyStageList {
-        val localVarResponse = stagesDenyListWithHttpInfo(name = name, ordering = ordering, page = page, pageSize = pageSize, search = search, stageUuid = stageUuid)
+    fun stagesDenyList(denyMessage: kotlin.String? = null, name: kotlin.String? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null, stageUuid: java.util.UUID? = null) : PaginatedDenyStageList {
+        val localVarResponse = stagesDenyListWithHttpInfo(denyMessage = denyMessage, name = name, ordering = ordering, page = page, pageSize = pageSize, search = search, stageUuid = stageUuid)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedDenyStageList
@@ -5461,6 +5462,7 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * 
      * DenyStage Viewset
+     * @param denyMessage  (optional)
      * @param name  (optional)
      * @param ordering Which field to use when ordering the results. (optional)
      * @param page A page number within the paginated result set. (optional)
@@ -5473,8 +5475,8 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun stagesDenyListWithHttpInfo(name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, stageUuid: java.util.UUID?) : ApiResponse<PaginatedDenyStageList?> {
-        val localVariableConfig = stagesDenyListRequestConfig(name = name, ordering = ordering, page = page, pageSize = pageSize, search = search, stageUuid = stageUuid)
+    fun stagesDenyListWithHttpInfo(denyMessage: kotlin.String?, name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, stageUuid: java.util.UUID?) : ApiResponse<PaginatedDenyStageList?> {
+        val localVariableConfig = stagesDenyListRequestConfig(denyMessage = denyMessage, name = name, ordering = ordering, page = page, pageSize = pageSize, search = search, stageUuid = stageUuid)
 
         return request<Unit, PaginatedDenyStageList>(
             localVariableConfig
@@ -5484,6 +5486,7 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * To obtain the request config of the operation stagesDenyList
      *
+     * @param denyMessage  (optional)
      * @param name  (optional)
      * @param ordering Which field to use when ordering the results. (optional)
      * @param page A page number within the paginated result set. (optional)
@@ -5492,10 +5495,13 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      * @param stageUuid  (optional)
      * @return RequestConfig
      */
-    fun stagesDenyListRequestConfig(name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, stageUuid: java.util.UUID?) : RequestConfig<Unit> {
+    fun stagesDenyListRequestConfig(denyMessage: kotlin.String?, name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, stageUuid: java.util.UUID?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (denyMessage != null) {
+                    put("deny_message", listOf(denyMessage.toString()))
+                }
                 if (name != null) {
                     put("name", listOf(name.toString()))
                 }

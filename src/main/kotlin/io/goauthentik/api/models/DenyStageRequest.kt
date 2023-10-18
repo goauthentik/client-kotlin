@@ -29,6 +29,7 @@ import com.squareup.moshi.Json
  *
  * @param name 
  * @param flowSet 
+ * @param denyMessage 
  */
 
 data class DenyStageRequest (
@@ -37,7 +38,10 @@ data class DenyStageRequest (
     val name: kotlin.String,
 
     @Json(name = "flow_set")
-    val flowSet: kotlin.collections.List<FlowSetRequest>? = null
+    val flowSet: kotlin.collections.List<FlowSetRequest>? = null,
+
+    @Json(name = "deny_message")
+    val denyMessage: kotlin.String? = null
 
 )
 

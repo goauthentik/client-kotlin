@@ -3673,7 +3673,7 @@ Configure authentik:
 
 <a name="stagesDenyList"></a>
 # **stagesDenyList**
-> PaginatedDenyStageList stagesDenyList(name, ordering, page, pageSize, search, stageUuid)
+> PaginatedDenyStageList stagesDenyList(denyMessage, name, ordering, page, pageSize, search, stageUuid)
 
 
 
@@ -3686,6 +3686,7 @@ DenyStage Viewset
 //import io.goauthentik.api.models.*
 
 val apiInstance = StagesApi()
+val denyMessage : kotlin.String = denyMessage_example // kotlin.String | 
 val name : kotlin.String = name_example // kotlin.String | 
 val ordering : kotlin.String = ordering_example // kotlin.String | Which field to use when ordering the results.
 val page : kotlin.Int = 56 // kotlin.Int | A page number within the paginated result set.
@@ -3693,7 +3694,7 @@ val pageSize : kotlin.Int = 56 // kotlin.Int | Number of results to return per p
 val search : kotlin.String = search_example // kotlin.String | A search term.
 val stageUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 try {
-    val result : PaginatedDenyStageList = apiInstance.stagesDenyList(name, ordering, page, pageSize, search, stageUuid)
+    val result : PaginatedDenyStageList = apiInstance.stagesDenyList(denyMessage, name, ordering, page, pageSize, search, stageUuid)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling StagesApi#stagesDenyList")
@@ -3708,6 +3709,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **denyMessage** | **kotlin.String**|  | [optional]
  **name** | **kotlin.String**|  | [optional]
  **ordering** | **kotlin.String**| Which field to use when ordering the results. | [optional]
  **page** | **kotlin.Int**| A page number within the paginated result set. | [optional]
