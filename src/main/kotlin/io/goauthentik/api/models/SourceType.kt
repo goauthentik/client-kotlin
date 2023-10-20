@@ -33,6 +33,8 @@ import com.squareup.moshi.Json
  * @param authorizationUrl 
  * @param accessTokenUrl 
  * @param profileUrl 
+ * @param oidcWellKnownUrl 
+ * @param oidcJwksUrl 
  */
 
 data class SourceType (
@@ -56,7 +58,13 @@ data class SourceType (
     val accessTokenUrl: kotlin.String?,
 
     @Json(name = "profile_url")
-    val profileUrl: kotlin.String?
+    val profileUrl: kotlin.String?,
+
+    @Json(name = "oidc_well_known_url")
+    val oidcWellKnownUrl: kotlin.String?,
+
+    @Json(name = "oidc_jwks_url")
+    val oidcJwksUrl: kotlin.String?
 
 )
 

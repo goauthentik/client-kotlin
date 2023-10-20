@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **authorizationUrl** | **kotlin.String** |  |  [readonly]
 **accessTokenUrl** | **kotlin.String** |  |  [readonly]
 **profileUrl** | **kotlin.String** |  |  [readonly]
+**oidcWellKnownUrl** | **kotlin.String** |  |  [readonly]
+**oidcJwksUrl** | **kotlin.String** |  |  [readonly]
 
 
 
