@@ -22,6 +22,7 @@ package io.goauthentik.api.models
 
 import io.goauthentik.api.models.FlowSet
 import io.goauthentik.api.models.UserCreationModeEnum
+import io.goauthentik.api.models.UserTypeEnum
 
 import com.squareup.moshi.Json
 
@@ -38,6 +39,7 @@ import com.squareup.moshi.Json
  * @param userCreationMode 
  * @param createUsersAsInactive When set, newly created users are inactive and cannot login.
  * @param createUsersGroup Optionally add newly created users to this group.
+ * @param userType 
  * @param userPathTemplate 
  */
 
@@ -78,6 +80,9 @@ data class UserWriteStage (
     /* Optionally add newly created users to this group. */
     @Json(name = "create_users_group")
     val createUsersGroup: java.util.UUID? = null,
+
+    @Json(name = "user_type")
+    val userType: UserTypeEnum? = null,
 
     @Json(name = "user_path_template")
     val userPathTemplate: kotlin.String? = null

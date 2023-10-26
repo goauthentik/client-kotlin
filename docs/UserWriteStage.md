@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **userCreationMode** | [**UserCreationModeEnum**](UserCreationModeEnum.md) |  |  [optional]
 **createUsersAsInactive** | **kotlin.Boolean** | When set, newly created users are inactive and cannot login. |  [optional]
 **createUsersGroup** | [**java.util.UUID**](java.util.UUID.md) | Optionally add newly created users to this group. |  [optional]
+**userType** | [**UserTypeEnum**](UserTypeEnum.md) |  |  [optional]
 **userPathTemplate** | **kotlin.String** |  |  [optional]
 
 

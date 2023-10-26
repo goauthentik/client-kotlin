@@ -12170,6 +12170,16 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      }
 
     /**
+     * enum for parameter userType
+     */
+     enum class UserType_stagesUserWriteList(val value: kotlin.String) {
+         @Json(name = "external") `external`("external"),
+         @Json(name = "internal") `internal`("internal"),
+         @Json(name = "internal_service_account") internalServiceAccount("internal_service_account"),
+         @Json(name = "service_account") serviceAccount("service_account"),
+     }
+
+    /**
      * 
      * UserWriteStage Viewset
      * @param createUsersAsInactive  (optional)
@@ -12182,6 +12192,7 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      * @param stageUuid  (optional)
      * @param userCreationMode * &#x60;never_create&#x60; - Never Create * &#x60;create_when_required&#x60; - Create When Required * &#x60;always_create&#x60; - Always Create (optional)
      * @param userPathTemplate  (optional)
+     * @param userType * &#x60;internal&#x60; - Internal * &#x60;external&#x60; - External * &#x60;service_account&#x60; - Service Account * &#x60;internal_service_account&#x60; - Internal Service Account (optional)
      * @return PaginatedUserWriteStageList
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -12191,8 +12202,8 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun stagesUserWriteList(createUsersAsInactive: kotlin.Boolean? = null, createUsersGroup: java.util.UUID? = null, name: kotlin.String? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null, stageUuid: java.util.UUID? = null, userCreationMode: UserCreationMode_stagesUserWriteList? = null, userPathTemplate: kotlin.String? = null) : PaginatedUserWriteStageList {
-        val localVarResponse = stagesUserWriteListWithHttpInfo(createUsersAsInactive = createUsersAsInactive, createUsersGroup = createUsersGroup, name = name, ordering = ordering, page = page, pageSize = pageSize, search = search, stageUuid = stageUuid, userCreationMode = userCreationMode, userPathTemplate = userPathTemplate)
+    fun stagesUserWriteList(createUsersAsInactive: kotlin.Boolean? = null, createUsersGroup: java.util.UUID? = null, name: kotlin.String? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null, stageUuid: java.util.UUID? = null, userCreationMode: UserCreationMode_stagesUserWriteList? = null, userPathTemplate: kotlin.String? = null, userType: UserType_stagesUserWriteList? = null) : PaginatedUserWriteStageList {
+        val localVarResponse = stagesUserWriteListWithHttpInfo(createUsersAsInactive = createUsersAsInactive, createUsersGroup = createUsersGroup, name = name, ordering = ordering, page = page, pageSize = pageSize, search = search, stageUuid = stageUuid, userCreationMode = userCreationMode, userPathTemplate = userPathTemplate, userType = userType)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedUserWriteStageList
@@ -12222,14 +12233,15 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      * @param stageUuid  (optional)
      * @param userCreationMode * &#x60;never_create&#x60; - Never Create * &#x60;create_when_required&#x60; - Create When Required * &#x60;always_create&#x60; - Always Create (optional)
      * @param userPathTemplate  (optional)
+     * @param userType * &#x60;internal&#x60; - Internal * &#x60;external&#x60; - External * &#x60;service_account&#x60; - Service Account * &#x60;internal_service_account&#x60; - Internal Service Account (optional)
      * @return ApiResponse<PaginatedUserWriteStageList?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun stagesUserWriteListWithHttpInfo(createUsersAsInactive: kotlin.Boolean?, createUsersGroup: java.util.UUID?, name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, stageUuid: java.util.UUID?, userCreationMode: UserCreationMode_stagesUserWriteList?, userPathTemplate: kotlin.String?) : ApiResponse<PaginatedUserWriteStageList?> {
-        val localVariableConfig = stagesUserWriteListRequestConfig(createUsersAsInactive = createUsersAsInactive, createUsersGroup = createUsersGroup, name = name, ordering = ordering, page = page, pageSize = pageSize, search = search, stageUuid = stageUuid, userCreationMode = userCreationMode, userPathTemplate = userPathTemplate)
+    fun stagesUserWriteListWithHttpInfo(createUsersAsInactive: kotlin.Boolean?, createUsersGroup: java.util.UUID?, name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, stageUuid: java.util.UUID?, userCreationMode: UserCreationMode_stagesUserWriteList?, userPathTemplate: kotlin.String?, userType: UserType_stagesUserWriteList?) : ApiResponse<PaginatedUserWriteStageList?> {
+        val localVariableConfig = stagesUserWriteListRequestConfig(createUsersAsInactive = createUsersAsInactive, createUsersGroup = createUsersGroup, name = name, ordering = ordering, page = page, pageSize = pageSize, search = search, stageUuid = stageUuid, userCreationMode = userCreationMode, userPathTemplate = userPathTemplate, userType = userType)
 
         return request<Unit, PaginatedUserWriteStageList>(
             localVariableConfig
@@ -12249,9 +12261,10 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      * @param stageUuid  (optional)
      * @param userCreationMode * &#x60;never_create&#x60; - Never Create * &#x60;create_when_required&#x60; - Create When Required * &#x60;always_create&#x60; - Always Create (optional)
      * @param userPathTemplate  (optional)
+     * @param userType * &#x60;internal&#x60; - Internal * &#x60;external&#x60; - External * &#x60;service_account&#x60; - Service Account * &#x60;internal_service_account&#x60; - Internal Service Account (optional)
      * @return RequestConfig
      */
-    fun stagesUserWriteListRequestConfig(createUsersAsInactive: kotlin.Boolean?, createUsersGroup: java.util.UUID?, name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, stageUuid: java.util.UUID?, userCreationMode: UserCreationMode_stagesUserWriteList?, userPathTemplate: kotlin.String?) : RequestConfig<Unit> {
+    fun stagesUserWriteListRequestConfig(createUsersAsInactive: kotlin.Boolean?, createUsersGroup: java.util.UUID?, name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, stageUuid: java.util.UUID?, userCreationMode: UserCreationMode_stagesUserWriteList?, userPathTemplate: kotlin.String?, userType: UserType_stagesUserWriteList?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -12284,6 +12297,9 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
                 }
                 if (userPathTemplate != null) {
                     put("user_path_template", listOf(userPathTemplate.toString()))
+                }
+                if (userType != null) {
+                    put("user_type", listOf(userType.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()

@@ -8189,7 +8189,7 @@ Configure authentik:
 
 <a name="stagesUserWriteList"></a>
 # **stagesUserWriteList**
-> PaginatedUserWriteStageList stagesUserWriteList(createUsersAsInactive, createUsersGroup, name, ordering, page, pageSize, search, stageUuid, userCreationMode, userPathTemplate)
+> PaginatedUserWriteStageList stagesUserWriteList(createUsersAsInactive, createUsersGroup, name, ordering, page, pageSize, search, stageUuid, userCreationMode, userPathTemplate, userType)
 
 
 
@@ -8212,8 +8212,9 @@ val search : kotlin.String = search_example // kotlin.String | A search term.
 val stageUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val userCreationMode : kotlin.String = userCreationMode_example // kotlin.String | * `never_create` - Never Create * `create_when_required` - Create When Required * `always_create` - Always Create
 val userPathTemplate : kotlin.String = userPathTemplate_example // kotlin.String | 
+val userType : kotlin.String = userType_example // kotlin.String | * `internal` - Internal * `external` - External * `service_account` - Service Account * `internal_service_account` - Internal Service Account
 try {
-    val result : PaginatedUserWriteStageList = apiInstance.stagesUserWriteList(createUsersAsInactive, createUsersGroup, name, ordering, page, pageSize, search, stageUuid, userCreationMode, userPathTemplate)
+    val result : PaginatedUserWriteStageList = apiInstance.stagesUserWriteList(createUsersAsInactive, createUsersGroup, name, ordering, page, pageSize, search, stageUuid, userCreationMode, userPathTemplate, userType)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling StagesApi#stagesUserWriteList")
@@ -8238,6 +8239,7 @@ Name | Type | Description  | Notes
  **stageUuid** | **java.util.UUID**|  | [optional]
  **userCreationMode** | **kotlin.String**| * &#x60;never_create&#x60; - Never Create * &#x60;create_when_required&#x60; - Create When Required * &#x60;always_create&#x60; - Always Create | [optional] [enum: always_create, create_when_required, never_create]
  **userPathTemplate** | **kotlin.String**|  | [optional]
+ **userType** | **kotlin.String**| * &#x60;internal&#x60; - Internal * &#x60;external&#x60; - External * &#x60;service_account&#x60; - Service Account * &#x60;internal_service_account&#x60; - Internal Service Account | [optional] [enum: external, internal, internal_service_account, service_account]
 
 ### Return type
 
