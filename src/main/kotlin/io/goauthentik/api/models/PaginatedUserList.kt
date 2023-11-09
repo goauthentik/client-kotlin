@@ -3,7 +3,7 @@
  *
  * Making authentication simple.
  *
- * The version of the OpenAPI document: 2023.10.2
+ * The version of the OpenAPI document: 2023.10.3
  * Contact: hello@goauthentik.io
  *
  * Please note:
