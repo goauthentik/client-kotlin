@@ -29,6 +29,7 @@ import io.goauthentik.api.models.GenericError
 import io.goauthentik.api.models.LDAPDebug
 import io.goauthentik.api.models.LDAPSource
 import io.goauthentik.api.models.LDAPSourceRequest
+import io.goauthentik.api.models.LDAPSyncStatus
 import io.goauthentik.api.models.OAuthSource
 import io.goauthentik.api.models.OAuthSourceRequest
 import io.goauthentik.api.models.PaginatedLDAPSourceList
@@ -58,7 +59,6 @@ import io.goauthentik.api.models.SAMLSource
 import io.goauthentik.api.models.SAMLSourceRequest
 import io.goauthentik.api.models.Source
 import io.goauthentik.api.models.SourceType
-import io.goauthentik.api.models.Task
 import io.goauthentik.api.models.TypeCreate
 import io.goauthentik.api.models.UsedBy
 import io.goauthentik.api.models.UserOAuthSourceConnection
@@ -1276,7 +1276,7 @@ class SourcesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * 
      * Get source&#39;s sync status
      * @param slug 
-     * @return kotlin.collections.List<Task>
+     * @return LDAPSyncStatus
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -1285,11 +1285,11 @@ class SourcesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun sourcesLdapSyncStatusList(slug: kotlin.String) : kotlin.collections.List<Task> {
-        val localVarResponse = sourcesLdapSyncStatusListWithHttpInfo(slug = slug)
+    fun sourcesLdapSyncStatusRetrieve(slug: kotlin.String) : LDAPSyncStatus {
+        val localVarResponse = sourcesLdapSyncStatusRetrieveWithHttpInfo(slug = slug)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Task>
+            ResponseType.Success -> (localVarResponse as Success<*>).data as LDAPSyncStatus
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -1307,27 +1307,27 @@ class SourcesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * 
      * Get source&#39;s sync status
      * @param slug 
-     * @return ApiResponse<kotlin.collections.List<Task>?>
+     * @return ApiResponse<LDAPSyncStatus?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun sourcesLdapSyncStatusListWithHttpInfo(slug: kotlin.String) : ApiResponse<kotlin.collections.List<Task>?> {
-        val localVariableConfig = sourcesLdapSyncStatusListRequestConfig(slug = slug)
+    fun sourcesLdapSyncStatusRetrieveWithHttpInfo(slug: kotlin.String) : ApiResponse<LDAPSyncStatus?> {
+        val localVariableConfig = sourcesLdapSyncStatusRetrieveRequestConfig(slug = slug)
 
-        return request<Unit, kotlin.collections.List<Task>>(
+        return request<Unit, LDAPSyncStatus>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation sourcesLdapSyncStatusList
+     * To obtain the request config of the operation sourcesLdapSyncStatusRetrieve
      *
      * @param slug 
      * @return RequestConfig
      */
-    fun sourcesLdapSyncStatusListRequestConfig(slug: kotlin.String) : RequestConfig<Unit> {
+    fun sourcesLdapSyncStatusRetrieveRequestConfig(slug: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()

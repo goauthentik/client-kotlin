@@ -39,6 +39,7 @@ import com.squareup.moshi.Json
  * @param icon Get the URL to the Icon. If the name is /static or starts with http it is returned as-is
  * @param serverUri 
  * @param baseDn 
+ * @param connectivity Get cached source connectivity
  * @param enabled 
  * @param authenticationFlow Flow to use when authenticating existing users.
  * @param enrollmentFlow Flow to use when enrolling new users.
@@ -106,6 +107,10 @@ data class LDAPSource (
 
     @Json(name = "base_dn")
     val baseDn: kotlin.String,
+
+    /* Get cached source connectivity */
+    @Json(name = "connectivity")
+    val connectivity: kotlin.collections.Map<kotlin.String, kotlin.collections.Map<kotlin.String, kotlin.String>>?,
 
     @Json(name = "enabled")
     val enabled: kotlin.Boolean? = null,

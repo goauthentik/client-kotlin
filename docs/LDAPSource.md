@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **icon** | **kotlin.String** | Get the URL to the Icon. If the name is /static or starts with http it is returned as-is |  [readonly]
 **serverUri** | [**java.net.URI**](java.net.URI.md) |  | 
 **baseDn** | **kotlin.String** |  | 
+**connectivity** | **kotlin.collections.Map&lt;kotlin.String, kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt;&gt;** | Get cached source connectivity |  [readonly]
 **enabled** | **kotlin.Boolean** |  |  [optional]
 **authenticationFlow** | [**java.util.UUID**](java.util.UUID.md) | Flow to use when authenticating existing users. |  [optional]
 **enrollmentFlow** | [**java.util.UUID**](java.util.UUID.md) | Flow to use when enrolling new users. |  [optional]

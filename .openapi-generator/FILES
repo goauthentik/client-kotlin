@@ -161,6 +161,7 @@ docs/LDAPProvider.md
 docs/LDAPProviderRequest.md
 docs/LDAPSource.md
 docs/LDAPSourceRequest.md
+docs/LDAPSyncStatus.md
 docs/LayoutEnum.md
 docs/License.md
 docs/LicenseForecast.md
@@ -716,6 +717,7 @@ src/main/kotlin/io/goauthentik/api/models/LDAPProvider.kt
 src/main/kotlin/io/goauthentik/api/models/LDAPProviderRequest.kt
 src/main/kotlin/io/goauthentik/api/models/LDAPSource.kt
 src/main/kotlin/io/goauthentik/api/models/LDAPSourceRequest.kt
+src/main/kotlin/io/goauthentik/api/models/LDAPSyncStatus.kt
 src/main/kotlin/io/goauthentik/api/models/LayoutEnum.kt
 src/main/kotlin/io/goauthentik/api/models/License.kt
 src/main/kotlin/io/goauthentik/api/models/LicenseForecast.kt

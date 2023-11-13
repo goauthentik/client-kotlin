@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**sourcesLdapList**](SourcesApi.md#sourcesLdapList) | **GET** /sources/ldap/ | 
 [**sourcesLdapPartialUpdate**](SourcesApi.md#sourcesLdapPartialUpdate) | **PATCH** /sources/ldap/{slug}/ | 
 [**sourcesLdapRetrieve**](SourcesApi.md#sourcesLdapRetrieve) | **GET** /sources/ldap/{slug}/ | 
-[**sourcesLdapSyncStatusList**](SourcesApi.md#sourcesLdapSyncStatusList) | **GET** /sources/ldap/{slug}/sync_status/ | 
+[**sourcesLdapSyncStatusRetrieve**](SourcesApi.md#sourcesLdapSyncStatusRetrieve) | **GET** /sources/ldap/{slug}/sync_status/ | 
 [**sourcesLdapUpdate**](SourcesApi.md#sourcesLdapUpdate) | **PUT** /sources/ldap/{slug}/ | 
 [**sourcesLdapUsedByList**](SourcesApi.md#sourcesLdapUsedByList) | **GET** /sources/ldap/{slug}/used_by/ | 
 [**sourcesOauthCreate**](SourcesApi.md#sourcesOauthCreate) | **POST** /sources/oauth/ | 
@@ -833,9 +833,9 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesLdapSyncStatusList"></a>
-# **sourcesLdapSyncStatusList**
-> kotlin.collections.List&lt;Task&gt; sourcesLdapSyncStatusList(slug)
+<a name="sourcesLdapSyncStatusRetrieve"></a>
+# **sourcesLdapSyncStatusRetrieve**
+> LDAPSyncStatus sourcesLdapSyncStatusRetrieve(slug)
 
 
 
@@ -850,13 +850,13 @@ Get source&#39;s sync status
 val apiInstance = SourcesApi()
 val slug : kotlin.String = slug_example // kotlin.String | 
 try {
-    val result : kotlin.collections.List<Task> = apiInstance.sourcesLdapSyncStatusList(slug)
+    val result : LDAPSyncStatus = apiInstance.sourcesLdapSyncStatusRetrieve(slug)
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling SourcesApi#sourcesLdapSyncStatusList")
+    println("4xx response calling SourcesApi#sourcesLdapSyncStatusRetrieve")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling SourcesApi#sourcesLdapSyncStatusList")
+    println("5xx response calling SourcesApi#sourcesLdapSyncStatusRetrieve")
     e.printStackTrace()
 }
 ```
@@ -869,7 +869,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**kotlin.collections.List&lt;Task&gt;**](Task.md)
+[**LDAPSyncStatus**](LDAPSyncStatus.md)
 
 ### Authorization
 
