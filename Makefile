@@ -24,7 +24,7 @@ build:
 	rm -rf ./test
 	rm -f .travis.yml git_push.sh
 	chmod +x ./gradlew
-	cp ./templates/build.gradle build.gradle
+	# cp ./templates/build.gradle build.gradle
 
 diff:
 	docker run \
