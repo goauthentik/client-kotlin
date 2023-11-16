@@ -2674,9 +2674,9 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * enum for parameter digits
      */
-     enum class DigitsStagesAuthenticatorTotpList(val value: kotlin.Int) {
-         @Json(name = "6") _6(6),
-         @Json(name = "8") _8(8),
+     enum class DigitsStagesAuthenticatorTotpList(val value: kotlin.String) {
+         @Json(name = "6") _6("6"),
+         @Json(name = "8") _8("8"),
      }
 
     /**
