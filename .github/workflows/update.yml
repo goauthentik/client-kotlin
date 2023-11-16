@@ -7,11 +7,17 @@ on:
 
 permissions:
   contents: write
+  packages: write
 
 jobs:
   schema:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-java@v3
+        with:
+          distribution: "temurin"
+          java-version: "19"
+          cache: "gradle"
       - id: generate_token
         uses: tibdex/github-app-token@v2
         with:
@@ -40,3 +46,9 @@ jobs:
           git tag $version
           git push --tags
           gh release create $version -F diff.log
+      - uses: gradle/gradle-build-action@v2
+        with:
+          arguments: publish
+          gradle-version: "8.2"
+        env:
+          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
