@@ -4,11 +4,11 @@
 ## Enum
 
 
-    * `_6` (value: `6`)
+    * `_6` (value: `"6"`)
 
-    * `_8` (value: `8`)
+    * `_8` (value: `"8"`)
 
-    * `unknownDefaultOpenApi` (value: `11184809`)
+    * `unknownDefaultOpenApi` (value: `"unknown_default_open_api"`)
 
 
 

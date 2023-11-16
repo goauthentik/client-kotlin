@@ -156,7 +156,7 @@ Configure authentik:
 
 <a id="adminSystemCreate"></a>
 # **adminSystemCreate**
-> System adminSystemCreate()
+> SystemInfo adminSystemCreate()
 
 
 
@@ -170,7 +170,7 @@ Get system information.
 
 val apiInstance = AdminApi()
 try {
-    val result : System = apiInstance.adminSystemCreate()
+    val result : SystemInfo = apiInstance.adminSystemCreate()
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AdminApi#adminSystemCreate")
@@ -186,7 +186,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**System**](System.md)
+[**SystemInfo**](SystemInfo.md)
 
 ### Authorization
 
@@ -202,7 +202,7 @@ Configure authentik:
 
 <a id="adminSystemRetrieve"></a>
 # **adminSystemRetrieve**
-> System adminSystemRetrieve()
+> SystemInfo adminSystemRetrieve()
 
 
 
@@ -216,7 +216,7 @@ Get system information.
 
 val apiInstance = AdminApi()
 try {
-    val result : System = apiInstance.adminSystemRetrieve()
+    val result : SystemInfo = apiInstance.adminSystemRetrieve()
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AdminApi#adminSystemRetrieve")
@@ -232,7 +232,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**System**](System.md)
+[**SystemInfo**](SystemInfo.md)
 
 ### Authorization
 

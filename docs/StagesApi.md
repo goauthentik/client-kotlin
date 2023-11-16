@@ -1850,7 +1850,7 @@ AuthenticatorTOTPStage Viewset
 
 val apiInstance = StagesApi()
 val configureFlow : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val digits : kotlin.Int = 56 // kotlin.Int | * `6` - 6 digits, widely compatible * `8` - 8 digits, not compatible with apps like Google Authenticator
+val digits : kotlin.String = digits_example // kotlin.String | * `6` - 6 digits, widely compatible * `8` - 8 digits, not compatible with apps like Google Authenticator
 val friendlyName : kotlin.String = friendlyName_example // kotlin.String | 
 val name : kotlin.String = name_example // kotlin.String | 
 val ordering : kotlin.String = ordering_example // kotlin.String | Which field to use when ordering the results.
@@ -1875,7 +1875,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **configureFlow** | **java.util.UUID**|  | [optional]
- **digits** | **kotlin.Int**| * &#x60;6&#x60; - 6 digits, widely compatible * &#x60;8&#x60; - 8 digits, not compatible with apps like Google Authenticator | [optional] [enum: 6, 8]
+ **digits** | **kotlin.String**| * &#x60;6&#x60; - 6 digits, widely compatible * &#x60;8&#x60; - 8 digits, not compatible with apps like Google Authenticator | [optional] [enum: 6, 8]
  **friendlyName** | **kotlin.String**|  | [optional]
  **name** | **kotlin.String**|  | [optional]
  **ordering** | **kotlin.String**| Which field to use when ordering the results. | [optional]
