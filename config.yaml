@@ -9,3 +9,7 @@ files:
   README.mustache:
     templateType: SupportingFiles
     destinationFilename: README.md
+  build.gradle.mustache:
+    destinationFilename: build.gradle
+  gradle-wrapper.properties.mustache:
+    destinationFilename: gradle/wrapper/gradle-wrapper.properties
