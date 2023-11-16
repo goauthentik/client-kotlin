@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **signatureAlgorithm** | [**SignatureAlgorithmEnum**](SignatureAlgorithmEnum.md) |  |  [optional]
 **signingKp** | [**java.util.UUID**](java.util.UUID.md) | Keypair used to sign outgoing Responses going to the Service Provider. |  [optional]
 **verificationKp** | [**java.util.UUID**](java.util.UUID.md) | When selected, incoming assertion&#39;s Signatures will be validated against this certificate. To allow unsigned Requests, leave on default. |  [optional]
-**spBinding** | [**SpBindingEnum**](SpBindingEnum.md) | This determines how authentik sends the response back to the Service Provider.  * &#x60;redirect&#x60; - Redirect * &#x60;post&#x60; - Post |  [optional]
+**spBinding** | [**SpBindingEnum**](SpBindingEnum.md) |  |  [optional]
 **defaultRelayState** | **kotlin.String** | Default relay_state value for IDP-initiated logins |  [optional]
 
 

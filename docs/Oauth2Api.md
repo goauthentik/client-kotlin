@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**oauth2RefreshTokensUsedByList**](Oauth2Api.md#oauth2RefreshTokensUsedByList) | **GET** /oauth2/refresh_tokens/{id}/used_by/ | 
 
 
-<a name="oauth2AccessTokensDestroy"></a>
+<a id="oauth2AccessTokensDestroy"></a>
 # **oauth2AccessTokensDestroy**
 > oauth2AccessTokensDestroy(id)
 
@@ -67,7 +67,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="oauth2AccessTokensList"></a>
+<a id="oauth2AccessTokensList"></a>
 # **oauth2AccessTokensList**
 > PaginatedTokenModelList oauth2AccessTokensList(ordering, page, pageSize, provider, search, user)
 
@@ -127,7 +127,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="oauth2AccessTokensRetrieve"></a>
+<a id="oauth2AccessTokensRetrieve"></a>
 # **oauth2AccessTokensRetrieve**
 > TokenModel oauth2AccessTokensRetrieve(id)
 
@@ -177,7 +177,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="oauth2AccessTokensUsedByList"></a>
+<a id="oauth2AccessTokensUsedByList"></a>
 # **oauth2AccessTokensUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; oauth2AccessTokensUsedByList(id)
 
@@ -227,7 +227,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="oauth2AuthorizationCodesDestroy"></a>
+<a id="oauth2AuthorizationCodesDestroy"></a>
 # **oauth2AuthorizationCodesDestroy**
 > oauth2AuthorizationCodesDestroy(id)
 
@@ -276,7 +276,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="oauth2AuthorizationCodesList"></a>
+<a id="oauth2AuthorizationCodesList"></a>
 # **oauth2AuthorizationCodesList**
 > PaginatedExpiringBaseGrantModelList oauth2AuthorizationCodesList(ordering, page, pageSize, provider, search, user)
 
@@ -336,7 +336,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="oauth2AuthorizationCodesRetrieve"></a>
+<a id="oauth2AuthorizationCodesRetrieve"></a>
 # **oauth2AuthorizationCodesRetrieve**
 > ExpiringBaseGrantModel oauth2AuthorizationCodesRetrieve(id)
 
@@ -386,7 +386,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="oauth2AuthorizationCodesUsedByList"></a>
+<a id="oauth2AuthorizationCodesUsedByList"></a>
 # **oauth2AuthorizationCodesUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; oauth2AuthorizationCodesUsedByList(id)
 
@@ -436,7 +436,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="oauth2RefreshTokensDestroy"></a>
+<a id="oauth2RefreshTokensDestroy"></a>
 # **oauth2RefreshTokensDestroy**
 > oauth2RefreshTokensDestroy(id)
 
@@ -485,7 +485,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="oauth2RefreshTokensList"></a>
+<a id="oauth2RefreshTokensList"></a>
 # **oauth2RefreshTokensList**
 > PaginatedTokenModelList oauth2RefreshTokensList(ordering, page, pageSize, provider, search, user)
 
@@ -545,7 +545,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="oauth2RefreshTokensRetrieve"></a>
+<a id="oauth2RefreshTokensRetrieve"></a>
 # **oauth2RefreshTokensRetrieve**
 > TokenModel oauth2RefreshTokensRetrieve(id)
 
@@ -595,7 +595,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="oauth2RefreshTokensUsedByList"></a>
+<a id="oauth2RefreshTokensUsedByList"></a>
 # **oauth2RefreshTokensUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; oauth2RefreshTokensUsedByList(id)
 

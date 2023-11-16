@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**schemaRetrieve**](SchemaApi.md#schemaRetrieve) | **GET** /schema/ | 
 
 
-<a name="schemaRetrieve"></a>
+<a id="schemaRetrieve"></a>
 # **schemaRetrieve**
 > kotlin.collections.Map&lt;kotlin.String, kotlin.Any&gt; schemaRetrieve(format, lang)
 

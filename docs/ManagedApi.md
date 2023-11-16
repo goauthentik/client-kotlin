@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**managedBlueprintsUsedByList**](ManagedApi.md#managedBlueprintsUsedByList) | **GET** /managed/blueprints/{instance_uuid}/used_by/ | 
 
 
-<a name="managedBlueprintsApplyCreate"></a>
+<a id="managedBlueprintsApplyCreate"></a>
 # **managedBlueprintsApplyCreate**
 > BlueprintInstance managedBlueprintsApplyCreate(instanceUuid)
 
@@ -65,7 +65,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="managedBlueprintsAvailableList"></a>
+<a id="managedBlueprintsAvailableList"></a>
 # **managedBlueprintsAvailableList**
 > kotlin.collections.List&lt;BlueprintFile&gt; managedBlueprintsAvailableList()
 
@@ -111,7 +111,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="managedBlueprintsCreate"></a>
+<a id="managedBlueprintsCreate"></a>
 # **managedBlueprintsCreate**
 > BlueprintInstance managedBlueprintsCreate(blueprintInstanceRequest)
 
@@ -161,7 +161,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="managedBlueprintsDestroy"></a>
+<a id="managedBlueprintsDestroy"></a>
 # **managedBlueprintsDestroy**
 > managedBlueprintsDestroy(instanceUuid)
 
@@ -210,7 +210,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="managedBlueprintsList"></a>
+<a id="managedBlueprintsList"></a>
 # **managedBlueprintsList**
 > PaginatedBlueprintInstanceList managedBlueprintsList(name, ordering, page, pageSize, path, search)
 
@@ -270,7 +270,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="managedBlueprintsPartialUpdate"></a>
+<a id="managedBlueprintsPartialUpdate"></a>
 # **managedBlueprintsPartialUpdate**
 > BlueprintInstance managedBlueprintsPartialUpdate(instanceUuid, patchedBlueprintInstanceRequest)
 
@@ -322,7 +322,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="managedBlueprintsRetrieve"></a>
+<a id="managedBlueprintsRetrieve"></a>
 # **managedBlueprintsRetrieve**
 > BlueprintInstance managedBlueprintsRetrieve(instanceUuid)
 
@@ -372,7 +372,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="managedBlueprintsUpdate"></a>
+<a id="managedBlueprintsUpdate"></a>
 # **managedBlueprintsUpdate**
 > BlueprintInstance managedBlueprintsUpdate(instanceUuid, blueprintInstanceRequest)
 
@@ -424,7 +424,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="managedBlueprintsUsedByList"></a>
+<a id="managedBlueprintsUsedByList"></a>
 # **managedBlueprintsUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; managedBlueprintsUsedByList(instanceUuid)
 

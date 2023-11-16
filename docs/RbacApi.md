@@ -23,7 +23,7 @@ Method | HTTP request | Description
 [**rbacRolesUsedByList**](RbacApi.md#rbacRolesUsedByList) | **GET** /rbac/roles/{uuid}/used_by/ | 
 
 
-<a name="rbacPermissionsAssignedByRolesAssignCreate"></a>
+<a id="rbacPermissionsAssignedByRolesAssignCreate"></a>
 # **rbacPermissionsAssignedByRolesAssignCreate**
 > rbacPermissionsAssignedByRolesAssignCreate(uuid, permissionAssignRequest)
 
@@ -74,7 +74,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="rbacPermissionsAssignedByRolesList"></a>
+<a id="rbacPermissionsAssignedByRolesList"></a>
 # **rbacPermissionsAssignedByRolesList**
 > PaginatedRoleAssignedObjectPermissionList rbacPermissionsAssignedByRolesList(model, objectPk, ordering, page, pageSize, search)
 
@@ -134,7 +134,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="rbacPermissionsAssignedByRolesUnassignPartialUpdate"></a>
+<a id="rbacPermissionsAssignedByRolesUnassignPartialUpdate"></a>
 # **rbacPermissionsAssignedByRolesUnassignPartialUpdate**
 > rbacPermissionsAssignedByRolesUnassignPartialUpdate(uuid, patchedPermissionAssignRequest)
 
@@ -185,7 +185,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="rbacPermissionsAssignedByUsersAssignCreate"></a>
+<a id="rbacPermissionsAssignedByUsersAssignCreate"></a>
 # **rbacPermissionsAssignedByUsersAssignCreate**
 > rbacPermissionsAssignedByUsersAssignCreate(id, permissionAssignRequest)
 
@@ -236,7 +236,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="rbacPermissionsAssignedByUsersList"></a>
+<a id="rbacPermissionsAssignedByUsersList"></a>
 # **rbacPermissionsAssignedByUsersList**
 > PaginatedUserAssignedObjectPermissionList rbacPermissionsAssignedByUsersList(model, objectPk, ordering, page, pageSize, search)
 
@@ -296,7 +296,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="rbacPermissionsAssignedByUsersUnassignPartialUpdate"></a>
+<a id="rbacPermissionsAssignedByUsersUnassignPartialUpdate"></a>
 # **rbacPermissionsAssignedByUsersUnassignPartialUpdate**
 > rbacPermissionsAssignedByUsersUnassignPartialUpdate(id, patchedPermissionAssignRequest)
 
@@ -347,7 +347,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="rbacPermissionsList"></a>
+<a id="rbacPermissionsList"></a>
 # **rbacPermissionsList**
 > PaginatedPermissionList rbacPermissionsList(codename, contentTypeAppLabel, contentTypeModel, ordering, page, pageSize, role, search, user)
 
@@ -413,7 +413,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="rbacPermissionsRetrieve"></a>
+<a id="rbacPermissionsRetrieve"></a>
 # **rbacPermissionsRetrieve**
 > Permission rbacPermissionsRetrieve(id)
 
@@ -463,7 +463,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="rbacPermissionsRolesList"></a>
+<a id="rbacPermissionsRolesList"></a>
 # **rbacPermissionsRolesList**
 > PaginatedExtraRoleObjectPermissionList rbacPermissionsRolesList(uuid, ordering, page, pageSize, search)
 
@@ -521,7 +521,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="rbacPermissionsUsersList"></a>
+<a id="rbacPermissionsUsersList"></a>
 # **rbacPermissionsUsersList**
 > PaginatedExtraUserObjectPermissionList rbacPermissionsUsersList(userId, ordering, page, pageSize, search)
 
@@ -579,7 +579,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="rbacRolesCreate"></a>
+<a id="rbacRolesCreate"></a>
 # **rbacRolesCreate**
 > Role rbacRolesCreate(roleRequest)
 
@@ -629,7 +629,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="rbacRolesDestroy"></a>
+<a id="rbacRolesDestroy"></a>
 # **rbacRolesDestroy**
 > rbacRolesDestroy(uuid)
 
@@ -678,7 +678,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="rbacRolesList"></a>
+<a id="rbacRolesList"></a>
 # **rbacRolesList**
 > PaginatedRoleList rbacRolesList(groupName, ordering, page, pageSize, search)
 
@@ -736,7 +736,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="rbacRolesPartialUpdate"></a>
+<a id="rbacRolesPartialUpdate"></a>
 # **rbacRolesPartialUpdate**
 > Role rbacRolesPartialUpdate(uuid, patchedRoleRequest)
 
@@ -788,7 +788,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="rbacRolesRetrieve"></a>
+<a id="rbacRolesRetrieve"></a>
 # **rbacRolesRetrieve**
 > Role rbacRolesRetrieve(uuid)
 
@@ -838,7 +838,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="rbacRolesUpdate"></a>
+<a id="rbacRolesUpdate"></a>
 # **rbacRolesUpdate**
 > Role rbacRolesUpdate(uuid, roleRequest)
 
@@ -890,7 +890,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="rbacRolesUsedByList"></a>
+<a id="rbacRolesUsedByList"></a>
 # **rbacRolesUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; rbacRolesUsedByList(uuid)
 

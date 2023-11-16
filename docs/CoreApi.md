@@ -68,7 +68,7 @@ Method | HTTP request | Description
 [**coreUsersUsedByList**](CoreApi.md#coreUsersUsedByList) | **GET** /core/users/{id}/used_by/ | 
 
 
-<a name="coreApplicationsCheckAccessRetrieve"></a>
+<a id="coreApplicationsCheckAccessRetrieve"></a>
 # **coreApplicationsCheckAccessRetrieve**
 > PolicyTestResult coreApplicationsCheckAccessRetrieve(slug, forUser)
 
@@ -120,7 +120,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreApplicationsCreate"></a>
+<a id="coreApplicationsCreate"></a>
 # **coreApplicationsCreate**
 > Application coreApplicationsCreate(applicationRequest)
 
@@ -170,7 +170,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreApplicationsDestroy"></a>
+<a id="coreApplicationsDestroy"></a>
 # **coreApplicationsDestroy**
 > coreApplicationsDestroy(slug)
 
@@ -219,7 +219,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreApplicationsList"></a>
+<a id="coreApplicationsList"></a>
 # **coreApplicationsList**
 > PaginatedApplicationList coreApplicationsList(group, metaDescription, metaLaunchUrl, metaPublisher, name, ordering, page, pageSize, search, slug, superuserFullList)
 
@@ -289,7 +289,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreApplicationsMetricsList"></a>
+<a id="coreApplicationsMetricsList"></a>
 # **coreApplicationsMetricsList**
 > kotlin.collections.List&lt;Coordinate&gt; coreApplicationsMetricsList(slug)
 
@@ -339,7 +339,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreApplicationsPartialUpdate"></a>
+<a id="coreApplicationsPartialUpdate"></a>
 # **coreApplicationsPartialUpdate**
 > Application coreApplicationsPartialUpdate(slug, patchedApplicationRequest)
 
@@ -391,7 +391,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreApplicationsRetrieve"></a>
+<a id="coreApplicationsRetrieve"></a>
 # **coreApplicationsRetrieve**
 > Application coreApplicationsRetrieve(slug)
 
@@ -441,7 +441,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreApplicationsSetIconCreate"></a>
+<a id="coreApplicationsSetIconCreate"></a>
 # **coreApplicationsSetIconCreate**
 > coreApplicationsSetIconCreate(slug, file, clear)
 
@@ -494,7 +494,7 @@ Configure authentik:
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
-<a name="coreApplicationsSetIconUrlCreate"></a>
+<a id="coreApplicationsSetIconUrlCreate"></a>
 # **coreApplicationsSetIconUrlCreate**
 > coreApplicationsSetIconUrlCreate(slug, filePathRequest)
 
@@ -545,7 +545,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreApplicationsUpdate"></a>
+<a id="coreApplicationsUpdate"></a>
 # **coreApplicationsUpdate**
 > Application coreApplicationsUpdate(slug, applicationRequest)
 
@@ -597,7 +597,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreApplicationsUsedByList"></a>
+<a id="coreApplicationsUsedByList"></a>
 # **coreApplicationsUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; coreApplicationsUsedByList(slug)
 
@@ -647,7 +647,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreAuthenticatedSessionsDestroy"></a>
+<a id="coreAuthenticatedSessionsDestroy"></a>
 # **coreAuthenticatedSessionsDestroy**
 > coreAuthenticatedSessionsDestroy(uuid)
 
@@ -696,7 +696,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreAuthenticatedSessionsList"></a>
+<a id="coreAuthenticatedSessionsList"></a>
 # **coreAuthenticatedSessionsList**
 > PaginatedAuthenticatedSessionList coreAuthenticatedSessionsList(lastIp, lastUserAgent, ordering, page, pageSize, search, userUsername)
 
@@ -758,7 +758,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreAuthenticatedSessionsRetrieve"></a>
+<a id="coreAuthenticatedSessionsRetrieve"></a>
 # **coreAuthenticatedSessionsRetrieve**
 > AuthenticatedSession coreAuthenticatedSessionsRetrieve(uuid)
 
@@ -808,7 +808,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreAuthenticatedSessionsUsedByList"></a>
+<a id="coreAuthenticatedSessionsUsedByList"></a>
 # **coreAuthenticatedSessionsUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; coreAuthenticatedSessionsUsedByList(uuid)
 
@@ -858,7 +858,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreGroupsAddUserCreate"></a>
+<a id="coreGroupsAddUserCreate"></a>
 # **coreGroupsAddUserCreate**
 > coreGroupsAddUserCreate(groupUuid, userAccountRequest)
 
@@ -909,7 +909,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreGroupsCreate"></a>
+<a id="coreGroupsCreate"></a>
 # **coreGroupsCreate**
 > Group coreGroupsCreate(groupRequest)
 
@@ -959,7 +959,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreGroupsDestroy"></a>
+<a id="coreGroupsDestroy"></a>
 # **coreGroupsDestroy**
 > coreGroupsDestroy(groupUuid)
 
@@ -1008,7 +1008,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreGroupsList"></a>
+<a id="coreGroupsList"></a>
 # **coreGroupsList**
 > PaginatedGroupList coreGroupsList(attributes, isSuperuser, membersByPk, membersByUsername, name, ordering, page, pageSize, search)
 
@@ -1074,7 +1074,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreGroupsPartialUpdate"></a>
+<a id="coreGroupsPartialUpdate"></a>
 # **coreGroupsPartialUpdate**
 > Group coreGroupsPartialUpdate(groupUuid, patchedGroupRequest)
 
@@ -1126,7 +1126,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreGroupsRemoveUserCreate"></a>
+<a id="coreGroupsRemoveUserCreate"></a>
 # **coreGroupsRemoveUserCreate**
 > coreGroupsRemoveUserCreate(groupUuid, userAccountRequest)
 
@@ -1177,7 +1177,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreGroupsRetrieve"></a>
+<a id="coreGroupsRetrieve"></a>
 # **coreGroupsRetrieve**
 > Group coreGroupsRetrieve(groupUuid)
 
@@ -1227,7 +1227,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreGroupsUpdate"></a>
+<a id="coreGroupsUpdate"></a>
 # **coreGroupsUpdate**
 > Group coreGroupsUpdate(groupUuid, groupRequest)
 
@@ -1279,7 +1279,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreGroupsUsedByList"></a>
+<a id="coreGroupsUsedByList"></a>
 # **coreGroupsUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; coreGroupsUsedByList(groupUuid)
 
@@ -1329,7 +1329,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreTenantsCreate"></a>
+<a id="coreTenantsCreate"></a>
 # **coreTenantsCreate**
 > Tenant coreTenantsCreate(tenantRequest)
 
@@ -1379,7 +1379,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreTenantsCurrentRetrieve"></a>
+<a id="coreTenantsCurrentRetrieve"></a>
 # **coreTenantsCurrentRetrieve**
 > CurrentTenant coreTenantsCurrentRetrieve()
 
@@ -1425,7 +1425,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreTenantsDestroy"></a>
+<a id="coreTenantsDestroy"></a>
 # **coreTenantsDestroy**
 > coreTenantsDestroy(tenantUuid)
 
@@ -1474,7 +1474,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreTenantsList"></a>
+<a id="coreTenantsList"></a>
 # **coreTenantsList**
 > PaginatedTenantList coreTenantsList(brandingFavicon, brandingLogo, brandingTitle, default, domain, eventRetention, flowAuthentication, flowDeviceCode, flowInvalidation, flowRecovery, flowUnenrollment, flowUserSettings, ordering, page, pageSize, search, tenantUuid, webCertificate)
 
@@ -1558,7 +1558,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreTenantsPartialUpdate"></a>
+<a id="coreTenantsPartialUpdate"></a>
 # **coreTenantsPartialUpdate**
 > Tenant coreTenantsPartialUpdate(tenantUuid, patchedTenantRequest)
 
@@ -1610,7 +1610,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreTenantsRetrieve"></a>
+<a id="coreTenantsRetrieve"></a>
 # **coreTenantsRetrieve**
 > Tenant coreTenantsRetrieve(tenantUuid)
 
@@ -1660,7 +1660,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreTenantsUpdate"></a>
+<a id="coreTenantsUpdate"></a>
 # **coreTenantsUpdate**
 > Tenant coreTenantsUpdate(tenantUuid, tenantRequest)
 
@@ -1712,7 +1712,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreTenantsUsedByList"></a>
+<a id="coreTenantsUsedByList"></a>
 # **coreTenantsUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; coreTenantsUsedByList(tenantUuid)
 
@@ -1762,7 +1762,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreTokensCreate"></a>
+<a id="coreTokensCreate"></a>
 # **coreTokensCreate**
 > Token coreTokensCreate(tokenRequest)
 
@@ -1812,7 +1812,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreTokensDestroy"></a>
+<a id="coreTokensDestroy"></a>
 # **coreTokensDestroy**
 > coreTokensDestroy(identifier)
 
@@ -1861,7 +1861,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreTokensList"></a>
+<a id="coreTokensList"></a>
 # **coreTokensList**
 > PaginatedTokenList coreTokensList(description, expires, expiring, identifier, intent, managed, ordering, page, pageSize, search, userUsername)
 
@@ -1931,7 +1931,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreTokensPartialUpdate"></a>
+<a id="coreTokensPartialUpdate"></a>
 # **coreTokensPartialUpdate**
 > Token coreTokensPartialUpdate(identifier, patchedTokenRequest)
 
@@ -1983,7 +1983,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreTokensRetrieve"></a>
+<a id="coreTokensRetrieve"></a>
 # **coreTokensRetrieve**
 > Token coreTokensRetrieve(identifier)
 
@@ -2033,7 +2033,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreTokensSetKeyCreate"></a>
+<a id="coreTokensSetKeyCreate"></a>
 # **coreTokensSetKeyCreate**
 > coreTokensSetKeyCreate(identifier, tokenSetKeyRequest)
 
@@ -2084,7 +2084,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreTokensUpdate"></a>
+<a id="coreTokensUpdate"></a>
 # **coreTokensUpdate**
 > Token coreTokensUpdate(identifier, tokenRequest)
 
@@ -2136,7 +2136,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreTokensUsedByList"></a>
+<a id="coreTokensUsedByList"></a>
 # **coreTokensUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; coreTokensUsedByList(identifier)
 
@@ -2186,7 +2186,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreTokensViewKeyRetrieve"></a>
+<a id="coreTokensViewKeyRetrieve"></a>
 # **coreTokensViewKeyRetrieve**
 > TokenView coreTokensViewKeyRetrieve(identifier)
 
@@ -2236,7 +2236,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreTransactionalApplicationsUpdate"></a>
+<a id="coreTransactionalApplicationsUpdate"></a>
 # **coreTransactionalApplicationsUpdate**
 > TransactionApplicationResponse coreTransactionalApplicationsUpdate(transactionApplicationRequest)
 
@@ -2286,7 +2286,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreUserConsentDestroy"></a>
+<a id="coreUserConsentDestroy"></a>
 # **coreUserConsentDestroy**
 > coreUserConsentDestroy(id)
 
@@ -2335,7 +2335,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreUserConsentList"></a>
+<a id="coreUserConsentList"></a>
 # **coreUserConsentList**
 > PaginatedUserConsentList coreUserConsentList(application, ordering, page, pageSize, search, user)
 
@@ -2395,7 +2395,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreUserConsentRetrieve"></a>
+<a id="coreUserConsentRetrieve"></a>
 # **coreUserConsentRetrieve**
 > UserConsent coreUserConsentRetrieve(id)
 
@@ -2445,7 +2445,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreUserConsentUsedByList"></a>
+<a id="coreUserConsentUsedByList"></a>
 # **coreUserConsentUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; coreUserConsentUsedByList(id)
 
@@ -2495,7 +2495,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreUsersCreate"></a>
+<a id="coreUsersCreate"></a>
 # **coreUsersCreate**
 > User coreUsersCreate(userRequest)
 
@@ -2545,7 +2545,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreUsersDestroy"></a>
+<a id="coreUsersDestroy"></a>
 # **coreUsersDestroy**
 > coreUsersDestroy(id)
 
@@ -2594,7 +2594,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreUsersImpersonateCreate"></a>
+<a id="coreUsersImpersonateCreate"></a>
 # **coreUsersImpersonateCreate**
 > coreUsersImpersonateCreate(id)
 
@@ -2643,7 +2643,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreUsersImpersonateEndRetrieve"></a>
+<a id="coreUsersImpersonateEndRetrieve"></a>
 # **coreUsersImpersonateEndRetrieve**
 > coreUsersImpersonateEndRetrieve()
 
@@ -2688,7 +2688,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreUsersList"></a>
+<a id="coreUsersList"></a>
 # **coreUsersList**
 > PaginatedUserList coreUsersList(attributes, email, groupsByName, groupsByPk, isActive, isSuperuser, name, ordering, page, pageSize, path, pathStartswith, search, type, username, uuid)
 
@@ -2768,7 +2768,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreUsersMeRetrieve"></a>
+<a id="coreUsersMeRetrieve"></a>
 # **coreUsersMeRetrieve**
 > SessionUser coreUsersMeRetrieve()
 
@@ -2814,7 +2814,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreUsersMetricsRetrieve"></a>
+<a id="coreUsersMetricsRetrieve"></a>
 # **coreUsersMetricsRetrieve**
 > UserMetrics coreUsersMetricsRetrieve(id)
 
@@ -2864,7 +2864,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreUsersPartialUpdate"></a>
+<a id="coreUsersPartialUpdate"></a>
 # **coreUsersPartialUpdate**
 > User coreUsersPartialUpdate(id, patchedUserRequest)
 
@@ -2916,7 +2916,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreUsersPathsRetrieve"></a>
+<a id="coreUsersPathsRetrieve"></a>
 # **coreUsersPathsRetrieve**
 > UserPath coreUsersPathsRetrieve(search)
 
@@ -2966,7 +2966,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreUsersRecoveryEmailRetrieve"></a>
+<a id="coreUsersRecoveryEmailRetrieve"></a>
 # **coreUsersRecoveryEmailRetrieve**
 > coreUsersRecoveryEmailRetrieve(id, emailStage)
 
@@ -3017,7 +3017,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreUsersRecoveryRetrieve"></a>
+<a id="coreUsersRecoveryRetrieve"></a>
 # **coreUsersRecoveryRetrieve**
 > Link coreUsersRecoveryRetrieve(id)
 
@@ -3067,7 +3067,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreUsersRetrieve"></a>
+<a id="coreUsersRetrieve"></a>
 # **coreUsersRetrieve**
 > User coreUsersRetrieve(id)
 
@@ -3117,7 +3117,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="coreUsersServiceAccountCreate"></a>
+<a id="coreUsersServiceAccountCreate"></a>
 # **coreUsersServiceAccountCreate**
 > UserServiceAccountResponse coreUsersServiceAccountCreate(userServiceAccountRequest)
 
@@ -3167,7 +3167,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreUsersSetPasswordCreate"></a>
+<a id="coreUsersSetPasswordCreate"></a>
 # **coreUsersSetPasswordCreate**
 > coreUsersSetPasswordCreate(id, userPasswordSetRequest)
 
@@ -3218,7 +3218,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreUsersUpdate"></a>
+<a id="coreUsersUpdate"></a>
 # **coreUsersUpdate**
 > User coreUsersUpdate(id, userRequest)
 
@@ -3270,7 +3270,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="coreUsersUsedByList"></a>
+<a id="coreUsersUsedByList"></a>
 # **coreUsersUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; coreUsersUsedByList(id)
 

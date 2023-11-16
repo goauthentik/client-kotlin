@@ -2,8 +2,9 @@ templateDir: /local/templates/
 additionalProperties:
   disallowAdditionalPropertiesIfNotPresent: false
   enumUnknownDefaultCase: true
-  packageName: io.goauthentik.api
   artifactId: authentik-api
+  groupId: io.goauthentik
+  packageName: io.goauthentik.api
 files:
   README.mustache:
     templateType: SupportingFiles

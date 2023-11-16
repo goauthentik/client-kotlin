@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**cryptoCertificatekeypairsViewPrivateKeyRetrieve**](CryptoApi.md#cryptoCertificatekeypairsViewPrivateKeyRetrieve) | **GET** /crypto/certificatekeypairs/{kp_uuid}/view_private_key/ | 
 
 
-<a name="cryptoCertificatekeypairsCreate"></a>
+<a id="cryptoCertificatekeypairsCreate"></a>
 # **cryptoCertificatekeypairsCreate**
 > CertificateKeyPair cryptoCertificatekeypairsCreate(certificateKeyPairRequest)
 
@@ -66,7 +66,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="cryptoCertificatekeypairsDestroy"></a>
+<a id="cryptoCertificatekeypairsDestroy"></a>
 # **cryptoCertificatekeypairsDestroy**
 > cryptoCertificatekeypairsDestroy(kpUuid)
 
@@ -115,7 +115,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="cryptoCertificatekeypairsGenerateCreate"></a>
+<a id="cryptoCertificatekeypairsGenerateCreate"></a>
 # **cryptoCertificatekeypairsGenerateCreate**
 > CertificateKeyPair cryptoCertificatekeypairsGenerateCreate(certificateGenerationRequest)
 
@@ -165,7 +165,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="cryptoCertificatekeypairsList"></a>
+<a id="cryptoCertificatekeypairsList"></a>
 # **cryptoCertificatekeypairsList**
 > PaginatedCertificateKeyPairList cryptoCertificatekeypairsList(hasKey, includeDetails, managed, name, ordering, page, pageSize, search)
 
@@ -229,7 +229,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="cryptoCertificatekeypairsPartialUpdate"></a>
+<a id="cryptoCertificatekeypairsPartialUpdate"></a>
 # **cryptoCertificatekeypairsPartialUpdate**
 > CertificateKeyPair cryptoCertificatekeypairsPartialUpdate(kpUuid, patchedCertificateKeyPairRequest)
 
@@ -281,7 +281,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="cryptoCertificatekeypairsRetrieve"></a>
+<a id="cryptoCertificatekeypairsRetrieve"></a>
 # **cryptoCertificatekeypairsRetrieve**
 > CertificateKeyPair cryptoCertificatekeypairsRetrieve(kpUuid)
 
@@ -331,7 +331,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="cryptoCertificatekeypairsUpdate"></a>
+<a id="cryptoCertificatekeypairsUpdate"></a>
 # **cryptoCertificatekeypairsUpdate**
 > CertificateKeyPair cryptoCertificatekeypairsUpdate(kpUuid, certificateKeyPairRequest)
 
@@ -383,7 +383,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="cryptoCertificatekeypairsUsedByList"></a>
+<a id="cryptoCertificatekeypairsUsedByList"></a>
 # **cryptoCertificatekeypairsUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; cryptoCertificatekeypairsUsedByList(kpUuid)
 
@@ -433,7 +433,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="cryptoCertificatekeypairsViewCertificateRetrieve"></a>
+<a id="cryptoCertificatekeypairsViewCertificateRetrieve"></a>
 # **cryptoCertificatekeypairsViewCertificateRetrieve**
 > CertificateData cryptoCertificatekeypairsViewCertificateRetrieve(kpUuid, download)
 
@@ -485,7 +485,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="cryptoCertificatekeypairsViewPrivateKeyRetrieve"></a>
+<a id="cryptoCertificatekeypairsViewPrivateKeyRetrieve"></a>
 # **cryptoCertificatekeypairsViewPrivateKeyRetrieve**
 > CertificateData cryptoCertificatekeypairsViewPrivateKeyRetrieve(kpUuid, download)
 

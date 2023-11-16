@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**enterpriseLicenseUsedByList**](EnterpriseApi.md#enterpriseLicenseUsedByList) | **GET** /enterprise/license/{license_uuid}/used_by/ | 
 
 
-<a name="enterpriseLicenseCreate"></a>
+<a id="enterpriseLicenseCreate"></a>
 # **enterpriseLicenseCreate**
 > License enterpriseLicenseCreate(licenseRequest)
 
@@ -66,7 +66,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="enterpriseLicenseDestroy"></a>
+<a id="enterpriseLicenseDestroy"></a>
 # **enterpriseLicenseDestroy**
 > enterpriseLicenseDestroy(licenseUuid)
 
@@ -115,7 +115,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="enterpriseLicenseForecastRetrieve"></a>
+<a id="enterpriseLicenseForecastRetrieve"></a>
 # **enterpriseLicenseForecastRetrieve**
 > LicenseForecast enterpriseLicenseForecastRetrieve()
 
@@ -161,7 +161,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="enterpriseLicenseGetInstallIdRetrieve"></a>
+<a id="enterpriseLicenseGetInstallIdRetrieve"></a>
 # **enterpriseLicenseGetInstallIdRetrieve**
 > InstallID enterpriseLicenseGetInstallIdRetrieve()
 
@@ -207,7 +207,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="enterpriseLicenseList"></a>
+<a id="enterpriseLicenseList"></a>
 # **enterpriseLicenseList**
 > PaginatedLicenseList enterpriseLicenseList(name, ordering, page, pageSize, search)
 
@@ -265,7 +265,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="enterpriseLicensePartialUpdate"></a>
+<a id="enterpriseLicensePartialUpdate"></a>
 # **enterpriseLicensePartialUpdate**
 > License enterpriseLicensePartialUpdate(licenseUuid, patchedLicenseRequest)
 
@@ -317,7 +317,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="enterpriseLicenseRetrieve"></a>
+<a id="enterpriseLicenseRetrieve"></a>
 # **enterpriseLicenseRetrieve**
 > License enterpriseLicenseRetrieve(licenseUuid)
 
@@ -367,7 +367,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="enterpriseLicenseSummaryRetrieve"></a>
+<a id="enterpriseLicenseSummaryRetrieve"></a>
 # **enterpriseLicenseSummaryRetrieve**
 > LicenseSummary enterpriseLicenseSummaryRetrieve()
 
@@ -413,7 +413,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="enterpriseLicenseUpdate"></a>
+<a id="enterpriseLicenseUpdate"></a>
 # **enterpriseLicenseUpdate**
 > License enterpriseLicenseUpdate(licenseUuid, licenseRequest)
 
@@ -465,7 +465,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="enterpriseLicenseUsedByList"></a>
+<a id="enterpriseLicenseUsedByList"></a>
 # **enterpriseLicenseUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; enterpriseLicenseUsedByList(licenseUuid)
 

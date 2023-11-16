@@ -57,6 +57,6 @@ func main() {
 	if upstream != tag[1] {
 		rev = 0
 	}
-	newVersion := fmt.Sprintf("v%s.%s.%d", majorVersion, upstream, rev+1)
+	newVersion := fmt.Sprintf("%s.%s.%d", majorVersion, upstream, rev+1)
 	fmt.Print(newVersion)
 }

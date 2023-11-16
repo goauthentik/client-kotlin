@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**rootConfigRetrieve**](RootApi.md#rootConfigRetrieve) | **GET** /root/config/ | 
 
 
-<a name="rootConfigRetrieve"></a>
+<a id="rootConfigRetrieve"></a>
 # **rootConfigRetrieve**
 > Config rootConfigRetrieve()
 

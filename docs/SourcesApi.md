@@ -75,7 +75,7 @@ Method | HTTP request | Description
 [**sourcesUserConnectionsSamlUsedByList**](SourcesApi.md#sourcesUserConnectionsSamlUsedByList) | **GET** /sources/user_connections/saml/{id}/used_by/ | 
 
 
-<a name="sourcesAllDestroy"></a>
+<a id="sourcesAllDestroy"></a>
 # **sourcesAllDestroy**
 > sourcesAllDestroy(slug)
 
@@ -124,7 +124,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesAllList"></a>
+<a id="sourcesAllList"></a>
 # **sourcesAllList**
 > PaginatedSourceList sourcesAllList(managed, name, ordering, page, pageSize, search, slug)
 
@@ -186,7 +186,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesAllRetrieve"></a>
+<a id="sourcesAllRetrieve"></a>
 # **sourcesAllRetrieve**
 > Source sourcesAllRetrieve(slug)
 
@@ -236,7 +236,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesAllSetIconCreate"></a>
+<a id="sourcesAllSetIconCreate"></a>
 # **sourcesAllSetIconCreate**
 > sourcesAllSetIconCreate(slug, file, clear)
 
@@ -289,7 +289,7 @@ Configure authentik:
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
-<a name="sourcesAllSetIconUrlCreate"></a>
+<a id="sourcesAllSetIconUrlCreate"></a>
 # **sourcesAllSetIconUrlCreate**
 > sourcesAllSetIconUrlCreate(slug, filePathRequest)
 
@@ -340,7 +340,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesAllTypesList"></a>
+<a id="sourcesAllTypesList"></a>
 # **sourcesAllTypesList**
 > kotlin.collections.List&lt;TypeCreate&gt; sourcesAllTypesList()
 
@@ -386,7 +386,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesAllUsedByList"></a>
+<a id="sourcesAllUsedByList"></a>
 # **sourcesAllUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; sourcesAllUsedByList(slug)
 
@@ -436,7 +436,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesAllUserSettingsList"></a>
+<a id="sourcesAllUserSettingsList"></a>
 # **sourcesAllUserSettingsList**
 > kotlin.collections.List&lt;UserSetting&gt; sourcesAllUserSettingsList()
 
@@ -482,7 +482,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesLdapCreate"></a>
+<a id="sourcesLdapCreate"></a>
 # **sourcesLdapCreate**
 > LDAPSource sourcesLdapCreate(ldAPSourceRequest)
 
@@ -532,7 +532,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesLdapDebugRetrieve"></a>
+<a id="sourcesLdapDebugRetrieve"></a>
 # **sourcesLdapDebugRetrieve**
 > LDAPDebug sourcesLdapDebugRetrieve(slug)
 
@@ -582,7 +582,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesLdapDestroy"></a>
+<a id="sourcesLdapDestroy"></a>
 # **sourcesLdapDestroy**
 > sourcesLdapDestroy(slug)
 
@@ -631,7 +631,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesLdapList"></a>
+<a id="sourcesLdapList"></a>
 # **sourcesLdapList**
 > PaginatedLDAPSourceList sourcesLdapList(additionalGroupDn, additionalUserDn, baseDn, bindCn, clientCertificate, enabled, groupMembershipField, groupObjectFilter, name, objectUniquenessField, ordering, page, pageSize, peerCertificate, propertyMappings, propertyMappingsGroup, search, serverUri, slug, sni, startTls, syncGroups, syncParentGroup, syncUsers, syncUsersPassword, userObjectFilter)
 
@@ -731,7 +731,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesLdapPartialUpdate"></a>
+<a id="sourcesLdapPartialUpdate"></a>
 # **sourcesLdapPartialUpdate**
 > LDAPSource sourcesLdapPartialUpdate(slug, patchedLDAPSourceRequest)
 
@@ -783,7 +783,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesLdapRetrieve"></a>
+<a id="sourcesLdapRetrieve"></a>
 # **sourcesLdapRetrieve**
 > LDAPSource sourcesLdapRetrieve(slug)
 
@@ -833,7 +833,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesLdapSyncStatusRetrieve"></a>
+<a id="sourcesLdapSyncStatusRetrieve"></a>
 # **sourcesLdapSyncStatusRetrieve**
 > LDAPSyncStatus sourcesLdapSyncStatusRetrieve(slug)
 
@@ -883,7 +883,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesLdapUpdate"></a>
+<a id="sourcesLdapUpdate"></a>
 # **sourcesLdapUpdate**
 > LDAPSource sourcesLdapUpdate(slug, ldAPSourceRequest)
 
@@ -935,7 +935,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesLdapUsedByList"></a>
+<a id="sourcesLdapUsedByList"></a>
 # **sourcesLdapUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; sourcesLdapUsedByList(slug)
 
@@ -985,7 +985,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesOauthCreate"></a>
+<a id="sourcesOauthCreate"></a>
 # **sourcesOauthCreate**
 > OAuthSource sourcesOauthCreate(oauthSourceRequest)
 
@@ -1035,7 +1035,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesOauthDestroy"></a>
+<a id="sourcesOauthDestroy"></a>
 # **sourcesOauthDestroy**
 > sourcesOauthDestroy(slug)
 
@@ -1084,7 +1084,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesOauthList"></a>
+<a id="sourcesOauthList"></a>
 # **sourcesOauthList**
 > PaginatedOAuthSourceList sourcesOauthList(accessTokenUrl, additionalScopes, authenticationFlow, authorizationUrl, consumerKey, enabled, enrollmentFlow, hasJwks, name, ordering, page, pageSize, policyEngineMode, profileUrl, providerType, requestTokenUrl, search, slug, userMatchingMode)
 
@@ -1170,7 +1170,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesOauthPartialUpdate"></a>
+<a id="sourcesOauthPartialUpdate"></a>
 # **sourcesOauthPartialUpdate**
 > OAuthSource sourcesOauthPartialUpdate(slug, patchedOAuthSourceRequest)
 
@@ -1222,7 +1222,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesOauthRetrieve"></a>
+<a id="sourcesOauthRetrieve"></a>
 # **sourcesOauthRetrieve**
 > OAuthSource sourcesOauthRetrieve(slug)
 
@@ -1272,7 +1272,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesOauthSourceTypesList"></a>
+<a id="sourcesOauthSourceTypesList"></a>
 # **sourcesOauthSourceTypesList**
 > kotlin.collections.List&lt;SourceType&gt; sourcesOauthSourceTypesList(name)
 
@@ -1322,7 +1322,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesOauthUpdate"></a>
+<a id="sourcesOauthUpdate"></a>
 # **sourcesOauthUpdate**
 > OAuthSource sourcesOauthUpdate(slug, oauthSourceRequest)
 
@@ -1374,7 +1374,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesOauthUsedByList"></a>
+<a id="sourcesOauthUsedByList"></a>
 # **sourcesOauthUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; sourcesOauthUsedByList(slug)
 
@@ -1424,7 +1424,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesPlexCreate"></a>
+<a id="sourcesPlexCreate"></a>
 # **sourcesPlexCreate**
 > PlexSource sourcesPlexCreate(plexSourceRequest)
 
@@ -1474,7 +1474,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesPlexDestroy"></a>
+<a id="sourcesPlexDestroy"></a>
 # **sourcesPlexDestroy**
 > sourcesPlexDestroy(slug)
 
@@ -1523,7 +1523,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesPlexList"></a>
+<a id="sourcesPlexList"></a>
 # **sourcesPlexList**
 > PaginatedPlexSourceList sourcesPlexList(allowFriends, authenticationFlow, clientId, enabled, enrollmentFlow, name, ordering, page, pageSize, policyEngineMode, search, slug, userMatchingMode)
 
@@ -1597,7 +1597,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesPlexPartialUpdate"></a>
+<a id="sourcesPlexPartialUpdate"></a>
 # **sourcesPlexPartialUpdate**
 > PlexSource sourcesPlexPartialUpdate(slug, patchedPlexSourceRequest)
 
@@ -1649,7 +1649,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesPlexRedeemTokenAuthenticatedCreate"></a>
+<a id="sourcesPlexRedeemTokenAuthenticatedCreate"></a>
 # **sourcesPlexRedeemTokenAuthenticatedCreate**
 > sourcesPlexRedeemTokenAuthenticatedCreate(plexTokenRedeemRequest, slug)
 
@@ -1700,7 +1700,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: Not defined
 
-<a name="sourcesPlexRedeemTokenCreate"></a>
+<a id="sourcesPlexRedeemTokenCreate"></a>
 # **sourcesPlexRedeemTokenCreate**
 > RedirectChallenge sourcesPlexRedeemTokenCreate(plexTokenRedeemRequest, slug)
 
@@ -1752,7 +1752,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesPlexRetrieve"></a>
+<a id="sourcesPlexRetrieve"></a>
 # **sourcesPlexRetrieve**
 > PlexSource sourcesPlexRetrieve(slug)
 
@@ -1802,7 +1802,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesPlexUpdate"></a>
+<a id="sourcesPlexUpdate"></a>
 # **sourcesPlexUpdate**
 > PlexSource sourcesPlexUpdate(slug, plexSourceRequest)
 
@@ -1854,7 +1854,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesPlexUsedByList"></a>
+<a id="sourcesPlexUsedByList"></a>
 # **sourcesPlexUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; sourcesPlexUsedByList(slug)
 
@@ -1904,7 +1904,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesSamlCreate"></a>
+<a id="sourcesSamlCreate"></a>
 # **sourcesSamlCreate**
 > SAMLSource sourcesSamlCreate(saMLSourceRequest)
 
@@ -1954,7 +1954,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesSamlDestroy"></a>
+<a id="sourcesSamlDestroy"></a>
 # **sourcesSamlDestroy**
 > sourcesSamlDestroy(slug)
 
@@ -2003,7 +2003,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesSamlList"></a>
+<a id="sourcesSamlList"></a>
 # **sourcesSamlList**
 > PaginatedSAMLSourceList sourcesSamlList(allowIdpInitiated, authenticationFlow, bindingType, digestAlgorithm, enabled, enrollmentFlow, issuer, managed, name, nameIdPolicy, ordering, page, pageSize, policyEngineMode, preAuthenticationFlow, search, signatureAlgorithm, signingKp, sloUrl, slug, ssoUrl, temporaryUserDeleteAfter, userMatchingMode, verificationKp)
 
@@ -2099,7 +2099,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesSamlMetadataRetrieve"></a>
+<a id="sourcesSamlMetadataRetrieve"></a>
 # **sourcesSamlMetadataRetrieve**
 > SAMLMetadata sourcesSamlMetadataRetrieve(slug)
 
@@ -2149,7 +2149,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesSamlPartialUpdate"></a>
+<a id="sourcesSamlPartialUpdate"></a>
 # **sourcesSamlPartialUpdate**
 > SAMLSource sourcesSamlPartialUpdate(slug, patchedSAMLSourceRequest)
 
@@ -2201,7 +2201,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesSamlRetrieve"></a>
+<a id="sourcesSamlRetrieve"></a>
 # **sourcesSamlRetrieve**
 > SAMLSource sourcesSamlRetrieve(slug)
 
@@ -2251,7 +2251,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesSamlUpdate"></a>
+<a id="sourcesSamlUpdate"></a>
 # **sourcesSamlUpdate**
 > SAMLSource sourcesSamlUpdate(slug, saMLSourceRequest)
 
@@ -2303,7 +2303,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesSamlUsedByList"></a>
+<a id="sourcesSamlUsedByList"></a>
 # **sourcesSamlUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; sourcesSamlUsedByList(slug)
 
@@ -2353,7 +2353,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsAllDestroy"></a>
+<a id="sourcesUserConnectionsAllDestroy"></a>
 # **sourcesUserConnectionsAllDestroy**
 > sourcesUserConnectionsAllDestroy(id)
 
@@ -2402,7 +2402,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsAllList"></a>
+<a id="sourcesUserConnectionsAllList"></a>
 # **sourcesUserConnectionsAllList**
 > PaginatedUserSourceConnectionList sourcesUserConnectionsAllList(ordering, page, pageSize, search, user)
 
@@ -2460,7 +2460,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsAllPartialUpdate"></a>
+<a id="sourcesUserConnectionsAllPartialUpdate"></a>
 # **sourcesUserConnectionsAllPartialUpdate**
 > UserSourceConnection sourcesUserConnectionsAllPartialUpdate(id)
 
@@ -2510,7 +2510,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsAllRetrieve"></a>
+<a id="sourcesUserConnectionsAllRetrieve"></a>
 # **sourcesUserConnectionsAllRetrieve**
 > UserSourceConnection sourcesUserConnectionsAllRetrieve(id)
 
@@ -2560,7 +2560,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsAllUpdate"></a>
+<a id="sourcesUserConnectionsAllUpdate"></a>
 # **sourcesUserConnectionsAllUpdate**
 > UserSourceConnection sourcesUserConnectionsAllUpdate(id)
 
@@ -2610,7 +2610,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsAllUsedByList"></a>
+<a id="sourcesUserConnectionsAllUsedByList"></a>
 # **sourcesUserConnectionsAllUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; sourcesUserConnectionsAllUsedByList(id)
 
@@ -2660,7 +2660,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsOauthCreate"></a>
+<a id="sourcesUserConnectionsOauthCreate"></a>
 # **sourcesUserConnectionsOauthCreate**
 > UserOAuthSourceConnection sourcesUserConnectionsOauthCreate(userOAuthSourceConnectionRequest)
 
@@ -2710,7 +2710,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsOauthDestroy"></a>
+<a id="sourcesUserConnectionsOauthDestroy"></a>
 # **sourcesUserConnectionsOauthDestroy**
 > sourcesUserConnectionsOauthDestroy(id)
 
@@ -2759,7 +2759,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsOauthList"></a>
+<a id="sourcesUserConnectionsOauthList"></a>
 # **sourcesUserConnectionsOauthList**
 > PaginatedUserOAuthSourceConnectionList sourcesUserConnectionsOauthList(ordering, page, pageSize, search, sourceSlug)
 
@@ -2817,7 +2817,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsOauthPartialUpdate"></a>
+<a id="sourcesUserConnectionsOauthPartialUpdate"></a>
 # **sourcesUserConnectionsOauthPartialUpdate**
 > UserOAuthSourceConnection sourcesUserConnectionsOauthPartialUpdate(id, patchedUserOAuthSourceConnectionRequest)
 
@@ -2869,7 +2869,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsOauthRetrieve"></a>
+<a id="sourcesUserConnectionsOauthRetrieve"></a>
 # **sourcesUserConnectionsOauthRetrieve**
 > UserOAuthSourceConnection sourcesUserConnectionsOauthRetrieve(id)
 
@@ -2919,7 +2919,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsOauthUpdate"></a>
+<a id="sourcesUserConnectionsOauthUpdate"></a>
 # **sourcesUserConnectionsOauthUpdate**
 > UserOAuthSourceConnection sourcesUserConnectionsOauthUpdate(id, userOAuthSourceConnectionRequest)
 
@@ -2971,7 +2971,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsOauthUsedByList"></a>
+<a id="sourcesUserConnectionsOauthUsedByList"></a>
 # **sourcesUserConnectionsOauthUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; sourcesUserConnectionsOauthUsedByList(id)
 
@@ -3021,7 +3021,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsPlexCreate"></a>
+<a id="sourcesUserConnectionsPlexCreate"></a>
 # **sourcesUserConnectionsPlexCreate**
 > PlexSourceConnection sourcesUserConnectionsPlexCreate(plexSourceConnectionRequest)
 
@@ -3071,7 +3071,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsPlexDestroy"></a>
+<a id="sourcesUserConnectionsPlexDestroy"></a>
 # **sourcesUserConnectionsPlexDestroy**
 > sourcesUserConnectionsPlexDestroy(id)
 
@@ -3120,7 +3120,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsPlexList"></a>
+<a id="sourcesUserConnectionsPlexList"></a>
 # **sourcesUserConnectionsPlexList**
 > PaginatedPlexSourceConnectionList sourcesUserConnectionsPlexList(ordering, page, pageSize, search, sourceSlug)
 
@@ -3178,7 +3178,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsPlexPartialUpdate"></a>
+<a id="sourcesUserConnectionsPlexPartialUpdate"></a>
 # **sourcesUserConnectionsPlexPartialUpdate**
 > PlexSourceConnection sourcesUserConnectionsPlexPartialUpdate(id, patchedPlexSourceConnectionRequest)
 
@@ -3230,7 +3230,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsPlexRetrieve"></a>
+<a id="sourcesUserConnectionsPlexRetrieve"></a>
 # **sourcesUserConnectionsPlexRetrieve**
 > PlexSourceConnection sourcesUserConnectionsPlexRetrieve(id)
 
@@ -3280,7 +3280,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsPlexUpdate"></a>
+<a id="sourcesUserConnectionsPlexUpdate"></a>
 # **sourcesUserConnectionsPlexUpdate**
 > PlexSourceConnection sourcesUserConnectionsPlexUpdate(id, plexSourceConnectionRequest)
 
@@ -3332,7 +3332,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsPlexUsedByList"></a>
+<a id="sourcesUserConnectionsPlexUsedByList"></a>
 # **sourcesUserConnectionsPlexUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; sourcesUserConnectionsPlexUsedByList(id)
 
@@ -3382,7 +3382,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsSamlCreate"></a>
+<a id="sourcesUserConnectionsSamlCreate"></a>
 # **sourcesUserConnectionsSamlCreate**
 > UserSAMLSourceConnection sourcesUserConnectionsSamlCreate(userSAMLSourceConnectionRequest)
 
@@ -3432,7 +3432,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsSamlDestroy"></a>
+<a id="sourcesUserConnectionsSamlDestroy"></a>
 # **sourcesUserConnectionsSamlDestroy**
 > sourcesUserConnectionsSamlDestroy(id)
 
@@ -3481,7 +3481,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsSamlList"></a>
+<a id="sourcesUserConnectionsSamlList"></a>
 # **sourcesUserConnectionsSamlList**
 > PaginatedUserSAMLSourceConnectionList sourcesUserConnectionsSamlList(ordering, page, pageSize, search, sourceSlug)
 
@@ -3539,7 +3539,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsSamlPartialUpdate"></a>
+<a id="sourcesUserConnectionsSamlPartialUpdate"></a>
 # **sourcesUserConnectionsSamlPartialUpdate**
 > UserSAMLSourceConnection sourcesUserConnectionsSamlPartialUpdate(id, patchedUserSAMLSourceConnectionRequest)
 
@@ -3591,7 +3591,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsSamlRetrieve"></a>
+<a id="sourcesUserConnectionsSamlRetrieve"></a>
 # **sourcesUserConnectionsSamlRetrieve**
 > UserSAMLSourceConnection sourcesUserConnectionsSamlRetrieve(id)
 
@@ -3641,7 +3641,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsSamlUpdate"></a>
+<a id="sourcesUserConnectionsSamlUpdate"></a>
 # **sourcesUserConnectionsSamlUpdate**
 > UserSAMLSourceConnection sourcesUserConnectionsSamlUpdate(id, userSAMLSourceConnectionRequest)
 
@@ -3693,7 +3693,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="sourcesUserConnectionsSamlUsedByList"></a>
+<a id="sourcesUserConnectionsSamlUsedByList"></a>
 # **sourcesUserConnectionsSamlUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; sourcesUserConnectionsSamlUsedByList(id)
 

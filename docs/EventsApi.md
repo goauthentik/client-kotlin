@@ -37,7 +37,7 @@ Method | HTTP request | Description
 [**eventsTransportsUsedByList**](EventsApi.md#eventsTransportsUsedByList) | **GET** /events/transports/{uuid}/used_by/ | 
 
 
-<a name="eventsEventsActionsList"></a>
+<a id="eventsEventsActionsList"></a>
 # **eventsEventsActionsList**
 > kotlin.collections.List&lt;TypeCreate&gt; eventsEventsActionsList()
 
@@ -83,7 +83,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="eventsEventsCreate"></a>
+<a id="eventsEventsCreate"></a>
 # **eventsEventsCreate**
 > Event eventsEventsCreate(eventRequest)
 
@@ -133,7 +133,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="eventsEventsDestroy"></a>
+<a id="eventsEventsDestroy"></a>
 # **eventsEventsDestroy**
 > eventsEventsDestroy(eventUuid)
 
@@ -182,7 +182,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="eventsEventsList"></a>
+<a id="eventsEventsList"></a>
 # **eventsEventsList**
 > PaginatedEventList eventsEventsList(action, clientIp, contextAuthorizedApp, contextModelApp, contextModelName, contextModelPk, ordering, page, pageSize, search, tenantName, username)
 
@@ -254,7 +254,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="eventsEventsPartialUpdate"></a>
+<a id="eventsEventsPartialUpdate"></a>
 # **eventsEventsPartialUpdate**
 > Event eventsEventsPartialUpdate(eventUuid, patchedEventRequest)
 
@@ -306,7 +306,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="eventsEventsPerMonthList"></a>
+<a id="eventsEventsPerMonthList"></a>
 # **eventsEventsPerMonthList**
 > kotlin.collections.List&lt;Coordinate&gt; eventsEventsPerMonthList(action, query)
 
@@ -358,7 +358,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="eventsEventsRetrieve"></a>
+<a id="eventsEventsRetrieve"></a>
 # **eventsEventsRetrieve**
 > Event eventsEventsRetrieve(eventUuid)
 
@@ -408,7 +408,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="eventsEventsTopPerUserList"></a>
+<a id="eventsEventsTopPerUserList"></a>
 # **eventsEventsTopPerUserList**
 > kotlin.collections.List&lt;EventTopPerUser&gt; eventsEventsTopPerUserList(action, topN)
 
@@ -460,7 +460,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="eventsEventsUpdate"></a>
+<a id="eventsEventsUpdate"></a>
 # **eventsEventsUpdate**
 > Event eventsEventsUpdate(eventUuid, eventRequest)
 
@@ -512,7 +512,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="eventsNotificationsDestroy"></a>
+<a id="eventsNotificationsDestroy"></a>
 # **eventsNotificationsDestroy**
 > eventsNotificationsDestroy(uuid)
 
@@ -561,7 +561,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="eventsNotificationsList"></a>
+<a id="eventsNotificationsList"></a>
 # **eventsNotificationsList**
 > PaginatedNotificationList eventsNotificationsList(body, created, event, ordering, page, pageSize, search, seen, severity, user)
 
@@ -629,7 +629,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="eventsNotificationsMarkAllSeenCreate"></a>
+<a id="eventsNotificationsMarkAllSeenCreate"></a>
 # **eventsNotificationsMarkAllSeenCreate**
 > eventsNotificationsMarkAllSeenCreate()
 
@@ -674,7 +674,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="eventsNotificationsPartialUpdate"></a>
+<a id="eventsNotificationsPartialUpdate"></a>
 # **eventsNotificationsPartialUpdate**
 > Notification eventsNotificationsPartialUpdate(uuid, patchedNotificationRequest)
 
@@ -726,7 +726,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="eventsNotificationsRetrieve"></a>
+<a id="eventsNotificationsRetrieve"></a>
 # **eventsNotificationsRetrieve**
 > Notification eventsNotificationsRetrieve(uuid)
 
@@ -776,7 +776,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="eventsNotificationsUpdate"></a>
+<a id="eventsNotificationsUpdate"></a>
 # **eventsNotificationsUpdate**
 > Notification eventsNotificationsUpdate(uuid, notificationRequest)
 
@@ -828,7 +828,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="eventsNotificationsUsedByList"></a>
+<a id="eventsNotificationsUsedByList"></a>
 # **eventsNotificationsUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; eventsNotificationsUsedByList(uuid)
 
@@ -878,7 +878,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="eventsRulesCreate"></a>
+<a id="eventsRulesCreate"></a>
 # **eventsRulesCreate**
 > NotificationRule eventsRulesCreate(notificationRuleRequest)
 
@@ -928,7 +928,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="eventsRulesDestroy"></a>
+<a id="eventsRulesDestroy"></a>
 # **eventsRulesDestroy**
 > eventsRulesDestroy(pbmUuid)
 
@@ -977,7 +977,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="eventsRulesList"></a>
+<a id="eventsRulesList"></a>
 # **eventsRulesList**
 > PaginatedNotificationRuleList eventsRulesList(groupName, name, ordering, page, pageSize, search, severity)
 
@@ -1039,7 +1039,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="eventsRulesPartialUpdate"></a>
+<a id="eventsRulesPartialUpdate"></a>
 # **eventsRulesPartialUpdate**
 > NotificationRule eventsRulesPartialUpdate(pbmUuid, patchedNotificationRuleRequest)
 
@@ -1091,7 +1091,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="eventsRulesRetrieve"></a>
+<a id="eventsRulesRetrieve"></a>
 # **eventsRulesRetrieve**
 > NotificationRule eventsRulesRetrieve(pbmUuid)
 
@@ -1141,7 +1141,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="eventsRulesUpdate"></a>
+<a id="eventsRulesUpdate"></a>
 # **eventsRulesUpdate**
 > NotificationRule eventsRulesUpdate(pbmUuid, notificationRuleRequest)
 
@@ -1193,7 +1193,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="eventsRulesUsedByList"></a>
+<a id="eventsRulesUsedByList"></a>
 # **eventsRulesUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; eventsRulesUsedByList(pbmUuid)
 
@@ -1243,7 +1243,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="eventsTransportsCreate"></a>
+<a id="eventsTransportsCreate"></a>
 # **eventsTransportsCreate**
 > NotificationTransport eventsTransportsCreate(notificationTransportRequest)
 
@@ -1293,7 +1293,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="eventsTransportsDestroy"></a>
+<a id="eventsTransportsDestroy"></a>
 # **eventsTransportsDestroy**
 > eventsTransportsDestroy(uuid)
 
@@ -1342,7 +1342,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="eventsTransportsList"></a>
+<a id="eventsTransportsList"></a>
 # **eventsTransportsList**
 > PaginatedNotificationTransportList eventsTransportsList(mode, name, ordering, page, pageSize, search, sendOnce, webhookUrl)
 
@@ -1406,7 +1406,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="eventsTransportsPartialUpdate"></a>
+<a id="eventsTransportsPartialUpdate"></a>
 # **eventsTransportsPartialUpdate**
 > NotificationTransport eventsTransportsPartialUpdate(uuid, patchedNotificationTransportRequest)
 
@@ -1458,7 +1458,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="eventsTransportsRetrieve"></a>
+<a id="eventsTransportsRetrieve"></a>
 # **eventsTransportsRetrieve**
 > NotificationTransport eventsTransportsRetrieve(uuid)
 
@@ -1508,7 +1508,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="eventsTransportsTestCreate"></a>
+<a id="eventsTransportsTestCreate"></a>
 # **eventsTransportsTestCreate**
 > NotificationTransportTest eventsTransportsTestCreate(uuid)
 
@@ -1558,7 +1558,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="eventsTransportsUpdate"></a>
+<a id="eventsTransportsUpdate"></a>
 # **eventsTransportsUpdate**
 > NotificationTransport eventsTransportsUpdate(uuid, notificationTransportRequest)
 
@@ -1610,7 +1610,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="eventsTransportsUsedByList"></a>
+<a id="eventsTransportsUsedByList"></a>
 # **eventsTransportsUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; eventsTransportsUsedByList(uuid)
 

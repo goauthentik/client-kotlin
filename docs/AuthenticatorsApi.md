@@ -68,7 +68,7 @@ Method | HTTP request | Description
 [**authenticatorsWebauthnUsedByList**](AuthenticatorsApi.md#authenticatorsWebauthnUsedByList) | **GET** /authenticators/webauthn/{id}/used_by/ | 
 
 
-<a name="authenticatorsAdminAllList"></a>
+<a id="authenticatorsAdminAllList"></a>
 # **authenticatorsAdminAllList**
 > kotlin.collections.List&lt;Device&gt; authenticatorsAdminAllList(user)
 
@@ -118,7 +118,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsAdminDuoCreate"></a>
+<a id="authenticatorsAdminDuoCreate"></a>
 # **authenticatorsAdminDuoCreate**
 > DuoDevice authenticatorsAdminDuoCreate(duoDeviceRequest)
 
@@ -168,7 +168,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsAdminDuoDestroy"></a>
+<a id="authenticatorsAdminDuoDestroy"></a>
 # **authenticatorsAdminDuoDestroy**
 > authenticatorsAdminDuoDestroy(id)
 
@@ -217,7 +217,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsAdminDuoList"></a>
+<a id="authenticatorsAdminDuoList"></a>
 # **authenticatorsAdminDuoList**
 > PaginatedDuoDeviceList authenticatorsAdminDuoList(name, ordering, page, pageSize, search)
 
@@ -275,7 +275,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsAdminDuoPartialUpdate"></a>
+<a id="authenticatorsAdminDuoPartialUpdate"></a>
 # **authenticatorsAdminDuoPartialUpdate**
 > DuoDevice authenticatorsAdminDuoPartialUpdate(id, patchedDuoDeviceRequest)
 
@@ -327,7 +327,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsAdminDuoRetrieve"></a>
+<a id="authenticatorsAdminDuoRetrieve"></a>
 # **authenticatorsAdminDuoRetrieve**
 > DuoDevice authenticatorsAdminDuoRetrieve(id)
 
@@ -377,7 +377,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsAdminDuoUpdate"></a>
+<a id="authenticatorsAdminDuoUpdate"></a>
 # **authenticatorsAdminDuoUpdate**
 > DuoDevice authenticatorsAdminDuoUpdate(id, duoDeviceRequest)
 
@@ -429,7 +429,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsAdminSmsCreate"></a>
+<a id="authenticatorsAdminSmsCreate"></a>
 # **authenticatorsAdminSmsCreate**
 > SMSDevice authenticatorsAdminSmsCreate(smSDeviceRequest)
 
@@ -479,7 +479,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsAdminSmsDestroy"></a>
+<a id="authenticatorsAdminSmsDestroy"></a>
 # **authenticatorsAdminSmsDestroy**
 > authenticatorsAdminSmsDestroy(id)
 
@@ -528,7 +528,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsAdminSmsList"></a>
+<a id="authenticatorsAdminSmsList"></a>
 # **authenticatorsAdminSmsList**
 > PaginatedSMSDeviceList authenticatorsAdminSmsList(name, ordering, page, pageSize, search)
 
@@ -586,7 +586,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsAdminSmsPartialUpdate"></a>
+<a id="authenticatorsAdminSmsPartialUpdate"></a>
 # **authenticatorsAdminSmsPartialUpdate**
 > SMSDevice authenticatorsAdminSmsPartialUpdate(id, patchedSMSDeviceRequest)
 
@@ -638,7 +638,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsAdminSmsRetrieve"></a>
+<a id="authenticatorsAdminSmsRetrieve"></a>
 # **authenticatorsAdminSmsRetrieve**
 > SMSDevice authenticatorsAdminSmsRetrieve(id)
 
@@ -688,7 +688,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsAdminSmsUpdate"></a>
+<a id="authenticatorsAdminSmsUpdate"></a>
 # **authenticatorsAdminSmsUpdate**
 > SMSDevice authenticatorsAdminSmsUpdate(id, smSDeviceRequest)
 
@@ -740,7 +740,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsAdminStaticCreate"></a>
+<a id="authenticatorsAdminStaticCreate"></a>
 # **authenticatorsAdminStaticCreate**
 > StaticDevice authenticatorsAdminStaticCreate(staticDeviceRequest)
 
@@ -790,7 +790,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsAdminStaticDestroy"></a>
+<a id="authenticatorsAdminStaticDestroy"></a>
 # **authenticatorsAdminStaticDestroy**
 > authenticatorsAdminStaticDestroy(id)
 
@@ -839,7 +839,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsAdminStaticList"></a>
+<a id="authenticatorsAdminStaticList"></a>
 # **authenticatorsAdminStaticList**
 > PaginatedStaticDeviceList authenticatorsAdminStaticList(name, ordering, page, pageSize, search)
 
@@ -897,7 +897,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsAdminStaticPartialUpdate"></a>
+<a id="authenticatorsAdminStaticPartialUpdate"></a>
 # **authenticatorsAdminStaticPartialUpdate**
 > StaticDevice authenticatorsAdminStaticPartialUpdate(id, patchedStaticDeviceRequest)
 
@@ -949,7 +949,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsAdminStaticRetrieve"></a>
+<a id="authenticatorsAdminStaticRetrieve"></a>
 # **authenticatorsAdminStaticRetrieve**
 > StaticDevice authenticatorsAdminStaticRetrieve(id)
 
@@ -999,7 +999,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsAdminStaticUpdate"></a>
+<a id="authenticatorsAdminStaticUpdate"></a>
 # **authenticatorsAdminStaticUpdate**
 > StaticDevice authenticatorsAdminStaticUpdate(id, staticDeviceRequest)
 
@@ -1051,7 +1051,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsAdminTotpCreate"></a>
+<a id="authenticatorsAdminTotpCreate"></a>
 # **authenticatorsAdminTotpCreate**
 > TOTPDevice authenticatorsAdminTotpCreate(toTPDeviceRequest)
 
@@ -1101,7 +1101,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsAdminTotpDestroy"></a>
+<a id="authenticatorsAdminTotpDestroy"></a>
 # **authenticatorsAdminTotpDestroy**
 > authenticatorsAdminTotpDestroy(id)
 
@@ -1150,7 +1150,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsAdminTotpList"></a>
+<a id="authenticatorsAdminTotpList"></a>
 # **authenticatorsAdminTotpList**
 > PaginatedTOTPDeviceList authenticatorsAdminTotpList(name, ordering, page, pageSize, search)
 
@@ -1208,7 +1208,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsAdminTotpPartialUpdate"></a>
+<a id="authenticatorsAdminTotpPartialUpdate"></a>
 # **authenticatorsAdminTotpPartialUpdate**
 > TOTPDevice authenticatorsAdminTotpPartialUpdate(id, patchedTOTPDeviceRequest)
 
@@ -1260,7 +1260,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsAdminTotpRetrieve"></a>
+<a id="authenticatorsAdminTotpRetrieve"></a>
 # **authenticatorsAdminTotpRetrieve**
 > TOTPDevice authenticatorsAdminTotpRetrieve(id)
 
@@ -1310,7 +1310,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsAdminTotpUpdate"></a>
+<a id="authenticatorsAdminTotpUpdate"></a>
 # **authenticatorsAdminTotpUpdate**
 > TOTPDevice authenticatorsAdminTotpUpdate(id, toTPDeviceRequest)
 
@@ -1362,7 +1362,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsAdminWebauthnCreate"></a>
+<a id="authenticatorsAdminWebauthnCreate"></a>
 # **authenticatorsAdminWebauthnCreate**
 > WebAuthnDevice authenticatorsAdminWebauthnCreate(webAuthnDeviceRequest)
 
@@ -1412,7 +1412,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsAdminWebauthnDestroy"></a>
+<a id="authenticatorsAdminWebauthnDestroy"></a>
 # **authenticatorsAdminWebauthnDestroy**
 > authenticatorsAdminWebauthnDestroy(id)
 
@@ -1461,7 +1461,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsAdminWebauthnList"></a>
+<a id="authenticatorsAdminWebauthnList"></a>
 # **authenticatorsAdminWebauthnList**
 > PaginatedWebAuthnDeviceList authenticatorsAdminWebauthnList(name, ordering, page, pageSize, search)
 
@@ -1519,7 +1519,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsAdminWebauthnPartialUpdate"></a>
+<a id="authenticatorsAdminWebauthnPartialUpdate"></a>
 # **authenticatorsAdminWebauthnPartialUpdate**
 > WebAuthnDevice authenticatorsAdminWebauthnPartialUpdate(id, patchedWebAuthnDeviceRequest)
 
@@ -1571,7 +1571,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsAdminWebauthnRetrieve"></a>
+<a id="authenticatorsAdminWebauthnRetrieve"></a>
 # **authenticatorsAdminWebauthnRetrieve**
 > WebAuthnDevice authenticatorsAdminWebauthnRetrieve(id)
 
@@ -1621,7 +1621,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsAdminWebauthnUpdate"></a>
+<a id="authenticatorsAdminWebauthnUpdate"></a>
 # **authenticatorsAdminWebauthnUpdate**
 > WebAuthnDevice authenticatorsAdminWebauthnUpdate(id, webAuthnDeviceRequest)
 
@@ -1673,7 +1673,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsAllList"></a>
+<a id="authenticatorsAllList"></a>
 # **authenticatorsAllList**
 > kotlin.collections.List&lt;Device&gt; authenticatorsAllList()
 
@@ -1719,7 +1719,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsDuoDestroy"></a>
+<a id="authenticatorsDuoDestroy"></a>
 # **authenticatorsDuoDestroy**
 > authenticatorsDuoDestroy(id)
 
@@ -1768,7 +1768,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsDuoList"></a>
+<a id="authenticatorsDuoList"></a>
 # **authenticatorsDuoList**
 > PaginatedDuoDeviceList authenticatorsDuoList(name, ordering, page, pageSize, search)
 
@@ -1826,7 +1826,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsDuoPartialUpdate"></a>
+<a id="authenticatorsDuoPartialUpdate"></a>
 # **authenticatorsDuoPartialUpdate**
 > DuoDevice authenticatorsDuoPartialUpdate(id, patchedDuoDeviceRequest)
 
@@ -1878,7 +1878,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsDuoRetrieve"></a>
+<a id="authenticatorsDuoRetrieve"></a>
 # **authenticatorsDuoRetrieve**
 > DuoDevice authenticatorsDuoRetrieve(id)
 
@@ -1928,7 +1928,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsDuoUpdate"></a>
+<a id="authenticatorsDuoUpdate"></a>
 # **authenticatorsDuoUpdate**
 > DuoDevice authenticatorsDuoUpdate(id, duoDeviceRequest)
 
@@ -1980,7 +1980,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsDuoUsedByList"></a>
+<a id="authenticatorsDuoUsedByList"></a>
 # **authenticatorsDuoUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; authenticatorsDuoUsedByList(id)
 
@@ -2030,7 +2030,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsSmsDestroy"></a>
+<a id="authenticatorsSmsDestroy"></a>
 # **authenticatorsSmsDestroy**
 > authenticatorsSmsDestroy(id)
 
@@ -2079,7 +2079,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsSmsList"></a>
+<a id="authenticatorsSmsList"></a>
 # **authenticatorsSmsList**
 > PaginatedSMSDeviceList authenticatorsSmsList(name, ordering, page, pageSize, search)
 
@@ -2137,7 +2137,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsSmsPartialUpdate"></a>
+<a id="authenticatorsSmsPartialUpdate"></a>
 # **authenticatorsSmsPartialUpdate**
 > SMSDevice authenticatorsSmsPartialUpdate(id, patchedSMSDeviceRequest)
 
@@ -2189,7 +2189,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsSmsRetrieve"></a>
+<a id="authenticatorsSmsRetrieve"></a>
 # **authenticatorsSmsRetrieve**
 > SMSDevice authenticatorsSmsRetrieve(id)
 
@@ -2239,7 +2239,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsSmsUpdate"></a>
+<a id="authenticatorsSmsUpdate"></a>
 # **authenticatorsSmsUpdate**
 > SMSDevice authenticatorsSmsUpdate(id, smSDeviceRequest)
 
@@ -2291,7 +2291,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsSmsUsedByList"></a>
+<a id="authenticatorsSmsUsedByList"></a>
 # **authenticatorsSmsUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; authenticatorsSmsUsedByList(id)
 
@@ -2341,7 +2341,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsStaticDestroy"></a>
+<a id="authenticatorsStaticDestroy"></a>
 # **authenticatorsStaticDestroy**
 > authenticatorsStaticDestroy(id)
 
@@ -2390,7 +2390,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsStaticList"></a>
+<a id="authenticatorsStaticList"></a>
 # **authenticatorsStaticList**
 > PaginatedStaticDeviceList authenticatorsStaticList(name, ordering, page, pageSize, search)
 
@@ -2448,7 +2448,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsStaticPartialUpdate"></a>
+<a id="authenticatorsStaticPartialUpdate"></a>
 # **authenticatorsStaticPartialUpdate**
 > StaticDevice authenticatorsStaticPartialUpdate(id, patchedStaticDeviceRequest)
 
@@ -2500,7 +2500,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsStaticRetrieve"></a>
+<a id="authenticatorsStaticRetrieve"></a>
 # **authenticatorsStaticRetrieve**
 > StaticDevice authenticatorsStaticRetrieve(id)
 
@@ -2550,7 +2550,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsStaticUpdate"></a>
+<a id="authenticatorsStaticUpdate"></a>
 # **authenticatorsStaticUpdate**
 > StaticDevice authenticatorsStaticUpdate(id, staticDeviceRequest)
 
@@ -2602,7 +2602,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsStaticUsedByList"></a>
+<a id="authenticatorsStaticUsedByList"></a>
 # **authenticatorsStaticUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; authenticatorsStaticUsedByList(id)
 
@@ -2652,7 +2652,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsTotpDestroy"></a>
+<a id="authenticatorsTotpDestroy"></a>
 # **authenticatorsTotpDestroy**
 > authenticatorsTotpDestroy(id)
 
@@ -2701,7 +2701,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsTotpList"></a>
+<a id="authenticatorsTotpList"></a>
 # **authenticatorsTotpList**
 > PaginatedTOTPDeviceList authenticatorsTotpList(name, ordering, page, pageSize, search)
 
@@ -2759,7 +2759,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsTotpPartialUpdate"></a>
+<a id="authenticatorsTotpPartialUpdate"></a>
 # **authenticatorsTotpPartialUpdate**
 > TOTPDevice authenticatorsTotpPartialUpdate(id, patchedTOTPDeviceRequest)
 
@@ -2811,7 +2811,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsTotpRetrieve"></a>
+<a id="authenticatorsTotpRetrieve"></a>
 # **authenticatorsTotpRetrieve**
 > TOTPDevice authenticatorsTotpRetrieve(id)
 
@@ -2861,7 +2861,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsTotpUpdate"></a>
+<a id="authenticatorsTotpUpdate"></a>
 # **authenticatorsTotpUpdate**
 > TOTPDevice authenticatorsTotpUpdate(id, toTPDeviceRequest)
 
@@ -2913,7 +2913,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsTotpUsedByList"></a>
+<a id="authenticatorsTotpUsedByList"></a>
 # **authenticatorsTotpUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; authenticatorsTotpUsedByList(id)
 
@@ -2963,7 +2963,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsWebauthnDestroy"></a>
+<a id="authenticatorsWebauthnDestroy"></a>
 # **authenticatorsWebauthnDestroy**
 > authenticatorsWebauthnDestroy(id)
 
@@ -3012,7 +3012,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsWebauthnList"></a>
+<a id="authenticatorsWebauthnList"></a>
 # **authenticatorsWebauthnList**
 > PaginatedWebAuthnDeviceList authenticatorsWebauthnList(name, ordering, page, pageSize, search)
 
@@ -3070,7 +3070,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsWebauthnPartialUpdate"></a>
+<a id="authenticatorsWebauthnPartialUpdate"></a>
 # **authenticatorsWebauthnPartialUpdate**
 > WebAuthnDevice authenticatorsWebauthnPartialUpdate(id, patchedWebAuthnDeviceRequest)
 
@@ -3122,7 +3122,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsWebauthnRetrieve"></a>
+<a id="authenticatorsWebauthnRetrieve"></a>
 # **authenticatorsWebauthnRetrieve**
 > WebAuthnDevice authenticatorsWebauthnRetrieve(id)
 
@@ -3172,7 +3172,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="authenticatorsWebauthnUpdate"></a>
+<a id="authenticatorsWebauthnUpdate"></a>
 # **authenticatorsWebauthnUpdate**
 > WebAuthnDevice authenticatorsWebauthnUpdate(id, webAuthnDeviceRequest)
 
@@ -3224,7 +3224,7 @@ Configure authentik:
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="authenticatorsWebauthnUsedByList"></a>
+<a id="authenticatorsWebauthnUsedByList"></a>
 # **authenticatorsWebauthnUsedByList**
 > kotlin.collections.List&lt;UsedBy&gt; authenticatorsWebauthnUsedByList(id)
 

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**adminWorkersRetrieve**](AdminApi.md#adminWorkersRetrieve) | **GET** /admin/workers/ | 
 
 
-<a name="adminAppsList"></a>
+<a id="adminAppsList"></a>
 # **adminAppsList**
 > kotlin.collections.List&lt;App&gt; adminAppsList()
 
@@ -62,7 +62,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="adminMetricsRetrieve"></a>
+<a id="adminMetricsRetrieve"></a>
 # **adminMetricsRetrieve**
 > LoginMetrics adminMetricsRetrieve()
 
@@ -108,7 +108,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="adminModelsList"></a>
+<a id="adminModelsList"></a>
 # **adminModelsList**
 > kotlin.collections.List&lt;App&gt; adminModelsList()
 
@@ -154,7 +154,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="adminSystemCreate"></a>
+<a id="adminSystemCreate"></a>
 # **adminSystemCreate**
 > System adminSystemCreate()
 
@@ -200,7 +200,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="adminSystemRetrieve"></a>
+<a id="adminSystemRetrieve"></a>
 # **adminSystemRetrieve**
 > System adminSystemRetrieve()
 
@@ -246,7 +246,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="adminSystemTasksList"></a>
+<a id="adminSystemTasksList"></a>
 # **adminSystemTasksList**
 > kotlin.collections.List&lt;Task&gt; adminSystemTasksList()
 
@@ -292,7 +292,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="adminSystemTasksRetrieve"></a>
+<a id="adminSystemTasksRetrieve"></a>
 # **adminSystemTasksRetrieve**
 > Task adminSystemTasksRetrieve(id)
 
@@ -342,7 +342,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="adminSystemTasksRetryCreate"></a>
+<a id="adminSystemTasksRetryCreate"></a>
 # **adminSystemTasksRetryCreate**
 > adminSystemTasksRetryCreate(id)
 
@@ -391,7 +391,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="adminVersionRetrieve"></a>
+<a id="adminVersionRetrieve"></a>
 # **adminVersionRetrieve**
 > Version adminVersionRetrieve()
 
@@ -437,7 +437,7 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="adminWorkersRetrieve"></a>
+<a id="adminWorkersRetrieve"></a>
 # **adminWorkersRetrieve**
 > Workers adminWorkersRetrieve()
 

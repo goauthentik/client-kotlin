@@ -10,18 +10,20 @@ clean:
 	rm -rf docs/
 	rm -rf src/
 
+.PHONY: build
 build:
 	docker run \
 		--rm -v ${PWD}:/local \
 		--user ${UID}:${GID} \
-		docker.io/openapitools/openapi-generator-cli:v6.2.0 generate \
-		--additional-properties=npmVersion=${NPM_VERSION} \
+		docker.io/openapitools/openapi-generator-cli:v7.1.0 generate \
+		--additional-properties=artifactVersion=${VERSION} \
 		-i /local/schema.yml \
 		-g kotlin \
 		-o /local \
 		-c /local/config.yaml
 	rm -rf ./test
 	rm -f .travis.yml git_push.sh
+	chmod +x ./gradlew
 
 diff:
 	docker run \
