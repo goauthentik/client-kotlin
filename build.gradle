@@ -1,5 +1,5 @@
 group 'io.goauthentik'
-version '3.2023103.5'
+version '3.2023103.6'
 
 wrapper {
     gradleVersion = '7.5'
@@ -59,4 +59,22 @@ dependencies {
     implementation "com.squareup.moshi:moshi-adapters:1.14.0"
     implementation "com.squareup.okhttp3:okhttp:4.11.0"
     testImplementation "io.kotlintest:kotlintest-runner-junit5:3.4.2"
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/goauthentik/client-kotlin")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            from(components.java)
+        }
+    }
 }
