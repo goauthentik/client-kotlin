@@ -4,14 +4,15 @@ UID = $(shell id -u)
 GID = $(shell id -g)
 VERSION = $(shell cd version/ && go run -v .)
 
-all: clean fetch diff build
+all: clean fetch diff generate
 
 clean:
+	rm -rf build/
 	rm -rf docs/
 	rm -rf src/
 
-.PHONY: build
-build:
+.PHONY: generate
+generate:
 	docker run \
 		--rm -v ${PWD}:/local \
 		--user ${UID}:${GID} \
@@ -24,6 +25,10 @@ build:
 	rm -rf ./test
 	rm -f .travis.yml git_push.sh
 	chmod +x ./gradlew
+	# cp ./templates/build.gradle build.gradle
+
+build:
+	docker run -it --rm -v ${PWD}:/data -w /data eclipse-temurin:20 ./gradlew build
 
 diff:
 	docker run \

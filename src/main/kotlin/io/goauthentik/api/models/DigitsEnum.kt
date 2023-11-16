@@ -26,16 +26,16 @@ import com.squareup.moshi.JsonClass
  */
 
 @JsonClass(generateAdapter = false)
-enum class DigitsEnum(val value: kotlin.Int) {
+enum class DigitsEnum(val value: kotlin.String) {
 
     @Json(name = "6")
-    _6(6),
+    _6("6"),
 
     @Json(name = "8")
-    _8(8),
+    _8("8"),
 
-    @Json(name = "11184809")
-    unknownDefaultOpenApi(11184809);
+    @Json(name = "unknown_default_open_api")
+    unknownDefaultOpenApi("unknown_default_open_api");
 
     /**
      * Override [toString()] to avoid using the enum variable name as the value, and instead use
@@ -44,7 +44,7 @@ enum class DigitsEnum(val value: kotlin.Int) {
      * This solves a problem when the variable name and its value are different, and ensures that
      * the client sends the correct enum values to the server always.
      */
-    override fun toString(): kotlin.String = value.toString()
+    override fun toString(): kotlin.String = value
 
     companion object {
         /**

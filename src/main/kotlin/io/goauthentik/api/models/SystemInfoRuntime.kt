@@ -31,7 +31,7 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class SystemRuntime (
+data class SystemInfoRuntime (
 
     @Json(name = "python_version")
     val pythonVersion: kotlin.String,
