@@ -22,7 +22,7 @@ import okhttp3.HttpUrl
 import io.goauthentik.api.models.App
 import io.goauthentik.api.models.GenericError
 import io.goauthentik.api.models.LoginMetrics
-import io.goauthentik.api.models.SystemInfo
+import io.goauthentik.api.models.System
 import io.goauthentik.api.models.Task
 import io.goauthentik.api.models.ValidationError
 import io.goauthentik.api.models.Version
@@ -259,7 +259,7 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     /**
      * 
      * Get system information.
-     * @return SystemInfo
+     * @return System
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -268,11 +268,11 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun adminSystemCreate() : SystemInfo {
+    fun adminSystemCreate() : System {
         val localVarResponse = adminSystemCreateWithHttpInfo()
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as SystemInfo
+            ResponseType.Success -> (localVarResponse as Success<*>).data as System
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -289,16 +289,16 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     /**
      * 
      * Get system information.
-     * @return ApiResponse<SystemInfo?>
+     * @return ApiResponse<System?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun adminSystemCreateWithHttpInfo() : ApiResponse<SystemInfo?> {
+    fun adminSystemCreateWithHttpInfo() : ApiResponse<System?> {
         val localVariableConfig = adminSystemCreateRequestConfig()
 
-        return request<Unit, SystemInfo>(
+        return request<Unit, System>(
             localVariableConfig
         )
     }
@@ -327,7 +327,7 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     /**
      * 
      * Get system information.
-     * @return SystemInfo
+     * @return System
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -336,11 +336,11 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun adminSystemRetrieve() : SystemInfo {
+    fun adminSystemRetrieve() : System {
         val localVarResponse = adminSystemRetrieveWithHttpInfo()
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as SystemInfo
+            ResponseType.Success -> (localVarResponse as Success<*>).data as System
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -357,16 +357,16 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     /**
      * 
      * Get system information.
-     * @return ApiResponse<SystemInfo?>
+     * @return ApiResponse<System?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun adminSystemRetrieveWithHttpInfo() : ApiResponse<SystemInfo?> {
+    fun adminSystemRetrieveWithHttpInfo() : ApiResponse<System?> {
         val localVariableConfig = adminSystemRetrieveRequestConfig()
 
-        return request<Unit, SystemInfo>(
+        return request<Unit, System>(
             localVariableConfig
         )
     }

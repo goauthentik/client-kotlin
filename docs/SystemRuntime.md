@@ -1,5 +1,5 @@
 
-# SystemInfoRuntime
+# SystemRuntime
 
 ## Properties
 Name | Type | Description | Notes

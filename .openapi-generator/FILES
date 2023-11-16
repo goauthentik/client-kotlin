@@ -462,8 +462,8 @@ docs/StaticDeviceRequest.md
 docs/StaticDeviceToken.md
 docs/StaticDeviceTokenRequest.md
 docs/SubModeEnum.md
-docs/SystemInfo.md
-docs/SystemInfoRuntime.md
+docs/System.md
+docs/SystemRuntime.md
 docs/TOTPDevice.md
 docs/TOTPDeviceRequest.md
 docs/Task.md
@@ -1007,8 +1007,8 @@ src/main/kotlin/io/goauthentik/api/models/StaticDeviceRequest.kt
 src/main/kotlin/io/goauthentik/api/models/StaticDeviceToken.kt
 src/main/kotlin/io/goauthentik/api/models/StaticDeviceTokenRequest.kt
 src/main/kotlin/io/goauthentik/api/models/SubModeEnum.kt
-src/main/kotlin/io/goauthentik/api/models/SystemInfo.kt
-src/main/kotlin/io/goauthentik/api/models/SystemInfoRuntime.kt
+src/main/kotlin/io/goauthentik/api/models/System.kt
+src/main/kotlin/io/goauthentik/api/models/SystemRuntime.kt
 src/main/kotlin/io/goauthentik/api/models/TOTPDevice.kt
 src/main/kotlin/io/goauthentik/api/models/TOTPDeviceRequest.kt
 src/main/kotlin/io/goauthentik/api/models/Task.kt

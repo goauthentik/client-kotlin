@@ -15,7 +15,7 @@
 
 package io.goauthentik.api.models
 
-import io.goauthentik.api.models.SystemInfoRuntime
+import io.goauthentik.api.models.SystemRuntime
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -33,7 +33,7 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class SystemInfo (
+data class System (
 
     /* Get HTTP Request headers */
     @Json(name = "http_headers")
@@ -48,7 +48,7 @@ data class SystemInfo (
     val httpIsSecure: kotlin.Boolean,
 
     @Json(name = "runtime")
-    val runtime: SystemInfoRuntime,
+    val runtime: SystemRuntime,
 
     /* Currently active tenant */
     @Json(name = "tenant")
