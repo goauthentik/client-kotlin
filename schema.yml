@@ -107,7 +107,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/System'
+                $ref: '#/components/schemas/SystemInfo'
           description: ''
         '400':
           content:
@@ -133,7 +133,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/System'
+                $ref: '#/components/schemas/SystemInfo'
           description: ''
         '400':
           content:
@@ -41152,7 +41152,7 @@ components:
         * `user_username` - Based on the username
         * `user_email` - Based on the User's Email. This is recommended over the UPN method.
         * `user_upn` - Based on the User's UPN, only works if user has a 'upn' attribute set. Use this method only if you have different UPN and Mail domains.
-    System:
+    SystemInfo:
       type: object
       description: Get system information.
       properties:

@@ -22,6 +22,7 @@ import okhttp3.HttpUrl
 import io.goauthentik.api.models.App
 import io.goauthentik.api.models.GenericError
 import io.goauthentik.api.models.LoginMetrics
+import io.goauthentik.api.models.SystemInfo
 import io.goauthentik.api.models.Task
 import io.goauthentik.api.models.ValidationError
 import io.goauthentik.api.models.Version
@@ -52,7 +53,7 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
-     *
+     * 
      * Read-only view list all installed apps
      * @return kotlin.collections.List<App>
      * @throws IllegalStateException If the request is not correctly configured
@@ -82,7 +83,7 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
-     *
+     * 
      * Read-only view list all installed apps
      * @return ApiResponse<kotlin.collections.List<App>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -120,7 +121,7 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
-     *
+     * 
      * Login Metrics per 1h
      * @return LoginMetrics
      * @throws IllegalStateException If the request is not correctly configured
@@ -150,7 +151,7 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
-     *
+     * 
      * Login Metrics per 1h
      * @return ApiResponse<LoginMetrics?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -188,7 +189,7 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
-     *
+     * 
      * Read-only view list all installed models
      * @return kotlin.collections.List<App>
      * @throws IllegalStateException If the request is not correctly configured
@@ -218,7 +219,7 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
-     *
+     * 
      * Read-only view list all installed models
      * @return ApiResponse<kotlin.collections.List<App>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -256,7 +257,143 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
+     * 
+     * Get system information.
+     * @return SystemInfo
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun adminSystemCreate() : SystemInfo {
+        val localVarResponse = adminSystemCreateWithHttpInfo()
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SystemInfo
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Get system information.
+     * @return ApiResponse<SystemInfo?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun adminSystemCreateWithHttpInfo() : ApiResponse<SystemInfo?> {
+        val localVariableConfig = adminSystemCreateRequestConfig()
+
+        return request<Unit, SystemInfo>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation adminSystemCreate
      *
+     * @return RequestConfig
+     */
+    fun adminSystemCreateRequestConfig() : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/admin/system/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Get system information.
+     * @return SystemInfo
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun adminSystemRetrieve() : SystemInfo {
+        val localVarResponse = adminSystemRetrieveWithHttpInfo()
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SystemInfo
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Get system information.
+     * @return ApiResponse<SystemInfo?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun adminSystemRetrieveWithHttpInfo() : ApiResponse<SystemInfo?> {
+        val localVariableConfig = adminSystemRetrieveRequestConfig()
+
+        return request<Unit, SystemInfo>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation adminSystemRetrieve
+     *
+     * @return RequestConfig
+     */
+    fun adminSystemRetrieveRequestConfig() : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/admin/system/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
      * List system tasks
      * @return kotlin.collections.List<Task>
      * @throws IllegalStateException If the request is not correctly configured
@@ -286,7 +423,7 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
-     *
+     * 
      * List system tasks
      * @return ApiResponse<kotlin.collections.List<Task>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -324,9 +461,9 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
-     *
+     * 
      * Get a single system task
-     * @param id
+     * @param id 
      * @return Task
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -355,9 +492,9 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
-     *
+     * 
      * Get a single system task
-     * @param id
+     * @param id 
      * @return ApiResponse<Task?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -375,7 +512,7 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     /**
      * To obtain the request config of the operation adminSystemTasksRetrieve
      *
-     * @param id
+     * @param id 
      * @return RequestConfig
      */
     fun adminSystemTasksRetrieveRequestConfig(id: kotlin.String) : RequestConfig<Unit> {
@@ -395,9 +532,9 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
-     *
+     * 
      * Retry task
-     * @param id
+     * @param id 
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -425,9 +562,9 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
-     *
+     * 
      * Retry task
-     * @param id
+     * @param id 
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -444,7 +581,7 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     /**
      * To obtain the request config of the operation adminSystemTasksRetryCreate
      *
-     * @param id
+     * @param id 
      * @return RequestConfig
      */
     fun adminSystemTasksRetryCreateRequestConfig(id: kotlin.String) : RequestConfig<Unit> {
@@ -464,7 +601,7 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
-     *
+     * 
      * Get running and latest version.
      * @return Version
      * @throws IllegalStateException If the request is not correctly configured
@@ -494,7 +631,7 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
-     *
+     * 
      * Get running and latest version.
      * @return ApiResponse<Version?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -532,7 +669,7 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
-     *
+     * 
      * Get currently connected worker count.
      * @return Workers
      * @throws IllegalStateException If the request is not correctly configured
@@ -562,7 +699,7 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
-     *
+     * 
      * Get currently connected worker count.
      * @return ApiResponse<Workers?>
      * @throws IllegalStateException If the request is not correctly configured
