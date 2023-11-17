@@ -17,7 +17,6 @@ generate:
 		--rm -v ${PWD}:/local \
 		--user ${UID}:${GID} \
 		docker.io/openapitools/openapi-generator-cli:v7.1.0 generate \
-		--additional-properties=artifactVersion=${VERSION} \
 		-i /local/schema.yml \
 		-g kotlin \
 		-o /local \

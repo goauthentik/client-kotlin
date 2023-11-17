@@ -46,9 +46,3 @@ jobs:
           git tag $version
           git push --tags
           gh release create $version -F diff.log
-      - uses: gradle/gradle-build-action@v2
-        with:
-          arguments: publish
-          gradle-version: "8.4"
-        env:
-          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
