@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **passwordlessFlow** | [**java.util.UUID**](java.util.UUID.md) | Optional passwordless flow, which is linked at the bottom of the page. |  [optional]
 **sources** | [**kotlin.collections.List&lt;java.util.UUID&gt;**](java.util.UUID.md) | Specify which sources should be shown. |  [optional]
 **showSourceLabels** | **kotlin.Boolean** |  |  [optional]
+**pretendUserExists** | **kotlin.Boolean** | When enabled, the stage will succeed and continue even when incorrect user info is entered. |  [optional]
 
 
 

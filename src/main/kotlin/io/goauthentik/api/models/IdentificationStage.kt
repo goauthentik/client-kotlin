@@ -40,6 +40,7 @@ import com.squareup.moshi.JsonClass
  * @param passwordlessFlow Optional passwordless flow, which is linked at the bottom of the page.
  * @param sources Specify which sources should be shown.
  * @param showSourceLabels 
+ * @param pretendUserExists When enabled, the stage will succeed and continue even when incorrect user info is entered.
  */
 
 
@@ -103,7 +104,11 @@ data class IdentificationStage (
     val sources: kotlin.collections.List<java.util.UUID>? = null,
 
     @Json(name = "show_source_labels")
-    val showSourceLabels: kotlin.Boolean? = null
+    val showSourceLabels: kotlin.Boolean? = null,
+
+    /* When enabled, the stage will succeed and continue even when incorrect user info is entered. */
+    @Json(name = "pretend_user_exists")
+    val pretendUserExists: kotlin.Boolean? = null
 
 )
 
