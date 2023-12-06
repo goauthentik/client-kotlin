@@ -805,6 +805,136 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
 
     /**
      * 
+     * Get event volume for specified filters and timeframe
+     * @param action  (optional)
+     * @param clientIp  (optional)
+     * @param contextAuthorizedApp Context Authorized application (optional)
+     * @param contextModelApp Context Model App (optional)
+     * @param contextModelName Context Model Name (optional)
+     * @param contextModelPk Context Model Primary Key (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param search A search term. (optional)
+     * @param tenantName Tenant name (optional)
+     * @param username Username (optional)
+     * @return kotlin.collections.List<Coordinate>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun eventsEventsVolumeList(action: kotlin.String? = null, clientIp: kotlin.String? = null, contextAuthorizedApp: kotlin.String? = null, contextModelApp: kotlin.String? = null, contextModelName: kotlin.String? = null, contextModelPk: kotlin.String? = null, ordering: kotlin.String? = null, search: kotlin.String? = null, tenantName: kotlin.String? = null, username: kotlin.String? = null) : kotlin.collections.List<Coordinate> {
+        val localVarResponse = eventsEventsVolumeListWithHttpInfo(action = action, clientIp = clientIp, contextAuthorizedApp = contextAuthorizedApp, contextModelApp = contextModelApp, contextModelName = contextModelName, contextModelPk = contextModelPk, ordering = ordering, search = search, tenantName = tenantName, username = username)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Coordinate>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Get event volume for specified filters and timeframe
+     * @param action  (optional)
+     * @param clientIp  (optional)
+     * @param contextAuthorizedApp Context Authorized application (optional)
+     * @param contextModelApp Context Model App (optional)
+     * @param contextModelName Context Model Name (optional)
+     * @param contextModelPk Context Model Primary Key (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param search A search term. (optional)
+     * @param tenantName Tenant name (optional)
+     * @param username Username (optional)
+     * @return ApiResponse<kotlin.collections.List<Coordinate>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun eventsEventsVolumeListWithHttpInfo(action: kotlin.String?, clientIp: kotlin.String?, contextAuthorizedApp: kotlin.String?, contextModelApp: kotlin.String?, contextModelName: kotlin.String?, contextModelPk: kotlin.String?, ordering: kotlin.String?, search: kotlin.String?, tenantName: kotlin.String?, username: kotlin.String?) : ApiResponse<kotlin.collections.List<Coordinate>?> {
+        val localVariableConfig = eventsEventsVolumeListRequestConfig(action = action, clientIp = clientIp, contextAuthorizedApp = contextAuthorizedApp, contextModelApp = contextModelApp, contextModelName = contextModelName, contextModelPk = contextModelPk, ordering = ordering, search = search, tenantName = tenantName, username = username)
+
+        return request<Unit, kotlin.collections.List<Coordinate>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation eventsEventsVolumeList
+     *
+     * @param action  (optional)
+     * @param clientIp  (optional)
+     * @param contextAuthorizedApp Context Authorized application (optional)
+     * @param contextModelApp Context Model App (optional)
+     * @param contextModelName Context Model Name (optional)
+     * @param contextModelPk Context Model Primary Key (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param search A search term. (optional)
+     * @param tenantName Tenant name (optional)
+     * @param username Username (optional)
+     * @return RequestConfig
+     */
+    fun eventsEventsVolumeListRequestConfig(action: kotlin.String?, clientIp: kotlin.String?, contextAuthorizedApp: kotlin.String?, contextModelApp: kotlin.String?, contextModelName: kotlin.String?, contextModelPk: kotlin.String?, ordering: kotlin.String?, search: kotlin.String?, tenantName: kotlin.String?, username: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (action != null) {
+                    put("action", listOf(action.toString()))
+                }
+                if (clientIp != null) {
+                    put("client_ip", listOf(clientIp.toString()))
+                }
+                if (contextAuthorizedApp != null) {
+                    put("context_authorized_app", listOf(contextAuthorizedApp.toString()))
+                }
+                if (contextModelApp != null) {
+                    put("context_model_app", listOf(contextModelApp.toString()))
+                }
+                if (contextModelName != null) {
+                    put("context_model_name", listOf(contextModelName.toString()))
+                }
+                if (contextModelPk != null) {
+                    put("context_model_pk", listOf(contextModelPk.toString()))
+                }
+                if (ordering != null) {
+                    put("ordering", listOf(ordering.toString()))
+                }
+                if (search != null) {
+                    put("search", listOf(search.toString()))
+                }
+                if (tenantName != null) {
+                    put("tenant_name", listOf(tenantName.toString()))
+                }
+                if (username != null) {
+                    put("username", listOf(username.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/events/events/volume/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
      * Notification Viewset
      * @param uuid A UUID string identifying this Notification.
      * @return void

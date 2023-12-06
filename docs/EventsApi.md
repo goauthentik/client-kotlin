@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**eventsEventsRetrieve**](EventsApi.md#eventsEventsRetrieve) | **GET** /events/events/{event_uuid}/ | 
 [**eventsEventsTopPerUserList**](EventsApi.md#eventsEventsTopPerUserList) | **GET** /events/events/top_per_user/ | 
 [**eventsEventsUpdate**](EventsApi.md#eventsEventsUpdate) | **PUT** /events/events/{event_uuid}/ | 
+[**eventsEventsVolumeList**](EventsApi.md#eventsEventsVolumeList) | **GET** /events/events/volume/ | 
 [**eventsNotificationsDestroy**](EventsApi.md#eventsNotificationsDestroy) | **DELETE** /events/notifications/{uuid}/ | 
 [**eventsNotificationsList**](EventsApi.md#eventsNotificationsList) | **GET** /events/notifications/ | 
 [**eventsNotificationsMarkAllSeenCreate**](EventsApi.md#eventsNotificationsMarkAllSeenCreate) | **POST** /events/notifications/mark_all_seen/ | 
@@ -510,6 +511,74 @@ Configure authentik:
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="eventsEventsVolumeList"></a>
+# **eventsEventsVolumeList**
+> kotlin.collections.List&lt;Coordinate&gt; eventsEventsVolumeList(action, clientIp, contextAuthorizedApp, contextModelApp, contextModelName, contextModelPk, ordering, search, tenantName, username)
+
+
+
+Get event volume for specified filters and timeframe
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = EventsApi()
+val action : kotlin.String = action_example // kotlin.String | 
+val clientIp : kotlin.String = clientIp_example // kotlin.String | 
+val contextAuthorizedApp : kotlin.String = contextAuthorizedApp_example // kotlin.String | Context Authorized application
+val contextModelApp : kotlin.String = contextModelApp_example // kotlin.String | Context Model App
+val contextModelName : kotlin.String = contextModelName_example // kotlin.String | Context Model Name
+val contextModelPk : kotlin.String = contextModelPk_example // kotlin.String | Context Model Primary Key
+val ordering : kotlin.String = ordering_example // kotlin.String | Which field to use when ordering the results.
+val search : kotlin.String = search_example // kotlin.String | A search term.
+val tenantName : kotlin.String = tenantName_example // kotlin.String | Tenant name
+val username : kotlin.String = username_example // kotlin.String | Username
+try {
+    val result : kotlin.collections.List<Coordinate> = apiInstance.eventsEventsVolumeList(action, clientIp, contextAuthorizedApp, contextModelApp, contextModelName, contextModelPk, ordering, search, tenantName, username)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling EventsApi#eventsEventsVolumeList")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling EventsApi#eventsEventsVolumeList")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **action** | **kotlin.String**|  | [optional]
+ **clientIp** | **kotlin.String**|  | [optional]
+ **contextAuthorizedApp** | **kotlin.String**| Context Authorized application | [optional]
+ **contextModelApp** | **kotlin.String**| Context Model App | [optional]
+ **contextModelName** | **kotlin.String**| Context Model Name | [optional]
+ **contextModelPk** | **kotlin.String**| Context Model Primary Key | [optional]
+ **ordering** | **kotlin.String**| Which field to use when ordering the results. | [optional]
+ **search** | **kotlin.String**| A search term. | [optional]
+ **tenantName** | **kotlin.String**| Tenant name | [optional]
+ **username** | **kotlin.String**| Username | [optional]
+
+### Return type
+
+[**kotlin.collections.List&lt;Coordinate&gt;**](Coordinate.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a id="eventsNotificationsDestroy"></a>

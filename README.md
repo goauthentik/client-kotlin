@@ -186,6 +186,7 @@ Class | Method | HTTP request | Description
 *EventsApi* | [**eventsEventsRetrieve**](docs/EventsApi.md#eventseventsretrieve) | **GET** /events/events/{event_uuid}/ | 
 *EventsApi* | [**eventsEventsTopPerUserList**](docs/EventsApi.md#eventseventstopperuserlist) | **GET** /events/events/top_per_user/ | 
 *EventsApi* | [**eventsEventsUpdate**](docs/EventsApi.md#eventseventsupdate) | **PUT** /events/events/{event_uuid}/ | 
+*EventsApi* | [**eventsEventsVolumeList**](docs/EventsApi.md#eventseventsvolumelist) | **GET** /events/events/volume/ | 
 *EventsApi* | [**eventsNotificationsDestroy**](docs/EventsApi.md#eventsnotificationsdestroy) | **DELETE** /events/notifications/{uuid}/ | 
 *EventsApi* | [**eventsNotificationsList**](docs/EventsApi.md#eventsnotificationslist) | **GET** /events/notifications/ | 
 *EventsApi* | [**eventsNotificationsMarkAllSeenCreate**](docs/EventsApi.md#eventsnotificationsmarkallseencreate) | **POST** /events/notifications/mark_all_seen/ | 
