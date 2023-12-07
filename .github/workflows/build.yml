@@ -27,7 +27,7 @@ jobs:
           distribution: "temurin"
           java-version: "20"
           cache: "gradle"
-      - uses: actions/setup-go@v4
+      - uses: actions/setup-go@v5
       - uses: gradle/gradle-build-action@v2
         with:
           arguments: build

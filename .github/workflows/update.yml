@@ -28,7 +28,7 @@ jobs:
           distribution: "temurin"
           java-version: "20"
           cache: "gradle"
-      - uses: actions/setup-go@v4
+      - uses: actions/setup-go@v5
       - name: Check for updates
         run: make
       - name: Push
