@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **exportUrl** | **kotlin.String** | Get export URL for flow |  [readonly]
 **policyEngineMode** | [**PolicyEngineMode**](PolicyEngineMode.md) |  |  [optional]
 **compatibilityMode** | **kotlin.Boolean** | Enable compatibility mode, increases compatibility with password managers on mobile devices. |  [optional]
-**layout** | [**LayoutEnum**](LayoutEnum.md) |  |  [optional]
+**layout** | [**FlowLayoutEnum**](FlowLayoutEnum.md) |  |  [optional]
 **deniedAction** | [**DeniedActionEnum**](DeniedActionEnum.md) |  |  [optional]
 **authentication** | [**AuthenticationEnum**](AuthenticationEnum.md) |  |  [optional]
 

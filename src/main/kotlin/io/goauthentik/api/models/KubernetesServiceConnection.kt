@@ -63,7 +63,7 @@ data class KubernetesServiceConnection (
 
     /* Paste your kubeconfig here. authentik will automatically use the currently selected context. */
     @Json(name = "kubeconfig")
-    val kubeconfig: kotlin.collections.Map<kotlin.String, kotlin.Any>? = null,
+    val kubeconfig: kotlin.Any? = null,
 
     /* Verify SSL Certificates of the Kubernetes API endpoint */
     @Json(name = "verify_ssl")

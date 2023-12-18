@@ -46,7 +46,7 @@ data class Reputation (
     val pk: java.util.UUID? = null,
 
     @Json(name = "ip_geo_data")
-    val ipGeoData: kotlin.collections.Map<kotlin.String, kotlin.Any>? = null,
+    val ipGeoData: kotlin.Any? = null,
 
     @Json(name = "score")
     val score: kotlin.Long? = null

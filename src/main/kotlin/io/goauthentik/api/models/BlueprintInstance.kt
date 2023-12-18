@@ -58,13 +58,13 @@ data class BlueprintInstance (
     val managedModels: kotlin.collections.List<kotlin.String>,
 
     @Json(name = "metadata")
-    val metadata: kotlin.collections.Map<kotlin.String, kotlin.Any>,
+    val metadata: kotlin.Any?,
 
     @Json(name = "path")
     val path: kotlin.String? = "",
 
     @Json(name = "context")
-    val context: kotlin.collections.Map<kotlin.String, kotlin.Any>? = null,
+    val context: kotlin.Any? = null,
 
     @Json(name = "enabled")
     val enabled: kotlin.Boolean? = null,

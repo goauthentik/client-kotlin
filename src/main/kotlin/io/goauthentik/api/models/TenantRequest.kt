@@ -84,7 +84,7 @@ data class TenantRequest (
     val webCertificate: java.util.UUID? = null,
 
     @Json(name = "attributes")
-    val attributes: kotlin.collections.Map<kotlin.String, kotlin.Any>? = null
+    val attributes: kotlin.Any? = null
 
 )
 

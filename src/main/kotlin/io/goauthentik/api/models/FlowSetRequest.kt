@@ -17,7 +17,7 @@ package io.goauthentik.api.models
 
 import io.goauthentik.api.models.DeniedActionEnum
 import io.goauthentik.api.models.FlowDesignationEnum
-import io.goauthentik.api.models.LayoutEnum
+import io.goauthentik.api.models.FlowLayoutEnum
 import io.goauthentik.api.models.PolicyEngineMode
 
 import com.squareup.moshi.Json
@@ -61,7 +61,7 @@ data class FlowSetRequest (
     val compatibilityMode: kotlin.Boolean? = null,
 
     @Json(name = "layout")
-    val layout: LayoutEnum? = null,
+    val layout: FlowLayoutEnum? = null,
 
     @Json(name = "denied_action")
     val deniedAction: DeniedActionEnum? = null

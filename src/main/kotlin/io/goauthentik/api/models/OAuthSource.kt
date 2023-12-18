@@ -152,7 +152,7 @@ data class OAuthSource (
     val oidcJwksUrl: kotlin.String? = null,
 
     @Json(name = "oidc_jwks")
-    val oidcJwks: kotlin.collections.Map<kotlin.String, kotlin.Any>? = null
+    val oidcJwks: kotlin.Any? = null
 
 )
 

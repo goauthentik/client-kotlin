@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **verboseNamePlural** | **kotlin.String** | Return object&#39;s plural verbose_name |  [readonly]
 **metaModelName** | **kotlin.String** | Return internal model name |  [readonly]
 **local** | **kotlin.Boolean** | If enabled, use the local connection. Required Docker socket/Kubernetes Integration |  [optional]
-**kubeconfig** | [**kotlin.collections.Map&lt;kotlin.String, kotlin.Any&gt;**](kotlin.Any.md) | Paste your kubeconfig here. authentik will automatically use the currently selected context. |  [optional]
+**kubeconfig** | [**kotlin.Any**](.md) | Paste your kubeconfig here. authentik will automatically use the currently selected context. |  [optional]
 **verifySsl** | **kotlin.Boolean** | Verify SSL Certificates of the Kubernetes API endpoint |  [optional]
 
 

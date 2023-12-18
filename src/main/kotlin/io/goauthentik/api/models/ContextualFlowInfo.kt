@@ -15,7 +15,7 @@
 
 package io.goauthentik.api.models
 
-import io.goauthentik.api.models.LayoutEnum
+import io.goauthentik.api.models.ContextualFlowInfoLayoutEnum
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -36,7 +36,7 @@ data class ContextualFlowInfo (
     val cancelUrl: kotlin.String,
 
     @Json(name = "layout")
-    val layout: LayoutEnum,
+    val layout: ContextualFlowInfoLayoutEnum,
 
     @Json(name = "title")
     val title: kotlin.String? = null,

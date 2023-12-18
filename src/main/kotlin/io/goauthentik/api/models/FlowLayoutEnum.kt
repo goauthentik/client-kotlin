@@ -20,13 +20,13 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * * `stacked` - STACKED * `content_left` - CONTENT_LEFT * `content_right` - CONTENT_RIGHT * `sidebar_left` - SIDEBAR_LEFT * `sidebar_right` - SIDEBAR_RIGHT
+ * * `stacked` - Stacked * `content_left` - Content Left * `content_right` - Content Right * `sidebar_left` - Sidebar Left * `sidebar_right` - Sidebar Right
  *
  * Values: stacked,contentLeft,contentRight,sidebarLeft,sidebarRight,unknownDefaultOpenApi
  */
 
 @JsonClass(generateAdapter = false)
-enum class LayoutEnum(val value: kotlin.String) {
+enum class FlowLayoutEnum(val value: kotlin.String) {
 
     @Json(name = "stacked")
     stacked("stacked"),
@@ -59,12 +59,12 @@ enum class LayoutEnum(val value: kotlin.String) {
         /**
          * Converts the provided [data] to a [String] on success, null otherwise.
          */
-        fun encode(data: kotlin.Any?): kotlin.String? = if (data is LayoutEnum) "$data" else null
+        fun encode(data: kotlin.Any?): kotlin.String? = if (data is FlowLayoutEnum) "$data" else null
 
         /**
-         * Returns a valid [LayoutEnum] for [data], null otherwise.
+         * Returns a valid [FlowLayoutEnum] for [data], null otherwise.
          */
-        fun decode(data: kotlin.Any?): LayoutEnum? = data?.let {
+        fun decode(data: kotlin.Any?): FlowLayoutEnum? = data?.let {
           val normalizedData = "$it".lowercase()
           values().firstOrNull { value ->
             it == value || normalizedData == "$value".lowercase()

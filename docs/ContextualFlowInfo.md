@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cancelUrl** | **kotlin.String** |  | 
-**layout** | [**LayoutEnum**](LayoutEnum.md) |  | 
+**layout** | [**ContextualFlowInfoLayoutEnum**](ContextualFlowInfoLayoutEnum.md) |  | 
 **title** | **kotlin.String** |  |  [optional]
 **background** | **kotlin.String** |  |  [optional]
 

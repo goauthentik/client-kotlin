@@ -1,5 +1,5 @@
 
-# LayoutEnum
+# ContextualFlowInfoLayoutEnum
 
 ## Enum
 

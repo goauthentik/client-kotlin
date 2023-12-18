@@ -150,6 +150,7 @@ class SchemaApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
          @Json(name = "tr") tr("tr"),
          @Json(name = "tt") tt("tt"),
          @Json(name = "udm") udm("udm"),
+         @Json(name = "ug") ug("ug"),
          @Json(name = "uk") uk("uk"),
          @Json(name = "ur") ur("ur"),
          @Json(name = "uz") uz("uz"),

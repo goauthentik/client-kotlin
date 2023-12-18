@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **additionalScopes** | **kotlin.String** |  |  [optional]
 **oidcWellKnownUrl** | **kotlin.String** |  |  [optional]
 **oidcJwksUrl** | **kotlin.String** |  |  [optional]
-**oidcJwks** | [**kotlin.collections.Map&lt;kotlin.String, kotlin.Any&gt;**](kotlin.Any.md) |  |  [optional]
+**oidcJwks** | [**kotlin.Any**](.md) |  |  [optional]
 
 
 

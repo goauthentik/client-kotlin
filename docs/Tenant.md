@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **flowDeviceCode** | [**java.util.UUID**](java.util.UUID.md) |  |  [optional]
 **eventRetention** | **kotlin.String** | Events will be deleted after this duration.(Format: weeks&#x3D;3;days&#x3D;2;hours&#x3D;3,seconds&#x3D;2). |  [optional]
 **webCertificate** | [**java.util.UUID**](java.util.UUID.md) | Web Certificate used by the authentik Core webserver. |  [optional]
-**attributes** | [**kotlin.collections.Map&lt;kotlin.String, kotlin.Any&gt;**](kotlin.Any.md) |  |  [optional]
+**attributes** | [**kotlin.Any**](.md) |  |  [optional]
 
 
 

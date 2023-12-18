@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **lastAppliedHash** | **kotlin.String** |  |  [readonly]
 **status** | [**BlueprintInstanceStatusEnum**](BlueprintInstanceStatusEnum.md) |  |  [readonly]
 **managedModels** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [readonly]
-**metadata** | [**kotlin.collections.Map&lt;kotlin.String, kotlin.Any&gt;**](kotlin.Any.md) |  |  [readonly]
+**metadata** | [**kotlin.Any**](.md) |  |  [readonly]
 **path** | **kotlin.String** |  |  [optional]
-**context** | [**kotlin.collections.Map&lt;kotlin.String, kotlin.Any&gt;**](kotlin.Any.md) |  |  [optional]
+**context** | [**kotlin.Any**](.md) |  |  [optional]
 **enabled** | **kotlin.Boolean** |  |  [optional]
 **content** | **kotlin.String** |  |  [optional]
 

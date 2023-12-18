@@ -42,10 +42,10 @@ data class EventRequest (
     val app: kotlin.String,
 
     @Json(name = "user")
-    val user: kotlin.collections.Map<kotlin.String, kotlin.Any>? = null,
+    val user: kotlin.Any? = null,
 
     @Json(name = "context")
-    val context: kotlin.collections.Map<kotlin.String, kotlin.Any>? = null,
+    val context: kotlin.Any? = null,
 
     @Json(name = "client_ip")
     val clientIp: kotlin.String? = null,
@@ -54,7 +54,7 @@ data class EventRequest (
     val expires: java.time.OffsetDateTime? = null,
 
     @Json(name = "tenant")
-    val tenant: kotlin.collections.Map<kotlin.String, kotlin.Any>? = null
+    val tenant: kotlin.Any? = null
 
 )
 

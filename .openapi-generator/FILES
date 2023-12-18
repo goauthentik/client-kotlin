@@ -73,6 +73,7 @@ docs/ConsentStage.md
 docs/ConsentStageModeEnum.md
 docs/ConsentStageRequest.md
 docs/ContextualFlowInfo.md
+docs/ContextualFlowInfoLayoutEnum.md
 docs/Coordinate.md
 docs/CoreApi.md
 docs/CryptoApi.md
@@ -126,6 +127,7 @@ docs/FlowErrorChallenge.md
 docs/FlowImportResult.md
 docs/FlowInspection.md
 docs/FlowInspectorPlan.md
+docs/FlowLayoutEnum.md
 docs/FlowRequest.md
 docs/FlowSet.md
 docs/FlowSetRequest.md
@@ -162,7 +164,6 @@ docs/LDAPProviderRequest.md
 docs/LDAPSource.md
 docs/LDAPSourceRequest.md
 docs/LDAPSyncStatus.md
-docs/LayoutEnum.md
 docs/License.md
 docs/LicenseForecast.md
 docs/LicenseRequest.md
@@ -634,6 +635,7 @@ src/main/kotlin/io/goauthentik/api/models/ConsentStage.kt
 src/main/kotlin/io/goauthentik/api/models/ConsentStageModeEnum.kt
 src/main/kotlin/io/goauthentik/api/models/ConsentStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/ContextualFlowInfo.kt
+src/main/kotlin/io/goauthentik/api/models/ContextualFlowInfoLayoutEnum.kt
 src/main/kotlin/io/goauthentik/api/models/Coordinate.kt
 src/main/kotlin/io/goauthentik/api/models/CurrentTenant.kt
 src/main/kotlin/io/goauthentik/api/models/DeniedActionEnum.kt
@@ -683,6 +685,7 @@ src/main/kotlin/io/goauthentik/api/models/FlowErrorChallenge.kt
 src/main/kotlin/io/goauthentik/api/models/FlowImportResult.kt
 src/main/kotlin/io/goauthentik/api/models/FlowInspection.kt
 src/main/kotlin/io/goauthentik/api/models/FlowInspectorPlan.kt
+src/main/kotlin/io/goauthentik/api/models/FlowLayoutEnum.kt
 src/main/kotlin/io/goauthentik/api/models/FlowRequest.kt
 src/main/kotlin/io/goauthentik/api/models/FlowSet.kt
 src/main/kotlin/io/goauthentik/api/models/FlowSetRequest.kt
@@ -718,7 +721,6 @@ src/main/kotlin/io/goauthentik/api/models/LDAPProviderRequest.kt
 src/main/kotlin/io/goauthentik/api/models/LDAPSource.kt
 src/main/kotlin/io/goauthentik/api/models/LDAPSourceRequest.kt
 src/main/kotlin/io/goauthentik/api/models/LDAPSyncStatus.kt
-src/main/kotlin/io/goauthentik/api/models/LayoutEnum.kt
 src/main/kotlin/io/goauthentik/api/models/License.kt
 src/main/kotlin/io/goauthentik/api/models/LicenseForecast.kt
 src/main/kotlin/io/goauthentik/api/models/LicenseRequest.kt
