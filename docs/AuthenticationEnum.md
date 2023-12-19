@@ -12,6 +12,8 @@
 
     * `requireSuperuser` (value: `"require_superuser"`)
 
+    * `requireOutpost` (value: `"require_outpost"`)
+
     * `unknownDefaultOpenApi` (value: `"unknown_default_open_api"`)
 
 

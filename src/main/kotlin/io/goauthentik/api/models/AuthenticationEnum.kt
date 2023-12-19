@@ -20,9 +20,9 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * * `none` - None * `require_authenticated` - Require Authenticated * `require_unauthenticated` - Require Unauthenticated * `require_superuser` - Require Superuser
+ * * `none` - None * `require_authenticated` - Require Authenticated * `require_unauthenticated` - Require Unauthenticated * `require_superuser` - Require Superuser * `require_outpost` - Require Outpost
  *
- * Values: none,requireAuthenticated,requireUnauthenticated,requireSuperuser,unknownDefaultOpenApi
+ * Values: none,requireAuthenticated,requireUnauthenticated,requireSuperuser,requireOutpost,unknownDefaultOpenApi
  */
 
 @JsonClass(generateAdapter = false)
@@ -39,6 +39,9 @@ enum class AuthenticationEnum(val value: kotlin.String) {
 
     @Json(name = "require_superuser")
     requireSuperuser("require_superuser"),
+
+    @Json(name = "require_outpost")
+    requireOutpost("require_outpost"),
 
     @Json(name = "unknown_default_open_api")
     unknownDefaultOpenApi("unknown_default_open_api");
