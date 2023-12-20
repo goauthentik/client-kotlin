@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **current** | **kotlin.Boolean** | Check if session is currently active session |  [readonly]
 **userAgent** | [**AuthenticatedSessionUserAgent**](AuthenticatedSessionUserAgent.md) |  | 
 **geoIp** | [**AuthenticatedSessionGeoIp**](AuthenticatedSessionGeoIp.md) |  | 
+**asn** | [**AuthenticatedSessionAsn**](AuthenticatedSessionAsn.md) |  | 
 **user** | **kotlin.Int** |  | 
 **lastIp** | **kotlin.String** |  | 
 **lastUsed** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [readonly]

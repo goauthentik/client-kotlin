@@ -27,6 +27,7 @@ import com.squareup.moshi.JsonClass
  * @param updated 
  * @param pk 
  * @param ipGeoData 
+ * @param ipAsnData 
  * @param score 
  */
 
@@ -47,6 +48,9 @@ data class Reputation (
 
     @Json(name = "ip_geo_data")
     val ipGeoData: kotlin.Any? = null,
+
+    @Json(name = "ip_asn_data")
+    val ipAsnData: kotlin.Any? = null,
 
     @Json(name = "score")
     val score: kotlin.Long? = null

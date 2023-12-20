@@ -15,6 +15,7 @@
 
 package io.goauthentik.api.models
 
+import io.goauthentik.api.models.AuthenticatedSessionAsn
 import io.goauthentik.api.models.AuthenticatedSessionGeoIp
 import io.goauthentik.api.models.AuthenticatedSessionUserAgent
 
@@ -27,6 +28,7 @@ import com.squareup.moshi.JsonClass
  * @param current Check if session is currently active session
  * @param userAgent 
  * @param geoIp 
+ * @param asn 
  * @param user 
  * @param lastIp 
  * @param lastUsed 
@@ -47,6 +49,9 @@ data class AuthenticatedSession (
 
     @Json(name = "geo_ip")
     val geoIp: AuthenticatedSessionGeoIp?,
+
+    @Json(name = "asn")
+    val asn: AuthenticatedSessionAsn?,
 
     @Json(name = "user")
     val user: kotlin.Int,

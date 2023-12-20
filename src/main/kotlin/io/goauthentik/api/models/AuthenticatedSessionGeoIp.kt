@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * Get parsed user agent
+ * Get GeoIP Data
  *
  * @param continent 
  * @param country 

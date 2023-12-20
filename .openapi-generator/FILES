@@ -12,6 +12,7 @@ docs/AuthTypeEnum.md
 docs/AuthenticateWebAuthnStage.md
 docs/AuthenticateWebAuthnStageRequest.md
 docs/AuthenticatedSession.md
+docs/AuthenticatedSessionAsn.md
 docs/AuthenticatedSessionGeoIp.md
 docs/AuthenticatedSessionUserAgent.md
 docs/AuthenticatedSessionUserAgentDevice.md
@@ -575,6 +576,7 @@ src/main/kotlin/io/goauthentik/api/models/AuthTypeEnum.kt
 src/main/kotlin/io/goauthentik/api/models/AuthenticateWebAuthnStage.kt
 src/main/kotlin/io/goauthentik/api/models/AuthenticateWebAuthnStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/AuthenticatedSession.kt
+src/main/kotlin/io/goauthentik/api/models/AuthenticatedSessionAsn.kt
 src/main/kotlin/io/goauthentik/api/models/AuthenticatedSessionGeoIp.kt
 src/main/kotlin/io/goauthentik/api/models/AuthenticatedSessionUserAgent.kt
 src/main/kotlin/io/goauthentik/api/models/AuthenticatedSessionUserAgentDevice.kt

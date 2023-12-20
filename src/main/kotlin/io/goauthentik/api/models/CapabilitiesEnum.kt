@@ -20,9 +20,9 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * * `can_save_media` - Can Save Media * `can_geo_ip` - Can Geo Ip * `can_impersonate` - Can Impersonate * `can_debug` - Can Debug * `is_enterprise` - Is Enterprise
+ * * `can_save_media` - Can Save Media * `can_geo_ip` - Can Geo Ip * `can_asn` - Can Asn * `can_impersonate` - Can Impersonate * `can_debug` - Can Debug * `is_enterprise` - Is Enterprise
  *
- * Values: canSaveMedia,canGeoIp,canImpersonate,canDebug,isEnterprise,unknownDefaultOpenApi
+ * Values: canSaveMedia,canGeoIp,canAsn,canImpersonate,canDebug,isEnterprise,unknownDefaultOpenApi
  */
 
 @JsonClass(generateAdapter = false)
@@ -33,6 +33,9 @@ enum class CapabilitiesEnum(val value: kotlin.String) {
 
     @Json(name = "can_geo_ip")
     canGeoIp("can_geo_ip"),
+
+    @Json(name = "can_asn")
+    canAsn("can_asn"),
 
     @Json(name = "can_impersonate")
     canImpersonate("can_impersonate"),
