@@ -437,6 +437,7 @@ docs/SCIMMapping.md
 docs/SCIMMappingRequest.md
 docs/SCIMProvider.md
 docs/SCIMProviderRequest.md
+docs/SCIMSyncStatus.md
 docs/SMSDevice.md
 docs/SMSDeviceRequest.md
 docs/SchemaApi.md
@@ -987,6 +988,7 @@ src/main/kotlin/io/goauthentik/api/models/SCIMMapping.kt
 src/main/kotlin/io/goauthentik/api/models/SCIMMappingRequest.kt
 src/main/kotlin/io/goauthentik/api/models/SCIMProvider.kt
 src/main/kotlin/io/goauthentik/api/models/SCIMProviderRequest.kt
+src/main/kotlin/io/goauthentik/api/models/SCIMSyncStatus.kt
 src/main/kotlin/io/goauthentik/api/models/SMSDevice.kt
 src/main/kotlin/io/goauthentik/api/models/SMSDeviceRequest.kt
 src/main/kotlin/io/goauthentik/api/models/ScopeMapping.kt

@@ -2761,7 +2761,7 @@ Configure authentik:
 
 <a id="providersScimSyncStatusRetrieve"></a>
 # **providersScimSyncStatusRetrieve**
-> Task providersScimSyncStatusRetrieve(id)
+> SCIMSyncStatus providersScimSyncStatusRetrieve(id)
 
 
 
@@ -2776,7 +2776,7 @@ Get provider&#39;s sync status
 val apiInstance = ProvidersApi()
 val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this SCIM Provider.
 try {
-    val result : Task = apiInstance.providersScimSyncStatusRetrieve(id)
+    val result : SCIMSyncStatus = apiInstance.providersScimSyncStatusRetrieve(id)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProvidersApi#providersScimSyncStatusRetrieve")
@@ -2795,7 +2795,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Task**](Task.md)
+[**SCIMSyncStatus**](SCIMSyncStatus.md)
 
 ### Authorization
 

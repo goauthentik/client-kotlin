@@ -49,7 +49,7 @@ import io.goauthentik.api.models.SAMLProvider
 import io.goauthentik.api.models.SAMLProviderRequest
 import io.goauthentik.api.models.SCIMProvider
 import io.goauthentik.api.models.SCIMProviderRequest
-import io.goauthentik.api.models.Task
+import io.goauthentik.api.models.SCIMSyncStatus
 import io.goauthentik.api.models.TypeCreate
 import io.goauthentik.api.models.UsedBy
 import io.goauthentik.api.models.ValidationError
@@ -4332,7 +4332,7 @@ class ProvidersApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * 
      * Get provider&#39;s sync status
      * @param id A unique integer value identifying this SCIM Provider.
-     * @return Task
+     * @return SCIMSyncStatus
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -4341,11 +4341,11 @@ class ProvidersApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun providersScimSyncStatusRetrieve(id: kotlin.Int) : Task {
+    fun providersScimSyncStatusRetrieve(id: kotlin.Int) : SCIMSyncStatus {
         val localVarResponse = providersScimSyncStatusRetrieveWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Task
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SCIMSyncStatus
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -4363,16 +4363,16 @@ class ProvidersApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * 
      * Get provider&#39;s sync status
      * @param id A unique integer value identifying this SCIM Provider.
-     * @return ApiResponse<Task?>
+     * @return ApiResponse<SCIMSyncStatus?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun providersScimSyncStatusRetrieveWithHttpInfo(id: kotlin.Int) : ApiResponse<Task?> {
+    fun providersScimSyncStatusRetrieveWithHttpInfo(id: kotlin.Int) : ApiResponse<SCIMSyncStatus?> {
         val localVariableConfig = providersScimSyncStatusRetrieveRequestConfig(id = id)
 
-        return request<Unit, Task>(
+        return request<Unit, SCIMSyncStatus>(
             localVariableConfig
         )
     }
