@@ -6,6 +6,8 @@
 
     * `apple` (value: `"apple"`)
 
+    * `openidconnect` (value: `"openidconnect"`)
+
     * `azuread` (value: `"azuread"`)
 
     * `discord` (value: `"discord"`)
@@ -17,8 +19,6 @@
     * `google` (value: `"google"`)
 
     * `mailcow` (value: `"mailcow"`)
-
-    * `openidconnect` (value: `"openidconnect"`)
 
     * `okta` (value: `"okta"`)
 

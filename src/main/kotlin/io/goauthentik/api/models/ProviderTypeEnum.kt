@@ -20,9 +20,9 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * * `apple` - Apple * `azuread` - Azure AD * `discord` - Discord * `facebook` - Facebook * `github` - GitHub * `google` - Google * `mailcow` - Mailcow * `openidconnect` - OpenID Connect * `okta` - Okta * `patreon` - Patreon * `reddit` - Reddit * `twitch` - Twitch * `twitter` - Twitter
+ * * `apple` - Apple * `openidconnect` - OpenID Connect * `azuread` - Azure AD * `discord` - Discord * `facebook` - Facebook * `github` - GitHub * `google` - Google * `mailcow` - Mailcow * `okta` - Okta * `patreon` - Patreon * `reddit` - Reddit * `twitch` - Twitch * `twitter` - Twitter
  *
- * Values: apple,azuread,discord,facebook,github,google,mailcow,openidconnect,okta,patreon,reddit,twitch,twitter,unknownDefaultOpenApi
+ * Values: apple,openidconnect,azuread,discord,facebook,github,google,mailcow,okta,patreon,reddit,twitch,twitter,unknownDefaultOpenApi
  */
 
 @JsonClass(generateAdapter = false)
@@ -30,6 +30,9 @@ enum class ProviderTypeEnum(val value: kotlin.String) {
 
     @Json(name = "apple")
     apple("apple"),
+
+    @Json(name = "openidconnect")
+    openidconnect("openidconnect"),
 
     @Json(name = "azuread")
     azuread("azuread"),
@@ -48,9 +51,6 @@ enum class ProviderTypeEnum(val value: kotlin.String) {
 
     @Json(name = "mailcow")
     mailcow("mailcow"),
-
-    @Json(name = "openidconnect")
-    openidconnect("openidconnect"),
 
     @Json(name = "okta")
     okta("okta"),

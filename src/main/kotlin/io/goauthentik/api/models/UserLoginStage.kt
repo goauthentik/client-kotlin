@@ -16,6 +16,8 @@
 package io.goauthentik.api.models
 
 import io.goauthentik.api.models.FlowSet
+import io.goauthentik.api.models.GeoipBindingEnum
+import io.goauthentik.api.models.NetworkBindingEnum
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -33,6 +35,8 @@ import com.squareup.moshi.JsonClass
  * @param sessionDuration Determines how long a session lasts. Default of 0 means that the sessions lasts until the browser is closed. (Format: hours=-1;minutes=-2;seconds=-3)
  * @param terminateOtherSessions Terminate all other sessions of the user logging in.
  * @param rememberMeOffset Offset the session will be extended by when the user picks the remember me option. Default of 0 means that the remember me option will not be shown. (Format: hours=-1;minutes=-2;seconds=-3)
+ * @param networkBinding 
+ * @param geoipBinding 
  */
 
 
@@ -73,7 +77,13 @@ data class UserLoginStage (
 
     /* Offset the session will be extended by when the user picks the remember me option. Default of 0 means that the remember me option will not be shown. (Format: hours=-1;minutes=-2;seconds=-3) */
     @Json(name = "remember_me_offset")
-    val rememberMeOffset: kotlin.String? = null
+    val rememberMeOffset: kotlin.String? = null,
+
+    @Json(name = "network_binding")
+    val networkBinding: NetworkBindingEnum? = null,
+
+    @Json(name = "geoip_binding")
+    val geoipBinding: GeoipBindingEnum? = null
 
 )
 

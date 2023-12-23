@@ -137,6 +137,7 @@ docs/FlowStageBindingRequest.md
 docs/FlowsApi.md
 docs/FooterLink.md
 docs/GenericError.md
+docs/GeoipBindingEnum.md
 docs/Group.md
 docs/GroupMember.md
 docs/GroupMemberRequest.md
@@ -178,6 +179,7 @@ docs/Metadata.md
 docs/ModelEnum.md
 docs/ModelRequest.md
 docs/NameIdPolicyEnum.md
+docs/NetworkBindingEnum.md
 docs/NotConfiguredActionEnum.md
 docs/Notification.md
 docs/NotificationRequest.md
@@ -696,6 +698,7 @@ src/main/kotlin/io/goauthentik/api/models/FlowStageBinding.kt
 src/main/kotlin/io/goauthentik/api/models/FlowStageBindingRequest.kt
 src/main/kotlin/io/goauthentik/api/models/FooterLink.kt
 src/main/kotlin/io/goauthentik/api/models/GenericError.kt
+src/main/kotlin/io/goauthentik/api/models/GeoipBindingEnum.kt
 src/main/kotlin/io/goauthentik/api/models/Group.kt
 src/main/kotlin/io/goauthentik/api/models/GroupMember.kt
 src/main/kotlin/io/goauthentik/api/models/GroupMemberRequest.kt
@@ -736,6 +739,7 @@ src/main/kotlin/io/goauthentik/api/models/Metadata.kt
 src/main/kotlin/io/goauthentik/api/models/ModelEnum.kt
 src/main/kotlin/io/goauthentik/api/models/ModelRequest.kt
 src/main/kotlin/io/goauthentik/api/models/NameIdPolicyEnum.kt
+src/main/kotlin/io/goauthentik/api/models/NetworkBindingEnum.kt
 src/main/kotlin/io/goauthentik/api/models/NotConfiguredActionEnum.kt
 src/main/kotlin/io/goauthentik/api/models/Notification.kt
 src/main/kotlin/io/goauthentik/api/models/NotificationRequest.kt

@@ -11213,9 +11213,31 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     }
 
     /**
+     * enum for parameter geoipBinding
+     */
+     enum class GeoipBindingStagesUserLoginList(val value: kotlin.String) {
+         @Json(name = "bind_continent") bindContinent("bind_continent"),
+         @Json(name = "bind_continent_country") bindContinentCountry("bind_continent_country"),
+         @Json(name = "bind_continent_country_city") bindContinentCountryCity("bind_continent_country_city"),
+         @Json(name = "no_binding") noBinding("no_binding"),
+     }
+
+    /**
+     * enum for parameter networkBinding
+     */
+     enum class NetworkBindingStagesUserLoginList(val value: kotlin.String) {
+         @Json(name = "bind_asn") bindAsn("bind_asn"),
+         @Json(name = "bind_asn_network") bindAsnNetwork("bind_asn_network"),
+         @Json(name = "bind_asn_network_ip") bindAsnNetworkIp("bind_asn_network_ip"),
+         @Json(name = "no_binding") noBinding("no_binding"),
+     }
+
+    /**
      * 
      * UserLoginStage Viewset
+     * @param geoipBinding Bind sessions created by this stage to the configured GeoIP location  * &#x60;no_binding&#x60; - No Binding * &#x60;bind_continent&#x60; - Bind Continent * &#x60;bind_continent_country&#x60; - Bind Continent Country * &#x60;bind_continent_country_city&#x60; - Bind Continent Country City (optional)
      * @param name  (optional)
+     * @param networkBinding Bind sessions created by this stage to the configured network  * &#x60;no_binding&#x60; - No Binding * &#x60;bind_asn&#x60; - Bind Asn * &#x60;bind_asn_network&#x60; - Bind Asn Network * &#x60;bind_asn_network_ip&#x60; - Bind Asn Network Ip (optional)
      * @param ordering Which field to use when ordering the results. (optional)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
@@ -11233,8 +11255,8 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun stagesUserLoginList(name: kotlin.String? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, rememberMeOffset: kotlin.String? = null, search: kotlin.String? = null, sessionDuration: kotlin.String? = null, stageUuid: java.util.UUID? = null, terminateOtherSessions: kotlin.Boolean? = null) : PaginatedUserLoginStageList {
-        val localVarResponse = stagesUserLoginListWithHttpInfo(name = name, ordering = ordering, page = page, pageSize = pageSize, rememberMeOffset = rememberMeOffset, search = search, sessionDuration = sessionDuration, stageUuid = stageUuid, terminateOtherSessions = terminateOtherSessions)
+    fun stagesUserLoginList(geoipBinding: GeoipBindingStagesUserLoginList? = null, name: kotlin.String? = null, networkBinding: NetworkBindingStagesUserLoginList? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, rememberMeOffset: kotlin.String? = null, search: kotlin.String? = null, sessionDuration: kotlin.String? = null, stageUuid: java.util.UUID? = null, terminateOtherSessions: kotlin.Boolean? = null) : PaginatedUserLoginStageList {
+        val localVarResponse = stagesUserLoginListWithHttpInfo(geoipBinding = geoipBinding, name = name, networkBinding = networkBinding, ordering = ordering, page = page, pageSize = pageSize, rememberMeOffset = rememberMeOffset, search = search, sessionDuration = sessionDuration, stageUuid = stageUuid, terminateOtherSessions = terminateOtherSessions)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedUserLoginStageList
@@ -11254,7 +11276,9 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * 
      * UserLoginStage Viewset
+     * @param geoipBinding Bind sessions created by this stage to the configured GeoIP location  * &#x60;no_binding&#x60; - No Binding * &#x60;bind_continent&#x60; - Bind Continent * &#x60;bind_continent_country&#x60; - Bind Continent Country * &#x60;bind_continent_country_city&#x60; - Bind Continent Country City (optional)
      * @param name  (optional)
+     * @param networkBinding Bind sessions created by this stage to the configured network  * &#x60;no_binding&#x60; - No Binding * &#x60;bind_asn&#x60; - Bind Asn * &#x60;bind_asn_network&#x60; - Bind Asn Network * &#x60;bind_asn_network_ip&#x60; - Bind Asn Network Ip (optional)
      * @param ordering Which field to use when ordering the results. (optional)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
@@ -11269,8 +11293,8 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun stagesUserLoginListWithHttpInfo(name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, rememberMeOffset: kotlin.String?, search: kotlin.String?, sessionDuration: kotlin.String?, stageUuid: java.util.UUID?, terminateOtherSessions: kotlin.Boolean?) : ApiResponse<PaginatedUserLoginStageList?> {
-        val localVariableConfig = stagesUserLoginListRequestConfig(name = name, ordering = ordering, page = page, pageSize = pageSize, rememberMeOffset = rememberMeOffset, search = search, sessionDuration = sessionDuration, stageUuid = stageUuid, terminateOtherSessions = terminateOtherSessions)
+    fun stagesUserLoginListWithHttpInfo(geoipBinding: GeoipBindingStagesUserLoginList?, name: kotlin.String?, networkBinding: NetworkBindingStagesUserLoginList?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, rememberMeOffset: kotlin.String?, search: kotlin.String?, sessionDuration: kotlin.String?, stageUuid: java.util.UUID?, terminateOtherSessions: kotlin.Boolean?) : ApiResponse<PaginatedUserLoginStageList?> {
+        val localVariableConfig = stagesUserLoginListRequestConfig(geoipBinding = geoipBinding, name = name, networkBinding = networkBinding, ordering = ordering, page = page, pageSize = pageSize, rememberMeOffset = rememberMeOffset, search = search, sessionDuration = sessionDuration, stageUuid = stageUuid, terminateOtherSessions = terminateOtherSessions)
 
         return request<Unit, PaginatedUserLoginStageList>(
             localVariableConfig
@@ -11280,7 +11304,9 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * To obtain the request config of the operation stagesUserLoginList
      *
+     * @param geoipBinding Bind sessions created by this stage to the configured GeoIP location  * &#x60;no_binding&#x60; - No Binding * &#x60;bind_continent&#x60; - Bind Continent * &#x60;bind_continent_country&#x60; - Bind Continent Country * &#x60;bind_continent_country_city&#x60; - Bind Continent Country City (optional)
      * @param name  (optional)
+     * @param networkBinding Bind sessions created by this stage to the configured network  * &#x60;no_binding&#x60; - No Binding * &#x60;bind_asn&#x60; - Bind Asn * &#x60;bind_asn_network&#x60; - Bind Asn Network * &#x60;bind_asn_network_ip&#x60; - Bind Asn Network Ip (optional)
      * @param ordering Which field to use when ordering the results. (optional)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
@@ -11291,12 +11317,18 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      * @param terminateOtherSessions  (optional)
      * @return RequestConfig
      */
-    fun stagesUserLoginListRequestConfig(name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, rememberMeOffset: kotlin.String?, search: kotlin.String?, sessionDuration: kotlin.String?, stageUuid: java.util.UUID?, terminateOtherSessions: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun stagesUserLoginListRequestConfig(geoipBinding: GeoipBindingStagesUserLoginList?, name: kotlin.String?, networkBinding: NetworkBindingStagesUserLoginList?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, rememberMeOffset: kotlin.String?, search: kotlin.String?, sessionDuration: kotlin.String?, stageUuid: java.util.UUID?, terminateOtherSessions: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (geoipBinding != null) {
+                    put("geoip_binding", listOf(geoipBinding.value))
+                }
                 if (name != null) {
                     put("name", listOf(name.toString()))
+                }
+                if (networkBinding != null) {
+                    put("network_binding", listOf(networkBinding.value))
                 }
                 if (ordering != null) {
                     put("ordering", listOf(ordering.toString()))

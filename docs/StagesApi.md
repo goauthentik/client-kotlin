@@ -7457,7 +7457,7 @@ Configure authentik:
 
 <a id="stagesUserLoginList"></a>
 # **stagesUserLoginList**
-> PaginatedUserLoginStageList stagesUserLoginList(name, ordering, page, pageSize, rememberMeOffset, search, sessionDuration, stageUuid, terminateOtherSessions)
+> PaginatedUserLoginStageList stagesUserLoginList(geoipBinding, name, networkBinding, ordering, page, pageSize, rememberMeOffset, search, sessionDuration, stageUuid, terminateOtherSessions)
 
 
 
@@ -7470,7 +7470,9 @@ UserLoginStage Viewset
 //import io.goauthentik.api.models.*
 
 val apiInstance = StagesApi()
+val geoipBinding : kotlin.String = geoipBinding_example // kotlin.String | Bind sessions created by this stage to the configured GeoIP location  * `no_binding` - No Binding * `bind_continent` - Bind Continent * `bind_continent_country` - Bind Continent Country * `bind_continent_country_city` - Bind Continent Country City
 val name : kotlin.String = name_example // kotlin.String | 
+val networkBinding : kotlin.String = networkBinding_example // kotlin.String | Bind sessions created by this stage to the configured network  * `no_binding` - No Binding * `bind_asn` - Bind Asn * `bind_asn_network` - Bind Asn Network * `bind_asn_network_ip` - Bind Asn Network Ip
 val ordering : kotlin.String = ordering_example // kotlin.String | Which field to use when ordering the results.
 val page : kotlin.Int = 56 // kotlin.Int | A page number within the paginated result set.
 val pageSize : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
@@ -7480,7 +7482,7 @@ val sessionDuration : kotlin.String = sessionDuration_example // kotlin.String |
 val stageUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
 val terminateOtherSessions : kotlin.Boolean = true // kotlin.Boolean | 
 try {
-    val result : PaginatedUserLoginStageList = apiInstance.stagesUserLoginList(name, ordering, page, pageSize, rememberMeOffset, search, sessionDuration, stageUuid, terminateOtherSessions)
+    val result : PaginatedUserLoginStageList = apiInstance.stagesUserLoginList(geoipBinding, name, networkBinding, ordering, page, pageSize, rememberMeOffset, search, sessionDuration, stageUuid, terminateOtherSessions)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling StagesApi#stagesUserLoginList")
@@ -7495,7 +7497,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **geoipBinding** | **kotlin.String**| Bind sessions created by this stage to the configured GeoIP location  * &#x60;no_binding&#x60; - No Binding * &#x60;bind_continent&#x60; - Bind Continent * &#x60;bind_continent_country&#x60; - Bind Continent Country * &#x60;bind_continent_country_city&#x60; - Bind Continent Country City | [optional] [enum: bind_continent, bind_continent_country, bind_continent_country_city, no_binding]
  **name** | **kotlin.String**|  | [optional]
+ **networkBinding** | **kotlin.String**| Bind sessions created by this stage to the configured network  * &#x60;no_binding&#x60; - No Binding * &#x60;bind_asn&#x60; - Bind Asn * &#x60;bind_asn_network&#x60; - Bind Asn Network * &#x60;bind_asn_network_ip&#x60; - Bind Asn Network Ip | [optional] [enum: bind_asn, bind_asn_network, bind_asn_network_ip, no_binding]
  **ordering** | **kotlin.String**| Which field to use when ordering the results. | [optional]
  **page** | **kotlin.Int**| A page number within the paginated result set. | [optional]
  **pageSize** | **kotlin.Int**| Number of results to return per page. | [optional]
