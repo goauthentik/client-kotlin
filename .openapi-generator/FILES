@@ -8,6 +8,7 @@ docs/AppleChallengeResponseRequest.md
 docs/AppleLoginChallenge.md
 docs/Application.md
 docs/ApplicationRequest.md
+docs/AuthModeEnum.md
 docs/AuthTypeEnum.md
 docs/AuthenticateWebAuthnStage.md
 docs/AuthenticateWebAuthnStageRequest.md
@@ -104,6 +105,8 @@ docs/EmailChallenge.md
 docs/EmailChallengeResponseRequest.md
 docs/EmailStage.md
 docs/EmailStageRequest.md
+docs/Endpoint.md
+docs/EndpointRequest.md
 docs/EnterpriseApi.md
 docs/ErrorDetail.md
 docs/ErrorReportingConfig.md
@@ -226,6 +229,7 @@ docs/PaginatedDummyPolicyList.md
 docs/PaginatedDummyStageList.md
 docs/PaginatedDuoDeviceList.md
 docs/PaginatedEmailStageList.md
+docs/PaginatedEndpointList.md
 docs/PaginatedEventList.md
 docs/PaginatedEventMatcherPolicyList.md
 docs/PaginatedExpiringBaseGrantModelList.md
@@ -265,6 +269,8 @@ docs/PaginatedPropertyMappingList.md
 docs/PaginatedProviderList.md
 docs/PaginatedProxyOutpostConfigList.md
 docs/PaginatedProxyProviderList.md
+docs/PaginatedRACPropertyMappingList.md
+docs/PaginatedRACProviderList.md
 docs/PaginatedRadiusOutpostConfigList.md
 docs/PaginatedRadiusProviderList.md
 docs/PaginatedReputationList.md
@@ -323,6 +329,7 @@ docs/PatchedDummyPolicyRequest.md
 docs/PatchedDummyStageRequest.md
 docs/PatchedDuoDeviceRequest.md
 docs/PatchedEmailStageRequest.md
+docs/PatchedEndpointRequest.md
 docs/PatchedEventMatcherPolicyRequest.md
 docs/PatchedEventRequest.md
 docs/PatchedExpressionPolicyRequest.md
@@ -354,6 +361,8 @@ docs/PatchedPolicyBindingRequest.md
 docs/PatchedPromptRequest.md
 docs/PatchedPromptStageRequest.md
 docs/PatchedProxyProviderRequest.md
+docs/PatchedRACPropertyMappingRequest.md
+docs/PatchedRACProviderRequest.md
 docs/PatchedRadiusProviderRequest.md
 docs/PatchedReputationPolicyRequest.md
 docs/PatchedRoleRequest.md
@@ -404,6 +413,7 @@ docs/PropertyMapping.md
 docs/PropertyMappingPreview.md
 docs/PropertyMappingTestResult.md
 docs/PropertymappingsApi.md
+docs/ProtocolEnum.md
 docs/Provider.md
 docs/ProviderEnum.md
 docs/ProviderModelEnum.md
@@ -414,6 +424,11 @@ docs/ProxyMode.md
 docs/ProxyOutpostConfig.md
 docs/ProxyProvider.md
 docs/ProxyProviderRequest.md
+docs/RACPropertyMapping.md
+docs/RACPropertyMappingRequest.md
+docs/RACProvider.md
+docs/RACProviderRequest.md
+docs/RacApi.md
 docs/RadiusOutpostConfig.md
 docs/RadiusProvider.md
 docs/RadiusProviderRequest.md
@@ -545,6 +560,7 @@ src/main/kotlin/io/goauthentik/api/apis/OutpostsApi.kt
 src/main/kotlin/io/goauthentik/api/apis/PoliciesApi.kt
 src/main/kotlin/io/goauthentik/api/apis/PropertymappingsApi.kt
 src/main/kotlin/io/goauthentik/api/apis/ProvidersApi.kt
+src/main/kotlin/io/goauthentik/api/apis/RacApi.kt
 src/main/kotlin/io/goauthentik/api/apis/RbacApi.kt
 src/main/kotlin/io/goauthentik/api/apis/RootApi.kt
 src/main/kotlin/io/goauthentik/api/apis/SchemaApi.kt
@@ -575,6 +591,7 @@ src/main/kotlin/io/goauthentik/api/models/AppleChallengeResponseRequest.kt
 src/main/kotlin/io/goauthentik/api/models/AppleLoginChallenge.kt
 src/main/kotlin/io/goauthentik/api/models/Application.kt
 src/main/kotlin/io/goauthentik/api/models/ApplicationRequest.kt
+src/main/kotlin/io/goauthentik/api/models/AuthModeEnum.kt
 src/main/kotlin/io/goauthentik/api/models/AuthTypeEnum.kt
 src/main/kotlin/io/goauthentik/api/models/AuthenticateWebAuthnStage.kt
 src/main/kotlin/io/goauthentik/api/models/AuthenticateWebAuthnStageRequest.kt
@@ -668,6 +685,8 @@ src/main/kotlin/io/goauthentik/api/models/EmailChallenge.kt
 src/main/kotlin/io/goauthentik/api/models/EmailChallengeResponseRequest.kt
 src/main/kotlin/io/goauthentik/api/models/EmailStage.kt
 src/main/kotlin/io/goauthentik/api/models/EmailStageRequest.kt
+src/main/kotlin/io/goauthentik/api/models/Endpoint.kt
+src/main/kotlin/io/goauthentik/api/models/EndpointRequest.kt
 src/main/kotlin/io/goauthentik/api/models/ErrorDetail.kt
 src/main/kotlin/io/goauthentik/api/models/ErrorReportingConfig.kt
 src/main/kotlin/io/goauthentik/api/models/Event.kt
@@ -784,6 +803,7 @@ src/main/kotlin/io/goauthentik/api/models/PaginatedDummyPolicyList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedDummyStageList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedDuoDeviceList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedEmailStageList.kt
+src/main/kotlin/io/goauthentik/api/models/PaginatedEndpointList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedEventList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedEventMatcherPolicyList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedExpiringBaseGrantModelList.kt
@@ -823,6 +843,8 @@ src/main/kotlin/io/goauthentik/api/models/PaginatedPropertyMappingList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedProviderList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedProxyOutpostConfigList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedProxyProviderList.kt
+src/main/kotlin/io/goauthentik/api/models/PaginatedRACPropertyMappingList.kt
+src/main/kotlin/io/goauthentik/api/models/PaginatedRACProviderList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedRadiusOutpostConfigList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedRadiusProviderList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedReputationList.kt
@@ -881,6 +903,7 @@ src/main/kotlin/io/goauthentik/api/models/PatchedDummyPolicyRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedDummyStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedDuoDeviceRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedEmailStageRequest.kt
+src/main/kotlin/io/goauthentik/api/models/PatchedEndpointRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedEventMatcherPolicyRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedEventRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedExpressionPolicyRequest.kt
@@ -912,6 +935,8 @@ src/main/kotlin/io/goauthentik/api/models/PatchedPolicyBindingRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedPromptRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedPromptStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedProxyProviderRequest.kt
+src/main/kotlin/io/goauthentik/api/models/PatchedRACPropertyMappingRequest.kt
+src/main/kotlin/io/goauthentik/api/models/PatchedRACProviderRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedRadiusProviderRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedReputationPolicyRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedRoleRequest.kt
@@ -960,6 +985,7 @@ src/main/kotlin/io/goauthentik/api/models/PromptTypeEnum.kt
 src/main/kotlin/io/goauthentik/api/models/PropertyMapping.kt
 src/main/kotlin/io/goauthentik/api/models/PropertyMappingPreview.kt
 src/main/kotlin/io/goauthentik/api/models/PropertyMappingTestResult.kt
+src/main/kotlin/io/goauthentik/api/models/ProtocolEnum.kt
 src/main/kotlin/io/goauthentik/api/models/Provider.kt
 src/main/kotlin/io/goauthentik/api/models/ProviderEnum.kt
 src/main/kotlin/io/goauthentik/api/models/ProviderModelEnum.kt
@@ -969,6 +995,10 @@ src/main/kotlin/io/goauthentik/api/models/ProxyMode.kt
 src/main/kotlin/io/goauthentik/api/models/ProxyOutpostConfig.kt
 src/main/kotlin/io/goauthentik/api/models/ProxyProvider.kt
 src/main/kotlin/io/goauthentik/api/models/ProxyProviderRequest.kt
+src/main/kotlin/io/goauthentik/api/models/RACPropertyMapping.kt
+src/main/kotlin/io/goauthentik/api/models/RACPropertyMappingRequest.kt
+src/main/kotlin/io/goauthentik/api/models/RACProvider.kt
+src/main/kotlin/io/goauthentik/api/models/RACProviderRequest.kt
 src/main/kotlin/io/goauthentik/api/models/RadiusOutpostConfig.kt
 src/main/kotlin/io/goauthentik/api/models/RadiusProvider.kt
 src/main/kotlin/io/goauthentik/api/models/RadiusProviderRequest.kt

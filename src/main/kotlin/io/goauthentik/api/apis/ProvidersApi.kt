@@ -29,12 +29,14 @@ import io.goauthentik.api.models.PaginatedLDAPProviderList
 import io.goauthentik.api.models.PaginatedOAuth2ProviderList
 import io.goauthentik.api.models.PaginatedProviderList
 import io.goauthentik.api.models.PaginatedProxyProviderList
+import io.goauthentik.api.models.PaginatedRACProviderList
 import io.goauthentik.api.models.PaginatedRadiusProviderList
 import io.goauthentik.api.models.PaginatedSAMLProviderList
 import io.goauthentik.api.models.PaginatedSCIMProviderList
 import io.goauthentik.api.models.PatchedLDAPProviderRequest
 import io.goauthentik.api.models.PatchedOAuth2ProviderRequest
 import io.goauthentik.api.models.PatchedProxyProviderRequest
+import io.goauthentik.api.models.PatchedRACProviderRequest
 import io.goauthentik.api.models.PatchedRadiusProviderRequest
 import io.goauthentik.api.models.PatchedSAMLProviderRequest
 import io.goauthentik.api.models.PatchedSCIMProviderRequest
@@ -42,6 +44,8 @@ import io.goauthentik.api.models.PropertyMappingPreview
 import io.goauthentik.api.models.Provider
 import io.goauthentik.api.models.ProxyProvider
 import io.goauthentik.api.models.ProxyProviderRequest
+import io.goauthentik.api.models.RACProvider
+import io.goauthentik.api.models.RACProviderRequest
 import io.goauthentik.api.models.RadiusProvider
 import io.goauthentik.api.models.RadiusProviderRequest
 import io.goauthentik.api.models.SAMLMetadata
@@ -2453,6 +2457,545 @@ class ProvidersApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/providers/proxy/{id}/used_by/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * RACProvider Viewset
+     * @param raCProviderRequest 
+     * @return RACProvider
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun providersRacCreate(raCProviderRequest: RACProviderRequest) : RACProvider {
+        val localVarResponse = providersRacCreateWithHttpInfo(raCProviderRequest = raCProviderRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as RACProvider
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * RACProvider Viewset
+     * @param raCProviderRequest 
+     * @return ApiResponse<RACProvider?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun providersRacCreateWithHttpInfo(raCProviderRequest: RACProviderRequest) : ApiResponse<RACProvider?> {
+        val localVariableConfig = providersRacCreateRequestConfig(raCProviderRequest = raCProviderRequest)
+
+        return request<RACProviderRequest, RACProvider>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation providersRacCreate
+     *
+     * @param raCProviderRequest 
+     * @return RequestConfig
+     */
+    fun providersRacCreateRequestConfig(raCProviderRequest: RACProviderRequest) : RequestConfig<RACProviderRequest> {
+        val localVariableBody = raCProviderRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/providers/rac/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * RACProvider Viewset
+     * @param id A unique integer value identifying this RAC Provider.
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun providersRacDestroy(id: kotlin.Int) : Unit {
+        val localVarResponse = providersRacDestroyWithHttpInfo(id = id)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * RACProvider Viewset
+     * @param id A unique integer value identifying this RAC Provider.
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun providersRacDestroyWithHttpInfo(id: kotlin.Int) : ApiResponse<Unit?> {
+        val localVariableConfig = providersRacDestroyRequestConfig(id = id)
+
+        return request<Unit, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation providersRacDestroy
+     *
+     * @param id A unique integer value identifying this RAC Provider.
+     * @return RequestConfig
+     */
+    fun providersRacDestroyRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/providers/rac/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * RACProvider Viewset
+     * @param applicationIsnull  (optional)
+     * @param nameIexact  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return PaginatedRACProviderList
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun providersRacList(applicationIsnull: kotlin.Boolean? = null, nameIexact: kotlin.String? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null) : PaginatedRACProviderList {
+        val localVarResponse = providersRacListWithHttpInfo(applicationIsnull = applicationIsnull, nameIexact = nameIexact, ordering = ordering, page = page, pageSize = pageSize, search = search)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedRACProviderList
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * RACProvider Viewset
+     * @param applicationIsnull  (optional)
+     * @param nameIexact  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return ApiResponse<PaginatedRACProviderList?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun providersRacListWithHttpInfo(applicationIsnull: kotlin.Boolean?, nameIexact: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?) : ApiResponse<PaginatedRACProviderList?> {
+        val localVariableConfig = providersRacListRequestConfig(applicationIsnull = applicationIsnull, nameIexact = nameIexact, ordering = ordering, page = page, pageSize = pageSize, search = search)
+
+        return request<Unit, PaginatedRACProviderList>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation providersRacList
+     *
+     * @param applicationIsnull  (optional)
+     * @param nameIexact  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return RequestConfig
+     */
+    fun providersRacListRequestConfig(applicationIsnull: kotlin.Boolean?, nameIexact: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (applicationIsnull != null) {
+                    put("application__isnull", listOf(applicationIsnull.toString()))
+                }
+                if (nameIexact != null) {
+                    put("name__iexact", listOf(nameIexact.toString()))
+                }
+                if (ordering != null) {
+                    put("ordering", listOf(ordering.toString()))
+                }
+                if (page != null) {
+                    put("page", listOf(page.toString()))
+                }
+                if (pageSize != null) {
+                    put("page_size", listOf(pageSize.toString()))
+                }
+                if (search != null) {
+                    put("search", listOf(search.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/providers/rac/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * RACProvider Viewset
+     * @param id A unique integer value identifying this RAC Provider.
+     * @param patchedRACProviderRequest  (optional)
+     * @return RACProvider
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun providersRacPartialUpdate(id: kotlin.Int, patchedRACProviderRequest: PatchedRACProviderRequest? = null) : RACProvider {
+        val localVarResponse = providersRacPartialUpdateWithHttpInfo(id = id, patchedRACProviderRequest = patchedRACProviderRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as RACProvider
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * RACProvider Viewset
+     * @param id A unique integer value identifying this RAC Provider.
+     * @param patchedRACProviderRequest  (optional)
+     * @return ApiResponse<RACProvider?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun providersRacPartialUpdateWithHttpInfo(id: kotlin.Int, patchedRACProviderRequest: PatchedRACProviderRequest?) : ApiResponse<RACProvider?> {
+        val localVariableConfig = providersRacPartialUpdateRequestConfig(id = id, patchedRACProviderRequest = patchedRACProviderRequest)
+
+        return request<PatchedRACProviderRequest, RACProvider>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation providersRacPartialUpdate
+     *
+     * @param id A unique integer value identifying this RAC Provider.
+     * @param patchedRACProviderRequest  (optional)
+     * @return RequestConfig
+     */
+    fun providersRacPartialUpdateRequestConfig(id: kotlin.Int, patchedRACProviderRequest: PatchedRACProviderRequest?) : RequestConfig<PatchedRACProviderRequest> {
+        val localVariableBody = patchedRACProviderRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/providers/rac/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * RACProvider Viewset
+     * @param id A unique integer value identifying this RAC Provider.
+     * @return RACProvider
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun providersRacRetrieve(id: kotlin.Int) : RACProvider {
+        val localVarResponse = providersRacRetrieveWithHttpInfo(id = id)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as RACProvider
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * RACProvider Viewset
+     * @param id A unique integer value identifying this RAC Provider.
+     * @return ApiResponse<RACProvider?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun providersRacRetrieveWithHttpInfo(id: kotlin.Int) : ApiResponse<RACProvider?> {
+        val localVariableConfig = providersRacRetrieveRequestConfig(id = id)
+
+        return request<Unit, RACProvider>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation providersRacRetrieve
+     *
+     * @param id A unique integer value identifying this RAC Provider.
+     * @return RequestConfig
+     */
+    fun providersRacRetrieveRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/providers/rac/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * RACProvider Viewset
+     * @param id A unique integer value identifying this RAC Provider.
+     * @param raCProviderRequest 
+     * @return RACProvider
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun providersRacUpdate(id: kotlin.Int, raCProviderRequest: RACProviderRequest) : RACProvider {
+        val localVarResponse = providersRacUpdateWithHttpInfo(id = id, raCProviderRequest = raCProviderRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as RACProvider
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * RACProvider Viewset
+     * @param id A unique integer value identifying this RAC Provider.
+     * @param raCProviderRequest 
+     * @return ApiResponse<RACProvider?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun providersRacUpdateWithHttpInfo(id: kotlin.Int, raCProviderRequest: RACProviderRequest) : ApiResponse<RACProvider?> {
+        val localVariableConfig = providersRacUpdateRequestConfig(id = id, raCProviderRequest = raCProviderRequest)
+
+        return request<RACProviderRequest, RACProvider>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation providersRacUpdate
+     *
+     * @param id A unique integer value identifying this RAC Provider.
+     * @param raCProviderRequest 
+     * @return RequestConfig
+     */
+    fun providersRacUpdateRequestConfig(id: kotlin.Int, raCProviderRequest: RACProviderRequest) : RequestConfig<RACProviderRequest> {
+        val localVariableBody = raCProviderRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/providers/rac/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Get a list of all objects that use this object
+     * @param id A unique integer value identifying this RAC Provider.
+     * @return kotlin.collections.List<UsedBy>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun providersRacUsedByList(id: kotlin.Int) : kotlin.collections.List<UsedBy> {
+        val localVarResponse = providersRacUsedByListWithHttpInfo(id = id)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<UsedBy>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Get a list of all objects that use this object
+     * @param id A unique integer value identifying this RAC Provider.
+     * @return ApiResponse<kotlin.collections.List<UsedBy>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun providersRacUsedByListWithHttpInfo(id: kotlin.Int) : ApiResponse<kotlin.collections.List<UsedBy>?> {
+        val localVariableConfig = providersRacUsedByListRequestConfig(id = id)
+
+        return request<Unit, kotlin.collections.List<UsedBy>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation providersRacUsedByList
+     *
+     * @param id A unique integer value identifying this RAC Provider.
+     * @return RequestConfig
+     */
+    fun providersRacUsedByListRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/providers/rac/{id}/used_by/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = true,

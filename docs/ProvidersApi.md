@@ -32,6 +32,13 @@ Method | HTTP request | Description
 [**providersProxyRetrieve**](ProvidersApi.md#providersProxyRetrieve) | **GET** /providers/proxy/{id}/ | 
 [**providersProxyUpdate**](ProvidersApi.md#providersProxyUpdate) | **PUT** /providers/proxy/{id}/ | 
 [**providersProxyUsedByList**](ProvidersApi.md#providersProxyUsedByList) | **GET** /providers/proxy/{id}/used_by/ | 
+[**providersRacCreate**](ProvidersApi.md#providersRacCreate) | **POST** /providers/rac/ | 
+[**providersRacDestroy**](ProvidersApi.md#providersRacDestroy) | **DELETE** /providers/rac/{id}/ | 
+[**providersRacList**](ProvidersApi.md#providersRacList) | **GET** /providers/rac/ | 
+[**providersRacPartialUpdate**](ProvidersApi.md#providersRacPartialUpdate) | **PATCH** /providers/rac/{id}/ | 
+[**providersRacRetrieve**](ProvidersApi.md#providersRacRetrieve) | **GET** /providers/rac/{id}/ | 
+[**providersRacUpdate**](ProvidersApi.md#providersRacUpdate) | **PUT** /providers/rac/{id}/ | 
+[**providersRacUsedByList**](ProvidersApi.md#providersRacUsedByList) | **GET** /providers/rac/{id}/used_by/ | 
 [**providersRadiusCreate**](ProvidersApi.md#providersRadiusCreate) | **POST** /providers/radius/ | 
 [**providersRadiusDestroy**](ProvidersApi.md#providersRadiusDestroy) | **DELETE** /providers/radius/{id}/ | 
 [**providersRadiusList**](ProvidersApi.md#providersRadiusList) | **GET** /providers/radius/ | 
@@ -1556,6 +1563,369 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **kotlin.Int**| A unique integer value identifying this Proxy Provider. |
+
+### Return type
+
+[**kotlin.collections.List&lt;UsedBy&gt;**](UsedBy.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="providersRacCreate"></a>
+# **providersRacCreate**
+> RACProvider providersRacCreate(raCProviderRequest)
+
+
+
+RACProvider Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = ProvidersApi()
+val raCProviderRequest : RACProviderRequest =  // RACProviderRequest | 
+try {
+    val result : RACProvider = apiInstance.providersRacCreate(raCProviderRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ProvidersApi#providersRacCreate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ProvidersApi#providersRacCreate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **raCProviderRequest** | [**RACProviderRequest**](RACProviderRequest.md)|  |
+
+### Return type
+
+[**RACProvider**](RACProvider.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="providersRacDestroy"></a>
+# **providersRacDestroy**
+> providersRacDestroy(id)
+
+
+
+RACProvider Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = ProvidersApi()
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this RAC Provider.
+try {
+    apiInstance.providersRacDestroy(id)
+} catch (e: ClientException) {
+    println("4xx response calling ProvidersApi#providersRacDestroy")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ProvidersApi#providersRacDestroy")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **kotlin.Int**| A unique integer value identifying this RAC Provider. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="providersRacList"></a>
+# **providersRacList**
+> PaginatedRACProviderList providersRacList(applicationIsnull, nameIexact, ordering, page, pageSize, search)
+
+
+
+RACProvider Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = ProvidersApi()
+val applicationIsnull : kotlin.Boolean = true // kotlin.Boolean | 
+val nameIexact : kotlin.String = nameIexact_example // kotlin.String | 
+val ordering : kotlin.String = ordering_example // kotlin.String | Which field to use when ordering the results.
+val page : kotlin.Int = 56 // kotlin.Int | A page number within the paginated result set.
+val pageSize : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+val search : kotlin.String = search_example // kotlin.String | A search term.
+try {
+    val result : PaginatedRACProviderList = apiInstance.providersRacList(applicationIsnull, nameIexact, ordering, page, pageSize, search)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ProvidersApi#providersRacList")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ProvidersApi#providersRacList")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationIsnull** | **kotlin.Boolean**|  | [optional]
+ **nameIexact** | **kotlin.String**|  | [optional]
+ **ordering** | **kotlin.String**| Which field to use when ordering the results. | [optional]
+ **page** | **kotlin.Int**| A page number within the paginated result set. | [optional]
+ **pageSize** | **kotlin.Int**| Number of results to return per page. | [optional]
+ **search** | **kotlin.String**| A search term. | [optional]
+
+### Return type
+
+[**PaginatedRACProviderList**](PaginatedRACProviderList.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="providersRacPartialUpdate"></a>
+# **providersRacPartialUpdate**
+> RACProvider providersRacPartialUpdate(id, patchedRACProviderRequest)
+
+
+
+RACProvider Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = ProvidersApi()
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this RAC Provider.
+val patchedRACProviderRequest : PatchedRACProviderRequest =  // PatchedRACProviderRequest | 
+try {
+    val result : RACProvider = apiInstance.providersRacPartialUpdate(id, patchedRACProviderRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ProvidersApi#providersRacPartialUpdate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ProvidersApi#providersRacPartialUpdate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **kotlin.Int**| A unique integer value identifying this RAC Provider. |
+ **patchedRACProviderRequest** | [**PatchedRACProviderRequest**](PatchedRACProviderRequest.md)|  | [optional]
+
+### Return type
+
+[**RACProvider**](RACProvider.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="providersRacRetrieve"></a>
+# **providersRacRetrieve**
+> RACProvider providersRacRetrieve(id)
+
+
+
+RACProvider Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = ProvidersApi()
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this RAC Provider.
+try {
+    val result : RACProvider = apiInstance.providersRacRetrieve(id)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ProvidersApi#providersRacRetrieve")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ProvidersApi#providersRacRetrieve")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **kotlin.Int**| A unique integer value identifying this RAC Provider. |
+
+### Return type
+
+[**RACProvider**](RACProvider.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="providersRacUpdate"></a>
+# **providersRacUpdate**
+> RACProvider providersRacUpdate(id, raCProviderRequest)
+
+
+
+RACProvider Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = ProvidersApi()
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this RAC Provider.
+val raCProviderRequest : RACProviderRequest =  // RACProviderRequest | 
+try {
+    val result : RACProvider = apiInstance.providersRacUpdate(id, raCProviderRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ProvidersApi#providersRacUpdate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ProvidersApi#providersRacUpdate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **kotlin.Int**| A unique integer value identifying this RAC Provider. |
+ **raCProviderRequest** | [**RACProviderRequest**](RACProviderRequest.md)|  |
+
+### Return type
+
+[**RACProvider**](RACProvider.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="providersRacUsedByList"></a>
+# **providersRacUsedByList**
+> kotlin.collections.List&lt;UsedBy&gt; providersRacUsedByList(id)
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = ProvidersApi()
+val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this RAC Provider.
+try {
+    val result : kotlin.collections.List<UsedBy> = apiInstance.providersRacUsedByList(id)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ProvidersApi#providersRacUsedByList")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ProvidersApi#providersRacUsedByList")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **kotlin.Int**| A unique integer value identifying this RAC Provider. |
 
 ### Return type
 

@@ -23,6 +23,7 @@ import io.goauthentik.api.models.LDAPProviderRequest
 import io.goauthentik.api.models.OAuth2ProviderRequest
 import io.goauthentik.api.models.ProxyMode
 import io.goauthentik.api.models.ProxyProviderRequest
+import io.goauthentik.api.models.RACProviderRequest
 import io.goauthentik.api.models.RadiusProviderRequest
 import io.goauthentik.api.models.SAMLProviderRequest
 import io.goauthentik.api.models.SCIMProviderRequest
@@ -74,6 +75,8 @@ import com.squareup.moshi.JsonClass
  * @param mode 
  * @param interceptHeaderAuth When enabled, this provider will intercept the authorization header and authenticate requests based on its value.
  * @param cookieDomain 
+ * @param settings 
+ * @param connectionExpiry Determines how long a session lasts. Default of 0 means that the sessions lasts until the browser is closed. (Format: hours=-1;minutes=-2;seconds=-3)
  * @param clientNetworks List of CIDRs (comma-separated) that clients can connect from. A more specific CIDR will match before a looser one. Clients connecting from a non-specified CIDR will be dropped.
  * @param sharedSecret Shared secret between clients and server to hash packets.
  * @param audience Value of the audience restriction field of the assertion. When left empty, no audience restriction will be added.
@@ -193,6 +196,11 @@ interface ModelRequest {
     val interceptHeaderAuth: kotlin.Boolean?
     @Json(name = "cookie_domain")
     val cookieDomain: kotlin.String?
+    @Json(name = "settings")
+    val settings: kotlin.Any?
+    /* Determines how long a session lasts. Default of 0 means that the sessions lasts until the browser is closed. (Format: hours=-1;minutes=-2;seconds=-3) */
+    @Json(name = "connection_expiry")
+    val connectionExpiry: kotlin.String?
     /* List of CIDRs (comma-separated) that clients can connect from. A more specific CIDR will match before a looser one. Clients connecting from a non-specified CIDR will be dropped. */
     @Json(name = "client_networks")
     val clientNetworks: kotlin.String?

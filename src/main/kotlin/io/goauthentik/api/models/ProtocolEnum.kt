@@ -20,25 +20,22 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * * `proxy` - Proxy * `ldap` - Ldap * `radius` - Radius * `rac` - Rac
+ * * `rdp` - Rdp * `vnc` - Vnc * `ssh` - Ssh
  *
- * Values: proxy,ldap,radius,rac,unknownDefaultOpenApi
+ * Values: rdp,vnc,ssh,unknownDefaultOpenApi
  */
 
 @JsonClass(generateAdapter = false)
-enum class OutpostTypeEnum(val value: kotlin.String) {
+enum class ProtocolEnum(val value: kotlin.String) {
 
-    @Json(name = "proxy")
-    proxy("proxy"),
+    @Json(name = "rdp")
+    rdp("rdp"),
 
-    @Json(name = "ldap")
-    ldap("ldap"),
+    @Json(name = "vnc")
+    vnc("vnc"),
 
-    @Json(name = "radius")
-    radius("radius"),
-
-    @Json(name = "rac")
-    rac("rac"),
+    @Json(name = "ssh")
+    ssh("ssh"),
 
     @Json(name = "unknown_default_open_api")
     unknownDefaultOpenApi("unknown_default_open_api");
@@ -56,12 +53,12 @@ enum class OutpostTypeEnum(val value: kotlin.String) {
         /**
          * Converts the provided [data] to a [String] on success, null otherwise.
          */
-        fun encode(data: kotlin.Any?): kotlin.String? = if (data is OutpostTypeEnum) "$data" else null
+        fun encode(data: kotlin.Any?): kotlin.String? = if (data is ProtocolEnum) "$data" else null
 
         /**
-         * Returns a valid [OutpostTypeEnum] for [data], null otherwise.
+         * Returns a valid [ProtocolEnum] for [data], null otherwise.
          */
-        fun decode(data: kotlin.Any?): OutpostTypeEnum? = data?.let {
+        fun decode(data: kotlin.Any?): ProtocolEnum? = data?.let {
           val normalizedData = "$it".lowercase()
           values().firstOrNull { value ->
             it == value || normalizedData == "$value".lowercase()

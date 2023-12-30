@@ -8,6 +8,8 @@ object SerializerHelper {
         return moshiBuilder
             .add(io.goauthentik.api.models.AppEnum::class.java, EnumJsonAdapter.create(io.goauthentik.api.models.AppEnum::class.java)
                 .withUnknownFallback(io.goauthentik.api.models.AppEnum.unknownDefaultOpenApi))
+            .add(io.goauthentik.api.models.AuthModeEnum::class.java, EnumJsonAdapter.create(io.goauthentik.api.models.AuthModeEnum::class.java)
+                .withUnknownFallback(io.goauthentik.api.models.AuthModeEnum.unknownDefaultOpenApi))
             .add(io.goauthentik.api.models.AuthTypeEnum::class.java, EnumJsonAdapter.create(io.goauthentik.api.models.AuthTypeEnum::class.java)
                 .withUnknownFallback(io.goauthentik.api.models.AuthTypeEnum.unknownDefaultOpenApi))
             .add(io.goauthentik.api.models.AuthenticationEnum::class.java, EnumJsonAdapter.create(io.goauthentik.api.models.AuthenticationEnum::class.java)
@@ -72,6 +74,8 @@ object SerializerHelper {
                 .withUnknownFallback(io.goauthentik.api.models.PolicyEngineMode.unknownDefaultOpenApi))
             .add(io.goauthentik.api.models.PromptTypeEnum::class.java, EnumJsonAdapter.create(io.goauthentik.api.models.PromptTypeEnum::class.java)
                 .withUnknownFallback(io.goauthentik.api.models.PromptTypeEnum.unknownDefaultOpenApi))
+            .add(io.goauthentik.api.models.ProtocolEnum::class.java, EnumJsonAdapter.create(io.goauthentik.api.models.ProtocolEnum::class.java)
+                .withUnknownFallback(io.goauthentik.api.models.ProtocolEnum.unknownDefaultOpenApi))
             .add(io.goauthentik.api.models.ProviderEnum::class.java, EnumJsonAdapter.create(io.goauthentik.api.models.ProviderEnum::class.java)
                 .withUnknownFallback(io.goauthentik.api.models.ProviderEnum.unknownDefaultOpenApi))
             .add(io.goauthentik.api.models.ProviderModelEnum::class.java, EnumJsonAdapter.create(io.goauthentik.api.models.ProviderModelEnum::class.java)

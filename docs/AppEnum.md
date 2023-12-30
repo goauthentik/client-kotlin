@@ -102,6 +102,8 @@
 
     * `enterprise` (value: `"authentik.enterprise"`)
 
+    * `enterprisePeriodProvidersPeriodRac` (value: `"authentik.enterprise.providers.rac"`)
+
     * `unknownDefaultOpenApi` (value: `"unknown_default_open_api"`)
 
 

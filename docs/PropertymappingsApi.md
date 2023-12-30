@@ -24,6 +24,13 @@ Method | HTTP request | Description
 [**propertymappingsNotificationRetrieve**](PropertymappingsApi.md#propertymappingsNotificationRetrieve) | **GET** /propertymappings/notification/{pm_uuid}/ | 
 [**propertymappingsNotificationUpdate**](PropertymappingsApi.md#propertymappingsNotificationUpdate) | **PUT** /propertymappings/notification/{pm_uuid}/ | 
 [**propertymappingsNotificationUsedByList**](PropertymappingsApi.md#propertymappingsNotificationUsedByList) | **GET** /propertymappings/notification/{pm_uuid}/used_by/ | 
+[**propertymappingsRacCreate**](PropertymappingsApi.md#propertymappingsRacCreate) | **POST** /propertymappings/rac/ | 
+[**propertymappingsRacDestroy**](PropertymappingsApi.md#propertymappingsRacDestroy) | **DELETE** /propertymappings/rac/{pm_uuid}/ | 
+[**propertymappingsRacList**](PropertymappingsApi.md#propertymappingsRacList) | **GET** /propertymappings/rac/ | 
+[**propertymappingsRacPartialUpdate**](PropertymappingsApi.md#propertymappingsRacPartialUpdate) | **PATCH** /propertymappings/rac/{pm_uuid}/ | 
+[**propertymappingsRacRetrieve**](PropertymappingsApi.md#propertymappingsRacRetrieve) | **GET** /propertymappings/rac/{pm_uuid}/ | 
+[**propertymappingsRacUpdate**](PropertymappingsApi.md#propertymappingsRacUpdate) | **PUT** /propertymappings/rac/{pm_uuid}/ | 
+[**propertymappingsRacUsedByList**](PropertymappingsApi.md#propertymappingsRacUsedByList) | **GET** /propertymappings/rac/{pm_uuid}/used_by/ | 
 [**propertymappingsSamlCreate**](PropertymappingsApi.md#propertymappingsSamlCreate) | **POST** /propertymappings/saml/ | 
 [**propertymappingsSamlDestroy**](PropertymappingsApi.md#propertymappingsSamlDestroy) | **DELETE** /propertymappings/saml/{pm_uuid}/ | 
 [**propertymappingsSamlList**](PropertymappingsApi.md#propertymappingsSamlList) | **GET** /propertymappings/saml/ | 
@@ -1067,6 +1074,369 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pmUuid** | **java.util.UUID**| A UUID string identifying this Webhook Mapping. |
+
+### Return type
+
+[**kotlin.collections.List&lt;UsedBy&gt;**](UsedBy.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="propertymappingsRacCreate"></a>
+# **propertymappingsRacCreate**
+> RACPropertyMapping propertymappingsRacCreate(raCPropertyMappingRequest)
+
+
+
+RACPropertyMapping Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = PropertymappingsApi()
+val raCPropertyMappingRequest : RACPropertyMappingRequest =  // RACPropertyMappingRequest | 
+try {
+    val result : RACPropertyMapping = apiInstance.propertymappingsRacCreate(raCPropertyMappingRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PropertymappingsApi#propertymappingsRacCreate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PropertymappingsApi#propertymappingsRacCreate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **raCPropertyMappingRequest** | [**RACPropertyMappingRequest**](RACPropertyMappingRequest.md)|  |
+
+### Return type
+
+[**RACPropertyMapping**](RACPropertyMapping.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="propertymappingsRacDestroy"></a>
+# **propertymappingsRacDestroy**
+> propertymappingsRacDestroy(pmUuid)
+
+
+
+RACPropertyMapping Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = PropertymappingsApi()
+val pmUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this RAC Property Mapping.
+try {
+    apiInstance.propertymappingsRacDestroy(pmUuid)
+} catch (e: ClientException) {
+    println("4xx response calling PropertymappingsApi#propertymappingsRacDestroy")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PropertymappingsApi#propertymappingsRacDestroy")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pmUuid** | **java.util.UUID**| A UUID string identifying this RAC Property Mapping. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="propertymappingsRacList"></a>
+# **propertymappingsRacList**
+> PaginatedRACPropertyMappingList propertymappingsRacList(managed, name, ordering, page, pageSize, search)
+
+
+
+RACPropertyMapping Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = PropertymappingsApi()
+val managed : kotlin.String = managed_example // kotlin.String | 
+val name : kotlin.String = name_example // kotlin.String | 
+val ordering : kotlin.String = ordering_example // kotlin.String | Which field to use when ordering the results.
+val page : kotlin.Int = 56 // kotlin.Int | A page number within the paginated result set.
+val pageSize : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+val search : kotlin.String = search_example // kotlin.String | A search term.
+try {
+    val result : PaginatedRACPropertyMappingList = apiInstance.propertymappingsRacList(managed, name, ordering, page, pageSize, search)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PropertymappingsApi#propertymappingsRacList")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PropertymappingsApi#propertymappingsRacList")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **managed** | **kotlin.String**|  | [optional]
+ **name** | **kotlin.String**|  | [optional]
+ **ordering** | **kotlin.String**| Which field to use when ordering the results. | [optional]
+ **page** | **kotlin.Int**| A page number within the paginated result set. | [optional]
+ **pageSize** | **kotlin.Int**| Number of results to return per page. | [optional]
+ **search** | **kotlin.String**| A search term. | [optional]
+
+### Return type
+
+[**PaginatedRACPropertyMappingList**](PaginatedRACPropertyMappingList.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="propertymappingsRacPartialUpdate"></a>
+# **propertymappingsRacPartialUpdate**
+> RACPropertyMapping propertymappingsRacPartialUpdate(pmUuid, patchedRACPropertyMappingRequest)
+
+
+
+RACPropertyMapping Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = PropertymappingsApi()
+val pmUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this RAC Property Mapping.
+val patchedRACPropertyMappingRequest : PatchedRACPropertyMappingRequest =  // PatchedRACPropertyMappingRequest | 
+try {
+    val result : RACPropertyMapping = apiInstance.propertymappingsRacPartialUpdate(pmUuid, patchedRACPropertyMappingRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PropertymappingsApi#propertymappingsRacPartialUpdate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PropertymappingsApi#propertymappingsRacPartialUpdate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pmUuid** | **java.util.UUID**| A UUID string identifying this RAC Property Mapping. |
+ **patchedRACPropertyMappingRequest** | [**PatchedRACPropertyMappingRequest**](PatchedRACPropertyMappingRequest.md)|  | [optional]
+
+### Return type
+
+[**RACPropertyMapping**](RACPropertyMapping.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="propertymappingsRacRetrieve"></a>
+# **propertymappingsRacRetrieve**
+> RACPropertyMapping propertymappingsRacRetrieve(pmUuid)
+
+
+
+RACPropertyMapping Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = PropertymappingsApi()
+val pmUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this RAC Property Mapping.
+try {
+    val result : RACPropertyMapping = apiInstance.propertymappingsRacRetrieve(pmUuid)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PropertymappingsApi#propertymappingsRacRetrieve")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PropertymappingsApi#propertymappingsRacRetrieve")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pmUuid** | **java.util.UUID**| A UUID string identifying this RAC Property Mapping. |
+
+### Return type
+
+[**RACPropertyMapping**](RACPropertyMapping.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="propertymappingsRacUpdate"></a>
+# **propertymappingsRacUpdate**
+> RACPropertyMapping propertymappingsRacUpdate(pmUuid, raCPropertyMappingRequest)
+
+
+
+RACPropertyMapping Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = PropertymappingsApi()
+val pmUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this RAC Property Mapping.
+val raCPropertyMappingRequest : RACPropertyMappingRequest =  // RACPropertyMappingRequest | 
+try {
+    val result : RACPropertyMapping = apiInstance.propertymappingsRacUpdate(pmUuid, raCPropertyMappingRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PropertymappingsApi#propertymappingsRacUpdate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PropertymappingsApi#propertymappingsRacUpdate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pmUuid** | **java.util.UUID**| A UUID string identifying this RAC Property Mapping. |
+ **raCPropertyMappingRequest** | [**RACPropertyMappingRequest**](RACPropertyMappingRequest.md)|  |
+
+### Return type
+
+[**RACPropertyMapping**](RACPropertyMapping.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="propertymappingsRacUsedByList"></a>
+# **propertymappingsRacUsedByList**
+> kotlin.collections.List&lt;UsedBy&gt; propertymappingsRacUsedByList(pmUuid)
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = PropertymappingsApi()
+val pmUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this RAC Property Mapping.
+try {
+    val result : kotlin.collections.List<UsedBy> = apiInstance.propertymappingsRacUsedByList(pmUuid)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PropertymappingsApi#propertymappingsRacUsedByList")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PropertymappingsApi#propertymappingsRacUsedByList")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pmUuid** | **java.util.UUID**| A UUID string identifying this RAC Property Mapping. |
 
 ### Return type
 

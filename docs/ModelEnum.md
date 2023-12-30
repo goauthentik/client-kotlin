@@ -152,6 +152,12 @@
 
     * `enterprisePeriodLicense` (value: `"authentik_enterprise.license"`)
 
+    * `providersRacPeriodRacprovider` (value: `"authentik_providers_rac.racprovider"`)
+
+    * `providersRacPeriodEndpoint` (value: `"authentik_providers_rac.endpoint"`)
+
+    * `providersRacPeriodRacpropertymapping` (value: `"authentik_providers_rac.racpropertymapping"`)
+
     * `unknownDefaultOpenApi` (value: `"unknown_default_open_api"`)
 
 

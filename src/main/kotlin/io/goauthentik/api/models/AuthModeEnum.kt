@@ -20,25 +20,19 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * * `proxy` - Proxy * `ldap` - Ldap * `radius` - Radius * `rac` - Rac
+ * * `static` - Static * `prompt` - Prompt
  *
- * Values: proxy,ldap,radius,rac,unknownDefaultOpenApi
+ * Values: static,prompt,unknownDefaultOpenApi
  */
 
 @JsonClass(generateAdapter = false)
-enum class OutpostTypeEnum(val value: kotlin.String) {
+enum class AuthModeEnum(val value: kotlin.String) {
 
-    @Json(name = "proxy")
-    proxy("proxy"),
+    @Json(name = "static")
+    static("static"),
 
-    @Json(name = "ldap")
-    ldap("ldap"),
-
-    @Json(name = "radius")
-    radius("radius"),
-
-    @Json(name = "rac")
-    rac("rac"),
+    @Json(name = "prompt")
+    prompt("prompt"),
 
     @Json(name = "unknown_default_open_api")
     unknownDefaultOpenApi("unknown_default_open_api");
@@ -56,12 +50,12 @@ enum class OutpostTypeEnum(val value: kotlin.String) {
         /**
          * Converts the provided [data] to a [String] on success, null otherwise.
          */
-        fun encode(data: kotlin.Any?): kotlin.String? = if (data is OutpostTypeEnum) "$data" else null
+        fun encode(data: kotlin.Any?): kotlin.String? = if (data is AuthModeEnum) "$data" else null
 
         /**
-         * Returns a valid [OutpostTypeEnum] for [data], null otherwise.
+         * Returns a valid [AuthModeEnum] for [data], null otherwise.
          */
-        fun decode(data: kotlin.Any?): OutpostTypeEnum? = data?.let {
+        fun decode(data: kotlin.Any?): AuthModeEnum? = data?.let {
           val normalizedData = "$it".lowercase()
           values().firstOrNull { value ->
             it == value || normalizedData == "$value".lowercase()

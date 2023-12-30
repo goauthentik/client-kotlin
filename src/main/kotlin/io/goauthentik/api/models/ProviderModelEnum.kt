@@ -20,9 +20,9 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * * `authentik_providers_ldap.ldapprovider` - authentik_providers_ldap.ldapprovider * `authentik_providers_oauth2.oauth2provider` - authentik_providers_oauth2.oauth2provider * `authentik_providers_proxy.proxyprovider` - authentik_providers_proxy.proxyprovider * `authentik_providers_radius.radiusprovider` - authentik_providers_radius.radiusprovider * `authentik_providers_saml.samlprovider` - authentik_providers_saml.samlprovider * `authentik_providers_scim.scimprovider` - authentik_providers_scim.scimprovider
+ * * `authentik_providers_ldap.ldapprovider` - authentik_providers_ldap.ldapprovider * `authentik_providers_oauth2.oauth2provider` - authentik_providers_oauth2.oauth2provider * `authentik_providers_proxy.proxyprovider` - authentik_providers_proxy.proxyprovider * `authentik_providers_rac.racprovider` - authentik_providers_rac.racprovider * `authentik_providers_radius.radiusprovider` - authentik_providers_radius.radiusprovider * `authentik_providers_saml.samlprovider` - authentik_providers_saml.samlprovider * `authentik_providers_scim.scimprovider` - authentik_providers_scim.scimprovider
  *
- * Values: ldapPeriodLdapprovider,oauth2PeriodOauth2provider,proxyPeriodProxyprovider,radiusPeriodRadiusprovider,samlPeriodSamlprovider,scimPeriodScimprovider,unknownDefaultOpenApi
+ * Values: ldapPeriodLdapprovider,oauth2PeriodOauth2provider,proxyPeriodProxyprovider,racPeriodRacprovider,radiusPeriodRadiusprovider,samlPeriodSamlprovider,scimPeriodScimprovider,unknownDefaultOpenApi
  */
 
 @JsonClass(generateAdapter = false)
@@ -36,6 +36,9 @@ enum class ProviderModelEnum(val value: kotlin.String) {
 
     @Json(name = "authentik_providers_proxy.proxyprovider")
     proxyPeriodProxyprovider("authentik_providers_proxy.proxyprovider"),
+
+    @Json(name = "authentik_providers_rac.racprovider")
+    racPeriodRacprovider("authentik_providers_rac.racprovider"),
 
     @Json(name = "authentik_providers_radius.radiusprovider")
     radiusPeriodRadiusprovider("authentik_providers_radius.radiusprovider"),

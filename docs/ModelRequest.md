@@ -42,6 +42,8 @@ Name | Type | Description | Notes
 **mode** | [**ProxyMode**](ProxyMode.md) |  |  [optional]
 **interceptHeaderAuth** | **kotlin.Boolean** | When enabled, this provider will intercept the authorization header and authenticate requests based on its value. |  [optional]
 **cookieDomain** | **kotlin.String** |  |  [optional]
+**settings** | [**kotlin.Any**](.md) |  |  [optional]
+**connectionExpiry** | **kotlin.String** | Determines how long a session lasts. Default of 0 means that the sessions lasts until the browser is closed. (Format: hours&#x3D;-1;minutes&#x3D;-2;seconds&#x3D;-3) |  [optional]
 **clientNetworks** | **kotlin.String** | List of CIDRs (comma-separated) that clients can connect from. A more specific CIDR will match before a looser one. Clients connecting from a non-specified CIDR will be dropped. |  [optional]
 **sharedSecret** | **kotlin.String** | Shared secret between clients and server to hash packets. |  [optional]
 **audience** | **kotlin.String** | Value of the audience restriction field of the assertion. When left empty, no audience restriction will be added. |  [optional]

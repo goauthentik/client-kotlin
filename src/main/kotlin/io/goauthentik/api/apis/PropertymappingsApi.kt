@@ -27,17 +27,21 @@ import io.goauthentik.api.models.NotificationWebhookMappingRequest
 import io.goauthentik.api.models.PaginatedLDAPPropertyMappingList
 import io.goauthentik.api.models.PaginatedNotificationWebhookMappingList
 import io.goauthentik.api.models.PaginatedPropertyMappingList
+import io.goauthentik.api.models.PaginatedRACPropertyMappingList
 import io.goauthentik.api.models.PaginatedSAMLPropertyMappingList
 import io.goauthentik.api.models.PaginatedSCIMMappingList
 import io.goauthentik.api.models.PaginatedScopeMappingList
 import io.goauthentik.api.models.PatchedLDAPPropertyMappingRequest
 import io.goauthentik.api.models.PatchedNotificationWebhookMappingRequest
+import io.goauthentik.api.models.PatchedRACPropertyMappingRequest
 import io.goauthentik.api.models.PatchedSAMLPropertyMappingRequest
 import io.goauthentik.api.models.PatchedSCIMMappingRequest
 import io.goauthentik.api.models.PatchedScopeMappingRequest
 import io.goauthentik.api.models.PolicyTestRequest
 import io.goauthentik.api.models.PropertyMapping
 import io.goauthentik.api.models.PropertyMappingTestResult
+import io.goauthentik.api.models.RACPropertyMapping
+import io.goauthentik.api.models.RACPropertyMappingRequest
 import io.goauthentik.api.models.SAMLPropertyMapping
 import io.goauthentik.api.models.SAMLPropertyMappingRequest
 import io.goauthentik.api.models.SCIMMapping
@@ -1617,6 +1621,545 @@ class PropertymappingsApi(basePath: kotlin.String = defaultBasePath, client: OkH
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/propertymappings/notification/{pm_uuid}/used_by/".replace("{"+"pm_uuid"+"}", encodeURIComponent(pmUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * RACPropertyMapping Viewset
+     * @param raCPropertyMappingRequest 
+     * @return RACPropertyMapping
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun propertymappingsRacCreate(raCPropertyMappingRequest: RACPropertyMappingRequest) : RACPropertyMapping {
+        val localVarResponse = propertymappingsRacCreateWithHttpInfo(raCPropertyMappingRequest = raCPropertyMappingRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as RACPropertyMapping
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * RACPropertyMapping Viewset
+     * @param raCPropertyMappingRequest 
+     * @return ApiResponse<RACPropertyMapping?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun propertymappingsRacCreateWithHttpInfo(raCPropertyMappingRequest: RACPropertyMappingRequest) : ApiResponse<RACPropertyMapping?> {
+        val localVariableConfig = propertymappingsRacCreateRequestConfig(raCPropertyMappingRequest = raCPropertyMappingRequest)
+
+        return request<RACPropertyMappingRequest, RACPropertyMapping>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation propertymappingsRacCreate
+     *
+     * @param raCPropertyMappingRequest 
+     * @return RequestConfig
+     */
+    fun propertymappingsRacCreateRequestConfig(raCPropertyMappingRequest: RACPropertyMappingRequest) : RequestConfig<RACPropertyMappingRequest> {
+        val localVariableBody = raCPropertyMappingRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/propertymappings/rac/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * RACPropertyMapping Viewset
+     * @param pmUuid A UUID string identifying this RAC Property Mapping.
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun propertymappingsRacDestroy(pmUuid: java.util.UUID) : Unit {
+        val localVarResponse = propertymappingsRacDestroyWithHttpInfo(pmUuid = pmUuid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * RACPropertyMapping Viewset
+     * @param pmUuid A UUID string identifying this RAC Property Mapping.
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun propertymappingsRacDestroyWithHttpInfo(pmUuid: java.util.UUID) : ApiResponse<Unit?> {
+        val localVariableConfig = propertymappingsRacDestroyRequestConfig(pmUuid = pmUuid)
+
+        return request<Unit, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation propertymappingsRacDestroy
+     *
+     * @param pmUuid A UUID string identifying this RAC Property Mapping.
+     * @return RequestConfig
+     */
+    fun propertymappingsRacDestroyRequestConfig(pmUuid: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/propertymappings/rac/{pm_uuid}/".replace("{"+"pm_uuid"+"}", encodeURIComponent(pmUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * RACPropertyMapping Viewset
+     * @param managed  (optional)
+     * @param name  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return PaginatedRACPropertyMappingList
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun propertymappingsRacList(managed: kotlin.String? = null, name: kotlin.String? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null) : PaginatedRACPropertyMappingList {
+        val localVarResponse = propertymappingsRacListWithHttpInfo(managed = managed, name = name, ordering = ordering, page = page, pageSize = pageSize, search = search)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedRACPropertyMappingList
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * RACPropertyMapping Viewset
+     * @param managed  (optional)
+     * @param name  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return ApiResponse<PaginatedRACPropertyMappingList?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun propertymappingsRacListWithHttpInfo(managed: kotlin.String?, name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?) : ApiResponse<PaginatedRACPropertyMappingList?> {
+        val localVariableConfig = propertymappingsRacListRequestConfig(managed = managed, name = name, ordering = ordering, page = page, pageSize = pageSize, search = search)
+
+        return request<Unit, PaginatedRACPropertyMappingList>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation propertymappingsRacList
+     *
+     * @param managed  (optional)
+     * @param name  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return RequestConfig
+     */
+    fun propertymappingsRacListRequestConfig(managed: kotlin.String?, name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (managed != null) {
+                    put("managed", listOf(managed.toString()))
+                }
+                if (name != null) {
+                    put("name", listOf(name.toString()))
+                }
+                if (ordering != null) {
+                    put("ordering", listOf(ordering.toString()))
+                }
+                if (page != null) {
+                    put("page", listOf(page.toString()))
+                }
+                if (pageSize != null) {
+                    put("page_size", listOf(pageSize.toString()))
+                }
+                if (search != null) {
+                    put("search", listOf(search.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/propertymappings/rac/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * RACPropertyMapping Viewset
+     * @param pmUuid A UUID string identifying this RAC Property Mapping.
+     * @param patchedRACPropertyMappingRequest  (optional)
+     * @return RACPropertyMapping
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun propertymappingsRacPartialUpdate(pmUuid: java.util.UUID, patchedRACPropertyMappingRequest: PatchedRACPropertyMappingRequest? = null) : RACPropertyMapping {
+        val localVarResponse = propertymappingsRacPartialUpdateWithHttpInfo(pmUuid = pmUuid, patchedRACPropertyMappingRequest = patchedRACPropertyMappingRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as RACPropertyMapping
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * RACPropertyMapping Viewset
+     * @param pmUuid A UUID string identifying this RAC Property Mapping.
+     * @param patchedRACPropertyMappingRequest  (optional)
+     * @return ApiResponse<RACPropertyMapping?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun propertymappingsRacPartialUpdateWithHttpInfo(pmUuid: java.util.UUID, patchedRACPropertyMappingRequest: PatchedRACPropertyMappingRequest?) : ApiResponse<RACPropertyMapping?> {
+        val localVariableConfig = propertymappingsRacPartialUpdateRequestConfig(pmUuid = pmUuid, patchedRACPropertyMappingRequest = patchedRACPropertyMappingRequest)
+
+        return request<PatchedRACPropertyMappingRequest, RACPropertyMapping>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation propertymappingsRacPartialUpdate
+     *
+     * @param pmUuid A UUID string identifying this RAC Property Mapping.
+     * @param patchedRACPropertyMappingRequest  (optional)
+     * @return RequestConfig
+     */
+    fun propertymappingsRacPartialUpdateRequestConfig(pmUuid: java.util.UUID, patchedRACPropertyMappingRequest: PatchedRACPropertyMappingRequest?) : RequestConfig<PatchedRACPropertyMappingRequest> {
+        val localVariableBody = patchedRACPropertyMappingRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/propertymappings/rac/{pm_uuid}/".replace("{"+"pm_uuid"+"}", encodeURIComponent(pmUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * RACPropertyMapping Viewset
+     * @param pmUuid A UUID string identifying this RAC Property Mapping.
+     * @return RACPropertyMapping
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun propertymappingsRacRetrieve(pmUuid: java.util.UUID) : RACPropertyMapping {
+        val localVarResponse = propertymappingsRacRetrieveWithHttpInfo(pmUuid = pmUuid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as RACPropertyMapping
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * RACPropertyMapping Viewset
+     * @param pmUuid A UUID string identifying this RAC Property Mapping.
+     * @return ApiResponse<RACPropertyMapping?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun propertymappingsRacRetrieveWithHttpInfo(pmUuid: java.util.UUID) : ApiResponse<RACPropertyMapping?> {
+        val localVariableConfig = propertymappingsRacRetrieveRequestConfig(pmUuid = pmUuid)
+
+        return request<Unit, RACPropertyMapping>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation propertymappingsRacRetrieve
+     *
+     * @param pmUuid A UUID string identifying this RAC Property Mapping.
+     * @return RequestConfig
+     */
+    fun propertymappingsRacRetrieveRequestConfig(pmUuid: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/propertymappings/rac/{pm_uuid}/".replace("{"+"pm_uuid"+"}", encodeURIComponent(pmUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * RACPropertyMapping Viewset
+     * @param pmUuid A UUID string identifying this RAC Property Mapping.
+     * @param raCPropertyMappingRequest 
+     * @return RACPropertyMapping
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun propertymappingsRacUpdate(pmUuid: java.util.UUID, raCPropertyMappingRequest: RACPropertyMappingRequest) : RACPropertyMapping {
+        val localVarResponse = propertymappingsRacUpdateWithHttpInfo(pmUuid = pmUuid, raCPropertyMappingRequest = raCPropertyMappingRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as RACPropertyMapping
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * RACPropertyMapping Viewset
+     * @param pmUuid A UUID string identifying this RAC Property Mapping.
+     * @param raCPropertyMappingRequest 
+     * @return ApiResponse<RACPropertyMapping?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun propertymappingsRacUpdateWithHttpInfo(pmUuid: java.util.UUID, raCPropertyMappingRequest: RACPropertyMappingRequest) : ApiResponse<RACPropertyMapping?> {
+        val localVariableConfig = propertymappingsRacUpdateRequestConfig(pmUuid = pmUuid, raCPropertyMappingRequest = raCPropertyMappingRequest)
+
+        return request<RACPropertyMappingRequest, RACPropertyMapping>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation propertymappingsRacUpdate
+     *
+     * @param pmUuid A UUID string identifying this RAC Property Mapping.
+     * @param raCPropertyMappingRequest 
+     * @return RequestConfig
+     */
+    fun propertymappingsRacUpdateRequestConfig(pmUuid: java.util.UUID, raCPropertyMappingRequest: RACPropertyMappingRequest) : RequestConfig<RACPropertyMappingRequest> {
+        val localVariableBody = raCPropertyMappingRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/propertymappings/rac/{pm_uuid}/".replace("{"+"pm_uuid"+"}", encodeURIComponent(pmUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Get a list of all objects that use this object
+     * @param pmUuid A UUID string identifying this RAC Property Mapping.
+     * @return kotlin.collections.List<UsedBy>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun propertymappingsRacUsedByList(pmUuid: java.util.UUID) : kotlin.collections.List<UsedBy> {
+        val localVarResponse = propertymappingsRacUsedByListWithHttpInfo(pmUuid = pmUuid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<UsedBy>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Get a list of all objects that use this object
+     * @param pmUuid A UUID string identifying this RAC Property Mapping.
+     * @return ApiResponse<kotlin.collections.List<UsedBy>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun propertymappingsRacUsedByListWithHttpInfo(pmUuid: java.util.UUID) : ApiResponse<kotlin.collections.List<UsedBy>?> {
+        val localVariableConfig = propertymappingsRacUsedByListRequestConfig(pmUuid = pmUuid)
+
+        return request<Unit, kotlin.collections.List<UsedBy>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation propertymappingsRacUsedByList
+     *
+     * @param pmUuid A UUID string identifying this RAC Property Mapping.
+     * @return RequestConfig
+     */
+    fun propertymappingsRacUsedByListRequestConfig(pmUuid: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/propertymappings/rac/{pm_uuid}/used_by/".replace("{"+"pm_uuid"+"}", encodeURIComponent(pmUuid.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = true,
