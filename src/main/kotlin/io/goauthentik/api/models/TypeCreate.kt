@@ -26,6 +26,7 @@ import com.squareup.moshi.JsonClass
  * @param description 
  * @param component 
  * @param modelName 
+ * @param requiresEnterprise 
  */
 
 
@@ -41,7 +42,10 @@ data class TypeCreate (
     val component: kotlin.String,
 
     @Json(name = "model_name")
-    val modelName: kotlin.String
+    val modelName: kotlin.String,
+
+    @Json(name = "requires_enterprise")
+    val requiresEnterprise: kotlin.Boolean? = false
 
 )
 

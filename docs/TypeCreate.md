@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **description** | **kotlin.String** |  | 
 **component** | **kotlin.String** |  | 
 **modelName** | **kotlin.String** |  | 
+**requiresEnterprise** | **kotlin.Boolean** |  |  [optional]
 
 
 
