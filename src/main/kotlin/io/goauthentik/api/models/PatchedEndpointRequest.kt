@@ -31,6 +31,7 @@ import com.squareup.moshi.JsonClass
  * @param settings 
  * @param propertyMappings 
  * @param authMode 
+ * @param maximumConnections 
  */
 
 
@@ -55,7 +56,10 @@ data class PatchedEndpointRequest (
     val propertyMappings: kotlin.collections.List<java.util.UUID>? = null,
 
     @Json(name = "auth_mode")
-    val authMode: AuthModeEnum? = null
+    val authMode: AuthModeEnum? = null,
+
+    @Json(name = "maximum_connections")
+    val maximumConnections: kotlin.Int? = null
 
 )
 

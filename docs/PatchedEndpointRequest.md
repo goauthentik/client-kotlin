@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **settings** | [**kotlin.Any**](.md) |  |  [optional]
 **propertyMappings** | [**kotlin.collections.List&lt;java.util.UUID&gt;**](java.util.UUID.md) |  |  [optional]
 **authMode** | [**AuthModeEnum**](AuthModeEnum.md) |  |  [optional]
+**maximumConnections** | **kotlin.Int** |  |  [optional]
 
 
 

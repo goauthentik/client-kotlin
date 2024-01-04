@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **launchUrl** | **kotlin.String** | Build actual launch URL (the provider itself does not have one, just individual endpoints) |  [readonly]
 **settings** | [**kotlin.Any**](.md) |  |  [optional]
 **propertyMappings** | [**kotlin.collections.List&lt;java.util.UUID&gt;**](java.util.UUID.md) |  |  [optional]
+**maximumConnections** | **kotlin.Int** |  |  [optional]
 
 
 

@@ -35,6 +35,7 @@ import com.squareup.moshi.JsonClass
  * @param launchUrl Build actual launch URL (the provider itself does not have one, just individual endpoints)
  * @param settings 
  * @param propertyMappings 
+ * @param maximumConnections 
  */
 
 
@@ -69,7 +70,10 @@ data class Endpoint (
     val settings: kotlin.Any? = null,
 
     @Json(name = "property_mappings")
-    val propertyMappings: kotlin.collections.List<java.util.UUID>? = null
+    val propertyMappings: kotlin.collections.List<java.util.UUID>? = null,
+
+    @Json(name = "maximum_connections")
+    val maximumConnections: kotlin.Int? = null
 
 )
 
