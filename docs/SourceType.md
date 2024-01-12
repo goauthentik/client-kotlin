@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **kotlin.String** |  | 
-**slug** | **kotlin.String** |  | 
+**verboseName** | **kotlin.String** |  | 
 **urlsCustomizable** | **kotlin.Boolean** |  | 
 **requestTokenUrl** | **kotlin.String** |  |  [readonly]
 **authorizationUrl** | **kotlin.String** |  |  [readonly]

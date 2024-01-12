@@ -23,7 +23,7 @@ import com.squareup.moshi.JsonClass
  * Serializer for SourceType
  *
  * @param name 
- * @param slug 
+ * @param verboseName 
  * @param urlsCustomizable 
  * @param requestTokenUrl 
  * @param authorizationUrl 
@@ -39,8 +39,8 @@ data class SourceType (
     @Json(name = "name")
     val name: kotlin.String,
 
-    @Json(name = "slug")
-    val slug: kotlin.String,
+    @Json(name = "verbose_name")
+    val verboseName: kotlin.String,
 
     @Json(name = "urls_customizable")
     val urlsCustomizable: kotlin.Boolean,
