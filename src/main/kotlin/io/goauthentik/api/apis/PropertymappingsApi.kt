@@ -1787,7 +1787,7 @@ class PropertymappingsApi(basePath: kotlin.String = defaultBasePath, client: OkH
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun propertymappingsRacList(managed: kotlin.String? = null, name: kotlin.String? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null) : PaginatedRACPropertyMappingList {
+    fun propertymappingsRacList(managed: kotlin.collections.List<kotlin.String>? = null, name: kotlin.String? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null) : PaginatedRACPropertyMappingList {
         val localVarResponse = propertymappingsRacListWithHttpInfo(managed = managed, name = name, ordering = ordering, page = page, pageSize = pageSize, search = search)
 
         return when (localVarResponse.responseType) {
@@ -1820,7 +1820,7 @@ class PropertymappingsApi(basePath: kotlin.String = defaultBasePath, client: OkH
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun propertymappingsRacListWithHttpInfo(managed: kotlin.String?, name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?) : ApiResponse<PaginatedRACPropertyMappingList?> {
+    fun propertymappingsRacListWithHttpInfo(managed: kotlin.collections.List<kotlin.String>?, name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?) : ApiResponse<PaginatedRACPropertyMappingList?> {
         val localVariableConfig = propertymappingsRacListRequestConfig(managed = managed, name = name, ordering = ordering, page = page, pageSize = pageSize, search = search)
 
         return request<Unit, PaginatedRACPropertyMappingList>(
@@ -1839,12 +1839,12 @@ class PropertymappingsApi(basePath: kotlin.String = defaultBasePath, client: OkH
      * @param search A search term. (optional)
      * @return RequestConfig
      */
-    fun propertymappingsRacListRequestConfig(managed: kotlin.String?, name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?) : RequestConfig<Unit> {
+    fun propertymappingsRacListRequestConfig(managed: kotlin.collections.List<kotlin.String>?, name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (managed != null) {
-                    put("managed", listOf(managed.toString()))
+                    put("managed", toMultiValue(managed.toList(), "multi"))
                 }
                 if (name != null) {
                     put("name", listOf(name.toString()))

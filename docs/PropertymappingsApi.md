@@ -1205,7 +1205,7 @@ RACPropertyMapping Viewset
 //import io.goauthentik.api.models.*
 
 val apiInstance = PropertymappingsApi()
-val managed : kotlin.String = managed_example // kotlin.String | 
+val managed : kotlin.collections.List<kotlin.String> =  // kotlin.collections.List<kotlin.String> | 
 val name : kotlin.String = name_example // kotlin.String | 
 val ordering : kotlin.String = ordering_example // kotlin.String | Which field to use when ordering the results.
 val page : kotlin.Int = 56 // kotlin.Int | A page number within the paginated result set.
@@ -1227,7 +1227,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **managed** | **kotlin.String**|  | [optional]
+ **managed** | [**kotlin.collections.List&lt;kotlin.String&gt;**](kotlin.String.md)|  | [optional]
  **name** | **kotlin.String**|  | [optional]
  **ordering** | **kotlin.String**| Which field to use when ordering the results. | [optional]
  **page** | **kotlin.Int**| A page number within the paginated result set. | [optional]
