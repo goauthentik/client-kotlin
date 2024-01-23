@@ -22,8 +22,10 @@ import okhttp3.HttpUrl
 import io.goauthentik.api.models.Application
 import io.goauthentik.api.models.ApplicationRequest
 import io.goauthentik.api.models.AuthenticatedSession
+import io.goauthentik.api.models.Brand
+import io.goauthentik.api.models.BrandRequest
 import io.goauthentik.api.models.Coordinate
-import io.goauthentik.api.models.CurrentTenant
+import io.goauthentik.api.models.CurrentBrand
 import io.goauthentik.api.models.FilePathRequest
 import io.goauthentik.api.models.GenericError
 import io.goauthentik.api.models.Group
@@ -31,20 +33,18 @@ import io.goauthentik.api.models.GroupRequest
 import io.goauthentik.api.models.Link
 import io.goauthentik.api.models.PaginatedApplicationList
 import io.goauthentik.api.models.PaginatedAuthenticatedSessionList
+import io.goauthentik.api.models.PaginatedBrandList
 import io.goauthentik.api.models.PaginatedGroupList
-import io.goauthentik.api.models.PaginatedTenantList
 import io.goauthentik.api.models.PaginatedTokenList
 import io.goauthentik.api.models.PaginatedUserConsentList
 import io.goauthentik.api.models.PaginatedUserList
 import io.goauthentik.api.models.PatchedApplicationRequest
+import io.goauthentik.api.models.PatchedBrandRequest
 import io.goauthentik.api.models.PatchedGroupRequest
-import io.goauthentik.api.models.PatchedTenantRequest
 import io.goauthentik.api.models.PatchedTokenRequest
 import io.goauthentik.api.models.PatchedUserRequest
 import io.goauthentik.api.models.PolicyTestResult
 import io.goauthentik.api.models.SessionUser
-import io.goauthentik.api.models.Tenant
-import io.goauthentik.api.models.TenantRequest
 import io.goauthentik.api.models.Token
 import io.goauthentik.api.models.TokenRequest
 import io.goauthentik.api.models.TokenSetKeyRequest
@@ -1281,6 +1281,679 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
 
     /**
      * 
+     * Brand Viewset
+     * @param brandRequest 
+     * @return Brand
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun coreBrandsCreate(brandRequest: BrandRequest) : Brand {
+        val localVarResponse = coreBrandsCreateWithHttpInfo(brandRequest = brandRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Brand
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Brand Viewset
+     * @param brandRequest 
+     * @return ApiResponse<Brand?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun coreBrandsCreateWithHttpInfo(brandRequest: BrandRequest) : ApiResponse<Brand?> {
+        val localVariableConfig = coreBrandsCreateRequestConfig(brandRequest = brandRequest)
+
+        return request<BrandRequest, Brand>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation coreBrandsCreate
+     *
+     * @param brandRequest 
+     * @return RequestConfig
+     */
+    fun coreBrandsCreateRequestConfig(brandRequest: BrandRequest) : RequestConfig<BrandRequest> {
+        val localVariableBody = brandRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/core/brands/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Get current brand
+     * @return CurrentBrand
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun coreBrandsCurrentRetrieve() : CurrentBrand {
+        val localVarResponse = coreBrandsCurrentRetrieveWithHttpInfo()
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as CurrentBrand
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Get current brand
+     * @return ApiResponse<CurrentBrand?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun coreBrandsCurrentRetrieveWithHttpInfo() : ApiResponse<CurrentBrand?> {
+        val localVariableConfig = coreBrandsCurrentRetrieveRequestConfig()
+
+        return request<Unit, CurrentBrand>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation coreBrandsCurrentRetrieve
+     *
+     * @return RequestConfig
+     */
+    fun coreBrandsCurrentRetrieveRequestConfig() : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/core/brands/current/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Brand Viewset
+     * @param brandUuid A UUID string identifying this Brand.
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun coreBrandsDestroy(brandUuid: java.util.UUID) : Unit {
+        val localVarResponse = coreBrandsDestroyWithHttpInfo(brandUuid = brandUuid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Brand Viewset
+     * @param brandUuid A UUID string identifying this Brand.
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun coreBrandsDestroyWithHttpInfo(brandUuid: java.util.UUID) : ApiResponse<Unit?> {
+        val localVariableConfig = coreBrandsDestroyRequestConfig(brandUuid = brandUuid)
+
+        return request<Unit, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation coreBrandsDestroy
+     *
+     * @param brandUuid A UUID string identifying this Brand.
+     * @return RequestConfig
+     */
+    fun coreBrandsDestroyRequestConfig(brandUuid: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/core/brands/{brand_uuid}/".replace("{"+"brand_uuid"+"}", encodeURIComponent(brandUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Brand Viewset
+     * @param brandUuid  (optional)
+     * @param brandingFavicon  (optional)
+     * @param brandingLogo  (optional)
+     * @param brandingTitle  (optional)
+     * @param default  (optional)
+     * @param domain  (optional)
+     * @param flowAuthentication  (optional)
+     * @param flowDeviceCode  (optional)
+     * @param flowInvalidation  (optional)
+     * @param flowRecovery  (optional)
+     * @param flowUnenrollment  (optional)
+     * @param flowUserSettings  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @param webCertificate  (optional)
+     * @return PaginatedBrandList
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun coreBrandsList(brandUuid: java.util.UUID? = null, brandingFavicon: kotlin.String? = null, brandingLogo: kotlin.String? = null, brandingTitle: kotlin.String? = null, default: kotlin.Boolean? = null, domain: kotlin.String? = null, flowAuthentication: java.util.UUID? = null, flowDeviceCode: java.util.UUID? = null, flowInvalidation: java.util.UUID? = null, flowRecovery: java.util.UUID? = null, flowUnenrollment: java.util.UUID? = null, flowUserSettings: java.util.UUID? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null, webCertificate: java.util.UUID? = null) : PaginatedBrandList {
+        val localVarResponse = coreBrandsListWithHttpInfo(brandUuid = brandUuid, brandingFavicon = brandingFavicon, brandingLogo = brandingLogo, brandingTitle = brandingTitle, default = default, domain = domain, flowAuthentication = flowAuthentication, flowDeviceCode = flowDeviceCode, flowInvalidation = flowInvalidation, flowRecovery = flowRecovery, flowUnenrollment = flowUnenrollment, flowUserSettings = flowUserSettings, ordering = ordering, page = page, pageSize = pageSize, search = search, webCertificate = webCertificate)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedBrandList
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Brand Viewset
+     * @param brandUuid  (optional)
+     * @param brandingFavicon  (optional)
+     * @param brandingLogo  (optional)
+     * @param brandingTitle  (optional)
+     * @param default  (optional)
+     * @param domain  (optional)
+     * @param flowAuthentication  (optional)
+     * @param flowDeviceCode  (optional)
+     * @param flowInvalidation  (optional)
+     * @param flowRecovery  (optional)
+     * @param flowUnenrollment  (optional)
+     * @param flowUserSettings  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @param webCertificate  (optional)
+     * @return ApiResponse<PaginatedBrandList?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun coreBrandsListWithHttpInfo(brandUuid: java.util.UUID?, brandingFavicon: kotlin.String?, brandingLogo: kotlin.String?, brandingTitle: kotlin.String?, default: kotlin.Boolean?, domain: kotlin.String?, flowAuthentication: java.util.UUID?, flowDeviceCode: java.util.UUID?, flowInvalidation: java.util.UUID?, flowRecovery: java.util.UUID?, flowUnenrollment: java.util.UUID?, flowUserSettings: java.util.UUID?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, webCertificate: java.util.UUID?) : ApiResponse<PaginatedBrandList?> {
+        val localVariableConfig = coreBrandsListRequestConfig(brandUuid = brandUuid, brandingFavicon = brandingFavicon, brandingLogo = brandingLogo, brandingTitle = brandingTitle, default = default, domain = domain, flowAuthentication = flowAuthentication, flowDeviceCode = flowDeviceCode, flowInvalidation = flowInvalidation, flowRecovery = flowRecovery, flowUnenrollment = flowUnenrollment, flowUserSettings = flowUserSettings, ordering = ordering, page = page, pageSize = pageSize, search = search, webCertificate = webCertificate)
+
+        return request<Unit, PaginatedBrandList>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation coreBrandsList
+     *
+     * @param brandUuid  (optional)
+     * @param brandingFavicon  (optional)
+     * @param brandingLogo  (optional)
+     * @param brandingTitle  (optional)
+     * @param default  (optional)
+     * @param domain  (optional)
+     * @param flowAuthentication  (optional)
+     * @param flowDeviceCode  (optional)
+     * @param flowInvalidation  (optional)
+     * @param flowRecovery  (optional)
+     * @param flowUnenrollment  (optional)
+     * @param flowUserSettings  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @param webCertificate  (optional)
+     * @return RequestConfig
+     */
+    fun coreBrandsListRequestConfig(brandUuid: java.util.UUID?, brandingFavicon: kotlin.String?, brandingLogo: kotlin.String?, brandingTitle: kotlin.String?, default: kotlin.Boolean?, domain: kotlin.String?, flowAuthentication: java.util.UUID?, flowDeviceCode: java.util.UUID?, flowInvalidation: java.util.UUID?, flowRecovery: java.util.UUID?, flowUnenrollment: java.util.UUID?, flowUserSettings: java.util.UUID?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, webCertificate: java.util.UUID?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (brandUuid != null) {
+                    put("brand_uuid", listOf(brandUuid.toString()))
+                }
+                if (brandingFavicon != null) {
+                    put("branding_favicon", listOf(brandingFavicon.toString()))
+                }
+                if (brandingLogo != null) {
+                    put("branding_logo", listOf(brandingLogo.toString()))
+                }
+                if (brandingTitle != null) {
+                    put("branding_title", listOf(brandingTitle.toString()))
+                }
+                if (default != null) {
+                    put("default", listOf(default.toString()))
+                }
+                if (domain != null) {
+                    put("domain", listOf(domain.toString()))
+                }
+                if (flowAuthentication != null) {
+                    put("flow_authentication", listOf(flowAuthentication.toString()))
+                }
+                if (flowDeviceCode != null) {
+                    put("flow_device_code", listOf(flowDeviceCode.toString()))
+                }
+                if (flowInvalidation != null) {
+                    put("flow_invalidation", listOf(flowInvalidation.toString()))
+                }
+                if (flowRecovery != null) {
+                    put("flow_recovery", listOf(flowRecovery.toString()))
+                }
+                if (flowUnenrollment != null) {
+                    put("flow_unenrollment", listOf(flowUnenrollment.toString()))
+                }
+                if (flowUserSettings != null) {
+                    put("flow_user_settings", listOf(flowUserSettings.toString()))
+                }
+                if (ordering != null) {
+                    put("ordering", listOf(ordering.toString()))
+                }
+                if (page != null) {
+                    put("page", listOf(page.toString()))
+                }
+                if (pageSize != null) {
+                    put("page_size", listOf(pageSize.toString()))
+                }
+                if (search != null) {
+                    put("search", listOf(search.toString()))
+                }
+                if (webCertificate != null) {
+                    put("web_certificate", listOf(webCertificate.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/core/brands/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Brand Viewset
+     * @param brandUuid A UUID string identifying this Brand.
+     * @param patchedBrandRequest  (optional)
+     * @return Brand
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun coreBrandsPartialUpdate(brandUuid: java.util.UUID, patchedBrandRequest: PatchedBrandRequest? = null) : Brand {
+        val localVarResponse = coreBrandsPartialUpdateWithHttpInfo(brandUuid = brandUuid, patchedBrandRequest = patchedBrandRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Brand
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Brand Viewset
+     * @param brandUuid A UUID string identifying this Brand.
+     * @param patchedBrandRequest  (optional)
+     * @return ApiResponse<Brand?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun coreBrandsPartialUpdateWithHttpInfo(brandUuid: java.util.UUID, patchedBrandRequest: PatchedBrandRequest?) : ApiResponse<Brand?> {
+        val localVariableConfig = coreBrandsPartialUpdateRequestConfig(brandUuid = brandUuid, patchedBrandRequest = patchedBrandRequest)
+
+        return request<PatchedBrandRequest, Brand>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation coreBrandsPartialUpdate
+     *
+     * @param brandUuid A UUID string identifying this Brand.
+     * @param patchedBrandRequest  (optional)
+     * @return RequestConfig
+     */
+    fun coreBrandsPartialUpdateRequestConfig(brandUuid: java.util.UUID, patchedBrandRequest: PatchedBrandRequest?) : RequestConfig<PatchedBrandRequest> {
+        val localVariableBody = patchedBrandRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/core/brands/{brand_uuid}/".replace("{"+"brand_uuid"+"}", encodeURIComponent(brandUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Brand Viewset
+     * @param brandUuid A UUID string identifying this Brand.
+     * @return Brand
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun coreBrandsRetrieve(brandUuid: java.util.UUID) : Brand {
+        val localVarResponse = coreBrandsRetrieveWithHttpInfo(brandUuid = brandUuid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Brand
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Brand Viewset
+     * @param brandUuid A UUID string identifying this Brand.
+     * @return ApiResponse<Brand?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun coreBrandsRetrieveWithHttpInfo(brandUuid: java.util.UUID) : ApiResponse<Brand?> {
+        val localVariableConfig = coreBrandsRetrieveRequestConfig(brandUuid = brandUuid)
+
+        return request<Unit, Brand>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation coreBrandsRetrieve
+     *
+     * @param brandUuid A UUID string identifying this Brand.
+     * @return RequestConfig
+     */
+    fun coreBrandsRetrieveRequestConfig(brandUuid: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/core/brands/{brand_uuid}/".replace("{"+"brand_uuid"+"}", encodeURIComponent(brandUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Brand Viewset
+     * @param brandUuid A UUID string identifying this Brand.
+     * @param brandRequest 
+     * @return Brand
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun coreBrandsUpdate(brandUuid: java.util.UUID, brandRequest: BrandRequest) : Brand {
+        val localVarResponse = coreBrandsUpdateWithHttpInfo(brandUuid = brandUuid, brandRequest = brandRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Brand
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Brand Viewset
+     * @param brandUuid A UUID string identifying this Brand.
+     * @param brandRequest 
+     * @return ApiResponse<Brand?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun coreBrandsUpdateWithHttpInfo(brandUuid: java.util.UUID, brandRequest: BrandRequest) : ApiResponse<Brand?> {
+        val localVariableConfig = coreBrandsUpdateRequestConfig(brandUuid = brandUuid, brandRequest = brandRequest)
+
+        return request<BrandRequest, Brand>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation coreBrandsUpdate
+     *
+     * @param brandUuid A UUID string identifying this Brand.
+     * @param brandRequest 
+     * @return RequestConfig
+     */
+    fun coreBrandsUpdateRequestConfig(brandUuid: java.util.UUID, brandRequest: BrandRequest) : RequestConfig<BrandRequest> {
+        val localVariableBody = brandRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/core/brands/{brand_uuid}/".replace("{"+"brand_uuid"+"}", encodeURIComponent(brandUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Get a list of all objects that use this object
+     * @param brandUuid A UUID string identifying this Brand.
+     * @return kotlin.collections.List<UsedBy>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun coreBrandsUsedByList(brandUuid: java.util.UUID) : kotlin.collections.List<UsedBy> {
+        val localVarResponse = coreBrandsUsedByListWithHttpInfo(brandUuid = brandUuid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<UsedBy>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Get a list of all objects that use this object
+     * @param brandUuid A UUID string identifying this Brand.
+     * @return ApiResponse<kotlin.collections.List<UsedBy>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun coreBrandsUsedByListWithHttpInfo(brandUuid: java.util.UUID) : ApiResponse<kotlin.collections.List<UsedBy>?> {
+        val localVariableConfig = coreBrandsUsedByListRequestConfig(brandUuid = brandUuid)
+
+        return request<Unit, kotlin.collections.List<UsedBy>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation coreBrandsUsedByList
+     *
+     * @param brandUuid A UUID string identifying this Brand.
+     * @return RequestConfig
+     */
+    fun coreBrandsUsedByListRequestConfig(brandUuid: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/core/brands/{brand_uuid}/used_by/".replace("{"+"brand_uuid"+"}", encodeURIComponent(brandUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
      * Add user to group
      * @param groupUuid A UUID string identifying this Group.
      * @param userAccountRequest 
@@ -1975,685 +2648,6 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/core/groups/{group_uuid}/used_by/".replace("{"+"group_uuid"+"}", encodeURIComponent(groupUuid.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * Tenant Viewset
-     * @param tenantRequest 
-     * @return Tenant
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun coreTenantsCreate(tenantRequest: TenantRequest) : Tenant {
-        val localVarResponse = coreTenantsCreateWithHttpInfo(tenantRequest = tenantRequest)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Tenant
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * Tenant Viewset
-     * @param tenantRequest 
-     * @return ApiResponse<Tenant?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun coreTenantsCreateWithHttpInfo(tenantRequest: TenantRequest) : ApiResponse<Tenant?> {
-        val localVariableConfig = coreTenantsCreateRequestConfig(tenantRequest = tenantRequest)
-
-        return request<TenantRequest, Tenant>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation coreTenantsCreate
-     *
-     * @param tenantRequest 
-     * @return RequestConfig
-     */
-    fun coreTenantsCreateRequestConfig(tenantRequest: TenantRequest) : RequestConfig<TenantRequest> {
-        val localVariableBody = tenantRequest
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/core/tenants/",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * Get current tenant
-     * @return CurrentTenant
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun coreTenantsCurrentRetrieve() : CurrentTenant {
-        val localVarResponse = coreTenantsCurrentRetrieveWithHttpInfo()
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as CurrentTenant
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * Get current tenant
-     * @return ApiResponse<CurrentTenant?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun coreTenantsCurrentRetrieveWithHttpInfo() : ApiResponse<CurrentTenant?> {
-        val localVariableConfig = coreTenantsCurrentRetrieveRequestConfig()
-
-        return request<Unit, CurrentTenant>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation coreTenantsCurrentRetrieve
-     *
-     * @return RequestConfig
-     */
-    fun coreTenantsCurrentRetrieveRequestConfig() : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/core/tenants/current/",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * Tenant Viewset
-     * @param tenantUuid A UUID string identifying this Tenant.
-     * @return void
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun coreTenantsDestroy(tenantUuid: java.util.UUID) : Unit {
-        val localVarResponse = coreTenantsDestroyWithHttpInfo(tenantUuid = tenantUuid)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> Unit
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * Tenant Viewset
-     * @param tenantUuid A UUID string identifying this Tenant.
-     * @return ApiResponse<Unit?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Throws(IllegalStateException::class, IOException::class)
-    fun coreTenantsDestroyWithHttpInfo(tenantUuid: java.util.UUID) : ApiResponse<Unit?> {
-        val localVariableConfig = coreTenantsDestroyRequestConfig(tenantUuid = tenantUuid)
-
-        return request<Unit, Unit>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation coreTenantsDestroy
-     *
-     * @param tenantUuid A UUID string identifying this Tenant.
-     * @return RequestConfig
-     */
-    fun coreTenantsDestroyRequestConfig(tenantUuid: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.DELETE,
-            path = "/core/tenants/{tenant_uuid}/".replace("{"+"tenant_uuid"+"}", encodeURIComponent(tenantUuid.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * Tenant Viewset
-     * @param brandingFavicon  (optional)
-     * @param brandingLogo  (optional)
-     * @param brandingTitle  (optional)
-     * @param default  (optional)
-     * @param domain  (optional)
-     * @param eventRetention  (optional)
-     * @param flowAuthentication  (optional)
-     * @param flowDeviceCode  (optional)
-     * @param flowInvalidation  (optional)
-     * @param flowRecovery  (optional)
-     * @param flowUnenrollment  (optional)
-     * @param flowUserSettings  (optional)
-     * @param ordering Which field to use when ordering the results. (optional)
-     * @param page A page number within the paginated result set. (optional)
-     * @param pageSize Number of results to return per page. (optional)
-     * @param search A search term. (optional)
-     * @param tenantUuid  (optional)
-     * @param webCertificate  (optional)
-     * @return PaginatedTenantList
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun coreTenantsList(brandingFavicon: kotlin.String? = null, brandingLogo: kotlin.String? = null, brandingTitle: kotlin.String? = null, default: kotlin.Boolean? = null, domain: kotlin.String? = null, eventRetention: kotlin.String? = null, flowAuthentication: java.util.UUID? = null, flowDeviceCode: java.util.UUID? = null, flowInvalidation: java.util.UUID? = null, flowRecovery: java.util.UUID? = null, flowUnenrollment: java.util.UUID? = null, flowUserSettings: java.util.UUID? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null, tenantUuid: java.util.UUID? = null, webCertificate: java.util.UUID? = null) : PaginatedTenantList {
-        val localVarResponse = coreTenantsListWithHttpInfo(brandingFavicon = brandingFavicon, brandingLogo = brandingLogo, brandingTitle = brandingTitle, default = default, domain = domain, eventRetention = eventRetention, flowAuthentication = flowAuthentication, flowDeviceCode = flowDeviceCode, flowInvalidation = flowInvalidation, flowRecovery = flowRecovery, flowUnenrollment = flowUnenrollment, flowUserSettings = flowUserSettings, ordering = ordering, page = page, pageSize = pageSize, search = search, tenantUuid = tenantUuid, webCertificate = webCertificate)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedTenantList
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * Tenant Viewset
-     * @param brandingFavicon  (optional)
-     * @param brandingLogo  (optional)
-     * @param brandingTitle  (optional)
-     * @param default  (optional)
-     * @param domain  (optional)
-     * @param eventRetention  (optional)
-     * @param flowAuthentication  (optional)
-     * @param flowDeviceCode  (optional)
-     * @param flowInvalidation  (optional)
-     * @param flowRecovery  (optional)
-     * @param flowUnenrollment  (optional)
-     * @param flowUserSettings  (optional)
-     * @param ordering Which field to use when ordering the results. (optional)
-     * @param page A page number within the paginated result set. (optional)
-     * @param pageSize Number of results to return per page. (optional)
-     * @param search A search term. (optional)
-     * @param tenantUuid  (optional)
-     * @param webCertificate  (optional)
-     * @return ApiResponse<PaginatedTenantList?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun coreTenantsListWithHttpInfo(brandingFavicon: kotlin.String?, brandingLogo: kotlin.String?, brandingTitle: kotlin.String?, default: kotlin.Boolean?, domain: kotlin.String?, eventRetention: kotlin.String?, flowAuthentication: java.util.UUID?, flowDeviceCode: java.util.UUID?, flowInvalidation: java.util.UUID?, flowRecovery: java.util.UUID?, flowUnenrollment: java.util.UUID?, flowUserSettings: java.util.UUID?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, tenantUuid: java.util.UUID?, webCertificate: java.util.UUID?) : ApiResponse<PaginatedTenantList?> {
-        val localVariableConfig = coreTenantsListRequestConfig(brandingFavicon = brandingFavicon, brandingLogo = brandingLogo, brandingTitle = brandingTitle, default = default, domain = domain, eventRetention = eventRetention, flowAuthentication = flowAuthentication, flowDeviceCode = flowDeviceCode, flowInvalidation = flowInvalidation, flowRecovery = flowRecovery, flowUnenrollment = flowUnenrollment, flowUserSettings = flowUserSettings, ordering = ordering, page = page, pageSize = pageSize, search = search, tenantUuid = tenantUuid, webCertificate = webCertificate)
-
-        return request<Unit, PaginatedTenantList>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation coreTenantsList
-     *
-     * @param brandingFavicon  (optional)
-     * @param brandingLogo  (optional)
-     * @param brandingTitle  (optional)
-     * @param default  (optional)
-     * @param domain  (optional)
-     * @param eventRetention  (optional)
-     * @param flowAuthentication  (optional)
-     * @param flowDeviceCode  (optional)
-     * @param flowInvalidation  (optional)
-     * @param flowRecovery  (optional)
-     * @param flowUnenrollment  (optional)
-     * @param flowUserSettings  (optional)
-     * @param ordering Which field to use when ordering the results. (optional)
-     * @param page A page number within the paginated result set. (optional)
-     * @param pageSize Number of results to return per page. (optional)
-     * @param search A search term. (optional)
-     * @param tenantUuid  (optional)
-     * @param webCertificate  (optional)
-     * @return RequestConfig
-     */
-    fun coreTenantsListRequestConfig(brandingFavicon: kotlin.String?, brandingLogo: kotlin.String?, brandingTitle: kotlin.String?, default: kotlin.Boolean?, domain: kotlin.String?, eventRetention: kotlin.String?, flowAuthentication: java.util.UUID?, flowDeviceCode: java.util.UUID?, flowInvalidation: java.util.UUID?, flowRecovery: java.util.UUID?, flowUnenrollment: java.util.UUID?, flowUserSettings: java.util.UUID?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, tenantUuid: java.util.UUID?, webCertificate: java.util.UUID?) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
-            .apply {
-                if (brandingFavicon != null) {
-                    put("branding_favicon", listOf(brandingFavicon.toString()))
-                }
-                if (brandingLogo != null) {
-                    put("branding_logo", listOf(brandingLogo.toString()))
-                }
-                if (brandingTitle != null) {
-                    put("branding_title", listOf(brandingTitle.toString()))
-                }
-                if (default != null) {
-                    put("default", listOf(default.toString()))
-                }
-                if (domain != null) {
-                    put("domain", listOf(domain.toString()))
-                }
-                if (eventRetention != null) {
-                    put("event_retention", listOf(eventRetention.toString()))
-                }
-                if (flowAuthentication != null) {
-                    put("flow_authentication", listOf(flowAuthentication.toString()))
-                }
-                if (flowDeviceCode != null) {
-                    put("flow_device_code", listOf(flowDeviceCode.toString()))
-                }
-                if (flowInvalidation != null) {
-                    put("flow_invalidation", listOf(flowInvalidation.toString()))
-                }
-                if (flowRecovery != null) {
-                    put("flow_recovery", listOf(flowRecovery.toString()))
-                }
-                if (flowUnenrollment != null) {
-                    put("flow_unenrollment", listOf(flowUnenrollment.toString()))
-                }
-                if (flowUserSettings != null) {
-                    put("flow_user_settings", listOf(flowUserSettings.toString()))
-                }
-                if (ordering != null) {
-                    put("ordering", listOf(ordering.toString()))
-                }
-                if (page != null) {
-                    put("page", listOf(page.toString()))
-                }
-                if (pageSize != null) {
-                    put("page_size", listOf(pageSize.toString()))
-                }
-                if (search != null) {
-                    put("search", listOf(search.toString()))
-                }
-                if (tenantUuid != null) {
-                    put("tenant_uuid", listOf(tenantUuid.toString()))
-                }
-                if (webCertificate != null) {
-                    put("web_certificate", listOf(webCertificate.toString()))
-                }
-            }
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/core/tenants/",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * Tenant Viewset
-     * @param tenantUuid A UUID string identifying this Tenant.
-     * @param patchedTenantRequest  (optional)
-     * @return Tenant
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun coreTenantsPartialUpdate(tenantUuid: java.util.UUID, patchedTenantRequest: PatchedTenantRequest? = null) : Tenant {
-        val localVarResponse = coreTenantsPartialUpdateWithHttpInfo(tenantUuid = tenantUuid, patchedTenantRequest = patchedTenantRequest)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Tenant
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * Tenant Viewset
-     * @param tenantUuid A UUID string identifying this Tenant.
-     * @param patchedTenantRequest  (optional)
-     * @return ApiResponse<Tenant?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun coreTenantsPartialUpdateWithHttpInfo(tenantUuid: java.util.UUID, patchedTenantRequest: PatchedTenantRequest?) : ApiResponse<Tenant?> {
-        val localVariableConfig = coreTenantsPartialUpdateRequestConfig(tenantUuid = tenantUuid, patchedTenantRequest = patchedTenantRequest)
-
-        return request<PatchedTenantRequest, Tenant>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation coreTenantsPartialUpdate
-     *
-     * @param tenantUuid A UUID string identifying this Tenant.
-     * @param patchedTenantRequest  (optional)
-     * @return RequestConfig
-     */
-    fun coreTenantsPartialUpdateRequestConfig(tenantUuid: java.util.UUID, patchedTenantRequest: PatchedTenantRequest?) : RequestConfig<PatchedTenantRequest> {
-        val localVariableBody = patchedTenantRequest
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PATCH,
-            path = "/core/tenants/{tenant_uuid}/".replace("{"+"tenant_uuid"+"}", encodeURIComponent(tenantUuid.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * Tenant Viewset
-     * @param tenantUuid A UUID string identifying this Tenant.
-     * @return Tenant
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun coreTenantsRetrieve(tenantUuid: java.util.UUID) : Tenant {
-        val localVarResponse = coreTenantsRetrieveWithHttpInfo(tenantUuid = tenantUuid)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Tenant
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * Tenant Viewset
-     * @param tenantUuid A UUID string identifying this Tenant.
-     * @return ApiResponse<Tenant?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun coreTenantsRetrieveWithHttpInfo(tenantUuid: java.util.UUID) : ApiResponse<Tenant?> {
-        val localVariableConfig = coreTenantsRetrieveRequestConfig(tenantUuid = tenantUuid)
-
-        return request<Unit, Tenant>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation coreTenantsRetrieve
-     *
-     * @param tenantUuid A UUID string identifying this Tenant.
-     * @return RequestConfig
-     */
-    fun coreTenantsRetrieveRequestConfig(tenantUuid: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/core/tenants/{tenant_uuid}/".replace("{"+"tenant_uuid"+"}", encodeURIComponent(tenantUuid.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * Tenant Viewset
-     * @param tenantUuid A UUID string identifying this Tenant.
-     * @param tenantRequest 
-     * @return Tenant
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun coreTenantsUpdate(tenantUuid: java.util.UUID, tenantRequest: TenantRequest) : Tenant {
-        val localVarResponse = coreTenantsUpdateWithHttpInfo(tenantUuid = tenantUuid, tenantRequest = tenantRequest)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Tenant
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * Tenant Viewset
-     * @param tenantUuid A UUID string identifying this Tenant.
-     * @param tenantRequest 
-     * @return ApiResponse<Tenant?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun coreTenantsUpdateWithHttpInfo(tenantUuid: java.util.UUID, tenantRequest: TenantRequest) : ApiResponse<Tenant?> {
-        val localVariableConfig = coreTenantsUpdateRequestConfig(tenantUuid = tenantUuid, tenantRequest = tenantRequest)
-
-        return request<TenantRequest, Tenant>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation coreTenantsUpdate
-     *
-     * @param tenantUuid A UUID string identifying this Tenant.
-     * @param tenantRequest 
-     * @return RequestConfig
-     */
-    fun coreTenantsUpdateRequestConfig(tenantUuid: java.util.UUID, tenantRequest: TenantRequest) : RequestConfig<TenantRequest> {
-        val localVariableBody = tenantRequest
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/core/tenants/{tenant_uuid}/".replace("{"+"tenant_uuid"+"}", encodeURIComponent(tenantUuid.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * Get a list of all objects that use this object
-     * @param tenantUuid A UUID string identifying this Tenant.
-     * @return kotlin.collections.List<UsedBy>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun coreTenantsUsedByList(tenantUuid: java.util.UUID) : kotlin.collections.List<UsedBy> {
-        val localVarResponse = coreTenantsUsedByListWithHttpInfo(tenantUuid = tenantUuid)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<UsedBy>
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * Get a list of all objects that use this object
-     * @param tenantUuid A UUID string identifying this Tenant.
-     * @return ApiResponse<kotlin.collections.List<UsedBy>?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun coreTenantsUsedByListWithHttpInfo(tenantUuid: java.util.UUID) : ApiResponse<kotlin.collections.List<UsedBy>?> {
-        val localVariableConfig = coreTenantsUsedByListRequestConfig(tenantUuid = tenantUuid)
-
-        return request<Unit, kotlin.collections.List<UsedBy>>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation coreTenantsUsedByList
-     *
-     * @param tenantUuid A UUID string identifying this Tenant.
-     * @return RequestConfig
-     */
-    fun coreTenantsUsedByListRequestConfig(tenantUuid: java.util.UUID) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/core/tenants/{tenant_uuid}/used_by/".replace("{"+"tenant_uuid"+"}", encodeURIComponent(tenantUuid.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = true,

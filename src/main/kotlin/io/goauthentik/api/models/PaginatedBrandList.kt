@@ -15,29 +15,27 @@
 
 package io.goauthentik.api.models
 
+import io.goauthentik.api.models.Brand
+import io.goauthentik.api.models.Pagination
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * Tenant Serializer
+ * 
  *
- * @param schemaName 
- * @param name 
- * @param ready 
+ * @param pagination 
+ * @param results 
  */
 
 
-data class PatchedTenantRequest (
+data class PaginatedBrandList (
 
-    @Json(name = "schema_name")
-    val schemaName: kotlin.String? = null,
+    @Json(name = "pagination")
+    val pagination: Pagination,
 
-    @Json(name = "name")
-    val name: kotlin.String? = null,
-
-    @Json(name = "ready")
-    val ready: kotlin.Boolean? = null
+    @Json(name = "results")
+    val results: kotlin.collections.List<Brand>
 
 )
 

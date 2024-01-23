@@ -27,8 +27,9 @@ import com.squareup.moshi.JsonClass
  * @param httpHost Get HTTP host
  * @param httpIsSecure Get HTTP Secure flag
  * @param runtime 
- * @param tenant Currently active tenant
+ * @param brand Currently active brand
  * @param serverTime Current server time
+ * @param embeddedOutpostDisabled Whether the embedded outpost is disabled
  * @param embeddedOutpostHost Get the FQDN configured on the embedded outpost
  */
 
@@ -50,13 +51,17 @@ data class SystemInfo (
     @Json(name = "runtime")
     val runtime: SystemInfoRuntime,
 
-    /* Currently active tenant */
-    @Json(name = "tenant")
-    val tenant: kotlin.String,
+    /* Currently active brand */
+    @Json(name = "brand")
+    val brand: kotlin.String,
 
     /* Current server time */
     @Json(name = "server_time")
     val serverTime: java.time.OffsetDateTime,
+
+    /* Whether the embedded outpost is disabled */
+    @Json(name = "embedded_outpost_disabled")
+    val embeddedOutpostDisabled: kotlin.Boolean,
 
     /* Get the FQDN configured on the embedded outpost */
     @Json(name = "embedded_outpost_host")

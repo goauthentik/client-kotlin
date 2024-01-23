@@ -19,6 +19,14 @@ Method | HTTP request | Description
 [**coreAuthenticatedSessionsList**](CoreApi.md#coreAuthenticatedSessionsList) | **GET** /core/authenticated_sessions/ | 
 [**coreAuthenticatedSessionsRetrieve**](CoreApi.md#coreAuthenticatedSessionsRetrieve) | **GET** /core/authenticated_sessions/{uuid}/ | 
 [**coreAuthenticatedSessionsUsedByList**](CoreApi.md#coreAuthenticatedSessionsUsedByList) | **GET** /core/authenticated_sessions/{uuid}/used_by/ | 
+[**coreBrandsCreate**](CoreApi.md#coreBrandsCreate) | **POST** /core/brands/ | 
+[**coreBrandsCurrentRetrieve**](CoreApi.md#coreBrandsCurrentRetrieve) | **GET** /core/brands/current/ | 
+[**coreBrandsDestroy**](CoreApi.md#coreBrandsDestroy) | **DELETE** /core/brands/{brand_uuid}/ | 
+[**coreBrandsList**](CoreApi.md#coreBrandsList) | **GET** /core/brands/ | 
+[**coreBrandsPartialUpdate**](CoreApi.md#coreBrandsPartialUpdate) | **PATCH** /core/brands/{brand_uuid}/ | 
+[**coreBrandsRetrieve**](CoreApi.md#coreBrandsRetrieve) | **GET** /core/brands/{brand_uuid}/ | 
+[**coreBrandsUpdate**](CoreApi.md#coreBrandsUpdate) | **PUT** /core/brands/{brand_uuid}/ | 
+[**coreBrandsUsedByList**](CoreApi.md#coreBrandsUsedByList) | **GET** /core/brands/{brand_uuid}/used_by/ | 
 [**coreGroupsAddUserCreate**](CoreApi.md#coreGroupsAddUserCreate) | **POST** /core/groups/{group_uuid}/add_user/ | 
 [**coreGroupsCreate**](CoreApi.md#coreGroupsCreate) | **POST** /core/groups/ | 
 [**coreGroupsDestroy**](CoreApi.md#coreGroupsDestroy) | **DELETE** /core/groups/{group_uuid}/ | 
@@ -28,14 +36,6 @@ Method | HTTP request | Description
 [**coreGroupsRetrieve**](CoreApi.md#coreGroupsRetrieve) | **GET** /core/groups/{group_uuid}/ | 
 [**coreGroupsUpdate**](CoreApi.md#coreGroupsUpdate) | **PUT** /core/groups/{group_uuid}/ | 
 [**coreGroupsUsedByList**](CoreApi.md#coreGroupsUsedByList) | **GET** /core/groups/{group_uuid}/used_by/ | 
-[**coreTenantsCreate**](CoreApi.md#coreTenantsCreate) | **POST** /core/tenants/ | 
-[**coreTenantsCurrentRetrieve**](CoreApi.md#coreTenantsCurrentRetrieve) | **GET** /core/tenants/current/ | 
-[**coreTenantsDestroy**](CoreApi.md#coreTenantsDestroy) | **DELETE** /core/tenants/{tenant_uuid}/ | 
-[**coreTenantsList**](CoreApi.md#coreTenantsList) | **GET** /core/tenants/ | 
-[**coreTenantsPartialUpdate**](CoreApi.md#coreTenantsPartialUpdate) | **PATCH** /core/tenants/{tenant_uuid}/ | 
-[**coreTenantsRetrieve**](CoreApi.md#coreTenantsRetrieve) | **GET** /core/tenants/{tenant_uuid}/ | 
-[**coreTenantsUpdate**](CoreApi.md#coreTenantsUpdate) | **PUT** /core/tenants/{tenant_uuid}/ | 
-[**coreTenantsUsedByList**](CoreApi.md#coreTenantsUsedByList) | **GET** /core/tenants/{tenant_uuid}/used_by/ | 
 [**coreTokensCreate**](CoreApi.md#coreTokensCreate) | **POST** /core/tokens/ | 
 [**coreTokensDestroy**](CoreApi.md#coreTokensDestroy) | **DELETE** /core/tokens/{identifier}/ | 
 [**coreTokensList**](CoreApi.md#coreTokensList) | **GET** /core/tokens/ | 
@@ -858,6 +858,437 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a id="coreBrandsCreate"></a>
+# **coreBrandsCreate**
+> Brand coreBrandsCreate(brandRequest)
+
+
+
+Brand Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = CoreApi()
+val brandRequest : BrandRequest =  // BrandRequest | 
+try {
+    val result : Brand = apiInstance.coreBrandsCreate(brandRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CoreApi#coreBrandsCreate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CoreApi#coreBrandsCreate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandRequest** | [**BrandRequest**](BrandRequest.md)|  |
+
+### Return type
+
+[**Brand**](Brand.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="coreBrandsCurrentRetrieve"></a>
+# **coreBrandsCurrentRetrieve**
+> CurrentBrand coreBrandsCurrentRetrieve()
+
+
+
+Get current brand
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = CoreApi()
+try {
+    val result : CurrentBrand = apiInstance.coreBrandsCurrentRetrieve()
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CoreApi#coreBrandsCurrentRetrieve")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CoreApi#coreBrandsCurrentRetrieve")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CurrentBrand**](CurrentBrand.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="coreBrandsDestroy"></a>
+# **coreBrandsDestroy**
+> coreBrandsDestroy(brandUuid)
+
+
+
+Brand Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = CoreApi()
+val brandUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Brand.
+try {
+    apiInstance.coreBrandsDestroy(brandUuid)
+} catch (e: ClientException) {
+    println("4xx response calling CoreApi#coreBrandsDestroy")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CoreApi#coreBrandsDestroy")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandUuid** | **java.util.UUID**| A UUID string identifying this Brand. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="coreBrandsList"></a>
+# **coreBrandsList**
+> PaginatedBrandList coreBrandsList(brandUuid, brandingFavicon, brandingLogo, brandingTitle, default, domain, flowAuthentication, flowDeviceCode, flowInvalidation, flowRecovery, flowUnenrollment, flowUserSettings, ordering, page, pageSize, search, webCertificate)
+
+
+
+Brand Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = CoreApi()
+val brandUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val brandingFavicon : kotlin.String = brandingFavicon_example // kotlin.String | 
+val brandingLogo : kotlin.String = brandingLogo_example // kotlin.String | 
+val brandingTitle : kotlin.String = brandingTitle_example // kotlin.String | 
+val default : kotlin.Boolean = true // kotlin.Boolean | 
+val domain : kotlin.String = domain_example // kotlin.String | 
+val flowAuthentication : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val flowDeviceCode : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val flowInvalidation : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val flowRecovery : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val flowUnenrollment : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val flowUserSettings : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val ordering : kotlin.String = ordering_example // kotlin.String | Which field to use when ordering the results.
+val page : kotlin.Int = 56 // kotlin.Int | A page number within the paginated result set.
+val pageSize : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+val search : kotlin.String = search_example // kotlin.String | A search term.
+val webCertificate : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+try {
+    val result : PaginatedBrandList = apiInstance.coreBrandsList(brandUuid, brandingFavicon, brandingLogo, brandingTitle, default, domain, flowAuthentication, flowDeviceCode, flowInvalidation, flowRecovery, flowUnenrollment, flowUserSettings, ordering, page, pageSize, search, webCertificate)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CoreApi#coreBrandsList")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CoreApi#coreBrandsList")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandUuid** | **java.util.UUID**|  | [optional]
+ **brandingFavicon** | **kotlin.String**|  | [optional]
+ **brandingLogo** | **kotlin.String**|  | [optional]
+ **brandingTitle** | **kotlin.String**|  | [optional]
+ **default** | **kotlin.Boolean**|  | [optional]
+ **domain** | **kotlin.String**|  | [optional]
+ **flowAuthentication** | **java.util.UUID**|  | [optional]
+ **flowDeviceCode** | **java.util.UUID**|  | [optional]
+ **flowInvalidation** | **java.util.UUID**|  | [optional]
+ **flowRecovery** | **java.util.UUID**|  | [optional]
+ **flowUnenrollment** | **java.util.UUID**|  | [optional]
+ **flowUserSettings** | **java.util.UUID**|  | [optional]
+ **ordering** | **kotlin.String**| Which field to use when ordering the results. | [optional]
+ **page** | **kotlin.Int**| A page number within the paginated result set. | [optional]
+ **pageSize** | **kotlin.Int**| Number of results to return per page. | [optional]
+ **search** | **kotlin.String**| A search term. | [optional]
+ **webCertificate** | **java.util.UUID**|  | [optional]
+
+### Return type
+
+[**PaginatedBrandList**](PaginatedBrandList.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="coreBrandsPartialUpdate"></a>
+# **coreBrandsPartialUpdate**
+> Brand coreBrandsPartialUpdate(brandUuid, patchedBrandRequest)
+
+
+
+Brand Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = CoreApi()
+val brandUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Brand.
+val patchedBrandRequest : PatchedBrandRequest =  // PatchedBrandRequest | 
+try {
+    val result : Brand = apiInstance.coreBrandsPartialUpdate(brandUuid, patchedBrandRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CoreApi#coreBrandsPartialUpdate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CoreApi#coreBrandsPartialUpdate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandUuid** | **java.util.UUID**| A UUID string identifying this Brand. |
+ **patchedBrandRequest** | [**PatchedBrandRequest**](PatchedBrandRequest.md)|  | [optional]
+
+### Return type
+
+[**Brand**](Brand.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="coreBrandsRetrieve"></a>
+# **coreBrandsRetrieve**
+> Brand coreBrandsRetrieve(brandUuid)
+
+
+
+Brand Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = CoreApi()
+val brandUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Brand.
+try {
+    val result : Brand = apiInstance.coreBrandsRetrieve(brandUuid)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CoreApi#coreBrandsRetrieve")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CoreApi#coreBrandsRetrieve")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandUuid** | **java.util.UUID**| A UUID string identifying this Brand. |
+
+### Return type
+
+[**Brand**](Brand.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="coreBrandsUpdate"></a>
+# **coreBrandsUpdate**
+> Brand coreBrandsUpdate(brandUuid, brandRequest)
+
+
+
+Brand Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = CoreApi()
+val brandUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Brand.
+val brandRequest : BrandRequest =  // BrandRequest | 
+try {
+    val result : Brand = apiInstance.coreBrandsUpdate(brandUuid, brandRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CoreApi#coreBrandsUpdate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CoreApi#coreBrandsUpdate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandUuid** | **java.util.UUID**| A UUID string identifying this Brand. |
+ **brandRequest** | [**BrandRequest**](BrandRequest.md)|  |
+
+### Return type
+
+[**Brand**](Brand.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="coreBrandsUsedByList"></a>
+# **coreBrandsUsedByList**
+> kotlin.collections.List&lt;UsedBy&gt; coreBrandsUsedByList(brandUuid)
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = CoreApi()
+val brandUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Brand.
+try {
+    val result : kotlin.collections.List<UsedBy> = apiInstance.coreBrandsUsedByList(brandUuid)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CoreApi#coreBrandsUsedByList")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CoreApi#coreBrandsUsedByList")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandUuid** | **java.util.UUID**| A UUID string identifying this Brand. |
+
+### Return type
+
+[**kotlin.collections.List&lt;UsedBy&gt;**](UsedBy.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a id="coreGroupsAddUserCreate"></a>
 # **coreGroupsAddUserCreate**
 > coreGroupsAddUserCreate(groupUuid, userAccountRequest)
@@ -1312,439 +1743,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupUuid** | **java.util.UUID**| A UUID string identifying this Group. |
-
-### Return type
-
-[**kotlin.collections.List&lt;UsedBy&gt;**](UsedBy.md)
-
-### Authorization
-
-
-Configure authentik:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="coreTenantsCreate"></a>
-# **coreTenantsCreate**
-> Tenant coreTenantsCreate(tenantRequest)
-
-
-
-Tenant Viewset
-
-### Example
-```kotlin
-// Import classes:
-//import io.goauthentik.api.infrastructure.*
-//import io.goauthentik.api.models.*
-
-val apiInstance = CoreApi()
-val tenantRequest : TenantRequest =  // TenantRequest | 
-try {
-    val result : Tenant = apiInstance.coreTenantsCreate(tenantRequest)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling CoreApi#coreTenantsCreate")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling CoreApi#coreTenantsCreate")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantRequest** | [**TenantRequest**](TenantRequest.md)|  |
-
-### Return type
-
-[**Tenant**](Tenant.md)
-
-### Authorization
-
-
-Configure authentik:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a id="coreTenantsCurrentRetrieve"></a>
-# **coreTenantsCurrentRetrieve**
-> CurrentTenant coreTenantsCurrentRetrieve()
-
-
-
-Get current tenant
-
-### Example
-```kotlin
-// Import classes:
-//import io.goauthentik.api.infrastructure.*
-//import io.goauthentik.api.models.*
-
-val apiInstance = CoreApi()
-try {
-    val result : CurrentTenant = apiInstance.coreTenantsCurrentRetrieve()
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling CoreApi#coreTenantsCurrentRetrieve")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling CoreApi#coreTenantsCurrentRetrieve")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**CurrentTenant**](CurrentTenant.md)
-
-### Authorization
-
-
-Configure authentik:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="coreTenantsDestroy"></a>
-# **coreTenantsDestroy**
-> coreTenantsDestroy(tenantUuid)
-
-
-
-Tenant Viewset
-
-### Example
-```kotlin
-// Import classes:
-//import io.goauthentik.api.infrastructure.*
-//import io.goauthentik.api.models.*
-
-val apiInstance = CoreApi()
-val tenantUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Tenant.
-try {
-    apiInstance.coreTenantsDestroy(tenantUuid)
-} catch (e: ClientException) {
-    println("4xx response calling CoreApi#coreTenantsDestroy")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling CoreApi#coreTenantsDestroy")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantUuid** | **java.util.UUID**| A UUID string identifying this Tenant. |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-
-Configure authentik:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="coreTenantsList"></a>
-# **coreTenantsList**
-> PaginatedTenantList coreTenantsList(brandingFavicon, brandingLogo, brandingTitle, default, domain, eventRetention, flowAuthentication, flowDeviceCode, flowInvalidation, flowRecovery, flowUnenrollment, flowUserSettings, ordering, page, pageSize, search, tenantUuid, webCertificate)
-
-
-
-Tenant Viewset
-
-### Example
-```kotlin
-// Import classes:
-//import io.goauthentik.api.infrastructure.*
-//import io.goauthentik.api.models.*
-
-val apiInstance = CoreApi()
-val brandingFavicon : kotlin.String = brandingFavicon_example // kotlin.String | 
-val brandingLogo : kotlin.String = brandingLogo_example // kotlin.String | 
-val brandingTitle : kotlin.String = brandingTitle_example // kotlin.String | 
-val default : kotlin.Boolean = true // kotlin.Boolean | 
-val domain : kotlin.String = domain_example // kotlin.String | 
-val eventRetention : kotlin.String = eventRetention_example // kotlin.String | 
-val flowAuthentication : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val flowDeviceCode : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val flowInvalidation : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val flowRecovery : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val flowUnenrollment : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val flowUserSettings : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val ordering : kotlin.String = ordering_example // kotlin.String | Which field to use when ordering the results.
-val page : kotlin.Int = 56 // kotlin.Int | A page number within the paginated result set.
-val pageSize : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
-val search : kotlin.String = search_example // kotlin.String | A search term.
-val tenantUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-val webCertificate : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
-try {
-    val result : PaginatedTenantList = apiInstance.coreTenantsList(brandingFavicon, brandingLogo, brandingTitle, default, domain, eventRetention, flowAuthentication, flowDeviceCode, flowInvalidation, flowRecovery, flowUnenrollment, flowUserSettings, ordering, page, pageSize, search, tenantUuid, webCertificate)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling CoreApi#coreTenantsList")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling CoreApi#coreTenantsList")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **brandingFavicon** | **kotlin.String**|  | [optional]
- **brandingLogo** | **kotlin.String**|  | [optional]
- **brandingTitle** | **kotlin.String**|  | [optional]
- **default** | **kotlin.Boolean**|  | [optional]
- **domain** | **kotlin.String**|  | [optional]
- **eventRetention** | **kotlin.String**|  | [optional]
- **flowAuthentication** | **java.util.UUID**|  | [optional]
- **flowDeviceCode** | **java.util.UUID**|  | [optional]
- **flowInvalidation** | **java.util.UUID**|  | [optional]
- **flowRecovery** | **java.util.UUID**|  | [optional]
- **flowUnenrollment** | **java.util.UUID**|  | [optional]
- **flowUserSettings** | **java.util.UUID**|  | [optional]
- **ordering** | **kotlin.String**| Which field to use when ordering the results. | [optional]
- **page** | **kotlin.Int**| A page number within the paginated result set. | [optional]
- **pageSize** | **kotlin.Int**| Number of results to return per page. | [optional]
- **search** | **kotlin.String**| A search term. | [optional]
- **tenantUuid** | **java.util.UUID**|  | [optional]
- **webCertificate** | **java.util.UUID**|  | [optional]
-
-### Return type
-
-[**PaginatedTenantList**](PaginatedTenantList.md)
-
-### Authorization
-
-
-Configure authentik:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="coreTenantsPartialUpdate"></a>
-# **coreTenantsPartialUpdate**
-> Tenant coreTenantsPartialUpdate(tenantUuid, patchedTenantRequest)
-
-
-
-Tenant Viewset
-
-### Example
-```kotlin
-// Import classes:
-//import io.goauthentik.api.infrastructure.*
-//import io.goauthentik.api.models.*
-
-val apiInstance = CoreApi()
-val tenantUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Tenant.
-val patchedTenantRequest : PatchedTenantRequest =  // PatchedTenantRequest | 
-try {
-    val result : Tenant = apiInstance.coreTenantsPartialUpdate(tenantUuid, patchedTenantRequest)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling CoreApi#coreTenantsPartialUpdate")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling CoreApi#coreTenantsPartialUpdate")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantUuid** | **java.util.UUID**| A UUID string identifying this Tenant. |
- **patchedTenantRequest** | [**PatchedTenantRequest**](PatchedTenantRequest.md)|  | [optional]
-
-### Return type
-
-[**Tenant**](Tenant.md)
-
-### Authorization
-
-
-Configure authentik:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a id="coreTenantsRetrieve"></a>
-# **coreTenantsRetrieve**
-> Tenant coreTenantsRetrieve(tenantUuid)
-
-
-
-Tenant Viewset
-
-### Example
-```kotlin
-// Import classes:
-//import io.goauthentik.api.infrastructure.*
-//import io.goauthentik.api.models.*
-
-val apiInstance = CoreApi()
-val tenantUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Tenant.
-try {
-    val result : Tenant = apiInstance.coreTenantsRetrieve(tenantUuid)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling CoreApi#coreTenantsRetrieve")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling CoreApi#coreTenantsRetrieve")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantUuid** | **java.util.UUID**| A UUID string identifying this Tenant. |
-
-### Return type
-
-[**Tenant**](Tenant.md)
-
-### Authorization
-
-
-Configure authentik:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="coreTenantsUpdate"></a>
-# **coreTenantsUpdate**
-> Tenant coreTenantsUpdate(tenantUuid, tenantRequest)
-
-
-
-Tenant Viewset
-
-### Example
-```kotlin
-// Import classes:
-//import io.goauthentik.api.infrastructure.*
-//import io.goauthentik.api.models.*
-
-val apiInstance = CoreApi()
-val tenantUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Tenant.
-val tenantRequest : TenantRequest =  // TenantRequest | 
-try {
-    val result : Tenant = apiInstance.coreTenantsUpdate(tenantUuid, tenantRequest)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling CoreApi#coreTenantsUpdate")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling CoreApi#coreTenantsUpdate")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantUuid** | **java.util.UUID**| A UUID string identifying this Tenant. |
- **tenantRequest** | [**TenantRequest**](TenantRequest.md)|  |
-
-### Return type
-
-[**Tenant**](Tenant.md)
-
-### Authorization
-
-
-Configure authentik:
-    ApiClient.apiKey["Authorization"] = ""
-    ApiClient.apiKeyPrefix["Authorization"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a id="coreTenantsUsedByList"></a>
-# **coreTenantsUsedByList**
-> kotlin.collections.List&lt;UsedBy&gt; coreTenantsUsedByList(tenantUuid)
-
-
-
-Get a list of all objects that use this object
-
-### Example
-```kotlin
-// Import classes:
-//import io.goauthentik.api.infrastructure.*
-//import io.goauthentik.api.models.*
-
-val apiInstance = CoreApi()
-val tenantUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Tenant.
-try {
-    val result : kotlin.collections.List<UsedBy> = apiInstance.coreTenantsUsedByList(tenantUuid)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling CoreApi#coreTenantsUsedByList")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling CoreApi#coreTenantsUsedByList")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenantUuid** | **java.util.UUID**| A UUID string identifying this Tenant. |
 
 ### Return type
 

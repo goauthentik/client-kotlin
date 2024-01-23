@@ -4,6 +4,8 @@
 ## Enum
 
 
+    * `tenantsPeriodDomain` (value: `"authentik_tenants.domain"`)
+
     * `cryptoPeriodCertificatekeypair` (value: `"authentik_crypto.certificatekeypair"`)
 
     * `eventsPeriodEvent` (value: `"authentik_events.event"`)
@@ -138,7 +140,7 @@
 
     * `stagesUserWritePeriodUserwritestage` (value: `"authentik_stages_user_write.userwritestage"`)
 
-    * `tenantsPeriodTenant` (value: `"authentik_tenants.tenant"`)
+    * `brandsPeriodBrand` (value: `"authentik_brands.brand"`)
 
     * `blueprintsPeriodBlueprintinstance` (value: `"authentik_blueprints.blueprintinstance"`)
 

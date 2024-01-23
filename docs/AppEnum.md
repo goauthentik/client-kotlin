@@ -4,6 +4,8 @@
 ## Enum
 
 
+    * `tenants` (value: `"authentik.tenants"`)
+
     * `admin` (value: `"authentik.admin"`)
 
     * `api` (value: `"authentik.api"`)
@@ -94,7 +96,7 @@
 
     * `stagesPeriodUserWrite` (value: `"authentik.stages.user_write"`)
 
-    * `tenants` (value: `"authentik.tenants"`)
+    * `brands` (value: `"authentik.brands"`)
 
     * `blueprints` (value: `"authentik.blueprints"`)
 

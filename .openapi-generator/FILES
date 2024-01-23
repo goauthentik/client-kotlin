@@ -54,6 +54,8 @@ docs/BlueprintFile.md
 docs/BlueprintInstance.md
 docs/BlueprintInstanceRequest.md
 docs/BlueprintInstanceStatusEnum.md
+docs/Brand.md
+docs/BrandRequest.md
 docs/Cache.md
 docs/CapabilitiesEnum.md
 docs/CaptchaChallenge.md
@@ -79,7 +81,7 @@ docs/ContextualFlowInfoLayoutEnum.md
 docs/Coordinate.md
 docs/CoreApi.md
 docs/CryptoApi.md
-docs/CurrentTenant.md
+docs/CurrentBrand.md
 docs/DeniedActionEnum.md
 docs/DenyStage.md
 docs/DenyStageRequest.md
@@ -91,6 +93,8 @@ docs/DigestAlgorithmEnum.md
 docs/DigitsEnum.md
 docs/DockerServiceConnection.md
 docs/DockerServiceConnectionRequest.md
+docs/Domain.md
+docs/DomainRequest.md
 docs/DummyChallenge.md
 docs/DummyChallengeResponseRequest.md
 docs/DummyPolicy.md
@@ -220,11 +224,13 @@ docs/PaginatedAuthenticatorStaticStageList.md
 docs/PaginatedAuthenticatorTOTPStageList.md
 docs/PaginatedAuthenticatorValidateStageList.md
 docs/PaginatedBlueprintInstanceList.md
+docs/PaginatedBrandList.md
 docs/PaginatedCaptchaStageList.md
 docs/PaginatedCertificateKeyPairList.md
 docs/PaginatedConsentStageList.md
 docs/PaginatedDenyStageList.md
 docs/PaginatedDockerServiceConnectionList.md
+docs/PaginatedDomainList.md
 docs/PaginatedDummyPolicyList.md
 docs/PaginatedDummyStageList.md
 docs/PaginatedDuoDeviceList.md
@@ -320,11 +326,13 @@ docs/PatchedAuthenticatorStaticStageRequest.md
 docs/PatchedAuthenticatorTOTPStageRequest.md
 docs/PatchedAuthenticatorValidateStageRequest.md
 docs/PatchedBlueprintInstanceRequest.md
+docs/PatchedBrandRequest.md
 docs/PatchedCaptchaStageRequest.md
 docs/PatchedCertificateKeyPairRequest.md
 docs/PatchedConsentStageRequest.md
 docs/PatchedDenyStageRequest.md
 docs/PatchedDockerServiceConnectionRequest.md
+docs/PatchedDomainRequest.md
 docs/PatchedDummyPolicyRequest.md
 docs/PatchedDummyStageRequest.md
 docs/PatchedDuoDeviceRequest.md
@@ -373,6 +381,7 @@ docs/PatchedSCIMMappingRequest.md
 docs/PatchedSCIMProviderRequest.md
 docs/PatchedSMSDeviceRequest.md
 docs/PatchedScopeMappingRequest.md
+docs/PatchedSettingsRequest.md
 docs/PatchedStaticDeviceRequest.md
 docs/PatchedTOTPDeviceRequest.md
 docs/PatchedTenantRequest.md
@@ -465,6 +474,8 @@ docs/ServiceConnection.md
 docs/ServiceConnectionRequest.md
 docs/ServiceConnectionState.md
 docs/SessionUser.md
+docs/Settings.md
+docs/SettingsRequest.md
 docs/SeverityEnum.md
 docs/ShellChallenge.md
 docs/SignatureAlgorithmEnum.md
@@ -489,7 +500,11 @@ docs/TOTPDeviceRequest.md
 docs/Task.md
 docs/TaskStatusEnum.md
 docs/Tenant.md
+docs/TenantAdminGroupRequestRequest.md
+docs/TenantRecoveryKeyRequestRequest.md
+docs/TenantRecoveryKeyResponse.md
 docs/TenantRequest.md
+docs/TenantsApi.md
 docs/Token.md
 docs/TokenModel.md
 docs/TokenRequest.md
@@ -566,6 +581,7 @@ src/main/kotlin/io/goauthentik/api/apis/RootApi.kt
 src/main/kotlin/io/goauthentik/api/apis/SchemaApi.kt
 src/main/kotlin/io/goauthentik/api/apis/SourcesApi.kt
 src/main/kotlin/io/goauthentik/api/apis/StagesApi.kt
+src/main/kotlin/io/goauthentik/api/apis/TenantsApi.kt
 src/main/kotlin/io/goauthentik/api/infrastructure/ApiAbstractions.kt
 src/main/kotlin/io/goauthentik/api/infrastructure/ApiClient.kt
 src/main/kotlin/io/goauthentik/api/infrastructure/ApiResponse.kt
@@ -636,6 +652,8 @@ src/main/kotlin/io/goauthentik/api/models/BlueprintFile.kt
 src/main/kotlin/io/goauthentik/api/models/BlueprintInstance.kt
 src/main/kotlin/io/goauthentik/api/models/BlueprintInstanceRequest.kt
 src/main/kotlin/io/goauthentik/api/models/BlueprintInstanceStatusEnum.kt
+src/main/kotlin/io/goauthentik/api/models/Brand.kt
+src/main/kotlin/io/goauthentik/api/models/BrandRequest.kt
 src/main/kotlin/io/goauthentik/api/models/Cache.kt
 src/main/kotlin/io/goauthentik/api/models/CapabilitiesEnum.kt
 src/main/kotlin/io/goauthentik/api/models/CaptchaChallenge.kt
@@ -659,7 +677,7 @@ src/main/kotlin/io/goauthentik/api/models/ConsentStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/ContextualFlowInfo.kt
 src/main/kotlin/io/goauthentik/api/models/ContextualFlowInfoLayoutEnum.kt
 src/main/kotlin/io/goauthentik/api/models/Coordinate.kt
-src/main/kotlin/io/goauthentik/api/models/CurrentTenant.kt
+src/main/kotlin/io/goauthentik/api/models/CurrentBrand.kt
 src/main/kotlin/io/goauthentik/api/models/DeniedActionEnum.kt
 src/main/kotlin/io/goauthentik/api/models/DenyStage.kt
 src/main/kotlin/io/goauthentik/api/models/DenyStageRequest.kt
@@ -671,6 +689,8 @@ src/main/kotlin/io/goauthentik/api/models/DigestAlgorithmEnum.kt
 src/main/kotlin/io/goauthentik/api/models/DigitsEnum.kt
 src/main/kotlin/io/goauthentik/api/models/DockerServiceConnection.kt
 src/main/kotlin/io/goauthentik/api/models/DockerServiceConnectionRequest.kt
+src/main/kotlin/io/goauthentik/api/models/Domain.kt
+src/main/kotlin/io/goauthentik/api/models/DomainRequest.kt
 src/main/kotlin/io/goauthentik/api/models/DummyChallenge.kt
 src/main/kotlin/io/goauthentik/api/models/DummyChallengeResponseRequest.kt
 src/main/kotlin/io/goauthentik/api/models/DummyPolicy.kt
@@ -794,11 +814,13 @@ src/main/kotlin/io/goauthentik/api/models/PaginatedAuthenticatorStaticStageList.
 src/main/kotlin/io/goauthentik/api/models/PaginatedAuthenticatorTOTPStageList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedAuthenticatorValidateStageList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedBlueprintInstanceList.kt
+src/main/kotlin/io/goauthentik/api/models/PaginatedBrandList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedCaptchaStageList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedCertificateKeyPairList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedConsentStageList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedDenyStageList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedDockerServiceConnectionList.kt
+src/main/kotlin/io/goauthentik/api/models/PaginatedDomainList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedDummyPolicyList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedDummyStageList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedDuoDeviceList.kt
@@ -894,11 +916,13 @@ src/main/kotlin/io/goauthentik/api/models/PatchedAuthenticatorStaticStageRequest
 src/main/kotlin/io/goauthentik/api/models/PatchedAuthenticatorTOTPStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedAuthenticatorValidateStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedBlueprintInstanceRequest.kt
+src/main/kotlin/io/goauthentik/api/models/PatchedBrandRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedCaptchaStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedCertificateKeyPairRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedConsentStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedDenyStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedDockerServiceConnectionRequest.kt
+src/main/kotlin/io/goauthentik/api/models/PatchedDomainRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedDummyPolicyRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedDummyStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedDuoDeviceRequest.kt
@@ -947,6 +971,7 @@ src/main/kotlin/io/goauthentik/api/models/PatchedSCIMMappingRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedSCIMProviderRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedSMSDeviceRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedScopeMappingRequest.kt
+src/main/kotlin/io/goauthentik/api/models/PatchedSettingsRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedStaticDeviceRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedTOTPDeviceRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedTenantRequest.kt
@@ -1032,6 +1057,8 @@ src/main/kotlin/io/goauthentik/api/models/ServiceConnection.kt
 src/main/kotlin/io/goauthentik/api/models/ServiceConnectionRequest.kt
 src/main/kotlin/io/goauthentik/api/models/ServiceConnectionState.kt
 src/main/kotlin/io/goauthentik/api/models/SessionUser.kt
+src/main/kotlin/io/goauthentik/api/models/Settings.kt
+src/main/kotlin/io/goauthentik/api/models/SettingsRequest.kt
 src/main/kotlin/io/goauthentik/api/models/SeverityEnum.kt
 src/main/kotlin/io/goauthentik/api/models/ShellChallenge.kt
 src/main/kotlin/io/goauthentik/api/models/SignatureAlgorithmEnum.kt
@@ -1054,6 +1081,9 @@ src/main/kotlin/io/goauthentik/api/models/TOTPDeviceRequest.kt
 src/main/kotlin/io/goauthentik/api/models/Task.kt
 src/main/kotlin/io/goauthentik/api/models/TaskStatusEnum.kt
 src/main/kotlin/io/goauthentik/api/models/Tenant.kt
+src/main/kotlin/io/goauthentik/api/models/TenantAdminGroupRequestRequest.kt
+src/main/kotlin/io/goauthentik/api/models/TenantRecoveryKeyRequestRequest.kt
+src/main/kotlin/io/goauthentik/api/models/TenantRecoveryKeyResponse.kt
 src/main/kotlin/io/goauthentik/api/models/TenantRequest.kt
 src/main/kotlin/io/goauthentik/api/models/Token.kt
 src/main/kotlin/io/goauthentik/api/models/TokenModel.kt

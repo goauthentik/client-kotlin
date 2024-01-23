@@ -22,7 +22,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * Partial tenant information for styling
+ * Partial brand information for styling
  *
  * @param matchedDomain 
  * @param brandingTitle 
@@ -40,7 +40,7 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class CurrentTenant (
+data class CurrentBrand (
 
     @Json(name = "matched_domain")
     val matchedDomain: kotlin.String,
@@ -55,7 +55,7 @@ data class CurrentTenant (
     val brandingFavicon: kotlin.String,
 
     @Json(name = "ui_footer_links")
-    val uiFooterLinks: kotlin.collections.List<FooterLink> = arrayListOf(),
+    val uiFooterLinks: kotlin.collections.List<FooterLink>,
 
     @Json(name = "ui_theme")
     val uiTheme: UiThemeEnum,

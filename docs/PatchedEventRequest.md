@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **context** | [**kotlin.Any**](.md) |  |  [optional]
 **clientIp** | **kotlin.String** |  |  [optional]
 **expires** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  [optional]
-**tenant** | [**kotlin.Any**](.md) |  |  [optional]
+**brand** | [**kotlin.Any**](.md) |  |  [optional]
 
 
 

@@ -31,7 +31,7 @@ import com.squareup.moshi.JsonClass
  * @param context 
  * @param clientIp 
  * @param expires 
- * @param tenant 
+ * @param brand 
  */
 
 
@@ -61,8 +61,8 @@ data class Event (
     @Json(name = "expires")
     val expires: java.time.OffsetDateTime? = null,
 
-    @Json(name = "tenant")
-    val tenant: kotlin.Any? = null
+    @Json(name = "brand")
+    val brand: kotlin.Any? = null
 
 )
 

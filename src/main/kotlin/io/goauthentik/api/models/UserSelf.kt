@@ -32,7 +32,7 @@ import com.squareup.moshi.JsonClass
  * @param groups 
  * @param avatar 
  * @param uid 
- * @param settings Get user settings with tenant and group settings applied
+ * @param settings Get user settings with brand and group settings applied
  * @param systemPermissions Get all system permissions assigned to the user
  * @param email 
  * @param type 
@@ -68,7 +68,7 @@ data class UserSelf (
     @Json(name = "uid")
     val uid: kotlin.String,
 
-    /* Get user settings with tenant and group settings applied */
+    /* Get user settings with brand and group settings applied */
     @Json(name = "settings")
     val settings: kotlin.collections.Map<kotlin.String, kotlin.Any>,
 

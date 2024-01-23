@@ -20,24 +20,24 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * Tenant Serializer
+ * Domain Serializer
  *
- * @param schemaName 
- * @param name 
- * @param ready 
+ * @param domain 
+ * @param isPrimary 
+ * @param tenant 
  */
 
 
-data class PatchedTenantRequest (
+data class PatchedDomainRequest (
 
-    @Json(name = "schema_name")
-    val schemaName: kotlin.String? = null,
+    @Json(name = "domain")
+    val domain: kotlin.String? = null,
 
-    @Json(name = "name")
-    val name: kotlin.String? = null,
+    @Json(name = "is_primary")
+    val isPrimary: kotlin.Boolean? = null,
 
-    @Json(name = "ready")
-    val ready: kotlin.Boolean? = null
+    @Json(name = "tenant")
+    val tenant: java.util.UUID? = null
 
 )
 

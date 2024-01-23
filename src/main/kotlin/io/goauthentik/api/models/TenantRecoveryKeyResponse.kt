@@ -20,24 +20,20 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * Tenant Serializer
+ * Tenant recovery key creation response serializer
  *
- * @param schemaName 
- * @param name 
- * @param ready 
+ * @param expiry 
+ * @param url 
  */
 
 
-data class PatchedTenantRequest (
+data class TenantRecoveryKeyResponse (
 
-    @Json(name = "schema_name")
-    val schemaName: kotlin.String? = null,
+    @Json(name = "expiry")
+    val expiry: java.time.OffsetDateTime,
 
-    @Json(name = "name")
-    val name: kotlin.String? = null,
-
-    @Json(name = "ready")
-    val ready: kotlin.Boolean? = null
+    @Json(name = "url")
+    val url: kotlin.String
 
 )
 

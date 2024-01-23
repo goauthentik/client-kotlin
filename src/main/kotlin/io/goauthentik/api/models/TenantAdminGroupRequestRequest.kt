@@ -20,24 +20,16 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * Tenant Serializer
+ * Tenant admin group creation request serializer
  *
- * @param schemaName 
- * @param name 
- * @param ready 
+ * @param user 
  */
 
 
-data class PatchedTenantRequest (
+data class TenantAdminGroupRequestRequest (
 
-    @Json(name = "schema_name")
-    val schemaName: kotlin.String? = null,
-
-    @Json(name = "name")
-    val name: kotlin.String? = null,
-
-    @Json(name = "ready")
-    val ready: kotlin.Boolean? = null
+    @Json(name = "user")
+    val user: kotlin.String
 
 )
 

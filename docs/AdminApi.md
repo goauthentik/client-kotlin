@@ -7,6 +7,9 @@ Method | HTTP request | Description
 [**adminAppsList**](AdminApi.md#adminAppsList) | **GET** /admin/apps/ | 
 [**adminMetricsRetrieve**](AdminApi.md#adminMetricsRetrieve) | **GET** /admin/metrics/ | 
 [**adminModelsList**](AdminApi.md#adminModelsList) | **GET** /admin/models/ | 
+[**adminSettingsPartialUpdate**](AdminApi.md#adminSettingsPartialUpdate) | **PATCH** /admin/settings/ | 
+[**adminSettingsRetrieve**](AdminApi.md#adminSettingsRetrieve) | **GET** /admin/settings/ | 
+[**adminSettingsUpdate**](AdminApi.md#adminSettingsUpdate) | **PUT** /admin/settings/ | 
 [**adminSystemCreate**](AdminApi.md#adminSystemCreate) | **POST** /admin/system/ | 
 [**adminSystemRetrieve**](AdminApi.md#adminSystemRetrieve) | **GET** /admin/system/ | 
 [**adminSystemTasksList**](AdminApi.md#adminSystemTasksList) | **GET** /admin/system_tasks/ | 
@@ -152,6 +155,152 @@ Configure authentik:
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="adminSettingsPartialUpdate"></a>
+# **adminSettingsPartialUpdate**
+> Settings adminSettingsPartialUpdate(patchedSettingsRequest)
+
+
+
+Settings view
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = AdminApi()
+val patchedSettingsRequest : PatchedSettingsRequest =  // PatchedSettingsRequest | 
+try {
+    val result : Settings = apiInstance.adminSettingsPartialUpdate(patchedSettingsRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AdminApi#adminSettingsPartialUpdate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AdminApi#adminSettingsPartialUpdate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **patchedSettingsRequest** | [**PatchedSettingsRequest**](PatchedSettingsRequest.md)|  | [optional]
+
+### Return type
+
+[**Settings**](Settings.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="adminSettingsRetrieve"></a>
+# **adminSettingsRetrieve**
+> Settings adminSettingsRetrieve()
+
+
+
+Settings view
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = AdminApi()
+try {
+    val result : Settings = apiInstance.adminSettingsRetrieve()
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AdminApi#adminSettingsRetrieve")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AdminApi#adminSettingsRetrieve")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Settings**](Settings.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="adminSettingsUpdate"></a>
+# **adminSettingsUpdate**
+> Settings adminSettingsUpdate(settingsRequest)
+
+
+
+Settings view
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = AdminApi()
+val settingsRequest : SettingsRequest =  // SettingsRequest | 
+try {
+    val result : Settings = apiInstance.adminSettingsUpdate(settingsRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AdminApi#adminSettingsUpdate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AdminApi#adminSettingsUpdate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settingsRequest** | [**SettingsRequest**](SettingsRequest.md)|  | [optional]
+
+### Return type
+
+[**Settings**](Settings.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a id="adminSystemCreate"></a>

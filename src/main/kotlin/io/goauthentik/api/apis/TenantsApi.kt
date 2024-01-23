@@ -19,17 +19,19 @@ import java.io.IOException
 import okhttp3.OkHttpClient
 import okhttp3.HttpUrl
 
-import io.goauthentik.api.models.App
+import io.goauthentik.api.models.Domain
+import io.goauthentik.api.models.DomainRequest
 import io.goauthentik.api.models.GenericError
-import io.goauthentik.api.models.LoginMetrics
-import io.goauthentik.api.models.PatchedSettingsRequest
-import io.goauthentik.api.models.Settings
-import io.goauthentik.api.models.SettingsRequest
-import io.goauthentik.api.models.SystemInfo
-import io.goauthentik.api.models.Task
+import io.goauthentik.api.models.PaginatedDomainList
+import io.goauthentik.api.models.PaginatedTenantList
+import io.goauthentik.api.models.PatchedDomainRequest
+import io.goauthentik.api.models.PatchedTenantRequest
+import io.goauthentik.api.models.Tenant
+import io.goauthentik.api.models.TenantAdminGroupRequestRequest
+import io.goauthentik.api.models.TenantRecoveryKeyRequestRequest
+import io.goauthentik.api.models.TenantRecoveryKeyResponse
+import io.goauthentik.api.models.TenantRequest
 import io.goauthentik.api.models.ValidationError
-import io.goauthentik.api.models.Version
-import io.goauthentik.api.models.Workers
 
 import com.squareup.moshi.Json
 
@@ -47,7 +49,7 @@ import io.goauthentik.api.infrastructure.ResponseType
 import io.goauthentik.api.infrastructure.Success
 import io.goauthentik.api.infrastructure.toMultiValue
 
-class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = ApiClient.defaultClient) : ApiClient(basePath, client) {
+class TenantsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = ApiClient.defaultClient) : ApiClient(basePath, client) {
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
@@ -57,8 +59,9 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
 
     /**
      * 
-     * Read-only view list all installed apps
-     * @return kotlin.collections.List<App>
+     * Domain ViewSet
+     * @param domainRequest 
+     * @return Domain
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -67,11 +70,11 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun adminAppsList() : kotlin.collections.List<App> {
-        val localVarResponse = adminAppsListWithHttpInfo()
+    fun tenantsDomainsCreate(domainRequest: DomainRequest) : Domain {
+        val localVarResponse = tenantsDomainsCreateWithHttpInfo(domainRequest = domainRequest)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<App>
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Domain
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -87,669 +90,49 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
 
     /**
      * 
-     * Read-only view list all installed apps
-     * @return ApiResponse<kotlin.collections.List<App>?>
+     * Domain ViewSet
+     * @param domainRequest 
+     * @return ApiResponse<Domain?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun adminAppsListWithHttpInfo() : ApiResponse<kotlin.collections.List<App>?> {
-        val localVariableConfig = adminAppsListRequestConfig()
+    fun tenantsDomainsCreateWithHttpInfo(domainRequest: DomainRequest) : ApiResponse<Domain?> {
+        val localVariableConfig = tenantsDomainsCreateRequestConfig(domainRequest = domainRequest)
 
-        return request<Unit, kotlin.collections.List<App>>(
+        return request<DomainRequest, Domain>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation adminAppsList
+     * To obtain the request config of the operation tenantsDomainsCreate
      *
+     * @param domainRequest 
      * @return RequestConfig
      */
-    fun adminAppsListRequestConfig() : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/admin/apps/",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * Login Metrics per 1h
-     * @return LoginMetrics
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun adminMetricsRetrieve() : LoginMetrics {
-        val localVarResponse = adminMetricsRetrieveWithHttpInfo()
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as LoginMetrics
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * Login Metrics per 1h
-     * @return ApiResponse<LoginMetrics?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun adminMetricsRetrieveWithHttpInfo() : ApiResponse<LoginMetrics?> {
-        val localVariableConfig = adminMetricsRetrieveRequestConfig()
-
-        return request<Unit, LoginMetrics>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation adminMetricsRetrieve
-     *
-     * @return RequestConfig
-     */
-    fun adminMetricsRetrieveRequestConfig() : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/admin/metrics/",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * Read-only view list all installed models
-     * @return kotlin.collections.List<App>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun adminModelsList() : kotlin.collections.List<App> {
-        val localVarResponse = adminModelsListWithHttpInfo()
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<App>
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * Read-only view list all installed models
-     * @return ApiResponse<kotlin.collections.List<App>?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun adminModelsListWithHttpInfo() : ApiResponse<kotlin.collections.List<App>?> {
-        val localVariableConfig = adminModelsListRequestConfig()
-
-        return request<Unit, kotlin.collections.List<App>>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation adminModelsList
-     *
-     * @return RequestConfig
-     */
-    fun adminModelsListRequestConfig() : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/admin/models/",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * Settings view
-     * @param patchedSettingsRequest  (optional)
-     * @return Settings
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun adminSettingsPartialUpdate(patchedSettingsRequest: PatchedSettingsRequest? = null) : Settings {
-        val localVarResponse = adminSettingsPartialUpdateWithHttpInfo(patchedSettingsRequest = patchedSettingsRequest)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Settings
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * Settings view
-     * @param patchedSettingsRequest  (optional)
-     * @return ApiResponse<Settings?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun adminSettingsPartialUpdateWithHttpInfo(patchedSettingsRequest: PatchedSettingsRequest?) : ApiResponse<Settings?> {
-        val localVariableConfig = adminSettingsPartialUpdateRequestConfig(patchedSettingsRequest = patchedSettingsRequest)
-
-        return request<PatchedSettingsRequest, Settings>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation adminSettingsPartialUpdate
-     *
-     * @param patchedSettingsRequest  (optional)
-     * @return RequestConfig
-     */
-    fun adminSettingsPartialUpdateRequestConfig(patchedSettingsRequest: PatchedSettingsRequest?) : RequestConfig<PatchedSettingsRequest> {
-        val localVariableBody = patchedSettingsRequest
+    fun tenantsDomainsCreateRequestConfig(domainRequest: DomainRequest) : RequestConfig<DomainRequest> {
+        val localVariableBody = domainRequest
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PATCH,
-            path = "/admin/settings/",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * Settings view
-     * @return Settings
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun adminSettingsRetrieve() : Settings {
-        val localVarResponse = adminSettingsRetrieveWithHttpInfo()
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Settings
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * Settings view
-     * @return ApiResponse<Settings?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun adminSettingsRetrieveWithHttpInfo() : ApiResponse<Settings?> {
-        val localVariableConfig = adminSettingsRetrieveRequestConfig()
-
-        return request<Unit, Settings>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation adminSettingsRetrieve
-     *
-     * @return RequestConfig
-     */
-    fun adminSettingsRetrieveRequestConfig() : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/admin/settings/",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * Settings view
-     * @param settingsRequest  (optional)
-     * @return Settings
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun adminSettingsUpdate(settingsRequest: SettingsRequest? = null) : Settings {
-        val localVarResponse = adminSettingsUpdateWithHttpInfo(settingsRequest = settingsRequest)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Settings
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * Settings view
-     * @param settingsRequest  (optional)
-     * @return ApiResponse<Settings?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun adminSettingsUpdateWithHttpInfo(settingsRequest: SettingsRequest?) : ApiResponse<Settings?> {
-        val localVariableConfig = adminSettingsUpdateRequestConfig(settingsRequest = settingsRequest)
-
-        return request<SettingsRequest, Settings>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation adminSettingsUpdate
-     *
-     * @param settingsRequest  (optional)
-     * @return RequestConfig
-     */
-    fun adminSettingsUpdateRequestConfig(settingsRequest: SettingsRequest?) : RequestConfig<SettingsRequest> {
-        val localVariableBody = settingsRequest
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.PUT,
-            path = "/admin/settings/",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * Get system information.
-     * @return SystemInfo
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun adminSystemCreate() : SystemInfo {
-        val localVarResponse = adminSystemCreateWithHttpInfo()
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as SystemInfo
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * Get system information.
-     * @return ApiResponse<SystemInfo?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun adminSystemCreateWithHttpInfo() : ApiResponse<SystemInfo?> {
-        val localVariableConfig = adminSystemCreateRequestConfig()
-
-        return request<Unit, SystemInfo>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation adminSystemCreate
-     *
-     * @return RequestConfig
-     */
-    fun adminSystemCreateRequestConfig() : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/admin/system/",
+            path = "/tenants/domains/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
      * 
-     * Get system information.
-     * @return SystemInfo
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun adminSystemRetrieve() : SystemInfo {
-        val localVarResponse = adminSystemRetrieveWithHttpInfo()
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as SystemInfo
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * Get system information.
-     * @return ApiResponse<SystemInfo?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun adminSystemRetrieveWithHttpInfo() : ApiResponse<SystemInfo?> {
-        val localVariableConfig = adminSystemRetrieveRequestConfig()
-
-        return request<Unit, SystemInfo>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation adminSystemRetrieve
-     *
-     * @return RequestConfig
-     */
-    fun adminSystemRetrieveRequestConfig() : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/admin/system/",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * List system tasks
-     * @return kotlin.collections.List<Task>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun adminSystemTasksList() : kotlin.collections.List<Task> {
-        val localVarResponse = adminSystemTasksListWithHttpInfo()
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Task>
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * List system tasks
-     * @return ApiResponse<kotlin.collections.List<Task>?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun adminSystemTasksListWithHttpInfo() : ApiResponse<kotlin.collections.List<Task>?> {
-        val localVariableConfig = adminSystemTasksListRequestConfig()
-
-        return request<Unit, kotlin.collections.List<Task>>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation adminSystemTasksList
-     *
-     * @return RequestConfig
-     */
-    fun adminSystemTasksListRequestConfig() : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/admin/system_tasks/",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * Get a single system task
-     * @param id 
-     * @return Task
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun adminSystemTasksRetrieve(id: kotlin.String) : Task {
-        val localVarResponse = adminSystemTasksRetrieveWithHttpInfo(id = id)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Task
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * 
-     * Get a single system task
-     * @param id 
-     * @return ApiResponse<Task?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun adminSystemTasksRetrieveWithHttpInfo(id: kotlin.String) : ApiResponse<Task?> {
-        val localVariableConfig = adminSystemTasksRetrieveRequestConfig(id = id)
-
-        return request<Unit, Task>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation adminSystemTasksRetrieve
-     *
-     * @param id 
-     * @return RequestConfig
-     */
-    fun adminSystemTasksRetrieveRequestConfig(id: kotlin.String) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/admin/system_tasks/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * 
-     * Retry task
-     * @param id 
+     * Domain ViewSet
+     * @param id A unique integer value identifying this Domain.
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -758,8 +141,8 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
      * @throws ServerException If the API returns a server error response
      */
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun adminSystemTasksRetryCreate(id: kotlin.String) : Unit {
-        val localVarResponse = adminSystemTasksRetryCreateWithHttpInfo(id = id)
+    fun tenantsDomainsDestroy(id: kotlin.Int) : Unit {
+        val localVarResponse = tenantsDomainsDestroyWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> Unit
@@ -778,15 +161,15 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
 
     /**
      * 
-     * Retry task
-     * @param id 
+     * Domain ViewSet
+     * @param id A unique integer value identifying this Domain.
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Throws(IllegalStateException::class, IOException::class)
-    fun adminSystemTasksRetryCreateWithHttpInfo(id: kotlin.String) : ApiResponse<Unit?> {
-        val localVariableConfig = adminSystemTasksRetryCreateRequestConfig(id = id)
+    fun tenantsDomainsDestroyWithHttpInfo(id: kotlin.Int) : ApiResponse<Unit?> {
+        val localVariableConfig = tenantsDomainsDestroyRequestConfig(id = id)
 
         return request<Unit, Unit>(
             localVariableConfig
@@ -794,44 +177,432 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
     }
 
     /**
-     * To obtain the request config of the operation adminSystemTasksRetryCreate
+     * To obtain the request config of the operation tenantsDomainsDestroy
      *
-     * @param id 
+     * @param id A unique integer value identifying this Domain.
      * @return RequestConfig
      */
-    fun adminSystemTasksRetryCreateRequestConfig(id: kotlin.String) : RequestConfig<Unit> {
+    fun tenantsDomainsDestroyRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/tenants/domains/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Domain ViewSet
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return PaginatedDomainList
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun tenantsDomainsList(ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null) : PaginatedDomainList {
+        val localVarResponse = tenantsDomainsListWithHttpInfo(ordering = ordering, page = page, pageSize = pageSize, search = search)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedDomainList
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Domain ViewSet
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return ApiResponse<PaginatedDomainList?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun tenantsDomainsListWithHttpInfo(ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?) : ApiResponse<PaginatedDomainList?> {
+        val localVariableConfig = tenantsDomainsListRequestConfig(ordering = ordering, page = page, pageSize = pageSize, search = search)
+
+        return request<Unit, PaginatedDomainList>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation tenantsDomainsList
+     *
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return RequestConfig
+     */
+    fun tenantsDomainsListRequestConfig(ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (ordering != null) {
+                    put("ordering", listOf(ordering.toString()))
+                }
+                if (page != null) {
+                    put("page", listOf(page.toString()))
+                }
+                if (pageSize != null) {
+                    put("page_size", listOf(pageSize.toString()))
+                }
+                if (search != null) {
+                    put("search", listOf(search.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/tenants/domains/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Domain ViewSet
+     * @param id A unique integer value identifying this Domain.
+     * @param patchedDomainRequest  (optional)
+     * @return Domain
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun tenantsDomainsPartialUpdate(id: kotlin.Int, patchedDomainRequest: PatchedDomainRequest? = null) : Domain {
+        val localVarResponse = tenantsDomainsPartialUpdateWithHttpInfo(id = id, patchedDomainRequest = patchedDomainRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Domain
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Domain ViewSet
+     * @param id A unique integer value identifying this Domain.
+     * @param patchedDomainRequest  (optional)
+     * @return ApiResponse<Domain?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun tenantsDomainsPartialUpdateWithHttpInfo(id: kotlin.Int, patchedDomainRequest: PatchedDomainRequest?) : ApiResponse<Domain?> {
+        val localVariableConfig = tenantsDomainsPartialUpdateRequestConfig(id = id, patchedDomainRequest = patchedDomainRequest)
+
+        return request<PatchedDomainRequest, Domain>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation tenantsDomainsPartialUpdate
+     *
+     * @param id A unique integer value identifying this Domain.
+     * @param patchedDomainRequest  (optional)
+     * @return RequestConfig
+     */
+    fun tenantsDomainsPartialUpdateRequestConfig(id: kotlin.Int, patchedDomainRequest: PatchedDomainRequest?) : RequestConfig<PatchedDomainRequest> {
+        val localVariableBody = patchedDomainRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/tenants/domains/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Domain ViewSet
+     * @param id A unique integer value identifying this Domain.
+     * @return Domain
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun tenantsDomainsRetrieve(id: kotlin.Int) : Domain {
+        val localVarResponse = tenantsDomainsRetrieveWithHttpInfo(id = id)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Domain
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Domain ViewSet
+     * @param id A unique integer value identifying this Domain.
+     * @return ApiResponse<Domain?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun tenantsDomainsRetrieveWithHttpInfo(id: kotlin.Int) : ApiResponse<Domain?> {
+        val localVariableConfig = tenantsDomainsRetrieveRequestConfig(id = id)
+
+        return request<Unit, Domain>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation tenantsDomainsRetrieve
+     *
+     * @param id A unique integer value identifying this Domain.
+     * @return RequestConfig
+     */
+    fun tenantsDomainsRetrieveRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/tenants/domains/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Domain ViewSet
+     * @param id A unique integer value identifying this Domain.
+     * @param domainRequest 
+     * @return Domain
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun tenantsDomainsUpdate(id: kotlin.Int, domainRequest: DomainRequest) : Domain {
+        val localVarResponse = tenantsDomainsUpdateWithHttpInfo(id = id, domainRequest = domainRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Domain
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Domain ViewSet
+     * @param id A unique integer value identifying this Domain.
+     * @param domainRequest 
+     * @return ApiResponse<Domain?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun tenantsDomainsUpdateWithHttpInfo(id: kotlin.Int, domainRequest: DomainRequest) : ApiResponse<Domain?> {
+        val localVariableConfig = tenantsDomainsUpdateRequestConfig(id = id, domainRequest = domainRequest)
+
+        return request<DomainRequest, Domain>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation tenantsDomainsUpdate
+     *
+     * @param id A unique integer value identifying this Domain.
+     * @param domainRequest 
+     * @return RequestConfig
+     */
+    fun tenantsDomainsUpdateRequestConfig(id: kotlin.Int, domainRequest: DomainRequest) : RequestConfig<DomainRequest> {
+        val localVariableBody = domainRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/tenants/domains/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Tenant Viewset
+     * @param tenantRequest 
+     * @return Tenant
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun tenantsTenantsCreate(tenantRequest: TenantRequest) : Tenant {
+        val localVarResponse = tenantsTenantsCreateWithHttpInfo(tenantRequest = tenantRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Tenant
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Tenant Viewset
+     * @param tenantRequest 
+     * @return ApiResponse<Tenant?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun tenantsTenantsCreateWithHttpInfo(tenantRequest: TenantRequest) : ApiResponse<Tenant?> {
+        val localVariableConfig = tenantsTenantsCreateRequestConfig(tenantRequest = tenantRequest)
+
+        return request<TenantRequest, Tenant>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation tenantsTenantsCreate
+     *
+     * @param tenantRequest 
+     * @return RequestConfig
+     */
+    fun tenantsTenantsCreateRequestConfig(tenantRequest: TenantRequest) : RequestConfig<TenantRequest> {
+        val localVariableBody = tenantRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/admin/system_tasks/{id}/retry/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/tenants/tenants/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
      * 
-     * Get running and latest version.
-     * @return Version
+     * Create admin group and add user to it.
+     * @param tenantUuid A UUID string identifying this Tenant.
+     * @param tenantAdminGroupRequestRequest 
+     * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
      * @throws ClientException If the API returns a client error response
      * @throws ServerException If the API returns a server error response
      */
-    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun adminVersionRetrieve() : Version {
-        val localVarResponse = adminVersionRetrieveWithHttpInfo()
+    fun tenantsTenantsCreateAdminGroupCreate(tenantUuid: java.util.UUID, tenantAdminGroupRequestRequest: TenantAdminGroupRequestRequest) : Unit {
+        val localVarResponse = tenantsTenantsCreateAdminGroupCreateWithHttpInfo(tenantUuid = tenantUuid, tenantAdminGroupRequestRequest = tenantAdminGroupRequestRequest)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Version
+            ResponseType.Success -> Unit
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -847,46 +618,52 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
 
     /**
      * 
-     * Get running and latest version.
-     * @return ApiResponse<Version?>
+     * Create admin group and add user to it.
+     * @param tenantUuid A UUID string identifying this Tenant.
+     * @param tenantAdminGroupRequestRequest 
+     * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
-    @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun adminVersionRetrieveWithHttpInfo() : ApiResponse<Version?> {
-        val localVariableConfig = adminVersionRetrieveRequestConfig()
+    fun tenantsTenantsCreateAdminGroupCreateWithHttpInfo(tenantUuid: java.util.UUID, tenantAdminGroupRequestRequest: TenantAdminGroupRequestRequest) : ApiResponse<Unit?> {
+        val localVariableConfig = tenantsTenantsCreateAdminGroupCreateRequestConfig(tenantUuid = tenantUuid, tenantAdminGroupRequestRequest = tenantAdminGroupRequestRequest)
 
-        return request<Unit, Version>(
+        return request<TenantAdminGroupRequestRequest, Unit>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation adminVersionRetrieve
+     * To obtain the request config of the operation tenantsTenantsCreateAdminGroupCreate
      *
+     * @param tenantUuid A UUID string identifying this Tenant.
+     * @param tenantAdminGroupRequestRequest 
      * @return RequestConfig
      */
-    fun adminVersionRetrieveRequestConfig() : RequestConfig<Unit> {
-        val localVariableBody = null
+    fun tenantsTenantsCreateAdminGroupCreateRequestConfig(tenantUuid: java.util.UUID, tenantAdminGroupRequestRequest: TenantAdminGroupRequestRequest) : RequestConfig<TenantAdminGroupRequestRequest> {
+        val localVariableBody = tenantAdminGroupRequestRequest
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/admin/version/",
+            method = RequestMethod.POST,
+            path = "/tenants/tenants/{tenant_uuid}/create_admin_group/".replace("{"+"tenant_uuid"+"}", encodeURIComponent(tenantUuid.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
      * 
-     * Get currently connected worker count.
-     * @return Workers
+     * Create recovery key for user.
+     * @param tenantUuid A UUID string identifying this Tenant.
+     * @param tenantRecoveryKeyRequestRequest 
+     * @return TenantRecoveryKeyResponse
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -895,11 +672,11 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun adminWorkersRetrieve() : Workers {
-        val localVarResponse = adminWorkersRetrieveWithHttpInfo()
+    fun tenantsTenantsCreateRecoveryKeyCreate(tenantUuid: java.util.UUID, tenantRecoveryKeyRequestRequest: TenantRecoveryKeyRequestRequest) : TenantRecoveryKeyResponse {
+        val localVarResponse = tenantsTenantsCreateRecoveryKeyCreateWithHttpInfo(tenantUuid = tenantUuid, tenantRecoveryKeyRequestRequest = tenantRecoveryKeyRequestRequest)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as Workers
+            ResponseType.Success -> (localVarResponse as Success<*>).data as TenantRecoveryKeyResponse
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -915,27 +692,341 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
 
     /**
      * 
-     * Get currently connected worker count.
-     * @return ApiResponse<Workers?>
+     * Create recovery key for user.
+     * @param tenantUuid A UUID string identifying this Tenant.
+     * @param tenantRecoveryKeyRequestRequest 
+     * @return ApiResponse<TenantRecoveryKeyResponse?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun adminWorkersRetrieveWithHttpInfo() : ApiResponse<Workers?> {
-        val localVariableConfig = adminWorkersRetrieveRequestConfig()
+    fun tenantsTenantsCreateRecoveryKeyCreateWithHttpInfo(tenantUuid: java.util.UUID, tenantRecoveryKeyRequestRequest: TenantRecoveryKeyRequestRequest) : ApiResponse<TenantRecoveryKeyResponse?> {
+        val localVariableConfig = tenantsTenantsCreateRecoveryKeyCreateRequestConfig(tenantUuid = tenantUuid, tenantRecoveryKeyRequestRequest = tenantRecoveryKeyRequestRequest)
 
-        return request<Unit, Workers>(
+        return request<TenantRecoveryKeyRequestRequest, TenantRecoveryKeyResponse>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation adminWorkersRetrieve
+     * To obtain the request config of the operation tenantsTenantsCreateRecoveryKeyCreate
      *
+     * @param tenantUuid A UUID string identifying this Tenant.
+     * @param tenantRecoveryKeyRequestRequest 
      * @return RequestConfig
      */
-    fun adminWorkersRetrieveRequestConfig() : RequestConfig<Unit> {
+    fun tenantsTenantsCreateRecoveryKeyCreateRequestConfig(tenantUuid: java.util.UUID, tenantRecoveryKeyRequestRequest: TenantRecoveryKeyRequestRequest) : RequestConfig<TenantRecoveryKeyRequestRequest> {
+        val localVariableBody = tenantRecoveryKeyRequestRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/tenants/tenants/{tenant_uuid}/create_recovery_key/".replace("{"+"tenant_uuid"+"}", encodeURIComponent(tenantUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Tenant Viewset
+     * @param tenantUuid A UUID string identifying this Tenant.
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun tenantsTenantsDestroy(tenantUuid: java.util.UUID) : Unit {
+        val localVarResponse = tenantsTenantsDestroyWithHttpInfo(tenantUuid = tenantUuid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Tenant Viewset
+     * @param tenantUuid A UUID string identifying this Tenant.
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun tenantsTenantsDestroyWithHttpInfo(tenantUuid: java.util.UUID) : ApiResponse<Unit?> {
+        val localVariableConfig = tenantsTenantsDestroyRequestConfig(tenantUuid = tenantUuid)
+
+        return request<Unit, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation tenantsTenantsDestroy
+     *
+     * @param tenantUuid A UUID string identifying this Tenant.
+     * @return RequestConfig
+     */
+    fun tenantsTenantsDestroyRequestConfig(tenantUuid: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/tenants/tenants/{tenant_uuid}/".replace("{"+"tenant_uuid"+"}", encodeURIComponent(tenantUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Tenant Viewset
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return PaginatedTenantList
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun tenantsTenantsList(ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null) : PaginatedTenantList {
+        val localVarResponse = tenantsTenantsListWithHttpInfo(ordering = ordering, page = page, pageSize = pageSize, search = search)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedTenantList
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Tenant Viewset
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return ApiResponse<PaginatedTenantList?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun tenantsTenantsListWithHttpInfo(ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?) : ApiResponse<PaginatedTenantList?> {
+        val localVariableConfig = tenantsTenantsListRequestConfig(ordering = ordering, page = page, pageSize = pageSize, search = search)
+
+        return request<Unit, PaginatedTenantList>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation tenantsTenantsList
+     *
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return RequestConfig
+     */
+    fun tenantsTenantsListRequestConfig(ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (ordering != null) {
+                    put("ordering", listOf(ordering.toString()))
+                }
+                if (page != null) {
+                    put("page", listOf(page.toString()))
+                }
+                if (pageSize != null) {
+                    put("page_size", listOf(pageSize.toString()))
+                }
+                if (search != null) {
+                    put("search", listOf(search.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/tenants/tenants/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Tenant Viewset
+     * @param tenantUuid A UUID string identifying this Tenant.
+     * @param patchedTenantRequest  (optional)
+     * @return Tenant
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun tenantsTenantsPartialUpdate(tenantUuid: java.util.UUID, patchedTenantRequest: PatchedTenantRequest? = null) : Tenant {
+        val localVarResponse = tenantsTenantsPartialUpdateWithHttpInfo(tenantUuid = tenantUuid, patchedTenantRequest = patchedTenantRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Tenant
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Tenant Viewset
+     * @param tenantUuid A UUID string identifying this Tenant.
+     * @param patchedTenantRequest  (optional)
+     * @return ApiResponse<Tenant?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun tenantsTenantsPartialUpdateWithHttpInfo(tenantUuid: java.util.UUID, patchedTenantRequest: PatchedTenantRequest?) : ApiResponse<Tenant?> {
+        val localVariableConfig = tenantsTenantsPartialUpdateRequestConfig(tenantUuid = tenantUuid, patchedTenantRequest = patchedTenantRequest)
+
+        return request<PatchedTenantRequest, Tenant>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation tenantsTenantsPartialUpdate
+     *
+     * @param tenantUuid A UUID string identifying this Tenant.
+     * @param patchedTenantRequest  (optional)
+     * @return RequestConfig
+     */
+    fun tenantsTenantsPartialUpdateRequestConfig(tenantUuid: java.util.UUID, patchedTenantRequest: PatchedTenantRequest?) : RequestConfig<PatchedTenantRequest> {
+        val localVariableBody = patchedTenantRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/tenants/tenants/{tenant_uuid}/".replace("{"+"tenant_uuid"+"}", encodeURIComponent(tenantUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Tenant Viewset
+     * @param tenantUuid A UUID string identifying this Tenant.
+     * @return Tenant
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun tenantsTenantsRetrieve(tenantUuid: java.util.UUID) : Tenant {
+        val localVarResponse = tenantsTenantsRetrieveWithHttpInfo(tenantUuid = tenantUuid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Tenant
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Tenant Viewset
+     * @param tenantUuid A UUID string identifying this Tenant.
+     * @return ApiResponse<Tenant?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun tenantsTenantsRetrieveWithHttpInfo(tenantUuid: java.util.UUID) : ApiResponse<Tenant?> {
+        val localVariableConfig = tenantsTenantsRetrieveRequestConfig(tenantUuid = tenantUuid)
+
+        return request<Unit, Tenant>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation tenantsTenantsRetrieve
+     *
+     * @param tenantUuid A UUID string identifying this Tenant.
+     * @return RequestConfig
+     */
+    fun tenantsTenantsRetrieveRequestConfig(tenantUuid: java.util.UUID) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -943,10 +1034,85 @@ class AdminApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient =
 
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/admin/workers/",
+            path = "/tenants/tenants/{tenant_uuid}/".replace("{"+"tenant_uuid"+"}", encodeURIComponent(tenantUuid.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Tenant Viewset
+     * @param tenantUuid A UUID string identifying this Tenant.
+     * @param tenantRequest 
+     * @return Tenant
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun tenantsTenantsUpdate(tenantUuid: java.util.UUID, tenantRequest: TenantRequest) : Tenant {
+        val localVarResponse = tenantsTenantsUpdateWithHttpInfo(tenantUuid = tenantUuid, tenantRequest = tenantRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Tenant
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Tenant Viewset
+     * @param tenantUuid A UUID string identifying this Tenant.
+     * @param tenantRequest 
+     * @return ApiResponse<Tenant?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun tenantsTenantsUpdateWithHttpInfo(tenantUuid: java.util.UUID, tenantRequest: TenantRequest) : ApiResponse<Tenant?> {
+        val localVariableConfig = tenantsTenantsUpdateRequestConfig(tenantUuid = tenantUuid, tenantRequest = tenantRequest)
+
+        return request<TenantRequest, Tenant>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation tenantsTenantsUpdate
+     *
+     * @param tenantUuid A UUID string identifying this Tenant.
+     * @param tenantRequest 
+     * @return RequestConfig
+     */
+    fun tenantsTenantsUpdateRequestConfig(tenantUuid: java.util.UUID, tenantRequest: TenantRequest) : RequestConfig<TenantRequest> {
+        val localVariableBody = tenantRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/tenants/tenants/{tenant_uuid}/".replace("{"+"tenant_uuid"+"}", encodeURIComponent(tenantUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

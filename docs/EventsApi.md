@@ -185,7 +185,7 @@ Configure authentik:
 
 <a id="eventsEventsList"></a>
 # **eventsEventsList**
-> PaginatedEventList eventsEventsList(action, clientIp, contextAuthorizedApp, contextModelApp, contextModelName, contextModelPk, ordering, page, pageSize, search, tenantName, username)
+> PaginatedEventList eventsEventsList(action, brandName, clientIp, contextAuthorizedApp, contextModelApp, contextModelName, contextModelPk, ordering, page, pageSize, search, username)
 
 
 
@@ -199,6 +199,7 @@ Event Read-Only Viewset
 
 val apiInstance = EventsApi()
 val action : kotlin.String = action_example // kotlin.String | 
+val brandName : kotlin.String = brandName_example // kotlin.String | Brand name
 val clientIp : kotlin.String = clientIp_example // kotlin.String | 
 val contextAuthorizedApp : kotlin.String = contextAuthorizedApp_example // kotlin.String | Context Authorized application
 val contextModelApp : kotlin.String = contextModelApp_example // kotlin.String | Context Model App
@@ -208,10 +209,9 @@ val ordering : kotlin.String = ordering_example // kotlin.String | Which field t
 val page : kotlin.Int = 56 // kotlin.Int | A page number within the paginated result set.
 val pageSize : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
 val search : kotlin.String = search_example // kotlin.String | A search term.
-val tenantName : kotlin.String = tenantName_example // kotlin.String | Tenant name
 val username : kotlin.String = username_example // kotlin.String | Username
 try {
-    val result : PaginatedEventList = apiInstance.eventsEventsList(action, clientIp, contextAuthorizedApp, contextModelApp, contextModelName, contextModelPk, ordering, page, pageSize, search, tenantName, username)
+    val result : PaginatedEventList = apiInstance.eventsEventsList(action, brandName, clientIp, contextAuthorizedApp, contextModelApp, contextModelName, contextModelPk, ordering, page, pageSize, search, username)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling EventsApi#eventsEventsList")
@@ -227,6 +227,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **action** | **kotlin.String**|  | [optional]
+ **brandName** | **kotlin.String**| Brand name | [optional]
  **clientIp** | **kotlin.String**|  | [optional]
  **contextAuthorizedApp** | **kotlin.String**| Context Authorized application | [optional]
  **contextModelApp** | **kotlin.String**| Context Model App | [optional]
@@ -236,7 +237,6 @@ Name | Type | Description  | Notes
  **page** | **kotlin.Int**| A page number within the paginated result set. | [optional]
  **pageSize** | **kotlin.Int**| Number of results to return per page. | [optional]
  **search** | **kotlin.String**| A search term. | [optional]
- **tenantName** | **kotlin.String**| Tenant name | [optional]
  **username** | **kotlin.String**| Username | [optional]
 
 ### Return type
@@ -515,7 +515,7 @@ Configure authentik:
 
 <a id="eventsEventsVolumeList"></a>
 # **eventsEventsVolumeList**
-> kotlin.collections.List&lt;Coordinate&gt; eventsEventsVolumeList(action, clientIp, contextAuthorizedApp, contextModelApp, contextModelName, contextModelPk, ordering, search, tenantName, username)
+> kotlin.collections.List&lt;Coordinate&gt; eventsEventsVolumeList(action, brandName, clientIp, contextAuthorizedApp, contextModelApp, contextModelName, contextModelPk, ordering, search, username)
 
 
 
@@ -529,6 +529,7 @@ Get event volume for specified filters and timeframe
 
 val apiInstance = EventsApi()
 val action : kotlin.String = action_example // kotlin.String | 
+val brandName : kotlin.String = brandName_example // kotlin.String | Brand name
 val clientIp : kotlin.String = clientIp_example // kotlin.String | 
 val contextAuthorizedApp : kotlin.String = contextAuthorizedApp_example // kotlin.String | Context Authorized application
 val contextModelApp : kotlin.String = contextModelApp_example // kotlin.String | Context Model App
@@ -536,10 +537,9 @@ val contextModelName : kotlin.String = contextModelName_example // kotlin.String
 val contextModelPk : kotlin.String = contextModelPk_example // kotlin.String | Context Model Primary Key
 val ordering : kotlin.String = ordering_example // kotlin.String | Which field to use when ordering the results.
 val search : kotlin.String = search_example // kotlin.String | A search term.
-val tenantName : kotlin.String = tenantName_example // kotlin.String | Tenant name
 val username : kotlin.String = username_example // kotlin.String | Username
 try {
-    val result : kotlin.collections.List<Coordinate> = apiInstance.eventsEventsVolumeList(action, clientIp, contextAuthorizedApp, contextModelApp, contextModelName, contextModelPk, ordering, search, tenantName, username)
+    val result : kotlin.collections.List<Coordinate> = apiInstance.eventsEventsVolumeList(action, brandName, clientIp, contextAuthorizedApp, contextModelApp, contextModelName, contextModelPk, ordering, search, username)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling EventsApi#eventsEventsVolumeList")
@@ -555,6 +555,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **action** | **kotlin.String**|  | [optional]
+ **brandName** | **kotlin.String**| Brand name | [optional]
  **clientIp** | **kotlin.String**|  | [optional]
  **contextAuthorizedApp** | **kotlin.String**| Context Authorized application | [optional]
  **contextModelApp** | **kotlin.String**| Context Model App | [optional]
@@ -562,7 +563,6 @@ Name | Type | Description  | Notes
  **contextModelPk** | **kotlin.String**| Context Model Primary Key | [optional]
  **ordering** | **kotlin.String**| Which field to use when ordering the results. | [optional]
  **search** | **kotlin.String**| A search term. | [optional]
- **tenantName** | **kotlin.String**| Tenant name | [optional]
  **username** | **kotlin.String**| Username | [optional]
 
 ### Return type

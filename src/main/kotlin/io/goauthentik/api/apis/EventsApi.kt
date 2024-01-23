@@ -280,6 +280,7 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      * 
      * Event Read-Only Viewset
      * @param action  (optional)
+     * @param brandName Brand name (optional)
      * @param clientIp  (optional)
      * @param contextAuthorizedApp Context Authorized application (optional)
      * @param contextModelApp Context Model App (optional)
@@ -289,7 +290,6 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param search A search term. (optional)
-     * @param tenantName Tenant name (optional)
      * @param username Username (optional)
      * @return PaginatedEventList
      * @throws IllegalStateException If the request is not correctly configured
@@ -300,8 +300,8 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun eventsEventsList(action: kotlin.String? = null, clientIp: kotlin.String? = null, contextAuthorizedApp: kotlin.String? = null, contextModelApp: kotlin.String? = null, contextModelName: kotlin.String? = null, contextModelPk: kotlin.String? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null, tenantName: kotlin.String? = null, username: kotlin.String? = null) : PaginatedEventList {
-        val localVarResponse = eventsEventsListWithHttpInfo(action = action, clientIp = clientIp, contextAuthorizedApp = contextAuthorizedApp, contextModelApp = contextModelApp, contextModelName = contextModelName, contextModelPk = contextModelPk, ordering = ordering, page = page, pageSize = pageSize, search = search, tenantName = tenantName, username = username)
+    fun eventsEventsList(action: kotlin.String? = null, brandName: kotlin.String? = null, clientIp: kotlin.String? = null, contextAuthorizedApp: kotlin.String? = null, contextModelApp: kotlin.String? = null, contextModelName: kotlin.String? = null, contextModelPk: kotlin.String? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null, username: kotlin.String? = null) : PaginatedEventList {
+        val localVarResponse = eventsEventsListWithHttpInfo(action = action, brandName = brandName, clientIp = clientIp, contextAuthorizedApp = contextAuthorizedApp, contextModelApp = contextModelApp, contextModelName = contextModelName, contextModelPk = contextModelPk, ordering = ordering, page = page, pageSize = pageSize, search = search, username = username)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedEventList
@@ -322,6 +322,7 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      * 
      * Event Read-Only Viewset
      * @param action  (optional)
+     * @param brandName Brand name (optional)
      * @param clientIp  (optional)
      * @param contextAuthorizedApp Context Authorized application (optional)
      * @param contextModelApp Context Model App (optional)
@@ -331,7 +332,6 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param search A search term. (optional)
-     * @param tenantName Tenant name (optional)
      * @param username Username (optional)
      * @return ApiResponse<PaginatedEventList?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -339,8 +339,8 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun eventsEventsListWithHttpInfo(action: kotlin.String?, clientIp: kotlin.String?, contextAuthorizedApp: kotlin.String?, contextModelApp: kotlin.String?, contextModelName: kotlin.String?, contextModelPk: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, tenantName: kotlin.String?, username: kotlin.String?) : ApiResponse<PaginatedEventList?> {
-        val localVariableConfig = eventsEventsListRequestConfig(action = action, clientIp = clientIp, contextAuthorizedApp = contextAuthorizedApp, contextModelApp = contextModelApp, contextModelName = contextModelName, contextModelPk = contextModelPk, ordering = ordering, page = page, pageSize = pageSize, search = search, tenantName = tenantName, username = username)
+    fun eventsEventsListWithHttpInfo(action: kotlin.String?, brandName: kotlin.String?, clientIp: kotlin.String?, contextAuthorizedApp: kotlin.String?, contextModelApp: kotlin.String?, contextModelName: kotlin.String?, contextModelPk: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, username: kotlin.String?) : ApiResponse<PaginatedEventList?> {
+        val localVariableConfig = eventsEventsListRequestConfig(action = action, brandName = brandName, clientIp = clientIp, contextAuthorizedApp = contextAuthorizedApp, contextModelApp = contextModelApp, contextModelName = contextModelName, contextModelPk = contextModelPk, ordering = ordering, page = page, pageSize = pageSize, search = search, username = username)
 
         return request<Unit, PaginatedEventList>(
             localVariableConfig
@@ -351,6 +351,7 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      * To obtain the request config of the operation eventsEventsList
      *
      * @param action  (optional)
+     * @param brandName Brand name (optional)
      * @param clientIp  (optional)
      * @param contextAuthorizedApp Context Authorized application (optional)
      * @param contextModelApp Context Model App (optional)
@@ -360,16 +361,18 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param search A search term. (optional)
-     * @param tenantName Tenant name (optional)
      * @param username Username (optional)
      * @return RequestConfig
      */
-    fun eventsEventsListRequestConfig(action: kotlin.String?, clientIp: kotlin.String?, contextAuthorizedApp: kotlin.String?, contextModelApp: kotlin.String?, contextModelName: kotlin.String?, contextModelPk: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, tenantName: kotlin.String?, username: kotlin.String?) : RequestConfig<Unit> {
+    fun eventsEventsListRequestConfig(action: kotlin.String?, brandName: kotlin.String?, clientIp: kotlin.String?, contextAuthorizedApp: kotlin.String?, contextModelApp: kotlin.String?, contextModelName: kotlin.String?, contextModelPk: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, username: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (action != null) {
                     put("action", listOf(action.toString()))
+                }
+                if (brandName != null) {
+                    put("brand_name", listOf(brandName.toString()))
                 }
                 if (clientIp != null) {
                     put("client_ip", listOf(clientIp.toString()))
@@ -397,9 +400,6 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
                 }
                 if (search != null) {
                     put("search", listOf(search.toString()))
-                }
-                if (tenantName != null) {
-                    put("tenant_name", listOf(tenantName.toString()))
                 }
                 if (username != null) {
                     put("username", listOf(username.toString()))
@@ -807,6 +807,7 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      * 
      * Get event volume for specified filters and timeframe
      * @param action  (optional)
+     * @param brandName Brand name (optional)
      * @param clientIp  (optional)
      * @param contextAuthorizedApp Context Authorized application (optional)
      * @param contextModelApp Context Model App (optional)
@@ -814,7 +815,6 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      * @param contextModelPk Context Model Primary Key (optional)
      * @param ordering Which field to use when ordering the results. (optional)
      * @param search A search term. (optional)
-     * @param tenantName Tenant name (optional)
      * @param username Username (optional)
      * @return kotlin.collections.List<Coordinate>
      * @throws IllegalStateException If the request is not correctly configured
@@ -825,8 +825,8 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun eventsEventsVolumeList(action: kotlin.String? = null, clientIp: kotlin.String? = null, contextAuthorizedApp: kotlin.String? = null, contextModelApp: kotlin.String? = null, contextModelName: kotlin.String? = null, contextModelPk: kotlin.String? = null, ordering: kotlin.String? = null, search: kotlin.String? = null, tenantName: kotlin.String? = null, username: kotlin.String? = null) : kotlin.collections.List<Coordinate> {
-        val localVarResponse = eventsEventsVolumeListWithHttpInfo(action = action, clientIp = clientIp, contextAuthorizedApp = contextAuthorizedApp, contextModelApp = contextModelApp, contextModelName = contextModelName, contextModelPk = contextModelPk, ordering = ordering, search = search, tenantName = tenantName, username = username)
+    fun eventsEventsVolumeList(action: kotlin.String? = null, brandName: kotlin.String? = null, clientIp: kotlin.String? = null, contextAuthorizedApp: kotlin.String? = null, contextModelApp: kotlin.String? = null, contextModelName: kotlin.String? = null, contextModelPk: kotlin.String? = null, ordering: kotlin.String? = null, search: kotlin.String? = null, username: kotlin.String? = null) : kotlin.collections.List<Coordinate> {
+        val localVarResponse = eventsEventsVolumeListWithHttpInfo(action = action, brandName = brandName, clientIp = clientIp, contextAuthorizedApp = contextAuthorizedApp, contextModelApp = contextModelApp, contextModelName = contextModelName, contextModelPk = contextModelPk, ordering = ordering, search = search, username = username)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Coordinate>
@@ -847,6 +847,7 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      * 
      * Get event volume for specified filters and timeframe
      * @param action  (optional)
+     * @param brandName Brand name (optional)
      * @param clientIp  (optional)
      * @param contextAuthorizedApp Context Authorized application (optional)
      * @param contextModelApp Context Model App (optional)
@@ -854,7 +855,6 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      * @param contextModelPk Context Model Primary Key (optional)
      * @param ordering Which field to use when ordering the results. (optional)
      * @param search A search term. (optional)
-     * @param tenantName Tenant name (optional)
      * @param username Username (optional)
      * @return ApiResponse<kotlin.collections.List<Coordinate>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -862,8 +862,8 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun eventsEventsVolumeListWithHttpInfo(action: kotlin.String?, clientIp: kotlin.String?, contextAuthorizedApp: kotlin.String?, contextModelApp: kotlin.String?, contextModelName: kotlin.String?, contextModelPk: kotlin.String?, ordering: kotlin.String?, search: kotlin.String?, tenantName: kotlin.String?, username: kotlin.String?) : ApiResponse<kotlin.collections.List<Coordinate>?> {
-        val localVariableConfig = eventsEventsVolumeListRequestConfig(action = action, clientIp = clientIp, contextAuthorizedApp = contextAuthorizedApp, contextModelApp = contextModelApp, contextModelName = contextModelName, contextModelPk = contextModelPk, ordering = ordering, search = search, tenantName = tenantName, username = username)
+    fun eventsEventsVolumeListWithHttpInfo(action: kotlin.String?, brandName: kotlin.String?, clientIp: kotlin.String?, contextAuthorizedApp: kotlin.String?, contextModelApp: kotlin.String?, contextModelName: kotlin.String?, contextModelPk: kotlin.String?, ordering: kotlin.String?, search: kotlin.String?, username: kotlin.String?) : ApiResponse<kotlin.collections.List<Coordinate>?> {
+        val localVariableConfig = eventsEventsVolumeListRequestConfig(action = action, brandName = brandName, clientIp = clientIp, contextAuthorizedApp = contextAuthorizedApp, contextModelApp = contextModelApp, contextModelName = contextModelName, contextModelPk = contextModelPk, ordering = ordering, search = search, username = username)
 
         return request<Unit, kotlin.collections.List<Coordinate>>(
             localVariableConfig
@@ -874,6 +874,7 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      * To obtain the request config of the operation eventsEventsVolumeList
      *
      * @param action  (optional)
+     * @param brandName Brand name (optional)
      * @param clientIp  (optional)
      * @param contextAuthorizedApp Context Authorized application (optional)
      * @param contextModelApp Context Model App (optional)
@@ -881,16 +882,18 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
      * @param contextModelPk Context Model Primary Key (optional)
      * @param ordering Which field to use when ordering the results. (optional)
      * @param search A search term. (optional)
-     * @param tenantName Tenant name (optional)
      * @param username Username (optional)
      * @return RequestConfig
      */
-    fun eventsEventsVolumeListRequestConfig(action: kotlin.String?, clientIp: kotlin.String?, contextAuthorizedApp: kotlin.String?, contextModelApp: kotlin.String?, contextModelName: kotlin.String?, contextModelPk: kotlin.String?, ordering: kotlin.String?, search: kotlin.String?, tenantName: kotlin.String?, username: kotlin.String?) : RequestConfig<Unit> {
+    fun eventsEventsVolumeListRequestConfig(action: kotlin.String?, brandName: kotlin.String?, clientIp: kotlin.String?, contextAuthorizedApp: kotlin.String?, contextModelApp: kotlin.String?, contextModelName: kotlin.String?, contextModelPk: kotlin.String?, ordering: kotlin.String?, search: kotlin.String?, username: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (action != null) {
                     put("action", listOf(action.toString()))
+                }
+                if (brandName != null) {
+                    put("brand_name", listOf(brandName.toString()))
                 }
                 if (clientIp != null) {
                     put("client_ip", listOf(clientIp.toString()))
@@ -912,9 +915,6 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
                 }
                 if (search != null) {
                     put("search", listOf(search.toString()))
-                }
-                if (tenantName != null) {
-                    put("tenant_name", listOf(tenantName.toString()))
                 }
                 if (username != null) {
                     put("username", listOf(username.toString()))
