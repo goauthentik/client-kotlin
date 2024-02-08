@@ -3,6 +3,7 @@ PWD = $(shell pwd)
 UID = $(shell id -u)
 GID = $(shell id -g)
 VERSION = $(shell cd version/ && go run -v .)
+TMPDIR := $(shell mktemp -d)
 
 all: clean fetch diff generate
 
