@@ -41,3 +41,6 @@ diff:
 fetch:
 	mv schema.yml schema-old.yml
 	wget -O schema.yml https://raw.githubusercontent.com/goauthentik/authentik/master/schema.yml
+
+debug:
+	docker run -it --rm -v $(pwd):/data -w /data --entrypoint /bin/bash docker.io/library/eclipse-temurin:20

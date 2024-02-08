@@ -33,4 +33,5 @@ jobs:
           arguments: publish
           gradle-version: "8.4"
         env:
-          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+          # GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
