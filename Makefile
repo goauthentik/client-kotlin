@@ -26,7 +26,6 @@ generate:
 	rm -rf ./test
 	rm -f .travis.yml git_push.sh
 	chmod +x ./gradlew
-	echo "build.gradle" >> .gitignore
 	# cp ./templates/build.gradle build.gradle
 
 build:
