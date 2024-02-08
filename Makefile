@@ -36,6 +36,9 @@ diff:
 		docker.io/openapitools/openapi-diff:2.1.0-beta.6 \
 		--markdown /local/diff.log \
 		/local/schema-old.yml /local/schema.yml || echo > diff.log
+	mv diff.log ${TMPDIR}/diff.log
+	echo "Update API Client\n\n" > diff.log
+	cat ${TMPDIR}/diff.log >> diff.log
 	rm -f schema-old.yml
 
 fetch:
