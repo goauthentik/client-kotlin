@@ -20,6 +20,7 @@ generate:
 		docker.io/openapitools/openapi-generator-cli:v7.1.0 generate \
 		-i /local/schema.yml \
 		-g kotlin \
+		--additional-properties=artifactVersion=${VERSION} \
 		-o /local \
 		-c /local/config.yaml
 	rm -rf ./test
