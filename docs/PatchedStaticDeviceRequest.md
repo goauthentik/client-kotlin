@@ -4,7 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **kotlin.String** | The human-readable name of this device. |  [optional]
+**pk** | **kotlin.String** |  |  [optional]
+**name** | **kotlin.String** |  |  [optional]
 
 
 

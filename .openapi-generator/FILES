@@ -27,6 +27,11 @@ docs/AuthenticatorDuoStage.md
 docs/AuthenticatorDuoStageDeviceImportResponse.md
 docs/AuthenticatorDuoStageManualDeviceImportRequest.md
 docs/AuthenticatorDuoStageRequest.md
+docs/AuthenticatorMobileChallenge.md
+docs/AuthenticatorMobileChallengeResponseRequest.md
+docs/AuthenticatorMobilePayloadChallenge.md
+docs/AuthenticatorMobileStage.md
+docs/AuthenticatorMobileStageRequest.md
 docs/AuthenticatorSMSChallenge.md
 docs/AuthenticatorSMSChallengeResponseRequest.md
 docs/AuthenticatorSMSStage.md
@@ -161,6 +166,7 @@ docs/InvitationRequest.md
 docs/InvitationStage.md
 docs/InvitationStageRequest.md
 docs/IssuerModeEnum.md
+docs/ItemMatchingModeEnum.md
 docs/KubernetesServiceConnection.md
 docs/KubernetesServiceConnectionRequest.md
 docs/LDAPAPIAccessMode.md
@@ -183,6 +189,16 @@ docs/LoginMetrics.md
 docs/LoginSource.md
 docs/ManagedApi.md
 docs/Metadata.md
+docs/MobileDevice.md
+docs/MobileDeviceCheckInRequest.md
+docs/MobileDeviceEnrollmentCallback.md
+docs/MobileDeviceEnrollmentRequest.md
+docs/MobileDeviceEnrollmentStatus.md
+docs/MobileDeviceEnrollmentStatusStatusEnum.md
+docs/MobileDeviceInfo.md
+docs/MobileDeviceInfoRequest.md
+docs/MobileDeviceRequest.md
+docs/MobileDeviceResponseRequest.md
 docs/ModelEnum.md
 docs/ModelRequest.md
 docs/NameIdPolicyEnum.md
@@ -219,6 +235,7 @@ docs/PaginatedApplicationList.md
 docs/PaginatedAuthenticateWebAuthnStageList.md
 docs/PaginatedAuthenticatedSessionList.md
 docs/PaginatedAuthenticatorDuoStageList.md
+docs/PaginatedAuthenticatorMobileStageList.md
 docs/PaginatedAuthenticatorSMSStageList.md
 docs/PaginatedAuthenticatorStaticStageList.md
 docs/PaginatedAuthenticatorTOTPStageList.md
@@ -254,6 +271,7 @@ docs/PaginatedLDAPPropertyMappingList.md
 docs/PaginatedLDAPProviderList.md
 docs/PaginatedLDAPSourceList.md
 docs/PaginatedLicenseList.md
+docs/PaginatedMobileDeviceList.md
 docs/PaginatedNotificationList.md
 docs/PaginatedNotificationRuleList.md
 docs/PaginatedNotificationTransportList.md
@@ -294,6 +312,7 @@ docs/PaginatedServiceConnectionList.md
 docs/PaginatedSourceList.md
 docs/PaginatedStageList.md
 docs/PaginatedStaticDeviceList.md
+docs/PaginatedSystemTaskList.md
 docs/PaginatedTOTPDeviceList.md
 docs/PaginatedTenantList.md
 docs/PaginatedTokenList.md
@@ -321,6 +340,7 @@ docs/PasswordStageRequest.md
 docs/PatchedApplicationRequest.md
 docs/PatchedAuthenticateWebAuthnStageRequest.md
 docs/PatchedAuthenticatorDuoStageRequest.md
+docs/PatchedAuthenticatorMobileStageRequest.md
 docs/PatchedAuthenticatorSMSStageRequest.md
 docs/PatchedAuthenticatorStaticStageRequest.md
 docs/PatchedAuthenticatorTOTPStageRequest.md
@@ -352,6 +372,7 @@ docs/PatchedLDAPPropertyMappingRequest.md
 docs/PatchedLDAPProviderRequest.md
 docs/PatchedLDAPSourceRequest.md
 docs/PatchedLicenseRequest.md
+docs/PatchedMobileDeviceRequest.md
 docs/PatchedNotificationRequest.md
 docs/PatchedNotificationRuleRequest.md
 docs/PatchedNotificationTransportRequest.md
@@ -396,6 +417,7 @@ docs/PatchedUserWriteStageRequest.md
 docs/PatchedWebAuthnDeviceRequest.md
 docs/Permission.md
 docs/PermissionAssignRequest.md
+docs/PlatformEnum.md
 docs/PlexAuthenticationChallenge.md
 docs/PlexAuthenticationChallengeResponseRequest.md
 docs/PlexSource.md
@@ -495,10 +517,10 @@ docs/StaticDeviceTokenRequest.md
 docs/SubModeEnum.md
 docs/SystemInfo.md
 docs/SystemInfoRuntime.md
+docs/SystemTask.md
+docs/SystemTaskStatusEnum.md
 docs/TOTPDevice.md
 docs/TOTPDeviceRequest.md
-docs/Task.md
-docs/TaskStatusEnum.md
 docs/Tenant.md
 docs/TenantAdminGroupRequestRequest.md
 docs/TenantRecoveryKeyRequestRequest.md
@@ -626,6 +648,11 @@ src/main/kotlin/io/goauthentik/api/models/AuthenticatorDuoStage.kt
 src/main/kotlin/io/goauthentik/api/models/AuthenticatorDuoStageDeviceImportResponse.kt
 src/main/kotlin/io/goauthentik/api/models/AuthenticatorDuoStageManualDeviceImportRequest.kt
 src/main/kotlin/io/goauthentik/api/models/AuthenticatorDuoStageRequest.kt
+src/main/kotlin/io/goauthentik/api/models/AuthenticatorMobileChallenge.kt
+src/main/kotlin/io/goauthentik/api/models/AuthenticatorMobileChallengeResponseRequest.kt
+src/main/kotlin/io/goauthentik/api/models/AuthenticatorMobilePayloadChallenge.kt
+src/main/kotlin/io/goauthentik/api/models/AuthenticatorMobileStage.kt
+src/main/kotlin/io/goauthentik/api/models/AuthenticatorMobileStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/AuthenticatorSMSChallenge.kt
 src/main/kotlin/io/goauthentik/api/models/AuthenticatorSMSChallengeResponseRequest.kt
 src/main/kotlin/io/goauthentik/api/models/AuthenticatorSMSStage.kt
@@ -754,6 +781,7 @@ src/main/kotlin/io/goauthentik/api/models/InvitationRequest.kt
 src/main/kotlin/io/goauthentik/api/models/InvitationStage.kt
 src/main/kotlin/io/goauthentik/api/models/InvitationStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/IssuerModeEnum.kt
+src/main/kotlin/io/goauthentik/api/models/ItemMatchingModeEnum.kt
 src/main/kotlin/io/goauthentik/api/models/KubernetesServiceConnection.kt
 src/main/kotlin/io/goauthentik/api/models/KubernetesServiceConnectionRequest.kt
 src/main/kotlin/io/goauthentik/api/models/LDAPAPIAccessMode.kt
@@ -775,6 +803,16 @@ src/main/kotlin/io/goauthentik/api/models/LoginChallengeTypes.kt
 src/main/kotlin/io/goauthentik/api/models/LoginMetrics.kt
 src/main/kotlin/io/goauthentik/api/models/LoginSource.kt
 src/main/kotlin/io/goauthentik/api/models/Metadata.kt
+src/main/kotlin/io/goauthentik/api/models/MobileDevice.kt
+src/main/kotlin/io/goauthentik/api/models/MobileDeviceCheckInRequest.kt
+src/main/kotlin/io/goauthentik/api/models/MobileDeviceEnrollmentCallback.kt
+src/main/kotlin/io/goauthentik/api/models/MobileDeviceEnrollmentRequest.kt
+src/main/kotlin/io/goauthentik/api/models/MobileDeviceEnrollmentStatus.kt
+src/main/kotlin/io/goauthentik/api/models/MobileDeviceEnrollmentStatusStatusEnum.kt
+src/main/kotlin/io/goauthentik/api/models/MobileDeviceInfo.kt
+src/main/kotlin/io/goauthentik/api/models/MobileDeviceInfoRequest.kt
+src/main/kotlin/io/goauthentik/api/models/MobileDeviceRequest.kt
+src/main/kotlin/io/goauthentik/api/models/MobileDeviceResponseRequest.kt
 src/main/kotlin/io/goauthentik/api/models/ModelEnum.kt
 src/main/kotlin/io/goauthentik/api/models/ModelRequest.kt
 src/main/kotlin/io/goauthentik/api/models/NameIdPolicyEnum.kt
@@ -809,6 +847,7 @@ src/main/kotlin/io/goauthentik/api/models/PaginatedApplicationList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedAuthenticateWebAuthnStageList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedAuthenticatedSessionList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedAuthenticatorDuoStageList.kt
+src/main/kotlin/io/goauthentik/api/models/PaginatedAuthenticatorMobileStageList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedAuthenticatorSMSStageList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedAuthenticatorStaticStageList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedAuthenticatorTOTPStageList.kt
@@ -844,6 +883,7 @@ src/main/kotlin/io/goauthentik/api/models/PaginatedLDAPPropertyMappingList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedLDAPProviderList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedLDAPSourceList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedLicenseList.kt
+src/main/kotlin/io/goauthentik/api/models/PaginatedMobileDeviceList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedNotificationList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedNotificationRuleList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedNotificationTransportList.kt
@@ -884,6 +924,7 @@ src/main/kotlin/io/goauthentik/api/models/PaginatedServiceConnectionList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedSourceList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedStageList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedStaticDeviceList.kt
+src/main/kotlin/io/goauthentik/api/models/PaginatedSystemTaskList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedTOTPDeviceList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedTenantList.kt
 src/main/kotlin/io/goauthentik/api/models/PaginatedTokenList.kt
@@ -911,6 +952,7 @@ src/main/kotlin/io/goauthentik/api/models/PasswordStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedApplicationRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedAuthenticateWebAuthnStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedAuthenticatorDuoStageRequest.kt
+src/main/kotlin/io/goauthentik/api/models/PatchedAuthenticatorMobileStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedAuthenticatorSMSStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedAuthenticatorStaticStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedAuthenticatorTOTPStageRequest.kt
@@ -942,6 +984,7 @@ src/main/kotlin/io/goauthentik/api/models/PatchedLDAPPropertyMappingRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedLDAPProviderRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedLDAPSourceRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedLicenseRequest.kt
+src/main/kotlin/io/goauthentik/api/models/PatchedMobileDeviceRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedNotificationRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedNotificationRuleRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedNotificationTransportRequest.kt
@@ -986,6 +1029,7 @@ src/main/kotlin/io/goauthentik/api/models/PatchedUserWriteStageRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PatchedWebAuthnDeviceRequest.kt
 src/main/kotlin/io/goauthentik/api/models/Permission.kt
 src/main/kotlin/io/goauthentik/api/models/PermissionAssignRequest.kt
+src/main/kotlin/io/goauthentik/api/models/PlatformEnum.kt
 src/main/kotlin/io/goauthentik/api/models/PlexAuthenticationChallenge.kt
 src/main/kotlin/io/goauthentik/api/models/PlexAuthenticationChallengeResponseRequest.kt
 src/main/kotlin/io/goauthentik/api/models/PlexSource.kt
@@ -1076,10 +1120,10 @@ src/main/kotlin/io/goauthentik/api/models/StaticDeviceTokenRequest.kt
 src/main/kotlin/io/goauthentik/api/models/SubModeEnum.kt
 src/main/kotlin/io/goauthentik/api/models/SystemInfo.kt
 src/main/kotlin/io/goauthentik/api/models/SystemInfoRuntime.kt
+src/main/kotlin/io/goauthentik/api/models/SystemTask.kt
+src/main/kotlin/io/goauthentik/api/models/SystemTaskStatusEnum.kt
 src/main/kotlin/io/goauthentik/api/models/TOTPDevice.kt
 src/main/kotlin/io/goauthentik/api/models/TOTPDeviceRequest.kt
-src/main/kotlin/io/goauthentik/api/models/Task.kt
-src/main/kotlin/io/goauthentik/api/models/TaskStatusEnum.kt
 src/main/kotlin/io/goauthentik/api/models/Tenant.kt
 src/main/kotlin/io/goauthentik/api/models/TenantAdminGroupRequestRequest.kt
 src/main/kotlin/io/goauthentik/api/models/TenantRecoveryKeyRequestRequest.kt

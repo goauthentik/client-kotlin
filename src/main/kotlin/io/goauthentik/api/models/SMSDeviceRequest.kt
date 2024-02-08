@@ -22,13 +22,16 @@ import com.squareup.moshi.JsonClass
 /**
  * Serializer for sms authenticator devices
  *
- * @param name The human-readable name of this device.
+ * @param pk 
+ * @param name 
  */
 
 
 data class SMSDeviceRequest (
 
-    /* The human-readable name of this device. */
+    @Json(name = "pk")
+    val pk: kotlin.String,
+
     @Json(name = "name")
     val name: kotlin.String
 

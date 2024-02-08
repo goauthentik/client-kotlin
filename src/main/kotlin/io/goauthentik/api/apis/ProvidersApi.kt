@@ -1486,6 +1486,7 @@ class ProvidersApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * 
      * Preview user data for provider
      * @param id A unique integer value identifying this OAuth2/OpenID Provider.
+     * @param forUser  (optional)
      * @return PropertyMappingPreview
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1495,8 +1496,8 @@ class ProvidersApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun providersOauth2PreviewUserRetrieve(id: kotlin.Int) : PropertyMappingPreview {
-        val localVarResponse = providersOauth2PreviewUserRetrieveWithHttpInfo(id = id)
+    fun providersOauth2PreviewUserRetrieve(id: kotlin.Int, forUser: kotlin.Int? = null) : PropertyMappingPreview {
+        val localVarResponse = providersOauth2PreviewUserRetrieveWithHttpInfo(id = id, forUser = forUser)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PropertyMappingPreview
@@ -1517,14 +1518,15 @@ class ProvidersApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * 
      * Preview user data for provider
      * @param id A unique integer value identifying this OAuth2/OpenID Provider.
+     * @param forUser  (optional)
      * @return ApiResponse<PropertyMappingPreview?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun providersOauth2PreviewUserRetrieveWithHttpInfo(id: kotlin.Int) : ApiResponse<PropertyMappingPreview?> {
-        val localVariableConfig = providersOauth2PreviewUserRetrieveRequestConfig(id = id)
+    fun providersOauth2PreviewUserRetrieveWithHttpInfo(id: kotlin.Int, forUser: kotlin.Int?) : ApiResponse<PropertyMappingPreview?> {
+        val localVariableConfig = providersOauth2PreviewUserRetrieveRequestConfig(id = id, forUser = forUser)
 
         return request<Unit, PropertyMappingPreview>(
             localVariableConfig
@@ -1535,11 +1537,17 @@ class ProvidersApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * To obtain the request config of the operation providersOauth2PreviewUserRetrieve
      *
      * @param id A unique integer value identifying this OAuth2/OpenID Provider.
+     * @param forUser  (optional)
      * @return RequestConfig
      */
-    fun providersOauth2PreviewUserRetrieveRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
+    fun providersOauth2PreviewUserRetrieveRequestConfig(id: kotlin.Int, forUser: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (forUser != null) {
+                    put("for_user", listOf(forUser.toString()))
+                }
+            }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
 
@@ -4182,6 +4190,7 @@ class ProvidersApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * 
      * Preview user data for provider
      * @param id A unique integer value identifying this SAML Provider.
+     * @param forUser  (optional)
      * @return PropertyMappingPreview
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -4191,8 +4200,8 @@ class ProvidersApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun providersSamlPreviewUserRetrieve(id: kotlin.Int) : PropertyMappingPreview {
-        val localVarResponse = providersSamlPreviewUserRetrieveWithHttpInfo(id = id)
+    fun providersSamlPreviewUserRetrieve(id: kotlin.Int, forUser: kotlin.Int? = null) : PropertyMappingPreview {
+        val localVarResponse = providersSamlPreviewUserRetrieveWithHttpInfo(id = id, forUser = forUser)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PropertyMappingPreview
@@ -4213,14 +4222,15 @@ class ProvidersApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * 
      * Preview user data for provider
      * @param id A unique integer value identifying this SAML Provider.
+     * @param forUser  (optional)
      * @return ApiResponse<PropertyMappingPreview?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun providersSamlPreviewUserRetrieveWithHttpInfo(id: kotlin.Int) : ApiResponse<PropertyMappingPreview?> {
-        val localVariableConfig = providersSamlPreviewUserRetrieveRequestConfig(id = id)
+    fun providersSamlPreviewUserRetrieveWithHttpInfo(id: kotlin.Int, forUser: kotlin.Int?) : ApiResponse<PropertyMappingPreview?> {
+        val localVariableConfig = providersSamlPreviewUserRetrieveRequestConfig(id = id, forUser = forUser)
 
         return request<Unit, PropertyMappingPreview>(
             localVariableConfig
@@ -4231,11 +4241,17 @@ class ProvidersApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * To obtain the request config of the operation providersSamlPreviewUserRetrieve
      *
      * @param id A unique integer value identifying this SAML Provider.
+     * @param forUser  (optional)
      * @return RequestConfig
      */
-    fun providersSamlPreviewUserRetrieveRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
+    fun providersSamlPreviewUserRetrieveRequestConfig(id: kotlin.Int, forUser: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (forUser != null) {
+                    put("for_user", listOf(forUser.toString()))
+                }
+            }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
 

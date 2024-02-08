@@ -310,6 +310,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * 
      * Custom list method that checks Policy based access instead of guardian
+     * @param forUser  (optional)
      * @param group  (optional)
      * @param metaDescription  (optional)
      * @param metaLaunchUrl  (optional)
@@ -330,8 +331,8 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun coreApplicationsList(group: kotlin.String? = null, metaDescription: kotlin.String? = null, metaLaunchUrl: kotlin.String? = null, metaPublisher: kotlin.String? = null, name: kotlin.String? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null, slug: kotlin.String? = null, superuserFullList: kotlin.Boolean? = null) : PaginatedApplicationList {
-        val localVarResponse = coreApplicationsListWithHttpInfo(group = group, metaDescription = metaDescription, metaLaunchUrl = metaLaunchUrl, metaPublisher = metaPublisher, name = name, ordering = ordering, page = page, pageSize = pageSize, search = search, slug = slug, superuserFullList = superuserFullList)
+    fun coreApplicationsList(forUser: kotlin.Int? = null, group: kotlin.String? = null, metaDescription: kotlin.String? = null, metaLaunchUrl: kotlin.String? = null, metaPublisher: kotlin.String? = null, name: kotlin.String? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null, slug: kotlin.String? = null, superuserFullList: kotlin.Boolean? = null) : PaginatedApplicationList {
+        val localVarResponse = coreApplicationsListWithHttpInfo(forUser = forUser, group = group, metaDescription = metaDescription, metaLaunchUrl = metaLaunchUrl, metaPublisher = metaPublisher, name = name, ordering = ordering, page = page, pageSize = pageSize, search = search, slug = slug, superuserFullList = superuserFullList)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedApplicationList
@@ -351,6 +352,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * 
      * Custom list method that checks Policy based access instead of guardian
+     * @param forUser  (optional)
      * @param group  (optional)
      * @param metaDescription  (optional)
      * @param metaLaunchUrl  (optional)
@@ -368,8 +370,8 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun coreApplicationsListWithHttpInfo(group: kotlin.String?, metaDescription: kotlin.String?, metaLaunchUrl: kotlin.String?, metaPublisher: kotlin.String?, name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, slug: kotlin.String?, superuserFullList: kotlin.Boolean?) : ApiResponse<PaginatedApplicationList?> {
-        val localVariableConfig = coreApplicationsListRequestConfig(group = group, metaDescription = metaDescription, metaLaunchUrl = metaLaunchUrl, metaPublisher = metaPublisher, name = name, ordering = ordering, page = page, pageSize = pageSize, search = search, slug = slug, superuserFullList = superuserFullList)
+    fun coreApplicationsListWithHttpInfo(forUser: kotlin.Int?, group: kotlin.String?, metaDescription: kotlin.String?, metaLaunchUrl: kotlin.String?, metaPublisher: kotlin.String?, name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, slug: kotlin.String?, superuserFullList: kotlin.Boolean?) : ApiResponse<PaginatedApplicationList?> {
+        val localVariableConfig = coreApplicationsListRequestConfig(forUser = forUser, group = group, metaDescription = metaDescription, metaLaunchUrl = metaLaunchUrl, metaPublisher = metaPublisher, name = name, ordering = ordering, page = page, pageSize = pageSize, search = search, slug = slug, superuserFullList = superuserFullList)
 
         return request<Unit, PaginatedApplicationList>(
             localVariableConfig
@@ -379,6 +381,7 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * To obtain the request config of the operation coreApplicationsList
      *
+     * @param forUser  (optional)
      * @param group  (optional)
      * @param metaDescription  (optional)
      * @param metaLaunchUrl  (optional)
@@ -392,10 +395,13 @@ class CoreApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
      * @param superuserFullList  (optional)
      * @return RequestConfig
      */
-    fun coreApplicationsListRequestConfig(group: kotlin.String?, metaDescription: kotlin.String?, metaLaunchUrl: kotlin.String?, metaPublisher: kotlin.String?, name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, slug: kotlin.String?, superuserFullList: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun coreApplicationsListRequestConfig(forUser: kotlin.Int?, group: kotlin.String?, metaDescription: kotlin.String?, metaLaunchUrl: kotlin.String?, metaPublisher: kotlin.String?, name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, slug: kotlin.String?, superuserFullList: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (forUser != null) {
+                    put("for_user", listOf(forUser.toString()))
+                }
                 if (group != null) {
                     put("group", listOf(group.toString()))
                 }

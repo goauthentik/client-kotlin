@@ -25,6 +25,8 @@ import io.goauthentik.api.models.AuthenticatorDuoStage
 import io.goauthentik.api.models.AuthenticatorDuoStageDeviceImportResponse
 import io.goauthentik.api.models.AuthenticatorDuoStageManualDeviceImportRequest
 import io.goauthentik.api.models.AuthenticatorDuoStageRequest
+import io.goauthentik.api.models.AuthenticatorMobileStage
+import io.goauthentik.api.models.AuthenticatorMobileStageRequest
 import io.goauthentik.api.models.AuthenticatorSMSStage
 import io.goauthentik.api.models.AuthenticatorSMSStageRequest
 import io.goauthentik.api.models.AuthenticatorStaticStage
@@ -53,6 +55,7 @@ import io.goauthentik.api.models.InvitationStage
 import io.goauthentik.api.models.InvitationStageRequest
 import io.goauthentik.api.models.PaginatedAuthenticateWebAuthnStageList
 import io.goauthentik.api.models.PaginatedAuthenticatorDuoStageList
+import io.goauthentik.api.models.PaginatedAuthenticatorMobileStageList
 import io.goauthentik.api.models.PaginatedAuthenticatorSMSStageList
 import io.goauthentik.api.models.PaginatedAuthenticatorStaticStageList
 import io.goauthentik.api.models.PaginatedAuthenticatorTOTPStageList
@@ -77,6 +80,7 @@ import io.goauthentik.api.models.PasswordStage
 import io.goauthentik.api.models.PasswordStageRequest
 import io.goauthentik.api.models.PatchedAuthenticateWebAuthnStageRequest
 import io.goauthentik.api.models.PatchedAuthenticatorDuoStageRequest
+import io.goauthentik.api.models.PatchedAuthenticatorMobileStageRequest
 import io.goauthentik.api.models.PatchedAuthenticatorSMSStageRequest
 import io.goauthentik.api.models.PatchedAuthenticatorStaticStageRequest
 import io.goauthentik.api.models.PatchedAuthenticatorTOTPStageRequest
@@ -1354,6 +1358,545 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
 
     /**
      * 
+     * AuthenticatorMobileStage Viewset
+     * @param authenticatorMobileStageRequest 
+     * @return AuthenticatorMobileStage
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun stagesAuthenticatorMobileCreate(authenticatorMobileStageRequest: AuthenticatorMobileStageRequest) : AuthenticatorMobileStage {
+        val localVarResponse = stagesAuthenticatorMobileCreateWithHttpInfo(authenticatorMobileStageRequest = authenticatorMobileStageRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as AuthenticatorMobileStage
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * AuthenticatorMobileStage Viewset
+     * @param authenticatorMobileStageRequest 
+     * @return ApiResponse<AuthenticatorMobileStage?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun stagesAuthenticatorMobileCreateWithHttpInfo(authenticatorMobileStageRequest: AuthenticatorMobileStageRequest) : ApiResponse<AuthenticatorMobileStage?> {
+        val localVariableConfig = stagesAuthenticatorMobileCreateRequestConfig(authenticatorMobileStageRequest = authenticatorMobileStageRequest)
+
+        return request<AuthenticatorMobileStageRequest, AuthenticatorMobileStage>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation stagesAuthenticatorMobileCreate
+     *
+     * @param authenticatorMobileStageRequest 
+     * @return RequestConfig
+     */
+    fun stagesAuthenticatorMobileCreateRequestConfig(authenticatorMobileStageRequest: AuthenticatorMobileStageRequest) : RequestConfig<AuthenticatorMobileStageRequest> {
+        val localVariableBody = authenticatorMobileStageRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/stages/authenticator/mobile/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * AuthenticatorMobileStage Viewset
+     * @param stageUuid A UUID string identifying this Mobile Authenticator Setup Stage.
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun stagesAuthenticatorMobileDestroy(stageUuid: java.util.UUID) : Unit {
+        val localVarResponse = stagesAuthenticatorMobileDestroyWithHttpInfo(stageUuid = stageUuid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * AuthenticatorMobileStage Viewset
+     * @param stageUuid A UUID string identifying this Mobile Authenticator Setup Stage.
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun stagesAuthenticatorMobileDestroyWithHttpInfo(stageUuid: java.util.UUID) : ApiResponse<Unit?> {
+        val localVariableConfig = stagesAuthenticatorMobileDestroyRequestConfig(stageUuid = stageUuid)
+
+        return request<Unit, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation stagesAuthenticatorMobileDestroy
+     *
+     * @param stageUuid A UUID string identifying this Mobile Authenticator Setup Stage.
+     * @return RequestConfig
+     */
+    fun stagesAuthenticatorMobileDestroyRequestConfig(stageUuid: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/stages/authenticator/mobile/{stage_uuid}/".replace("{"+"stage_uuid"+"}", encodeURIComponent(stageUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * AuthenticatorMobileStage Viewset
+     * @param configureFlow  (optional)
+     * @param name  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return PaginatedAuthenticatorMobileStageList
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun stagesAuthenticatorMobileList(configureFlow: java.util.UUID? = null, name: kotlin.String? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null) : PaginatedAuthenticatorMobileStageList {
+        val localVarResponse = stagesAuthenticatorMobileListWithHttpInfo(configureFlow = configureFlow, name = name, ordering = ordering, page = page, pageSize = pageSize, search = search)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedAuthenticatorMobileStageList
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * AuthenticatorMobileStage Viewset
+     * @param configureFlow  (optional)
+     * @param name  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return ApiResponse<PaginatedAuthenticatorMobileStageList?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun stagesAuthenticatorMobileListWithHttpInfo(configureFlow: java.util.UUID?, name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?) : ApiResponse<PaginatedAuthenticatorMobileStageList?> {
+        val localVariableConfig = stagesAuthenticatorMobileListRequestConfig(configureFlow = configureFlow, name = name, ordering = ordering, page = page, pageSize = pageSize, search = search)
+
+        return request<Unit, PaginatedAuthenticatorMobileStageList>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation stagesAuthenticatorMobileList
+     *
+     * @param configureFlow  (optional)
+     * @param name  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return RequestConfig
+     */
+    fun stagesAuthenticatorMobileListRequestConfig(configureFlow: java.util.UUID?, name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (configureFlow != null) {
+                    put("configure_flow", listOf(configureFlow.toString()))
+                }
+                if (name != null) {
+                    put("name", listOf(name.toString()))
+                }
+                if (ordering != null) {
+                    put("ordering", listOf(ordering.toString()))
+                }
+                if (page != null) {
+                    put("page", listOf(page.toString()))
+                }
+                if (pageSize != null) {
+                    put("page_size", listOf(pageSize.toString()))
+                }
+                if (search != null) {
+                    put("search", listOf(search.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/stages/authenticator/mobile/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * AuthenticatorMobileStage Viewset
+     * @param stageUuid A UUID string identifying this Mobile Authenticator Setup Stage.
+     * @param patchedAuthenticatorMobileStageRequest  (optional)
+     * @return AuthenticatorMobileStage
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun stagesAuthenticatorMobilePartialUpdate(stageUuid: java.util.UUID, patchedAuthenticatorMobileStageRequest: PatchedAuthenticatorMobileStageRequest? = null) : AuthenticatorMobileStage {
+        val localVarResponse = stagesAuthenticatorMobilePartialUpdateWithHttpInfo(stageUuid = stageUuid, patchedAuthenticatorMobileStageRequest = patchedAuthenticatorMobileStageRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as AuthenticatorMobileStage
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * AuthenticatorMobileStage Viewset
+     * @param stageUuid A UUID string identifying this Mobile Authenticator Setup Stage.
+     * @param patchedAuthenticatorMobileStageRequest  (optional)
+     * @return ApiResponse<AuthenticatorMobileStage?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun stagesAuthenticatorMobilePartialUpdateWithHttpInfo(stageUuid: java.util.UUID, patchedAuthenticatorMobileStageRequest: PatchedAuthenticatorMobileStageRequest?) : ApiResponse<AuthenticatorMobileStage?> {
+        val localVariableConfig = stagesAuthenticatorMobilePartialUpdateRequestConfig(stageUuid = stageUuid, patchedAuthenticatorMobileStageRequest = patchedAuthenticatorMobileStageRequest)
+
+        return request<PatchedAuthenticatorMobileStageRequest, AuthenticatorMobileStage>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation stagesAuthenticatorMobilePartialUpdate
+     *
+     * @param stageUuid A UUID string identifying this Mobile Authenticator Setup Stage.
+     * @param patchedAuthenticatorMobileStageRequest  (optional)
+     * @return RequestConfig
+     */
+    fun stagesAuthenticatorMobilePartialUpdateRequestConfig(stageUuid: java.util.UUID, patchedAuthenticatorMobileStageRequest: PatchedAuthenticatorMobileStageRequest?) : RequestConfig<PatchedAuthenticatorMobileStageRequest> {
+        val localVariableBody = patchedAuthenticatorMobileStageRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/stages/authenticator/mobile/{stage_uuid}/".replace("{"+"stage_uuid"+"}", encodeURIComponent(stageUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * AuthenticatorMobileStage Viewset
+     * @param stageUuid A UUID string identifying this Mobile Authenticator Setup Stage.
+     * @return AuthenticatorMobileStage
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun stagesAuthenticatorMobileRetrieve(stageUuid: java.util.UUID) : AuthenticatorMobileStage {
+        val localVarResponse = stagesAuthenticatorMobileRetrieveWithHttpInfo(stageUuid = stageUuid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as AuthenticatorMobileStage
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * AuthenticatorMobileStage Viewset
+     * @param stageUuid A UUID string identifying this Mobile Authenticator Setup Stage.
+     * @return ApiResponse<AuthenticatorMobileStage?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun stagesAuthenticatorMobileRetrieveWithHttpInfo(stageUuid: java.util.UUID) : ApiResponse<AuthenticatorMobileStage?> {
+        val localVariableConfig = stagesAuthenticatorMobileRetrieveRequestConfig(stageUuid = stageUuid)
+
+        return request<Unit, AuthenticatorMobileStage>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation stagesAuthenticatorMobileRetrieve
+     *
+     * @param stageUuid A UUID string identifying this Mobile Authenticator Setup Stage.
+     * @return RequestConfig
+     */
+    fun stagesAuthenticatorMobileRetrieveRequestConfig(stageUuid: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/stages/authenticator/mobile/{stage_uuid}/".replace("{"+"stage_uuid"+"}", encodeURIComponent(stageUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * AuthenticatorMobileStage Viewset
+     * @param stageUuid A UUID string identifying this Mobile Authenticator Setup Stage.
+     * @param authenticatorMobileStageRequest 
+     * @return AuthenticatorMobileStage
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun stagesAuthenticatorMobileUpdate(stageUuid: java.util.UUID, authenticatorMobileStageRequest: AuthenticatorMobileStageRequest) : AuthenticatorMobileStage {
+        val localVarResponse = stagesAuthenticatorMobileUpdateWithHttpInfo(stageUuid = stageUuid, authenticatorMobileStageRequest = authenticatorMobileStageRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as AuthenticatorMobileStage
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * AuthenticatorMobileStage Viewset
+     * @param stageUuid A UUID string identifying this Mobile Authenticator Setup Stage.
+     * @param authenticatorMobileStageRequest 
+     * @return ApiResponse<AuthenticatorMobileStage?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun stagesAuthenticatorMobileUpdateWithHttpInfo(stageUuid: java.util.UUID, authenticatorMobileStageRequest: AuthenticatorMobileStageRequest) : ApiResponse<AuthenticatorMobileStage?> {
+        val localVariableConfig = stagesAuthenticatorMobileUpdateRequestConfig(stageUuid = stageUuid, authenticatorMobileStageRequest = authenticatorMobileStageRequest)
+
+        return request<AuthenticatorMobileStageRequest, AuthenticatorMobileStage>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation stagesAuthenticatorMobileUpdate
+     *
+     * @param stageUuid A UUID string identifying this Mobile Authenticator Setup Stage.
+     * @param authenticatorMobileStageRequest 
+     * @return RequestConfig
+     */
+    fun stagesAuthenticatorMobileUpdateRequestConfig(stageUuid: java.util.UUID, authenticatorMobileStageRequest: AuthenticatorMobileStageRequest) : RequestConfig<AuthenticatorMobileStageRequest> {
+        val localVariableBody = authenticatorMobileStageRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/stages/authenticator/mobile/{stage_uuid}/".replace("{"+"stage_uuid"+"}", encodeURIComponent(stageUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Get a list of all objects that use this object
+     * @param stageUuid A UUID string identifying this Mobile Authenticator Setup Stage.
+     * @return kotlin.collections.List<UsedBy>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun stagesAuthenticatorMobileUsedByList(stageUuid: java.util.UUID) : kotlin.collections.List<UsedBy> {
+        val localVarResponse = stagesAuthenticatorMobileUsedByListWithHttpInfo(stageUuid = stageUuid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<UsedBy>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Get a list of all objects that use this object
+     * @param stageUuid A UUID string identifying this Mobile Authenticator Setup Stage.
+     * @return ApiResponse<kotlin.collections.List<UsedBy>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun stagesAuthenticatorMobileUsedByListWithHttpInfo(stageUuid: java.util.UUID) : ApiResponse<kotlin.collections.List<UsedBy>?> {
+        val localVariableConfig = stagesAuthenticatorMobileUsedByListRequestConfig(stageUuid = stageUuid)
+
+        return request<Unit, kotlin.collections.List<UsedBy>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation stagesAuthenticatorMobileUsedByList
+     *
+     * @param stageUuid A UUID string identifying this Mobile Authenticator Setup Stage.
+     * @return RequestConfig
+     */
+    fun stagesAuthenticatorMobileUsedByListRequestConfig(stageUuid: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/stages/authenticator/mobile/{stage_uuid}/used_by/".replace("{"+"stage_uuid"+"}", encodeURIComponent(stageUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
      * AuthenticatorSMSStage Viewset
      * @param authenticatorSMSStageRequest 
      * @return AuthenticatorSMSStage
@@ -2042,7 +2585,7 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * 
      * AuthenticatorStaticStage Viewset
-     * @param stageUuid A UUID string identifying this Static Authenticator Stage.
+     * @param stageUuid A UUID string identifying this Static Authenticator Setup Stage.
      * @return void
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2072,7 +2615,7 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * 
      * AuthenticatorStaticStage Viewset
-     * @param stageUuid A UUID string identifying this Static Authenticator Stage.
+     * @param stageUuid A UUID string identifying this Static Authenticator Setup Stage.
      * @return ApiResponse<Unit?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2089,7 +2632,7 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * To obtain the request config of the operation stagesAuthenticatorStaticDestroy
      *
-     * @param stageUuid A UUID string identifying this Static Authenticator Stage.
+     * @param stageUuid A UUID string identifying this Static Authenticator Setup Stage.
      * @return RequestConfig
      */
     fun stagesAuthenticatorStaticDestroyRequestConfig(stageUuid: java.util.UUID) : RequestConfig<Unit> {
@@ -2241,7 +2784,7 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * 
      * AuthenticatorStaticStage Viewset
-     * @param stageUuid A UUID string identifying this Static Authenticator Stage.
+     * @param stageUuid A UUID string identifying this Static Authenticator Setup Stage.
      * @param patchedAuthenticatorStaticStageRequest  (optional)
      * @return AuthenticatorStaticStage
      * @throws IllegalStateException If the request is not correctly configured
@@ -2273,7 +2816,7 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * 
      * AuthenticatorStaticStage Viewset
-     * @param stageUuid A UUID string identifying this Static Authenticator Stage.
+     * @param stageUuid A UUID string identifying this Static Authenticator Setup Stage.
      * @param patchedAuthenticatorStaticStageRequest  (optional)
      * @return ApiResponse<AuthenticatorStaticStage?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -2292,7 +2835,7 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * To obtain the request config of the operation stagesAuthenticatorStaticPartialUpdate
      *
-     * @param stageUuid A UUID string identifying this Static Authenticator Stage.
+     * @param stageUuid A UUID string identifying this Static Authenticator Setup Stage.
      * @param patchedAuthenticatorStaticStageRequest  (optional)
      * @return RequestConfig
      */
@@ -2316,7 +2859,7 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * 
      * AuthenticatorStaticStage Viewset
-     * @param stageUuid A UUID string identifying this Static Authenticator Stage.
+     * @param stageUuid A UUID string identifying this Static Authenticator Setup Stage.
      * @return AuthenticatorStaticStage
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2347,7 +2890,7 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * 
      * AuthenticatorStaticStage Viewset
-     * @param stageUuid A UUID string identifying this Static Authenticator Stage.
+     * @param stageUuid A UUID string identifying this Static Authenticator Setup Stage.
      * @return ApiResponse<AuthenticatorStaticStage?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2365,7 +2908,7 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * To obtain the request config of the operation stagesAuthenticatorStaticRetrieve
      *
-     * @param stageUuid A UUID string identifying this Static Authenticator Stage.
+     * @param stageUuid A UUID string identifying this Static Authenticator Setup Stage.
      * @return RequestConfig
      */
     fun stagesAuthenticatorStaticRetrieveRequestConfig(stageUuid: java.util.UUID) : RequestConfig<Unit> {
@@ -2387,7 +2930,7 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * 
      * AuthenticatorStaticStage Viewset
-     * @param stageUuid A UUID string identifying this Static Authenticator Stage.
+     * @param stageUuid A UUID string identifying this Static Authenticator Setup Stage.
      * @param authenticatorStaticStageRequest 
      * @return AuthenticatorStaticStage
      * @throws IllegalStateException If the request is not correctly configured
@@ -2419,7 +2962,7 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * 
      * AuthenticatorStaticStage Viewset
-     * @param stageUuid A UUID string identifying this Static Authenticator Stage.
+     * @param stageUuid A UUID string identifying this Static Authenticator Setup Stage.
      * @param authenticatorStaticStageRequest 
      * @return ApiResponse<AuthenticatorStaticStage?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -2438,7 +2981,7 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * To obtain the request config of the operation stagesAuthenticatorStaticUpdate
      *
-     * @param stageUuid A UUID string identifying this Static Authenticator Stage.
+     * @param stageUuid A UUID string identifying this Static Authenticator Setup Stage.
      * @param authenticatorStaticStageRequest 
      * @return RequestConfig
      */
@@ -2462,7 +3005,7 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * 
      * Get a list of all objects that use this object
-     * @param stageUuid A UUID string identifying this Static Authenticator Stage.
+     * @param stageUuid A UUID string identifying this Static Authenticator Setup Stage.
      * @return kotlin.collections.List<UsedBy>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2493,7 +3036,7 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * 
      * Get a list of all objects that use this object
-     * @param stageUuid A UUID string identifying this Static Authenticator Stage.
+     * @param stageUuid A UUID string identifying this Static Authenticator Setup Stage.
      * @return ApiResponse<kotlin.collections.List<UsedBy>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -2511,7 +3054,7 @@ class StagesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
     /**
      * To obtain the request config of the operation stagesAuthenticatorStaticUsedByList
      *
-     * @param stageUuid A UUID string identifying this Static Authenticator Stage.
+     * @param stageUuid A UUID string identifying this Static Authenticator Setup Stage.
      * @return RequestConfig
      */
     fun stagesAuthenticatorStaticUsedByListRequestConfig(stageUuid: java.util.UUID) : RequestConfig<Unit> {

@@ -4,13 +4,13 @@
 ## Enum
 
 
-    * `cASCADE` (value: `"CASCADE"`)
+    * `cascade` (value: `"cascade"`)
 
-    * `cASCADEMANY` (value: `"CASCADE_MANY"`)
+    * `cascadeMany` (value: `"cascade_many"`)
 
-    * `sETNULL` (value: `"SET_NULL"`)
+    * `setNull` (value: `"set_null"`)
 
-    * `sETDEFAULT` (value: `"SET_DEFAULT"`)
+    * `setDefault` (value: `"set_default"`)
 
     * `unknownDefaultOpenApi` (value: `"unknown_default_open_api"`)
 

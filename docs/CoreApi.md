@@ -221,7 +221,7 @@ Configure authentik:
 
 <a id="coreApplicationsList"></a>
 # **coreApplicationsList**
-> PaginatedApplicationList coreApplicationsList(group, metaDescription, metaLaunchUrl, metaPublisher, name, ordering, page, pageSize, search, slug, superuserFullList)
+> PaginatedApplicationList coreApplicationsList(forUser, group, metaDescription, metaLaunchUrl, metaPublisher, name, ordering, page, pageSize, search, slug, superuserFullList)
 
 
 
@@ -234,6 +234,7 @@ Custom list method that checks Policy based access instead of guardian
 //import io.goauthentik.api.models.*
 
 val apiInstance = CoreApi()
+val forUser : kotlin.Int = 56 // kotlin.Int | 
 val group : kotlin.String = group_example // kotlin.String | 
 val metaDescription : kotlin.String = metaDescription_example // kotlin.String | 
 val metaLaunchUrl : kotlin.String = metaLaunchUrl_example // kotlin.String | 
@@ -246,7 +247,7 @@ val search : kotlin.String = search_example // kotlin.String | A search term.
 val slug : kotlin.String = slug_example // kotlin.String | 
 val superuserFullList : kotlin.Boolean = true // kotlin.Boolean | 
 try {
-    val result : PaginatedApplicationList = apiInstance.coreApplicationsList(group, metaDescription, metaLaunchUrl, metaPublisher, name, ordering, page, pageSize, search, slug, superuserFullList)
+    val result : PaginatedApplicationList = apiInstance.coreApplicationsList(forUser, group, metaDescription, metaLaunchUrl, metaPublisher, name, ordering, page, pageSize, search, slug, superuserFullList)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CoreApi#coreApplicationsList")
@@ -261,6 +262,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **forUser** | **kotlin.Int**|  | [optional]
  **group** | **kotlin.String**|  | [optional]
  **metaDescription** | **kotlin.String**|  | [optional]
  **metaLaunchUrl** | **kotlin.String**|  | [optional]
@@ -946,6 +948,9 @@ This endpoint does not need any parameter.
 
 
 Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+Configure mobile_device_token:
     ApiClient.apiKey["Authorization"] = ""
     ApiClient.apiKeyPrefix["Authorization"] = ""
 
@@ -2804,6 +2809,9 @@ This endpoint does not need any parameter.
 
 
 Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+Configure mobile_device_token:
     ApiClient.apiKey["Authorization"] = ""
     ApiClient.apiKeyPrefix["Authorization"] = ""
 

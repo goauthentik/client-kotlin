@@ -28,6 +28,9 @@ Method | HTTP request | Description
 [**eventsRulesRetrieve**](EventsApi.md#eventsRulesRetrieve) | **GET** /events/rules/{pbm_uuid}/ | 
 [**eventsRulesUpdate**](EventsApi.md#eventsRulesUpdate) | **PUT** /events/rules/{pbm_uuid}/ | 
 [**eventsRulesUsedByList**](EventsApi.md#eventsRulesUsedByList) | **GET** /events/rules/{pbm_uuid}/used_by/ | 
+[**eventsSystemTasksList**](EventsApi.md#eventsSystemTasksList) | **GET** /events/system_tasks/ | 
+[**eventsSystemTasksRetrieve**](EventsApi.md#eventsSystemTasksRetrieve) | **GET** /events/system_tasks/{uuid}/ | 
+[**eventsSystemTasksRunCreate**](EventsApi.md#eventsSystemTasksRunCreate) | **POST** /events/system_tasks/{uuid}/run/ | 
 [**eventsTransportsCreate**](EventsApi.md#eventsTransportsCreate) | **POST** /events/transports/ | 
 [**eventsTransportsDestroy**](EventsApi.md#eventsTransportsDestroy) | **DELETE** /events/transports/{uuid}/ | 
 [**eventsTransportsList**](EventsApi.md#eventsTransportsList) | **GET** /events/transports/ | 
@@ -1299,6 +1302,167 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**kotlin.collections.List&lt;UsedBy&gt;**](UsedBy.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="eventsSystemTasksList"></a>
+# **eventsSystemTasksList**
+> PaginatedSystemTaskList eventsSystemTasksList(name, ordering, page, pageSize, search, status, uid)
+
+
+
+Read-only view set that returns all background tasks
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = EventsApi()
+val name : kotlin.String = name_example // kotlin.String | 
+val ordering : kotlin.String = ordering_example // kotlin.String | Which field to use when ordering the results.
+val page : kotlin.Int = 56 // kotlin.Int | A page number within the paginated result set.
+val pageSize : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+val search : kotlin.String = search_example // kotlin.String | A search term.
+val status : kotlin.String = status_example // kotlin.String | * `unknown` - Unknown * `successful` - Successful * `warning` - Warning * `error` - Error
+val uid : kotlin.String = uid_example // kotlin.String | 
+try {
+    val result : PaginatedSystemTaskList = apiInstance.eventsSystemTasksList(name, ordering, page, pageSize, search, status, uid)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling EventsApi#eventsSystemTasksList")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling EventsApi#eventsSystemTasksList")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **kotlin.String**|  | [optional]
+ **ordering** | **kotlin.String**| Which field to use when ordering the results. | [optional]
+ **page** | **kotlin.Int**| A page number within the paginated result set. | [optional]
+ **pageSize** | **kotlin.Int**| Number of results to return per page. | [optional]
+ **search** | **kotlin.String**| A search term. | [optional]
+ **status** | **kotlin.String**| * &#x60;unknown&#x60; - Unknown * &#x60;successful&#x60; - Successful * &#x60;warning&#x60; - Warning * &#x60;error&#x60; - Error | [optional] [enum: error, successful, unknown, warning]
+ **uid** | **kotlin.String**|  | [optional]
+
+### Return type
+
+[**PaginatedSystemTaskList**](PaginatedSystemTaskList.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="eventsSystemTasksRetrieve"></a>
+# **eventsSystemTasksRetrieve**
+> SystemTask eventsSystemTasksRetrieve(uuid)
+
+
+
+Read-only view set that returns all background tasks
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = EventsApi()
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this System Task.
+try {
+    val result : SystemTask = apiInstance.eventsSystemTasksRetrieve(uuid)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling EventsApi#eventsSystemTasksRetrieve")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling EventsApi#eventsSystemTasksRetrieve")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **java.util.UUID**| A UUID string identifying this System Task. |
+
+### Return type
+
+[**SystemTask**](SystemTask.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="eventsSystemTasksRunCreate"></a>
+# **eventsSystemTasksRunCreate**
+> eventsSystemTasksRunCreate(uuid)
+
+
+
+Run task
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = EventsApi()
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this System Task.
+try {
+    apiInstance.eventsSystemTasksRunCreate(uuid)
+} catch (e: ClientException) {
+    println("4xx response calling EventsApi#eventsSystemTasksRunCreate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling EventsApi#eventsSystemTasksRunCreate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **java.util.UUID**| A UUID string identifying this System Task. |
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 

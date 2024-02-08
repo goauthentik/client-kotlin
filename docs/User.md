@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **name** | **kotlin.String** | User&#39;s display name. | 
 **isSuperuser** | **kotlin.Boolean** |  |  [readonly]
 **groupsObj** | [**kotlin.collections.List&lt;UserGroup&gt;**](UserGroup.md) |  |  [readonly]
-**avatar** | **kotlin.String** |  |  [readonly]
+**avatar** | **kotlin.String** | User&#39;s avatar, either a http/https URL or a data URI |  [readonly]
 **uid** | **kotlin.String** |  |  [readonly]
 **uuid** | [**java.util.UUID**](java.util.UUID.md) |  |  [readonly]
 **isActive** | **kotlin.Boolean** | Designates whether this user should be treated as active. Unselect this instead of deleting accounts. |  [optional]

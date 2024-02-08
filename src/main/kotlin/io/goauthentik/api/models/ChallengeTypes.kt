@@ -18,6 +18,8 @@ package io.goauthentik.api.models
 import io.goauthentik.api.models.AccessDeniedChallenge
 import io.goauthentik.api.models.AppleLoginChallenge
 import io.goauthentik.api.models.AuthenticatorDuoChallenge
+import io.goauthentik.api.models.AuthenticatorMobileChallenge
+import io.goauthentik.api.models.AuthenticatorMobilePayloadChallenge
 import io.goauthentik.api.models.AuthenticatorSMSChallenge
 import io.goauthentik.api.models.AuthenticatorStaticChallenge
 import io.goauthentik.api.models.AuthenticatorTOTPChallenge
@@ -63,6 +65,7 @@ import com.squareup.moshi.JsonClass
  * @param activationBarcode 
  * @param activationCode 
  * @param stageUuid 
+ * @param payload 
  * @param codes 
  * @param configUrl 
  * @param deviceChallenges 
@@ -123,6 +126,8 @@ interface ChallengeTypes {
     val activationCode: kotlin.String
     @Json(name = "stage_uuid")
     val stageUuid: kotlin.String
+    @Json(name = "payload")
+    val payload: AuthenticatorMobilePayloadChallenge
     @Json(name = "codes")
     val codes: kotlin.collections.List<kotlin.String>
     @Json(name = "config_url")

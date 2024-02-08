@@ -47,7 +47,7 @@ data class Device (
     val metaModelName: kotlin.String,
 
     @Json(name = "pk")
-    val pk: kotlin.Int,
+    val pk: kotlin.String,
 
     @Json(name = "name")
     val name: kotlin.String,

@@ -939,7 +939,7 @@ Configure authentik:
 
 <a id="providersOauth2PreviewUserRetrieve"></a>
 # **providersOauth2PreviewUserRetrieve**
-> PropertyMappingPreview providersOauth2PreviewUserRetrieve(id)
+> PropertyMappingPreview providersOauth2PreviewUserRetrieve(id, forUser)
 
 
 
@@ -953,8 +953,9 @@ Preview user data for provider
 
 val apiInstance = ProvidersApi()
 val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this OAuth2/OpenID Provider.
+val forUser : kotlin.Int = 56 // kotlin.Int | 
 try {
-    val result : PropertyMappingPreview = apiInstance.providersOauth2PreviewUserRetrieve(id)
+    val result : PropertyMappingPreview = apiInstance.providersOauth2PreviewUserRetrieve(id, forUser)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProvidersApi#providersOauth2PreviewUserRetrieve")
@@ -970,6 +971,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **kotlin.Int**| A unique integer value identifying this OAuth2/OpenID Provider. |
+ **forUser** | **kotlin.Int**|  | [optional]
 
 ### Return type
 
@@ -2664,7 +2666,7 @@ Configure authentik:
 
 <a id="providersSamlPreviewUserRetrieve"></a>
 # **providersSamlPreviewUserRetrieve**
-> PropertyMappingPreview providersSamlPreviewUserRetrieve(id)
+> PropertyMappingPreview providersSamlPreviewUserRetrieve(id, forUser)
 
 
 
@@ -2678,8 +2680,9 @@ Preview user data for provider
 
 val apiInstance = ProvidersApi()
 val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this SAML Provider.
+val forUser : kotlin.Int = 56 // kotlin.Int | 
 try {
-    val result : PropertyMappingPreview = apiInstance.providersSamlPreviewUserRetrieve(id)
+    val result : PropertyMappingPreview = apiInstance.providersSamlPreviewUserRetrieve(id, forUser)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProvidersApi#providersSamlPreviewUserRetrieve")
@@ -2695,6 +2698,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **kotlin.Int**| A unique integer value identifying this SAML Provider. |
+ **forUser** | **kotlin.Int**|  | [optional]
 
 ### Return type
 

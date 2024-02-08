@@ -23,12 +23,21 @@ import io.goauthentik.api.models.Device
 import io.goauthentik.api.models.DuoDevice
 import io.goauthentik.api.models.DuoDeviceRequest
 import io.goauthentik.api.models.GenericError
+import io.goauthentik.api.models.MobileDevice
+import io.goauthentik.api.models.MobileDeviceCheckInRequest
+import io.goauthentik.api.models.MobileDeviceEnrollmentCallback
+import io.goauthentik.api.models.MobileDeviceEnrollmentRequest
+import io.goauthentik.api.models.MobileDeviceEnrollmentStatus
+import io.goauthentik.api.models.MobileDeviceRequest
+import io.goauthentik.api.models.MobileDeviceResponseRequest
 import io.goauthentik.api.models.PaginatedDuoDeviceList
+import io.goauthentik.api.models.PaginatedMobileDeviceList
 import io.goauthentik.api.models.PaginatedSMSDeviceList
 import io.goauthentik.api.models.PaginatedStaticDeviceList
 import io.goauthentik.api.models.PaginatedTOTPDeviceList
 import io.goauthentik.api.models.PaginatedWebAuthnDeviceList
 import io.goauthentik.api.models.PatchedDuoDeviceRequest
+import io.goauthentik.api.models.PatchedMobileDeviceRequest
 import io.goauthentik.api.models.PatchedSMSDeviceRequest
 import io.goauthentik.api.models.PatchedStaticDeviceRequest
 import io.goauthentik.api.models.PatchedTOTPDeviceRequest
@@ -599,6 +608,468 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
         return RequestConfig(
             method = RequestMethod.PUT,
             path = "/authenticators/admin/duo/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices (for admins)
+     * @param mobileDeviceRequest 
+     * @return MobileDevice
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun authenticatorsAdminMobileCreate(mobileDeviceRequest: MobileDeviceRequest) : MobileDevice {
+        val localVarResponse = authenticatorsAdminMobileCreateWithHttpInfo(mobileDeviceRequest = mobileDeviceRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as MobileDevice
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices (for admins)
+     * @param mobileDeviceRequest 
+     * @return ApiResponse<MobileDevice?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun authenticatorsAdminMobileCreateWithHttpInfo(mobileDeviceRequest: MobileDeviceRequest) : ApiResponse<MobileDevice?> {
+        val localVariableConfig = authenticatorsAdminMobileCreateRequestConfig(mobileDeviceRequest = mobileDeviceRequest)
+
+        return request<MobileDeviceRequest, MobileDevice>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation authenticatorsAdminMobileCreate
+     *
+     * @param mobileDeviceRequest 
+     * @return RequestConfig
+     */
+    fun authenticatorsAdminMobileCreateRequestConfig(mobileDeviceRequest: MobileDeviceRequest) : RequestConfig<MobileDeviceRequest> {
+        val localVariableBody = mobileDeviceRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/authenticators/admin/mobile/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices (for admins)
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun authenticatorsAdminMobileDestroy(uuid: java.util.UUID) : Unit {
+        val localVarResponse = authenticatorsAdminMobileDestroyWithHttpInfo(uuid = uuid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices (for admins)
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun authenticatorsAdminMobileDestroyWithHttpInfo(uuid: java.util.UUID) : ApiResponse<Unit?> {
+        val localVariableConfig = authenticatorsAdminMobileDestroyRequestConfig(uuid = uuid)
+
+        return request<Unit, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation authenticatorsAdminMobileDestroy
+     *
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @return RequestConfig
+     */
+    fun authenticatorsAdminMobileDestroyRequestConfig(uuid: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/authenticators/admin/mobile/{uuid}/".replace("{"+"uuid"+"}", encodeURIComponent(uuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices (for admins)
+     * @param name  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return PaginatedMobileDeviceList
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun authenticatorsAdminMobileList(name: kotlin.String? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null) : PaginatedMobileDeviceList {
+        val localVarResponse = authenticatorsAdminMobileListWithHttpInfo(name = name, ordering = ordering, page = page, pageSize = pageSize, search = search)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedMobileDeviceList
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices (for admins)
+     * @param name  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return ApiResponse<PaginatedMobileDeviceList?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun authenticatorsAdminMobileListWithHttpInfo(name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?) : ApiResponse<PaginatedMobileDeviceList?> {
+        val localVariableConfig = authenticatorsAdminMobileListRequestConfig(name = name, ordering = ordering, page = page, pageSize = pageSize, search = search)
+
+        return request<Unit, PaginatedMobileDeviceList>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation authenticatorsAdminMobileList
+     *
+     * @param name  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return RequestConfig
+     */
+    fun authenticatorsAdminMobileListRequestConfig(name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (name != null) {
+                    put("name", listOf(name.toString()))
+                }
+                if (ordering != null) {
+                    put("ordering", listOf(ordering.toString()))
+                }
+                if (page != null) {
+                    put("page", listOf(page.toString()))
+                }
+                if (pageSize != null) {
+                    put("page_size", listOf(pageSize.toString()))
+                }
+                if (search != null) {
+                    put("search", listOf(search.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/authenticators/admin/mobile/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices (for admins)
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param patchedMobileDeviceRequest  (optional)
+     * @return MobileDevice
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun authenticatorsAdminMobilePartialUpdate(uuid: java.util.UUID, patchedMobileDeviceRequest: PatchedMobileDeviceRequest? = null) : MobileDevice {
+        val localVarResponse = authenticatorsAdminMobilePartialUpdateWithHttpInfo(uuid = uuid, patchedMobileDeviceRequest = patchedMobileDeviceRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as MobileDevice
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices (for admins)
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param patchedMobileDeviceRequest  (optional)
+     * @return ApiResponse<MobileDevice?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun authenticatorsAdminMobilePartialUpdateWithHttpInfo(uuid: java.util.UUID, patchedMobileDeviceRequest: PatchedMobileDeviceRequest?) : ApiResponse<MobileDevice?> {
+        val localVariableConfig = authenticatorsAdminMobilePartialUpdateRequestConfig(uuid = uuid, patchedMobileDeviceRequest = patchedMobileDeviceRequest)
+
+        return request<PatchedMobileDeviceRequest, MobileDevice>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation authenticatorsAdminMobilePartialUpdate
+     *
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param patchedMobileDeviceRequest  (optional)
+     * @return RequestConfig
+     */
+    fun authenticatorsAdminMobilePartialUpdateRequestConfig(uuid: java.util.UUID, patchedMobileDeviceRequest: PatchedMobileDeviceRequest?) : RequestConfig<PatchedMobileDeviceRequest> {
+        val localVariableBody = patchedMobileDeviceRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/authenticators/admin/mobile/{uuid}/".replace("{"+"uuid"+"}", encodeURIComponent(uuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices (for admins)
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @return MobileDevice
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun authenticatorsAdminMobileRetrieve(uuid: java.util.UUID) : MobileDevice {
+        val localVarResponse = authenticatorsAdminMobileRetrieveWithHttpInfo(uuid = uuid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as MobileDevice
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices (for admins)
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @return ApiResponse<MobileDevice?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun authenticatorsAdminMobileRetrieveWithHttpInfo(uuid: java.util.UUID) : ApiResponse<MobileDevice?> {
+        val localVariableConfig = authenticatorsAdminMobileRetrieveRequestConfig(uuid = uuid)
+
+        return request<Unit, MobileDevice>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation authenticatorsAdminMobileRetrieve
+     *
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @return RequestConfig
+     */
+    fun authenticatorsAdminMobileRetrieveRequestConfig(uuid: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/authenticators/admin/mobile/{uuid}/".replace("{"+"uuid"+"}", encodeURIComponent(uuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices (for admins)
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param mobileDeviceRequest 
+     * @return MobileDevice
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun authenticatorsAdminMobileUpdate(uuid: java.util.UUID, mobileDeviceRequest: MobileDeviceRequest) : MobileDevice {
+        val localVarResponse = authenticatorsAdminMobileUpdateWithHttpInfo(uuid = uuid, mobileDeviceRequest = mobileDeviceRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as MobileDevice
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices (for admins)
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param mobileDeviceRequest 
+     * @return ApiResponse<MobileDevice?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun authenticatorsAdminMobileUpdateWithHttpInfo(uuid: java.util.UUID, mobileDeviceRequest: MobileDeviceRequest) : ApiResponse<MobileDevice?> {
+        val localVariableConfig = authenticatorsAdminMobileUpdateRequestConfig(uuid = uuid, mobileDeviceRequest = mobileDeviceRequest)
+
+        return request<MobileDeviceRequest, MobileDevice>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation authenticatorsAdminMobileUpdate
+     *
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param mobileDeviceRequest 
+     * @return RequestConfig
+     */
+    fun authenticatorsAdminMobileUpdateRequestConfig(uuid: java.util.UUID, mobileDeviceRequest: MobileDeviceRequest) : RequestConfig<MobileDeviceRequest> {
+        val localVariableBody = mobileDeviceRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/authenticators/admin/mobile/{uuid}/".replace("{"+"uuid"+"}", encodeURIComponent(uuid.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = true,
@@ -2976,6 +3447,759 @@ class AuthenticatorsApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/authenticators/duo/{id}/used_by/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Check in data about a device
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param mobileDeviceCheckInRequest 
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun authenticatorsMobileCheckInCreate(uuid: java.util.UUID, mobileDeviceCheckInRequest: MobileDeviceCheckInRequest) : Unit {
+        val localVarResponse = authenticatorsMobileCheckInCreateWithHttpInfo(uuid = uuid, mobileDeviceCheckInRequest = mobileDeviceCheckInRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Check in data about a device
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param mobileDeviceCheckInRequest 
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun authenticatorsMobileCheckInCreateWithHttpInfo(uuid: java.util.UUID, mobileDeviceCheckInRequest: MobileDeviceCheckInRequest) : ApiResponse<Unit?> {
+        val localVariableConfig = authenticatorsMobileCheckInCreateRequestConfig(uuid = uuid, mobileDeviceCheckInRequest = mobileDeviceCheckInRequest)
+
+        return request<MobileDeviceCheckInRequest, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation authenticatorsMobileCheckInCreate
+     *
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param mobileDeviceCheckInRequest 
+     * @return RequestConfig
+     */
+    fun authenticatorsMobileCheckInCreateRequestConfig(uuid: java.util.UUID, mobileDeviceCheckInRequest: MobileDeviceCheckInRequest) : RequestConfig<MobileDeviceCheckInRequest> {
+        val localVariableBody = mobileDeviceCheckInRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/authenticators/mobile/{uuid}/check_in/".replace("{"+"uuid"+"}", encodeURIComponent(uuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun authenticatorsMobileDestroy(uuid: java.util.UUID) : Unit {
+        val localVarResponse = authenticatorsMobileDestroyWithHttpInfo(uuid = uuid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun authenticatorsMobileDestroyWithHttpInfo(uuid: java.util.UUID) : ApiResponse<Unit?> {
+        val localVariableConfig = authenticatorsMobileDestroyRequestConfig(uuid = uuid)
+
+        return request<Unit, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation authenticatorsMobileDestroy
+     *
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @return RequestConfig
+     */
+    fun authenticatorsMobileDestroyRequestConfig(uuid: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.DELETE,
+            path = "/authenticators/mobile/{uuid}/".replace("{"+"uuid"+"}", encodeURIComponent(uuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Enrollment callback
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param mobileDeviceEnrollmentRequest 
+     * @return MobileDeviceEnrollmentCallback
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun authenticatorsMobileEnrollmentCallbackCreate(uuid: java.util.UUID, mobileDeviceEnrollmentRequest: MobileDeviceEnrollmentRequest) : MobileDeviceEnrollmentCallback {
+        val localVarResponse = authenticatorsMobileEnrollmentCallbackCreateWithHttpInfo(uuid = uuid, mobileDeviceEnrollmentRequest = mobileDeviceEnrollmentRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as MobileDeviceEnrollmentCallback
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Enrollment callback
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param mobileDeviceEnrollmentRequest 
+     * @return ApiResponse<MobileDeviceEnrollmentCallback?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun authenticatorsMobileEnrollmentCallbackCreateWithHttpInfo(uuid: java.util.UUID, mobileDeviceEnrollmentRequest: MobileDeviceEnrollmentRequest) : ApiResponse<MobileDeviceEnrollmentCallback?> {
+        val localVariableConfig = authenticatorsMobileEnrollmentCallbackCreateRequestConfig(uuid = uuid, mobileDeviceEnrollmentRequest = mobileDeviceEnrollmentRequest)
+
+        return request<MobileDeviceEnrollmentRequest, MobileDeviceEnrollmentCallback>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation authenticatorsMobileEnrollmentCallbackCreate
+     *
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param mobileDeviceEnrollmentRequest 
+     * @return RequestConfig
+     */
+    fun authenticatorsMobileEnrollmentCallbackCreateRequestConfig(uuid: java.util.UUID, mobileDeviceEnrollmentRequest: MobileDeviceEnrollmentRequest) : RequestConfig<MobileDeviceEnrollmentRequest> {
+        val localVariableBody = mobileDeviceEnrollmentRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/authenticators/mobile/{uuid}/enrollment_callback/".replace("{"+"uuid"+"}", encodeURIComponent(uuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Check device enrollment status
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @return MobileDeviceEnrollmentStatus
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun authenticatorsMobileEnrollmentStatusCreate(uuid: java.util.UUID) : MobileDeviceEnrollmentStatus {
+        val localVarResponse = authenticatorsMobileEnrollmentStatusCreateWithHttpInfo(uuid = uuid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as MobileDeviceEnrollmentStatus
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Check device enrollment status
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @return ApiResponse<MobileDeviceEnrollmentStatus?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun authenticatorsMobileEnrollmentStatusCreateWithHttpInfo(uuid: java.util.UUID) : ApiResponse<MobileDeviceEnrollmentStatus?> {
+        val localVariableConfig = authenticatorsMobileEnrollmentStatusCreateRequestConfig(uuid = uuid)
+
+        return request<Unit, MobileDeviceEnrollmentStatus>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation authenticatorsMobileEnrollmentStatusCreate
+     *
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @return RequestConfig
+     */
+    fun authenticatorsMobileEnrollmentStatusCreateRequestConfig(uuid: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/authenticators/mobile/{uuid}/enrollment_status/".replace("{"+"uuid"+"}", encodeURIComponent(uuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices
+     * @param name  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return PaginatedMobileDeviceList
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun authenticatorsMobileList(name: kotlin.String? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null) : PaginatedMobileDeviceList {
+        val localVarResponse = authenticatorsMobileListWithHttpInfo(name = name, ordering = ordering, page = page, pageSize = pageSize, search = search)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedMobileDeviceList
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices
+     * @param name  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return ApiResponse<PaginatedMobileDeviceList?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun authenticatorsMobileListWithHttpInfo(name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?) : ApiResponse<PaginatedMobileDeviceList?> {
+        val localVariableConfig = authenticatorsMobileListRequestConfig(name = name, ordering = ordering, page = page, pageSize = pageSize, search = search)
+
+        return request<Unit, PaginatedMobileDeviceList>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation authenticatorsMobileList
+     *
+     * @param name  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @return RequestConfig
+     */
+    fun authenticatorsMobileListRequestConfig(name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (name != null) {
+                    put("name", listOf(name.toString()))
+                }
+                if (ordering != null) {
+                    put("ordering", listOf(ordering.toString()))
+                }
+                if (page != null) {
+                    put("page", listOf(page.toString()))
+                }
+                if (pageSize != null) {
+                    put("page_size", listOf(pageSize.toString()))
+                }
+                if (search != null) {
+                    put("search", listOf(search.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/authenticators/mobile/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param patchedMobileDeviceRequest  (optional)
+     * @return MobileDevice
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun authenticatorsMobilePartialUpdate(uuid: java.util.UUID, patchedMobileDeviceRequest: PatchedMobileDeviceRequest? = null) : MobileDevice {
+        val localVarResponse = authenticatorsMobilePartialUpdateWithHttpInfo(uuid = uuid, patchedMobileDeviceRequest = patchedMobileDeviceRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as MobileDevice
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param patchedMobileDeviceRequest  (optional)
+     * @return ApiResponse<MobileDevice?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun authenticatorsMobilePartialUpdateWithHttpInfo(uuid: java.util.UUID, patchedMobileDeviceRequest: PatchedMobileDeviceRequest?) : ApiResponse<MobileDevice?> {
+        val localVariableConfig = authenticatorsMobilePartialUpdateRequestConfig(uuid = uuid, patchedMobileDeviceRequest = patchedMobileDeviceRequest)
+
+        return request<PatchedMobileDeviceRequest, MobileDevice>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation authenticatorsMobilePartialUpdate
+     *
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param patchedMobileDeviceRequest  (optional)
+     * @return RequestConfig
+     */
+    fun authenticatorsMobilePartialUpdateRequestConfig(uuid: java.util.UUID, patchedMobileDeviceRequest: PatchedMobileDeviceRequest?) : RequestConfig<PatchedMobileDeviceRequest> {
+        val localVariableBody = patchedMobileDeviceRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PATCH,
+            path = "/authenticators/mobile/{uuid}/".replace("{"+"uuid"+"}", encodeURIComponent(uuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Get response from notification on phone
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param mobileDeviceResponseRequest 
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun authenticatorsMobileReceiveResponseCreate(uuid: java.util.UUID, mobileDeviceResponseRequest: MobileDeviceResponseRequest) : Unit {
+        val localVarResponse = authenticatorsMobileReceiveResponseCreateWithHttpInfo(uuid = uuid, mobileDeviceResponseRequest = mobileDeviceResponseRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Get response from notification on phone
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param mobileDeviceResponseRequest 
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun authenticatorsMobileReceiveResponseCreateWithHttpInfo(uuid: java.util.UUID, mobileDeviceResponseRequest: MobileDeviceResponseRequest) : ApiResponse<Unit?> {
+        val localVariableConfig = authenticatorsMobileReceiveResponseCreateRequestConfig(uuid = uuid, mobileDeviceResponseRequest = mobileDeviceResponseRequest)
+
+        return request<MobileDeviceResponseRequest, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation authenticatorsMobileReceiveResponseCreate
+     *
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param mobileDeviceResponseRequest 
+     * @return RequestConfig
+     */
+    fun authenticatorsMobileReceiveResponseCreateRequestConfig(uuid: java.util.UUID, mobileDeviceResponseRequest: MobileDeviceResponseRequest) : RequestConfig<MobileDeviceResponseRequest> {
+        val localVariableBody = mobileDeviceResponseRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/authenticators/mobile/{uuid}/receive_response/".replace("{"+"uuid"+"}", encodeURIComponent(uuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @return MobileDevice
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun authenticatorsMobileRetrieve(uuid: java.util.UUID) : MobileDevice {
+        val localVarResponse = authenticatorsMobileRetrieveWithHttpInfo(uuid = uuid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as MobileDevice
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @return ApiResponse<MobileDevice?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun authenticatorsMobileRetrieveWithHttpInfo(uuid: java.util.UUID) : ApiResponse<MobileDevice?> {
+        val localVariableConfig = authenticatorsMobileRetrieveRequestConfig(uuid = uuid)
+
+        return request<Unit, MobileDevice>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation authenticatorsMobileRetrieve
+     *
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @return RequestConfig
+     */
+    fun authenticatorsMobileRetrieveRequestConfig(uuid: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/authenticators/mobile/{uuid}/".replace("{"+"uuid"+"}", encodeURIComponent(uuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param mobileDeviceRequest 
+     * @return MobileDevice
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun authenticatorsMobileUpdate(uuid: java.util.UUID, mobileDeviceRequest: MobileDeviceRequest) : MobileDevice {
+        val localVarResponse = authenticatorsMobileUpdateWithHttpInfo(uuid = uuid, mobileDeviceRequest = mobileDeviceRequest)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as MobileDevice
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Viewset for Mobile authenticator devices
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param mobileDeviceRequest 
+     * @return ApiResponse<MobileDevice?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun authenticatorsMobileUpdateWithHttpInfo(uuid: java.util.UUID, mobileDeviceRequest: MobileDeviceRequest) : ApiResponse<MobileDevice?> {
+        val localVariableConfig = authenticatorsMobileUpdateRequestConfig(uuid = uuid, mobileDeviceRequest = mobileDeviceRequest)
+
+        return request<MobileDeviceRequest, MobileDevice>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation authenticatorsMobileUpdate
+     *
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @param mobileDeviceRequest 
+     * @return RequestConfig
+     */
+    fun authenticatorsMobileUpdateRequestConfig(uuid: java.util.UUID, mobileDeviceRequest: MobileDeviceRequest) : RequestConfig<MobileDeviceRequest> {
+        val localVariableBody = mobileDeviceRequest
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.PUT,
+            path = "/authenticators/mobile/{uuid}/".replace("{"+"uuid"+"}", encodeURIComponent(uuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Get a list of all objects that use this object
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @return kotlin.collections.List<UsedBy>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun authenticatorsMobileUsedByList(uuid: java.util.UUID) : kotlin.collections.List<UsedBy> {
+        val localVarResponse = authenticatorsMobileUsedByListWithHttpInfo(uuid = uuid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<UsedBy>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Get a list of all objects that use this object
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @return ApiResponse<kotlin.collections.List<UsedBy>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun authenticatorsMobileUsedByListWithHttpInfo(uuid: java.util.UUID) : ApiResponse<kotlin.collections.List<UsedBy>?> {
+        val localVariableConfig = authenticatorsMobileUsedByListRequestConfig(uuid = uuid)
+
+        return request<Unit, kotlin.collections.List<UsedBy>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation authenticatorsMobileUsedByList
+     *
+     * @param uuid A UUID string identifying this Mobile Device.
+     * @return RequestConfig
+     */
+    fun authenticatorsMobileUsedByListRequestConfig(uuid: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/authenticators/mobile/{uuid}/used_by/".replace("{"+"uuid"+"}", encodeURIComponent(uuid.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = true,

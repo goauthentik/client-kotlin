@@ -29,6 +29,7 @@ import com.squareup.moshi.JsonClass
  * @param code 
  * @param webauthn 
  * @param duo 
+ * @param mobile 
  */
 
 
@@ -50,7 +51,10 @@ data class AuthenticatorValidationChallengeResponseRequest (
     val webauthn: kotlin.collections.Map<kotlin.String, kotlin.Any>? = null,
 
     @Json(name = "duo")
-    val duo: kotlin.Int? = null
+    val duo: kotlin.Int? = null,
+
+    @Json(name = "mobile")
+    val mobile: kotlin.String? = null
 
 )
 

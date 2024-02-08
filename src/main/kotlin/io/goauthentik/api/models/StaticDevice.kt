@@ -23,23 +23,46 @@ import com.squareup.moshi.JsonClass
 /**
  * Serializer for static authenticator devices
  *
- * @param name The human-readable name of this device.
- * @param tokenSet 
+ * @param verboseName Return object's verbose_name
+ * @param verboseNamePlural Return object's plural verbose_name
+ * @param metaModelName Return internal model name
  * @param pk 
+ * @param name 
+ * @param type Get type of device
+ * @param confirmed 
+ * @param tokenSet 
  */
 
 
 data class StaticDevice (
 
-    /* The human-readable name of this device. */
+    /* Return object's verbose_name */
+    @Json(name = "verbose_name")
+    val verboseName: kotlin.String,
+
+    /* Return object's plural verbose_name */
+    @Json(name = "verbose_name_plural")
+    val verboseNamePlural: kotlin.String,
+
+    /* Return internal model name */
+    @Json(name = "meta_model_name")
+    val metaModelName: kotlin.String,
+
+    @Json(name = "pk")
+    val pk: kotlin.String,
+
     @Json(name = "name")
     val name: kotlin.String,
 
-    @Json(name = "token_set")
-    val tokenSet: kotlin.collections.List<StaticDeviceToken>,
+    /* Get type of device */
+    @Json(name = "type")
+    val type: kotlin.String,
 
-    @Json(name = "pk")
-    val pk: kotlin.Int
+    @Json(name = "confirmed")
+    val confirmed: kotlin.Boolean,
+
+    @Json(name = "token_set")
+    val tokenSet: kotlin.collections.List<StaticDeviceToken>
 
 )
 

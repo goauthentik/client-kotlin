@@ -15,7 +15,7 @@
 
 package io.goauthentik.api.models
 
-import io.goauthentik.api.models.Task
+import io.goauthentik.api.models.SystemTask
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -34,7 +34,7 @@ data class SCIMSyncStatus (
     val isRunning: kotlin.Boolean,
 
     @Json(name = "tasks")
-    val tasks: kotlin.collections.List<Task>
+    val tasks: kotlin.collections.List<SystemTask>
 
 )
 

@@ -1,4 +1,5 @@
 group 'io.goauthentik'
+version '1.0.0'
 
 wrapper {
     gradleVersion = '7.5'

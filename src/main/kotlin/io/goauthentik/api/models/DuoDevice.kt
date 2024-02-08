@@ -22,19 +22,42 @@ import com.squareup.moshi.JsonClass
 /**
  * Serializer for Duo authenticator devices
  *
+ * @param verboseName Return object's verbose_name
+ * @param verboseNamePlural Return object's plural verbose_name
+ * @param metaModelName Return internal model name
  * @param pk 
- * @param name The human-readable name of this device.
+ * @param name 
+ * @param type Get type of device
+ * @param confirmed 
  */
 
 
 data class DuoDevice (
 
-    @Json(name = "pk")
-    val pk: kotlin.Int,
+    /* Return object's verbose_name */
+    @Json(name = "verbose_name")
+    val verboseName: kotlin.String,
 
-    /* The human-readable name of this device. */
+    /* Return object's plural verbose_name */
+    @Json(name = "verbose_name_plural")
+    val verboseNamePlural: kotlin.String,
+
+    /* Return internal model name */
+    @Json(name = "meta_model_name")
+    val metaModelName: kotlin.String,
+
+    @Json(name = "pk")
+    val pk: kotlin.String,
+
     @Json(name = "name")
-    val name: kotlin.String
+    val name: kotlin.String,
+
+    /* Get type of device */
+    @Json(name = "type")
+    val type: kotlin.String,
+
+    @Json(name = "confirmed")
+    val confirmed: kotlin.Boolean
 
 )
 

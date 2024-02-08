@@ -35,10 +35,12 @@ import io.goauthentik.api.models.PaginatedEventList
 import io.goauthentik.api.models.PaginatedNotificationList
 import io.goauthentik.api.models.PaginatedNotificationRuleList
 import io.goauthentik.api.models.PaginatedNotificationTransportList
+import io.goauthentik.api.models.PaginatedSystemTaskList
 import io.goauthentik.api.models.PatchedEventRequest
 import io.goauthentik.api.models.PatchedNotificationRequest
 import io.goauthentik.api.models.PatchedNotificationRuleRequest
 import io.goauthentik.api.models.PatchedNotificationTransportRequest
+import io.goauthentik.api.models.SystemTask
 import io.goauthentik.api.models.TypeCreate
 import io.goauthentik.api.models.UsedBy
 import io.goauthentik.api.models.ValidationError
@@ -2046,6 +2048,268 @@ class EventsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient 
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/events/rules/{pbm_uuid}/used_by/".replace("{"+"pbm_uuid"+"}", encodeURIComponent(pbmUuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * enum for parameter status
+     */
+     enum class StatusEventsSystemTasksList(val value: kotlin.String) {
+         @Json(name = "error") error("error"),
+         @Json(name = "successful") successful("successful"),
+         @Json(name = "unknown") unknown("unknown"),
+         @Json(name = "warning") warning("warning"),
+     }
+
+    /**
+     * 
+     * Read-only view set that returns all background tasks
+     * @param name  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @param status * &#x60;unknown&#x60; - Unknown * &#x60;successful&#x60; - Successful * &#x60;warning&#x60; - Warning * &#x60;error&#x60; - Error (optional)
+     * @param uid  (optional)
+     * @return PaginatedSystemTaskList
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun eventsSystemTasksList(name: kotlin.String? = null, ordering: kotlin.String? = null, page: kotlin.Int? = null, pageSize: kotlin.Int? = null, search: kotlin.String? = null, status: StatusEventsSystemTasksList? = null, uid: kotlin.String? = null) : PaginatedSystemTaskList {
+        val localVarResponse = eventsSystemTasksListWithHttpInfo(name = name, ordering = ordering, page = page, pageSize = pageSize, search = search, status = status, uid = uid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedSystemTaskList
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Read-only view set that returns all background tasks
+     * @param name  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @param status * &#x60;unknown&#x60; - Unknown * &#x60;successful&#x60; - Successful * &#x60;warning&#x60; - Warning * &#x60;error&#x60; - Error (optional)
+     * @param uid  (optional)
+     * @return ApiResponse<PaginatedSystemTaskList?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun eventsSystemTasksListWithHttpInfo(name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, status: StatusEventsSystemTasksList?, uid: kotlin.String?) : ApiResponse<PaginatedSystemTaskList?> {
+        val localVariableConfig = eventsSystemTasksListRequestConfig(name = name, ordering = ordering, page = page, pageSize = pageSize, search = search, status = status, uid = uid)
+
+        return request<Unit, PaginatedSystemTaskList>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation eventsSystemTasksList
+     *
+     * @param name  (optional)
+     * @param ordering Which field to use when ordering the results. (optional)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param search A search term. (optional)
+     * @param status * &#x60;unknown&#x60; - Unknown * &#x60;successful&#x60; - Successful * &#x60;warning&#x60; - Warning * &#x60;error&#x60; - Error (optional)
+     * @param uid  (optional)
+     * @return RequestConfig
+     */
+    fun eventsSystemTasksListRequestConfig(name: kotlin.String?, ordering: kotlin.String?, page: kotlin.Int?, pageSize: kotlin.Int?, search: kotlin.String?, status: StatusEventsSystemTasksList?, uid: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (name != null) {
+                    put("name", listOf(name.toString()))
+                }
+                if (ordering != null) {
+                    put("ordering", listOf(ordering.toString()))
+                }
+                if (page != null) {
+                    put("page", listOf(page.toString()))
+                }
+                if (pageSize != null) {
+                    put("page_size", listOf(pageSize.toString()))
+                }
+                if (search != null) {
+                    put("search", listOf(search.toString()))
+                }
+                if (status != null) {
+                    put("status", listOf(status.value))
+                }
+                if (uid != null) {
+                    put("uid", listOf(uid.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/events/system_tasks/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Read-only view set that returns all background tasks
+     * @param uuid A UUID string identifying this System Task.
+     * @return SystemTask
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun eventsSystemTasksRetrieve(uuid: java.util.UUID) : SystemTask {
+        val localVarResponse = eventsSystemTasksRetrieveWithHttpInfo(uuid = uuid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as SystemTask
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Read-only view set that returns all background tasks
+     * @param uuid A UUID string identifying this System Task.
+     * @return ApiResponse<SystemTask?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun eventsSystemTasksRetrieveWithHttpInfo(uuid: java.util.UUID) : ApiResponse<SystemTask?> {
+        val localVariableConfig = eventsSystemTasksRetrieveRequestConfig(uuid = uuid)
+
+        return request<Unit, SystemTask>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation eventsSystemTasksRetrieve
+     *
+     * @param uuid A UUID string identifying this System Task.
+     * @return RequestConfig
+     */
+    fun eventsSystemTasksRetrieveRequestConfig(uuid: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/events/system_tasks/{uuid}/".replace("{"+"uuid"+"}", encodeURIComponent(uuid.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * 
+     * Run task
+     * @param uuid A UUID string identifying this System Task.
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun eventsSystemTasksRunCreate(uuid: java.util.UUID) : Unit {
+        val localVarResponse = eventsSystemTasksRunCreateWithHttpInfo(uuid = uuid)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * 
+     * Run task
+     * @param uuid A UUID string identifying this System Task.
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun eventsSystemTasksRunCreateWithHttpInfo(uuid: java.util.UUID) : ApiResponse<Unit?> {
+        val localVariableConfig = eventsSystemTasksRunCreateRequestConfig(uuid = uuid)
+
+        return request<Unit, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation eventsSystemTasksRunCreate
+     *
+     * @param uuid A UUID string identifying this System Task.
+     * @return RequestConfig
+     */
+    fun eventsSystemTasksRunCreateRequestConfig(uuid: java.util.UUID) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/events/system_tasks/{uuid}/run/".replace("{"+"uuid"+"}", encodeURIComponent(uuid.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = true,

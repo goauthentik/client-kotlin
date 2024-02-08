@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **selectedStage** | **kotlin.String** |  |  [optional]
 **webauthn** | [**kotlin.collections.Map&lt;kotlin.String, kotlin.Any&gt;**](kotlin.Any.md) |  |  [optional]
 **duo** | **kotlin.Int** |  |  [optional]
+**mobile** | **kotlin.String** |  |  [optional]
 
 
 

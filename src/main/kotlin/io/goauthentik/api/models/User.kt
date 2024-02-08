@@ -29,7 +29,7 @@ import com.squareup.moshi.JsonClass
  * @param name User's display name.
  * @param isSuperuser 
  * @param groupsObj 
- * @param avatar 
+ * @param avatar User's avatar, either a http/https URL or a data URI
  * @param uid 
  * @param uuid 
  * @param isActive Designates whether this user should be treated as active. Unselect this instead of deleting accounts.
@@ -60,6 +60,7 @@ data class User (
     @Json(name = "groups_obj")
     val groupsObj: kotlin.collections.List<UserGroup>,
 
+    /* User's avatar, either a http/https URL or a data URI */
     @Json(name = "avatar")
     val avatar: kotlin.String,
 

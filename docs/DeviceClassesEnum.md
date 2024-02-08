@@ -14,6 +14,8 @@
 
     * `sms` (value: `"sms"`)
 
+    * `mobile` (value: `"mobile"`)
+
     * `unknownDefaultOpenApi` (value: `"unknown_default_open_api"`)
 
 

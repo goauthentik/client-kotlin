@@ -22,13 +22,16 @@ import com.squareup.moshi.JsonClass
 /**
  * Serializer for Duo authenticator devices
  *
- * @param name The human-readable name of this device.
+ * @param pk 
+ * @param name 
  */
 
 
 data class PatchedDuoDeviceRequest (
 
-    /* The human-readable name of this device. */
+    @Json(name = "pk")
+    val pk: kotlin.String? = null,
+
     @Json(name = "name")
     val name: kotlin.String? = null
 

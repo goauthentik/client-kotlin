@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **activationBarcode** | **kotlin.String** |  | 
 **activationCode** | **kotlin.String** |  | 
 **stageUuid** | **kotlin.String** |  | 
+**payload** | [**AuthenticatorMobilePayloadChallenge**](AuthenticatorMobilePayloadChallenge.md) |  | 
 **codes** | **kotlin.collections.List&lt;kotlin.String&gt;** |  | 
 **configUrl** | **kotlin.String** |  | 
 **deviceChallenges** | [**kotlin.collections.List&lt;DeviceChallenge&gt;**](DeviceChallenge.md) |  | 

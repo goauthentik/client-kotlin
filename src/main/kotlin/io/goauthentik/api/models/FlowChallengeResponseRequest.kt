@@ -17,6 +17,7 @@ package io.goauthentik.api.models
 
 import io.goauthentik.api.models.AppleChallengeResponseRequest
 import io.goauthentik.api.models.AuthenticatorDuoChallengeResponseRequest
+import io.goauthentik.api.models.AuthenticatorMobileChallengeResponseRequest
 import io.goauthentik.api.models.AuthenticatorSMSChallengeResponseRequest
 import io.goauthentik.api.models.AuthenticatorStaticChallengeResponseRequest
 import io.goauthentik.api.models.AuthenticatorTOTPChallengeResponseRequest
@@ -54,6 +55,7 @@ import com.squareup.moshi.JsonClass
  * @param selectedStage 
  * @param webauthn 
  * @param duo 
+ * @param mobile 
  */
 
 
@@ -83,5 +85,7 @@ interface FlowChallengeResponseRequest {
     val webauthn: kotlin.collections.Map<kotlin.String, kotlin.Any>?
     @Json(name = "duo")
     val duo: kotlin.Int?
+    @Json(name = "mobile")
+    val mobile: kotlin.String?
 }
 

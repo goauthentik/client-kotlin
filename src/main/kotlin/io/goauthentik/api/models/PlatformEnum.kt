@@ -20,25 +20,22 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * * `SUCCESSFUL` - SUCCESSFUL * `WARNING` - WARNING * `ERROR` - ERROR * `UNKNOWN` - UNKNOWN
+ * * `ios` - iOS * `android` - Android * `other` - Other
  *
- * Values: sUCCESSFUL,wARNING,eRROR,uNKNOWN,unknownDefaultOpenApi
+ * Values: ios,android,other,unknownDefaultOpenApi
  */
 
 @JsonClass(generateAdapter = false)
-enum class TaskStatusEnum(val value: kotlin.String) {
+enum class PlatformEnum(val value: kotlin.String) {
 
-    @Json(name = "SUCCESSFUL")
-    sUCCESSFUL("SUCCESSFUL"),
+    @Json(name = "ios")
+    ios("ios"),
 
-    @Json(name = "WARNING")
-    wARNING("WARNING"),
+    @Json(name = "android")
+    android("android"),
 
-    @Json(name = "ERROR")
-    eRROR("ERROR"),
-
-    @Json(name = "UNKNOWN")
-    uNKNOWN("UNKNOWN"),
+    @Json(name = "other")
+    other("other"),
 
     @Json(name = "unknown_default_open_api")
     unknownDefaultOpenApi("unknown_default_open_api");
@@ -56,12 +53,12 @@ enum class TaskStatusEnum(val value: kotlin.String) {
         /**
          * Converts the provided [data] to a [String] on success, null otherwise.
          */
-        fun encode(data: kotlin.Any?): kotlin.String? = if (data is TaskStatusEnum) "$data" else null
+        fun encode(data: kotlin.Any?): kotlin.String? = if (data is PlatformEnum) "$data" else null
 
         /**
-         * Returns a valid [TaskStatusEnum] for [data], null otherwise.
+         * Returns a valid [PlatformEnum] for [data], null otherwise.
          */
-        fun decode(data: kotlin.Any?): TaskStatusEnum? = data?.let {
+        fun decode(data: kotlin.Any?): PlatformEnum? = data?.let {
           val normalizedData = "$it".lowercase()
           values().firstOrNull { value ->
             it == value || normalizedData == "$value".lowercase()

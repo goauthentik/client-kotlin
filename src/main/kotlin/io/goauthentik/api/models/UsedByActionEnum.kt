@@ -20,25 +20,25 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * * `CASCADE` - CASCADE * `CASCADE_MANY` - CASCADE_MANY * `SET_NULL` - SET_NULL * `SET_DEFAULT` - SET_DEFAULT
+ * * `cascade` - CASCADE * `cascade_many` - CASCADE_MANY * `set_null` - SET_NULL * `set_default` - SET_DEFAULT
  *
- * Values: cASCADE,cASCADEMANY,sETNULL,sETDEFAULT,unknownDefaultOpenApi
+ * Values: cascade,cascadeMany,setNull,setDefault,unknownDefaultOpenApi
  */
 
 @JsonClass(generateAdapter = false)
 enum class UsedByActionEnum(val value: kotlin.String) {
 
-    @Json(name = "CASCADE")
-    cASCADE("CASCADE"),
+    @Json(name = "cascade")
+    cascade("cascade"),
 
-    @Json(name = "CASCADE_MANY")
-    cASCADEMANY("CASCADE_MANY"),
+    @Json(name = "cascade_many")
+    cascadeMany("cascade_many"),
 
-    @Json(name = "SET_NULL")
-    sETNULL("SET_NULL"),
+    @Json(name = "set_null")
+    setNull("set_null"),
 
-    @Json(name = "SET_DEFAULT")
-    sETDEFAULT("SET_DEFAULT"),
+    @Json(name = "set_default")
+    setDefault("set_default"),
 
     @Json(name = "unknown_default_open_api")
     unknownDefaultOpenApi("unknown_default_open_api");

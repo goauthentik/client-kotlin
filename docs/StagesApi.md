@@ -20,6 +20,13 @@ Method | HTTP request | Description
 [**stagesAuthenticatorDuoRetrieve**](StagesApi.md#stagesAuthenticatorDuoRetrieve) | **GET** /stages/authenticator/duo/{stage_uuid}/ | 
 [**stagesAuthenticatorDuoUpdate**](StagesApi.md#stagesAuthenticatorDuoUpdate) | **PUT** /stages/authenticator/duo/{stage_uuid}/ | 
 [**stagesAuthenticatorDuoUsedByList**](StagesApi.md#stagesAuthenticatorDuoUsedByList) | **GET** /stages/authenticator/duo/{stage_uuid}/used_by/ | 
+[**stagesAuthenticatorMobileCreate**](StagesApi.md#stagesAuthenticatorMobileCreate) | **POST** /stages/authenticator/mobile/ | 
+[**stagesAuthenticatorMobileDestroy**](StagesApi.md#stagesAuthenticatorMobileDestroy) | **DELETE** /stages/authenticator/mobile/{stage_uuid}/ | 
+[**stagesAuthenticatorMobileList**](StagesApi.md#stagesAuthenticatorMobileList) | **GET** /stages/authenticator/mobile/ | 
+[**stagesAuthenticatorMobilePartialUpdate**](StagesApi.md#stagesAuthenticatorMobilePartialUpdate) | **PATCH** /stages/authenticator/mobile/{stage_uuid}/ | 
+[**stagesAuthenticatorMobileRetrieve**](StagesApi.md#stagesAuthenticatorMobileRetrieve) | **GET** /stages/authenticator/mobile/{stage_uuid}/ | 
+[**stagesAuthenticatorMobileUpdate**](StagesApi.md#stagesAuthenticatorMobileUpdate) | **PUT** /stages/authenticator/mobile/{stage_uuid}/ | 
+[**stagesAuthenticatorMobileUsedByList**](StagesApi.md#stagesAuthenticatorMobileUsedByList) | **GET** /stages/authenticator/mobile/{stage_uuid}/used_by/ | 
 [**stagesAuthenticatorSmsCreate**](StagesApi.md#stagesAuthenticatorSmsCreate) | **POST** /stages/authenticator/sms/ | 
 [**stagesAuthenticatorSmsDestroy**](StagesApi.md#stagesAuthenticatorSmsDestroy) | **DELETE** /stages/authenticator/sms/{stage_uuid}/ | 
 [**stagesAuthenticatorSmsList**](StagesApi.md#stagesAuthenticatorSmsList) | **GET** /stages/authenticator/sms/ | 
@@ -981,6 +988,369 @@ Configure authentik:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a id="stagesAuthenticatorMobileCreate"></a>
+# **stagesAuthenticatorMobileCreate**
+> AuthenticatorMobileStage stagesAuthenticatorMobileCreate(authenticatorMobileStageRequest)
+
+
+
+AuthenticatorMobileStage Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = StagesApi()
+val authenticatorMobileStageRequest : AuthenticatorMobileStageRequest =  // AuthenticatorMobileStageRequest | 
+try {
+    val result : AuthenticatorMobileStage = apiInstance.stagesAuthenticatorMobileCreate(authenticatorMobileStageRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling StagesApi#stagesAuthenticatorMobileCreate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling StagesApi#stagesAuthenticatorMobileCreate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authenticatorMobileStageRequest** | [**AuthenticatorMobileStageRequest**](AuthenticatorMobileStageRequest.md)|  |
+
+### Return type
+
+[**AuthenticatorMobileStage**](AuthenticatorMobileStage.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="stagesAuthenticatorMobileDestroy"></a>
+# **stagesAuthenticatorMobileDestroy**
+> stagesAuthenticatorMobileDestroy(stageUuid)
+
+
+
+AuthenticatorMobileStage Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = StagesApi()
+val stageUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Mobile Authenticator Setup Stage.
+try {
+    apiInstance.stagesAuthenticatorMobileDestroy(stageUuid)
+} catch (e: ClientException) {
+    println("4xx response calling StagesApi#stagesAuthenticatorMobileDestroy")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling StagesApi#stagesAuthenticatorMobileDestroy")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **java.util.UUID**| A UUID string identifying this Mobile Authenticator Setup Stage. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="stagesAuthenticatorMobileList"></a>
+# **stagesAuthenticatorMobileList**
+> PaginatedAuthenticatorMobileStageList stagesAuthenticatorMobileList(configureFlow, name, ordering, page, pageSize, search)
+
+
+
+AuthenticatorMobileStage Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = StagesApi()
+val configureFlow : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | 
+val name : kotlin.String = name_example // kotlin.String | 
+val ordering : kotlin.String = ordering_example // kotlin.String | Which field to use when ordering the results.
+val page : kotlin.Int = 56 // kotlin.Int | A page number within the paginated result set.
+val pageSize : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+val search : kotlin.String = search_example // kotlin.String | A search term.
+try {
+    val result : PaginatedAuthenticatorMobileStageList = apiInstance.stagesAuthenticatorMobileList(configureFlow, name, ordering, page, pageSize, search)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling StagesApi#stagesAuthenticatorMobileList")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling StagesApi#stagesAuthenticatorMobileList")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **configureFlow** | **java.util.UUID**|  | [optional]
+ **name** | **kotlin.String**|  | [optional]
+ **ordering** | **kotlin.String**| Which field to use when ordering the results. | [optional]
+ **page** | **kotlin.Int**| A page number within the paginated result set. | [optional]
+ **pageSize** | **kotlin.Int**| Number of results to return per page. | [optional]
+ **search** | **kotlin.String**| A search term. | [optional]
+
+### Return type
+
+[**PaginatedAuthenticatorMobileStageList**](PaginatedAuthenticatorMobileStageList.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="stagesAuthenticatorMobilePartialUpdate"></a>
+# **stagesAuthenticatorMobilePartialUpdate**
+> AuthenticatorMobileStage stagesAuthenticatorMobilePartialUpdate(stageUuid, patchedAuthenticatorMobileStageRequest)
+
+
+
+AuthenticatorMobileStage Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = StagesApi()
+val stageUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Mobile Authenticator Setup Stage.
+val patchedAuthenticatorMobileStageRequest : PatchedAuthenticatorMobileStageRequest =  // PatchedAuthenticatorMobileStageRequest | 
+try {
+    val result : AuthenticatorMobileStage = apiInstance.stagesAuthenticatorMobilePartialUpdate(stageUuid, patchedAuthenticatorMobileStageRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling StagesApi#stagesAuthenticatorMobilePartialUpdate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling StagesApi#stagesAuthenticatorMobilePartialUpdate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **java.util.UUID**| A UUID string identifying this Mobile Authenticator Setup Stage. |
+ **patchedAuthenticatorMobileStageRequest** | [**PatchedAuthenticatorMobileStageRequest**](PatchedAuthenticatorMobileStageRequest.md)|  | [optional]
+
+### Return type
+
+[**AuthenticatorMobileStage**](AuthenticatorMobileStage.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="stagesAuthenticatorMobileRetrieve"></a>
+# **stagesAuthenticatorMobileRetrieve**
+> AuthenticatorMobileStage stagesAuthenticatorMobileRetrieve(stageUuid)
+
+
+
+AuthenticatorMobileStage Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = StagesApi()
+val stageUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Mobile Authenticator Setup Stage.
+try {
+    val result : AuthenticatorMobileStage = apiInstance.stagesAuthenticatorMobileRetrieve(stageUuid)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling StagesApi#stagesAuthenticatorMobileRetrieve")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling StagesApi#stagesAuthenticatorMobileRetrieve")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **java.util.UUID**| A UUID string identifying this Mobile Authenticator Setup Stage. |
+
+### Return type
+
+[**AuthenticatorMobileStage**](AuthenticatorMobileStage.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="stagesAuthenticatorMobileUpdate"></a>
+# **stagesAuthenticatorMobileUpdate**
+> AuthenticatorMobileStage stagesAuthenticatorMobileUpdate(stageUuid, authenticatorMobileStageRequest)
+
+
+
+AuthenticatorMobileStage Viewset
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = StagesApi()
+val stageUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Mobile Authenticator Setup Stage.
+val authenticatorMobileStageRequest : AuthenticatorMobileStageRequest =  // AuthenticatorMobileStageRequest | 
+try {
+    val result : AuthenticatorMobileStage = apiInstance.stagesAuthenticatorMobileUpdate(stageUuid, authenticatorMobileStageRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling StagesApi#stagesAuthenticatorMobileUpdate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling StagesApi#stagesAuthenticatorMobileUpdate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **java.util.UUID**| A UUID string identifying this Mobile Authenticator Setup Stage. |
+ **authenticatorMobileStageRequest** | [**AuthenticatorMobileStageRequest**](AuthenticatorMobileStageRequest.md)|  |
+
+### Return type
+
+[**AuthenticatorMobileStage**](AuthenticatorMobileStage.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="stagesAuthenticatorMobileUsedByList"></a>
+# **stagesAuthenticatorMobileUsedByList**
+> kotlin.collections.List&lt;UsedBy&gt; stagesAuthenticatorMobileUsedByList(stageUuid)
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = StagesApi()
+val stageUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Mobile Authenticator Setup Stage.
+try {
+    val result : kotlin.collections.List<UsedBy> = apiInstance.stagesAuthenticatorMobileUsedByList(stageUuid)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling StagesApi#stagesAuthenticatorMobileUsedByList")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling StagesApi#stagesAuthenticatorMobileUsedByList")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stageUuid** | **java.util.UUID**| A UUID string identifying this Mobile Authenticator Setup Stage. |
+
+### Return type
+
+[**kotlin.collections.List&lt;UsedBy&gt;**](UsedBy.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a id="stagesAuthenticatorSmsCreate"></a>
 # **stagesAuthenticatorSmsCreate**
 > AuthenticatorSMSStage stagesAuthenticatorSmsCreate(authenticatorSMSStageRequest)
@@ -1429,7 +1799,7 @@ AuthenticatorStaticStage Viewset
 //import io.goauthentik.api.models.*
 
 val apiInstance = StagesApi()
-val stageUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Static Authenticator Stage.
+val stageUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Static Authenticator Setup Stage.
 try {
     apiInstance.stagesAuthenticatorStaticDestroy(stageUuid)
 } catch (e: ClientException) {
@@ -1445,7 +1815,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stageUuid** | **java.util.UUID**| A UUID string identifying this Static Authenticator Stage. |
+ **stageUuid** | **java.util.UUID**| A UUID string identifying this Static Authenticator Setup Stage. |
 
 ### Return type
 
@@ -1546,7 +1916,7 @@ AuthenticatorStaticStage Viewset
 //import io.goauthentik.api.models.*
 
 val apiInstance = StagesApi()
-val stageUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Static Authenticator Stage.
+val stageUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Static Authenticator Setup Stage.
 val patchedAuthenticatorStaticStageRequest : PatchedAuthenticatorStaticStageRequest =  // PatchedAuthenticatorStaticStageRequest | 
 try {
     val result : AuthenticatorStaticStage = apiInstance.stagesAuthenticatorStaticPartialUpdate(stageUuid, patchedAuthenticatorStaticStageRequest)
@@ -1564,7 +1934,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stageUuid** | **java.util.UUID**| A UUID string identifying this Static Authenticator Stage. |
+ **stageUuid** | **java.util.UUID**| A UUID string identifying this Static Authenticator Setup Stage. |
  **patchedAuthenticatorStaticStageRequest** | [**PatchedAuthenticatorStaticStageRequest**](PatchedAuthenticatorStaticStageRequest.md)|  | [optional]
 
 ### Return type
@@ -1598,7 +1968,7 @@ AuthenticatorStaticStage Viewset
 //import io.goauthentik.api.models.*
 
 val apiInstance = StagesApi()
-val stageUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Static Authenticator Stage.
+val stageUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Static Authenticator Setup Stage.
 try {
     val result : AuthenticatorStaticStage = apiInstance.stagesAuthenticatorStaticRetrieve(stageUuid)
     println(result)
@@ -1615,7 +1985,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stageUuid** | **java.util.UUID**| A UUID string identifying this Static Authenticator Stage. |
+ **stageUuid** | **java.util.UUID**| A UUID string identifying this Static Authenticator Setup Stage. |
 
 ### Return type
 
@@ -1648,7 +2018,7 @@ AuthenticatorStaticStage Viewset
 //import io.goauthentik.api.models.*
 
 val apiInstance = StagesApi()
-val stageUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Static Authenticator Stage.
+val stageUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Static Authenticator Setup Stage.
 val authenticatorStaticStageRequest : AuthenticatorStaticStageRequest =  // AuthenticatorStaticStageRequest | 
 try {
     val result : AuthenticatorStaticStage = apiInstance.stagesAuthenticatorStaticUpdate(stageUuid, authenticatorStaticStageRequest)
@@ -1666,7 +2036,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stageUuid** | **java.util.UUID**| A UUID string identifying this Static Authenticator Stage. |
+ **stageUuid** | **java.util.UUID**| A UUID string identifying this Static Authenticator Setup Stage. |
  **authenticatorStaticStageRequest** | [**AuthenticatorStaticStageRequest**](AuthenticatorStaticStageRequest.md)|  |
 
 ### Return type
@@ -1700,7 +2070,7 @@ Get a list of all objects that use this object
 //import io.goauthentik.api.models.*
 
 val apiInstance = StagesApi()
-val stageUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Static Authenticator Stage.
+val stageUuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Static Authenticator Setup Stage.
 try {
     val result : kotlin.collections.List<UsedBy> = apiInstance.stagesAuthenticatorStaticUsedByList(stageUuid)
     println(result)
@@ -1717,7 +2087,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stageUuid** | **java.util.UUID**| A UUID string identifying this Static Authenticator Stage. |
+ **stageUuid** | **java.util.UUID**| A UUID string identifying this Static Authenticator Setup Stage. |
 
 ### Return type
 

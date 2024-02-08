@@ -60,6 +60,8 @@
 
     * `stagesPeriodAuthenticatorDuo` (value: `"authentik.stages.authenticator_duo"`)
 
+    * `stagesPeriodAuthenticatorMobile` (value: `"authentik.stages.authenticator_mobile"`)
+
     * `stagesPeriodAuthenticatorSms` (value: `"authentik.stages.authenticator_sms"`)
 
     * `stagesPeriodAuthenticatorStatic` (value: `"authentik.stages.authenticator_static"`)

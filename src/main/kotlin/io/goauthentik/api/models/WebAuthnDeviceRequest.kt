@@ -22,11 +22,15 @@ import com.squareup.moshi.JsonClass
 /**
  * Serializer for WebAuthn authenticator devices
  *
+ * @param pk 
  * @param name 
  */
 
 
 data class WebAuthnDeviceRequest (
+
+    @Json(name = "pk")
+    val pk: kotlin.String,
 
     @Json(name = "name")
     val name: kotlin.String

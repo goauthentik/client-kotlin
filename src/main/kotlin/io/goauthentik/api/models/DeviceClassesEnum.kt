@@ -20,9 +20,9 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * * `static` - Static * `totp` - TOTP * `webauthn` - WebAuthn * `duo` - Duo * `sms` - SMS
+ * * `static` - Static * `totp` - TOTP * `webauthn` - WebAuthn * `duo` - Duo * `sms` - SMS * `mobile` - authentik Mobile
  *
- * Values: static,totp,webauthn,duo,sms,unknownDefaultOpenApi
+ * Values: static,totp,webauthn,duo,sms,mobile,unknownDefaultOpenApi
  */
 
 @JsonClass(generateAdapter = false)
@@ -42,6 +42,9 @@ enum class DeviceClassesEnum(val value: kotlin.String) {
 
     @Json(name = "sms")
     sms("sms"),
+
+    @Json(name = "mobile")
+    mobile("mobile"),
 
     @Json(name = "unknown_default_open_api")
     unknownDefaultOpenApi("unknown_default_open_api");

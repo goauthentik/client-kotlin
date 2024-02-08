@@ -22,13 +22,16 @@ import com.squareup.moshi.JsonClass
 /**
  * Serializer for totp authenticator devices
  *
- * @param name The human-readable name of this device.
+ * @param pk 
+ * @param name 
  */
 
 
 data class PatchedTOTPDeviceRequest (
 
-    /* The human-readable name of this device. */
+    @Json(name = "pk")
+    val pk: kotlin.String? = null,
+
     @Json(name = "name")
     val name: kotlin.String? = null
 

@@ -11,6 +11,12 @@ Method | HTTP request | Description
 [**authenticatorsAdminDuoPartialUpdate**](AuthenticatorsApi.md#authenticatorsAdminDuoPartialUpdate) | **PATCH** /authenticators/admin/duo/{id}/ | 
 [**authenticatorsAdminDuoRetrieve**](AuthenticatorsApi.md#authenticatorsAdminDuoRetrieve) | **GET** /authenticators/admin/duo/{id}/ | 
 [**authenticatorsAdminDuoUpdate**](AuthenticatorsApi.md#authenticatorsAdminDuoUpdate) | **PUT** /authenticators/admin/duo/{id}/ | 
+[**authenticatorsAdminMobileCreate**](AuthenticatorsApi.md#authenticatorsAdminMobileCreate) | **POST** /authenticators/admin/mobile/ | 
+[**authenticatorsAdminMobileDestroy**](AuthenticatorsApi.md#authenticatorsAdminMobileDestroy) | **DELETE** /authenticators/admin/mobile/{uuid}/ | 
+[**authenticatorsAdminMobileList**](AuthenticatorsApi.md#authenticatorsAdminMobileList) | **GET** /authenticators/admin/mobile/ | 
+[**authenticatorsAdminMobilePartialUpdate**](AuthenticatorsApi.md#authenticatorsAdminMobilePartialUpdate) | **PATCH** /authenticators/admin/mobile/{uuid}/ | 
+[**authenticatorsAdminMobileRetrieve**](AuthenticatorsApi.md#authenticatorsAdminMobileRetrieve) | **GET** /authenticators/admin/mobile/{uuid}/ | 
+[**authenticatorsAdminMobileUpdate**](AuthenticatorsApi.md#authenticatorsAdminMobileUpdate) | **PUT** /authenticators/admin/mobile/{uuid}/ | 
 [**authenticatorsAdminSmsCreate**](AuthenticatorsApi.md#authenticatorsAdminSmsCreate) | **POST** /authenticators/admin/sms/ | 
 [**authenticatorsAdminSmsDestroy**](AuthenticatorsApi.md#authenticatorsAdminSmsDestroy) | **DELETE** /authenticators/admin/sms/{id}/ | 
 [**authenticatorsAdminSmsList**](AuthenticatorsApi.md#authenticatorsAdminSmsList) | **GET** /authenticators/admin/sms/ | 
@@ -42,6 +48,16 @@ Method | HTTP request | Description
 [**authenticatorsDuoRetrieve**](AuthenticatorsApi.md#authenticatorsDuoRetrieve) | **GET** /authenticators/duo/{id}/ | 
 [**authenticatorsDuoUpdate**](AuthenticatorsApi.md#authenticatorsDuoUpdate) | **PUT** /authenticators/duo/{id}/ | 
 [**authenticatorsDuoUsedByList**](AuthenticatorsApi.md#authenticatorsDuoUsedByList) | **GET** /authenticators/duo/{id}/used_by/ | 
+[**authenticatorsMobileCheckInCreate**](AuthenticatorsApi.md#authenticatorsMobileCheckInCreate) | **POST** /authenticators/mobile/{uuid}/check_in/ | 
+[**authenticatorsMobileDestroy**](AuthenticatorsApi.md#authenticatorsMobileDestroy) | **DELETE** /authenticators/mobile/{uuid}/ | 
+[**authenticatorsMobileEnrollmentCallbackCreate**](AuthenticatorsApi.md#authenticatorsMobileEnrollmentCallbackCreate) | **POST** /authenticators/mobile/{uuid}/enrollment_callback/ | 
+[**authenticatorsMobileEnrollmentStatusCreate**](AuthenticatorsApi.md#authenticatorsMobileEnrollmentStatusCreate) | **POST** /authenticators/mobile/{uuid}/enrollment_status/ | 
+[**authenticatorsMobileList**](AuthenticatorsApi.md#authenticatorsMobileList) | **GET** /authenticators/mobile/ | 
+[**authenticatorsMobilePartialUpdate**](AuthenticatorsApi.md#authenticatorsMobilePartialUpdate) | **PATCH** /authenticators/mobile/{uuid}/ | 
+[**authenticatorsMobileReceiveResponseCreate**](AuthenticatorsApi.md#authenticatorsMobileReceiveResponseCreate) | **POST** /authenticators/mobile/{uuid}/receive_response/ | 
+[**authenticatorsMobileRetrieve**](AuthenticatorsApi.md#authenticatorsMobileRetrieve) | **GET** /authenticators/mobile/{uuid}/ | 
+[**authenticatorsMobileUpdate**](AuthenticatorsApi.md#authenticatorsMobileUpdate) | **PUT** /authenticators/mobile/{uuid}/ | 
+[**authenticatorsMobileUsedByList**](AuthenticatorsApi.md#authenticatorsMobileUsedByList) | **GET** /authenticators/mobile/{uuid}/used_by/ | 
 [**authenticatorsSmsDestroy**](AuthenticatorsApi.md#authenticatorsSmsDestroy) | **DELETE** /authenticators/sms/{id}/ | 
 [**authenticatorsSmsList**](AuthenticatorsApi.md#authenticatorsSmsList) | **GET** /authenticators/sms/ | 
 [**authenticatorsSmsPartialUpdate**](AuthenticatorsApi.md#authenticatorsSmsPartialUpdate) | **PATCH** /authenticators/sms/{id}/ | 
@@ -416,6 +432,317 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DuoDevice**](DuoDevice.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="authenticatorsAdminMobileCreate"></a>
+# **authenticatorsAdminMobileCreate**
+> MobileDevice authenticatorsAdminMobileCreate(mobileDeviceRequest)
+
+
+
+Viewset for Mobile authenticator devices (for admins)
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = AuthenticatorsApi()
+val mobileDeviceRequest : MobileDeviceRequest =  // MobileDeviceRequest | 
+try {
+    val result : MobileDevice = apiInstance.authenticatorsAdminMobileCreate(mobileDeviceRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AuthenticatorsApi#authenticatorsAdminMobileCreate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AuthenticatorsApi#authenticatorsAdminMobileCreate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **mobileDeviceRequest** | [**MobileDeviceRequest**](MobileDeviceRequest.md)|  |
+
+### Return type
+
+[**MobileDevice**](MobileDevice.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="authenticatorsAdminMobileDestroy"></a>
+# **authenticatorsAdminMobileDestroy**
+> authenticatorsAdminMobileDestroy(uuid)
+
+
+
+Viewset for Mobile authenticator devices (for admins)
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = AuthenticatorsApi()
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Mobile Device.
+try {
+    apiInstance.authenticatorsAdminMobileDestroy(uuid)
+} catch (e: ClientException) {
+    println("4xx response calling AuthenticatorsApi#authenticatorsAdminMobileDestroy")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AuthenticatorsApi#authenticatorsAdminMobileDestroy")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **java.util.UUID**| A UUID string identifying this Mobile Device. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="authenticatorsAdminMobileList"></a>
+# **authenticatorsAdminMobileList**
+> PaginatedMobileDeviceList authenticatorsAdminMobileList(name, ordering, page, pageSize, search)
+
+
+
+Viewset for Mobile authenticator devices (for admins)
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = AuthenticatorsApi()
+val name : kotlin.String = name_example // kotlin.String | 
+val ordering : kotlin.String = ordering_example // kotlin.String | Which field to use when ordering the results.
+val page : kotlin.Int = 56 // kotlin.Int | A page number within the paginated result set.
+val pageSize : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+val search : kotlin.String = search_example // kotlin.String | A search term.
+try {
+    val result : PaginatedMobileDeviceList = apiInstance.authenticatorsAdminMobileList(name, ordering, page, pageSize, search)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AuthenticatorsApi#authenticatorsAdminMobileList")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AuthenticatorsApi#authenticatorsAdminMobileList")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **kotlin.String**|  | [optional]
+ **ordering** | **kotlin.String**| Which field to use when ordering the results. | [optional]
+ **page** | **kotlin.Int**| A page number within the paginated result set. | [optional]
+ **pageSize** | **kotlin.Int**| Number of results to return per page. | [optional]
+ **search** | **kotlin.String**| A search term. | [optional]
+
+### Return type
+
+[**PaginatedMobileDeviceList**](PaginatedMobileDeviceList.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="authenticatorsAdminMobilePartialUpdate"></a>
+# **authenticatorsAdminMobilePartialUpdate**
+> MobileDevice authenticatorsAdminMobilePartialUpdate(uuid, patchedMobileDeviceRequest)
+
+
+
+Viewset for Mobile authenticator devices (for admins)
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = AuthenticatorsApi()
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Mobile Device.
+val patchedMobileDeviceRequest : PatchedMobileDeviceRequest =  // PatchedMobileDeviceRequest | 
+try {
+    val result : MobileDevice = apiInstance.authenticatorsAdminMobilePartialUpdate(uuid, patchedMobileDeviceRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AuthenticatorsApi#authenticatorsAdminMobilePartialUpdate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AuthenticatorsApi#authenticatorsAdminMobilePartialUpdate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **java.util.UUID**| A UUID string identifying this Mobile Device. |
+ **patchedMobileDeviceRequest** | [**PatchedMobileDeviceRequest**](PatchedMobileDeviceRequest.md)|  | [optional]
+
+### Return type
+
+[**MobileDevice**](MobileDevice.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="authenticatorsAdminMobileRetrieve"></a>
+# **authenticatorsAdminMobileRetrieve**
+> MobileDevice authenticatorsAdminMobileRetrieve(uuid)
+
+
+
+Viewset for Mobile authenticator devices (for admins)
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = AuthenticatorsApi()
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Mobile Device.
+try {
+    val result : MobileDevice = apiInstance.authenticatorsAdminMobileRetrieve(uuid)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AuthenticatorsApi#authenticatorsAdminMobileRetrieve")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AuthenticatorsApi#authenticatorsAdminMobileRetrieve")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **java.util.UUID**| A UUID string identifying this Mobile Device. |
+
+### Return type
+
+[**MobileDevice**](MobileDevice.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="authenticatorsAdminMobileUpdate"></a>
+# **authenticatorsAdminMobileUpdate**
+> MobileDevice authenticatorsAdminMobileUpdate(uuid, mobileDeviceRequest)
+
+
+
+Viewset for Mobile authenticator devices (for admins)
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = AuthenticatorsApi()
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Mobile Device.
+val mobileDeviceRequest : MobileDeviceRequest =  // MobileDeviceRequest | 
+try {
+    val result : MobileDevice = apiInstance.authenticatorsAdminMobileUpdate(uuid, mobileDeviceRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AuthenticatorsApi#authenticatorsAdminMobileUpdate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AuthenticatorsApi#authenticatorsAdminMobileUpdate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **java.util.UUID**| A UUID string identifying this Mobile Device. |
+ **mobileDeviceRequest** | [**MobileDeviceRequest**](MobileDeviceRequest.md)|  |
+
+### Return type
+
+[**MobileDevice**](MobileDevice.md)
 
 ### Authorization
 
@@ -2013,6 +2340,521 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **kotlin.Int**| A unique integer value identifying this Duo Device. |
+
+### Return type
+
+[**kotlin.collections.List&lt;UsedBy&gt;**](UsedBy.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="authenticatorsMobileCheckInCreate"></a>
+# **authenticatorsMobileCheckInCreate**
+> authenticatorsMobileCheckInCreate(uuid, mobileDeviceCheckInRequest)
+
+
+
+Check in data about a device
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = AuthenticatorsApi()
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Mobile Device.
+val mobileDeviceCheckInRequest : MobileDeviceCheckInRequest =  // MobileDeviceCheckInRequest | 
+try {
+    apiInstance.authenticatorsMobileCheckInCreate(uuid, mobileDeviceCheckInRequest)
+} catch (e: ClientException) {
+    println("4xx response calling AuthenticatorsApi#authenticatorsMobileCheckInCreate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AuthenticatorsApi#authenticatorsMobileCheckInCreate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **java.util.UUID**| A UUID string identifying this Mobile Device. |
+ **mobileDeviceCheckInRequest** | [**MobileDeviceCheckInRequest**](MobileDeviceCheckInRequest.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+
+Configure mobile_device_token:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="authenticatorsMobileDestroy"></a>
+# **authenticatorsMobileDestroy**
+> authenticatorsMobileDestroy(uuid)
+
+
+
+Viewset for Mobile authenticator devices
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = AuthenticatorsApi()
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Mobile Device.
+try {
+    apiInstance.authenticatorsMobileDestroy(uuid)
+} catch (e: ClientException) {
+    println("4xx response calling AuthenticatorsApi#authenticatorsMobileDestroy")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AuthenticatorsApi#authenticatorsMobileDestroy")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **java.util.UUID**| A UUID string identifying this Mobile Device. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="authenticatorsMobileEnrollmentCallbackCreate"></a>
+# **authenticatorsMobileEnrollmentCallbackCreate**
+> MobileDeviceEnrollmentCallback authenticatorsMobileEnrollmentCallbackCreate(uuid, mobileDeviceEnrollmentRequest)
+
+
+
+Enrollment callback
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = AuthenticatorsApi()
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Mobile Device.
+val mobileDeviceEnrollmentRequest : MobileDeviceEnrollmentRequest =  // MobileDeviceEnrollmentRequest | 
+try {
+    val result : MobileDeviceEnrollmentCallback = apiInstance.authenticatorsMobileEnrollmentCallbackCreate(uuid, mobileDeviceEnrollmentRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AuthenticatorsApi#authenticatorsMobileEnrollmentCallbackCreate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AuthenticatorsApi#authenticatorsMobileEnrollmentCallbackCreate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **java.util.UUID**| A UUID string identifying this Mobile Device. |
+ **mobileDeviceEnrollmentRequest** | [**MobileDeviceEnrollmentRequest**](MobileDeviceEnrollmentRequest.md)|  |
+
+### Return type
+
+[**MobileDeviceEnrollmentCallback**](MobileDeviceEnrollmentCallback.md)
+
+### Authorization
+
+
+Configure mobile_device_token:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="authenticatorsMobileEnrollmentStatusCreate"></a>
+# **authenticatorsMobileEnrollmentStatusCreate**
+> MobileDeviceEnrollmentStatus authenticatorsMobileEnrollmentStatusCreate(uuid)
+
+
+
+Check device enrollment status
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = AuthenticatorsApi()
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Mobile Device.
+try {
+    val result : MobileDeviceEnrollmentStatus = apiInstance.authenticatorsMobileEnrollmentStatusCreate(uuid)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AuthenticatorsApi#authenticatorsMobileEnrollmentStatusCreate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AuthenticatorsApi#authenticatorsMobileEnrollmentStatusCreate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **java.util.UUID**| A UUID string identifying this Mobile Device. |
+
+### Return type
+
+[**MobileDeviceEnrollmentStatus**](MobileDeviceEnrollmentStatus.md)
+
+### Authorization
+
+
+Configure mobile_device_token:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="authenticatorsMobileList"></a>
+# **authenticatorsMobileList**
+> PaginatedMobileDeviceList authenticatorsMobileList(name, ordering, page, pageSize, search)
+
+
+
+Viewset for Mobile authenticator devices
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = AuthenticatorsApi()
+val name : kotlin.String = name_example // kotlin.String | 
+val ordering : kotlin.String = ordering_example // kotlin.String | Which field to use when ordering the results.
+val page : kotlin.Int = 56 // kotlin.Int | A page number within the paginated result set.
+val pageSize : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+val search : kotlin.String = search_example // kotlin.String | A search term.
+try {
+    val result : PaginatedMobileDeviceList = apiInstance.authenticatorsMobileList(name, ordering, page, pageSize, search)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AuthenticatorsApi#authenticatorsMobileList")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AuthenticatorsApi#authenticatorsMobileList")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **kotlin.String**|  | [optional]
+ **ordering** | **kotlin.String**| Which field to use when ordering the results. | [optional]
+ **page** | **kotlin.Int**| A page number within the paginated result set. | [optional]
+ **pageSize** | **kotlin.Int**| Number of results to return per page. | [optional]
+ **search** | **kotlin.String**| A search term. | [optional]
+
+### Return type
+
+[**PaginatedMobileDeviceList**](PaginatedMobileDeviceList.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="authenticatorsMobilePartialUpdate"></a>
+# **authenticatorsMobilePartialUpdate**
+> MobileDevice authenticatorsMobilePartialUpdate(uuid, patchedMobileDeviceRequest)
+
+
+
+Viewset for Mobile authenticator devices
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = AuthenticatorsApi()
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Mobile Device.
+val patchedMobileDeviceRequest : PatchedMobileDeviceRequest =  // PatchedMobileDeviceRequest | 
+try {
+    val result : MobileDevice = apiInstance.authenticatorsMobilePartialUpdate(uuid, patchedMobileDeviceRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AuthenticatorsApi#authenticatorsMobilePartialUpdate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AuthenticatorsApi#authenticatorsMobilePartialUpdate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **java.util.UUID**| A UUID string identifying this Mobile Device. |
+ **patchedMobileDeviceRequest** | [**PatchedMobileDeviceRequest**](PatchedMobileDeviceRequest.md)|  | [optional]
+
+### Return type
+
+[**MobileDevice**](MobileDevice.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="authenticatorsMobileReceiveResponseCreate"></a>
+# **authenticatorsMobileReceiveResponseCreate**
+> authenticatorsMobileReceiveResponseCreate(uuid, mobileDeviceResponseRequest)
+
+
+
+Get response from notification on phone
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = AuthenticatorsApi()
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Mobile Device.
+val mobileDeviceResponseRequest : MobileDeviceResponseRequest =  // MobileDeviceResponseRequest | 
+try {
+    apiInstance.authenticatorsMobileReceiveResponseCreate(uuid, mobileDeviceResponseRequest)
+} catch (e: ClientException) {
+    println("4xx response calling AuthenticatorsApi#authenticatorsMobileReceiveResponseCreate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AuthenticatorsApi#authenticatorsMobileReceiveResponseCreate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **java.util.UUID**| A UUID string identifying this Mobile Device. |
+ **mobileDeviceResponseRequest** | [**MobileDeviceResponseRequest**](MobileDeviceResponseRequest.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+
+Configure mobile_device_token:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="authenticatorsMobileRetrieve"></a>
+# **authenticatorsMobileRetrieve**
+> MobileDevice authenticatorsMobileRetrieve(uuid)
+
+
+
+Viewset for Mobile authenticator devices
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = AuthenticatorsApi()
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Mobile Device.
+try {
+    val result : MobileDevice = apiInstance.authenticatorsMobileRetrieve(uuid)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AuthenticatorsApi#authenticatorsMobileRetrieve")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AuthenticatorsApi#authenticatorsMobileRetrieve")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **java.util.UUID**| A UUID string identifying this Mobile Device. |
+
+### Return type
+
+[**MobileDevice**](MobileDevice.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="authenticatorsMobileUpdate"></a>
+# **authenticatorsMobileUpdate**
+> MobileDevice authenticatorsMobileUpdate(uuid, mobileDeviceRequest)
+
+
+
+Viewset for Mobile authenticator devices
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = AuthenticatorsApi()
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Mobile Device.
+val mobileDeviceRequest : MobileDeviceRequest =  // MobileDeviceRequest | 
+try {
+    val result : MobileDevice = apiInstance.authenticatorsMobileUpdate(uuid, mobileDeviceRequest)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AuthenticatorsApi#authenticatorsMobileUpdate")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AuthenticatorsApi#authenticatorsMobileUpdate")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **java.util.UUID**| A UUID string identifying this Mobile Device. |
+ **mobileDeviceRequest** | [**MobileDeviceRequest**](MobileDeviceRequest.md)|  |
+
+### Return type
+
+[**MobileDevice**](MobileDevice.md)
+
+### Authorization
+
+
+Configure authentik:
+    ApiClient.apiKey["Authorization"] = ""
+    ApiClient.apiKeyPrefix["Authorization"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="authenticatorsMobileUsedByList"></a>
+# **authenticatorsMobileUsedByList**
+> kotlin.collections.List&lt;UsedBy&gt; authenticatorsMobileUsedByList(uuid)
+
+
+
+Get a list of all objects that use this object
+
+### Example
+```kotlin
+// Import classes:
+//import io.goauthentik.api.infrastructure.*
+//import io.goauthentik.api.models.*
+
+val apiInstance = AuthenticatorsApi()
+val uuid : java.util.UUID = 38400000-8cf0-11bd-b23e-10b96e4ef00d // java.util.UUID | A UUID string identifying this Mobile Device.
+try {
+    val result : kotlin.collections.List<UsedBy> = apiInstance.authenticatorsMobileUsedByList(uuid)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AuthenticatorsApi#authenticatorsMobileUsedByList")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AuthenticatorsApi#authenticatorsMobileUsedByList")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **java.util.UUID**| A UUID string identifying this Mobile Device. |
 
 ### Return type
 

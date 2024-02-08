@@ -40,8 +40,6 @@
 
     * `policiesReputationPeriodReputationpolicy` (value: `"authentik_policies_reputation.reputationpolicy"`)
 
-    * `policiesReputationPeriodReputation` (value: `"authentik_policies_reputation.reputation"`)
-
     * `policiesPeriodPolicybinding` (value: `"authentik_policies.policybinding"`)
 
     * `providersLdapPeriodLdapprovider` (value: `"authentik_providers_ldap.ldapprovider"`)
@@ -49,12 +47,6 @@
     * `providersOauth2PeriodScopemapping` (value: `"authentik_providers_oauth2.scopemapping"`)
 
     * `providersOauth2PeriodOauth2provider` (value: `"authentik_providers_oauth2.oauth2provider"`)
-
-    * `providersOauth2PeriodAuthorizationcode` (value: `"authentik_providers_oauth2.authorizationcode"`)
-
-    * `providersOauth2PeriodAccesstoken` (value: `"authentik_providers_oauth2.accesstoken"`)
-
-    * `providersOauth2PeriodRefreshtoken` (value: `"authentik_providers_oauth2.refreshtoken"`)
 
     * `providersProxyPeriodProxyprovider` (value: `"authentik_providers_proxy.proxyprovider"`)
 
@@ -89,6 +81,10 @@
     * `stagesAuthenticatorDuoPeriodAuthenticatorduostage` (value: `"authentik_stages_authenticator_duo.authenticatorduostage"`)
 
     * `stagesAuthenticatorDuoPeriodDuodevice` (value: `"authentik_stages_authenticator_duo.duodevice"`)
+
+    * `stagesAuthenticatorMobilePeriodAuthenticatormobilestage` (value: `"authentik_stages_authenticator_mobile.authenticatormobilestage"`)
+
+    * `stagesAuthenticatorMobilePeriodMobiledevice` (value: `"authentik_stages_authenticator_mobile.mobiledevice"`)
 
     * `stagesAuthenticatorSmsPeriodAuthenticatorsmsstage` (value: `"authentik_stages_authenticator_sms.authenticatorsmsstage"`)
 
